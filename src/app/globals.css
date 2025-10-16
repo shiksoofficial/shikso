@@ -24,6 +24,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .custom-container {
   max-width: 1280px;
   margin-left: auto;
@@ -38,46 +39,61 @@ body {
     padding-right: 1.5rem;
   }
 }
+
 @media (min-width: 768px) {
   .custom-container {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 }
+
 @media (min-width: 1024px) {
   .custom-container {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
 }
+
+.dm_sans {
+  font-family: DM Sans !important;
+}
+
+.indie_flower {
+  font-family: var(--font-indie-flower), cursive !important;
+}
+
 /* /////////////////// heading for h1 ///////////////////// */
 
 .responsive-heading {
-  font-family: "DM Sans", sans-serif;
   font-size: 24px;
   line-height: 1.3;
-  font-weight: 500;
+  font-weight: 300;
 }
+
 @media (min-width: 640px) {
   .responsive-heading {
     font-size: 28px;
   }
 }
+
 @media (min-width: 768px) {
   .responsive-heading {
     font-size: 32px;
   }
 }
+
 @media (min-width: 992px) {
   .responsive-heading {
     font-size: 36px;
   }
 }
+
 @media (min-width: 1280px) {
   .responsive-heading {
     font-size: 40px;
   }
 }
+
 @media (min-width: 1536px) {
   .responsive-heading {
     font-size: 44px;
@@ -87,7 +103,7 @@ body {
 /* /////////////////// heading for h2 ///////////////////// */
 
 .responsiveheading2 {
-  font-weight: 500;
+  font-weight: 300;
   font-size: 22px;
   line-height: 30px;
 }
@@ -117,8 +133,7 @@ body {
 
 
 .responsiveheading3 {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 20px;
   line-height: 32px;
 }
@@ -143,11 +158,11 @@ body {
     line-height: 44px;
   }
 }
+
 /* //////////////////////// paragraph ///////////////////////// */
 
 .responsive-text {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
   line-height: 20px;
 }
@@ -176,7 +191,9 @@ body {
 /* /////////////////// heading for h4 ///////////////////// */
 
 .responsive-h4 {
+  font-weight: 300;
   font-size: 18px;
+
   @media (min-width: 640px) {
     font-size: 24px;
   }
@@ -189,27 +206,27 @@ body {
     font-size: 32px;
   }
 }
+
 /* /////////////////// heading for h5 ///////////////////// */
 .responsiveheading5 {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500; 
+  font-weight: 300;
   font-size: 18px;
   line-height: 32px;
 }
 
-@media (min-width: 640px) { 
+@media (min-width: 640px) {
   .responsiveheading5 {
     font-size: 20px;
   }
 }
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
   .responsiveheading5 {
     font-size: 22px;
   }
 }
 
-@media (min-width: 1024px) { 
+@media (min-width: 1024px) {
   .responsiveheading5 {
     font-size: 24px;
   }
@@ -217,8 +234,7 @@ body {
 
 /* /////////////////// heading for h6 ///////////////////// */
 .responsiveheading6 {
-  font-family: "DM Sans", sans-serif;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 18px;
   line-height: 28px;
 }
@@ -240,5 +256,3 @@ body {
     font-size: 22px;
   }
 }
-
-
