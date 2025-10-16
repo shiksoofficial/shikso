@@ -1,6 +1,6 @@
 "use client"
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
+import { IoMdAdd } from "react-icons/io";
+import { FaMinus } from "react-icons/fa6";
 import { useState } from "react";
 
 const CommonFaq = ({faqData}) => {
@@ -32,9 +32,9 @@ const CommonFaq = ({faqData}) => {
                 {item.question}
               </h3>
               {expanded === index ? (
-                <RemoveIcon  className="transform transition-all duration-200" />
+                <FaMinus  className="transform transition-all duration-200" />
               ) : (
-                <AddIcon className="transform transition-all duration-200" />
+                <IoMdAdd className="transform transition-all duration-200" />
               )}
             </div>
             {expanded === index && (
