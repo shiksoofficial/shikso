@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -14,14 +14,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #3f394b;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  /* background: var(--background);
+  color: var(--foreground); */
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -256,3 +256,17 @@ body {
     font-size: 22px;
   }
 }
+
+/* globals.css or BlogPage.module.css */
+.hero-parallax {
+  position: relative;
+  transform: translateY(0px);
+  transition: transform 0.1s linear;
+}
+
+.hero-parallax.slow-scroll {
+  transform: translateY(calc(var(--scrollY) * 0.5px));
+}
+
+
+
