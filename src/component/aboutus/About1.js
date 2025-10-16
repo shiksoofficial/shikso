@@ -27,7 +27,7 @@ const About1 = () => {
                         padding="30px 20px" 
                         className="responsiveheading6"
                     >
-                        More About us
+                      {`  More About us`}
                     </CustomButton2>
                 </div>
             </div>
