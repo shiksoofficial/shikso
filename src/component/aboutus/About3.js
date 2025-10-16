@@ -1,3 +1,5 @@
+
+
 import Card1 from '@/common-component/Card1/Card1';
 import React from 'react';
 
@@ -52,8 +54,6 @@ const About3 = () => {
               buttoncolor={item.color}
               tittlecolor={item.color}
               index={index}
-
-
             />
           ))}
         </div>

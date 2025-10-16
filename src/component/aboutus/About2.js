@@ -1,4 +1,4 @@
-import Card2 from '@/common-component/Card2/card2'
+import Card2 from '@/common-component/Card2/Card2'
 import React from 'react'
 
 const cardsData = [

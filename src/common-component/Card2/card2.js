@@ -1,5 +1,4 @@
 import React from "react";
-import CustomButton2 from "../customBotton2";
 
 const Card2 = ({ icon, title, description, founder}) => {
     return (
