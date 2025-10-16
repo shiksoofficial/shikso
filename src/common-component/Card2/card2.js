@@ -25,3 +25,5 @@ const Card2 = ({ icon, title, description, founder}) => {
 };
 
 export default Card2;
+
+//card with the circle picture
