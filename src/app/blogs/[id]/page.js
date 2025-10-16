@@ -1,3 +1,4 @@
+import FAQ from '@/common-component/commonFaq'
 import BlogDescription from '@/component/blog/BlogDescription'
 import HeroSection from '@/component/homepage/HeroSection'
 import { BASE_URL_API } from '@/lib/common'
@@ -11,7 +12,7 @@ const BlogDesc = async ({ params }) => {
     <div>
       <HeroSection imageurl={data?.data?.blog?.featuredImage?.url} title="Welcome to Our Website" title2="Our Blogs" button={false} />
       <BlogDescription blog={data?.data?.blog} />
-      {/* <FAQ faqData={data?.faqData} /> */}
+      <FAQ faqData={data?.data?.blog?.faq} />
     </div>
   )
 }
