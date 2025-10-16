@@ -1,4 +1,4 @@
-import CustomButton from '@/common-component/customButton'
+import CustomButton from '@/common-component/CustomButton/CustomButton'
 import Image from 'next/image'
 import React from 'react'
 

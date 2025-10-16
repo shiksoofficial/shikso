@@ -1,7 +1,7 @@
 import React from "react";
-import CustomButton2 from "../customBotton2";
+import CustomButton2 from "../CustomBotton2/CustomButton2";
 
-const Card1 = ({ icon, title, description, buttonText, buttoncolor }) => {
+const CommonCard1 = ({ icon, title, description, buttonText, buttoncolor }) => {
   return (
     <div className="max-w-xs mx-auto bg-white rounded-2xl shadow p-7 text-center flex flex-col items-center hover:shadow cursor-pointer">
       <div className="mb-6">
@@ -18,6 +18,4 @@ const Card1 = ({ icon, title, description, buttonText, buttoncolor }) => {
   );
 };
 
-export default Card1;
-
-//card without the circle picture
+export default CommonCard1;

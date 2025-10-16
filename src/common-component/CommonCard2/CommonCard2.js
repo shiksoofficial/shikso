@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card2 = ({ icon, title, description, founder}) => {
+const CommonCard2 = ({ icon, title, description, founder}) => {
     return (
 <div>
   
@@ -24,6 +24,4 @@ const Card2 = ({ icon, title, description, founder}) => {
     );
 };
 
-export default Card2;
-
-//card with the circle picture
+export default CommonCard2;
