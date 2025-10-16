@@ -1,5 +1,5 @@
-import CustomButton from '@/common-component/customButton'
-import CustomLinkBtn from '@/common-component/customLinkBtn'
+import CustomButton from '@/common-component/CustomButton/CustomButton'
+import CustomLinkBtn from '@/common-component/CustomLinkBtn/CustomLinBtn'
 import HeroSection from '@/component/homepage/HeroSection'
 import { apiClient } from '@/lib/api-client'
 import { BASE_URL_API } from '@/lib/common'

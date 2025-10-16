@@ -1,6 +1,5 @@
-import CustomButton2 from '@/common-component/customBotton2'
+import CustomButton2 from '@/common-component/CustomBotton2/CustomButton2';
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 
 const About1 = () => {
@@ -28,7 +27,7 @@ const About1 = () => {
                         padding="30px 20px" 
                         className="responsiveheading6"
                     >
-                        More About us
+                      {`  More About us`}
                     </CustomButton2>
                 </div>
             </div>

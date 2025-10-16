@@ -1,7 +1,6 @@
 import React from "react";
-import CustomButton2 from "../customBotton2";
 
-const Card2 = ({ icon, title, description, founder}) => {
+const CommonCard2 = ({ icon, title, description, founder}) => {
     return (
 <div>
   
@@ -25,4 +24,4 @@ const Card2 = ({ icon, title, description, founder}) => {
     );
 };
 
-export default Card2;
+export default CommonCard2;

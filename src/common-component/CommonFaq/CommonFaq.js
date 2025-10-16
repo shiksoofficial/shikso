@@ -3,7 +3,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useState } from "react";
 
-const FAQ = ({faqData}) => {
+const CommonFaq = ({faqData}) => {
   const [expanded, setExpanded] = useState(null);
   const handleChange = (index) => {
     setExpanded(expanded === index ? null : index);
@@ -48,7 +48,7 @@ const FAQ = ({faqData}) => {
     </div>
   );
 };
-export default FAQ;
+export default CommonFaq;
 
 
 

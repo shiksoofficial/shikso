@@ -6,10 +6,10 @@ import { FaMapPin } from 'react-icons/fa6';
 import { TfiEmail } from 'react-icons/tfi';
 import { MdCall } from 'react-icons/md';
 import SEO from '@/common-component/Seo';
-import CustomButton from '@/common-component/customButton';
-import CustomButton2 from '@/common-component/customBotton2';
 import { useRouter } from 'next/navigation';
 import { Router } from 'next/router';
+// import CustomButton from '@/common-component/customButton';
+// import CustomButton2 from '@/common-component/customBotton2';
 
 
 
@@ -37,7 +37,7 @@ const Page = () => {
             {/* <CustomBanner1 title={"Terms & Conditions"} breadcom="terms-and-conditions"/> */}
 
             <div className="custom-container bg-white">
-                <CustomButton
+                {/* <CustomButton
                     onClick={() => router.push("/privacy-policy")}>
                     {`open privacy policy`}
                 </CustomButton>
@@ -57,7 +57,7 @@ const Page = () => {
                 >
                     Learn More with us
                 </CustomButton2>
-                <CustomButton2>    Learn More with us</CustomButton2>
+                <CustomButton2>    Learn More with us</CustomButton2> */}
                 <h2 className="responsiveheading2 text-[#1A2E33] font-medium mt-10   mb-7 ">{`Welcome to Zentrail!`}</h2>
                 <p className="responsive-text text-[#1A2E33]  font-medium  mb-5   ">{`These Terms & Conditions ("Agreement") govern your access to and use of the Zentrail website ( `}   <a
                     href={`https://${"www.zentrail.in".replace(

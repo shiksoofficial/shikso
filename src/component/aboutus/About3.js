@@ -1,4 +1,4 @@
-import Card1 from '@/common-component/Card1/Card1';
+import CommonCard1 from '@/common-component/CommonCard1/CommonCard1';
 import React from 'react';
 
 const cardsData = [
@@ -43,7 +43,7 @@ const About3 = () => {
         </h2>
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
           {cardsData.map((item, index) => (
-            <Card1
+            <CommonCard1
               key={item.id}
               icon={item.icon}
               title={item.title}
@@ -52,8 +52,6 @@ const About3 = () => {
               buttoncolor={item.color}
               tittlecolor={item.color}
               index={index}
-
-
             />
           ))}
         </div>

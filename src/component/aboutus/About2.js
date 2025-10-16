@@ -1,4 +1,4 @@
-import Card2 from '@/common-component/Card2/card2'
+import CommonCard2 from '@/common-component/CommonCard2/CommonCard2';
 import React from 'react'
 
 const cardsData = [
@@ -64,7 +64,7 @@ const About2 = () => {
                 <p className="dm_sans responsive-text font-light mb-20 leading-1.5 ">{`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure nesciunt nemo vel earum maxime neque!`}</p>
                 <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-15 mb-10">
                     {cardsData.map((item) => (
-                        <Card2
+                        <CommonCard2
                             key={item.id}
                             icon={item.icon}
                             title={item.title}
