@@ -10,10 +10,11 @@ const CustomButton2 = ({
   endIcon,
   color = "#35C0F0",        // background color (changeable)
   textColor = "#FFFFFF",    // text color (changeable)
-  borderColor = "#35C0F0",  // border color (changeable)
+  borderColor = "",  // border color (changeable)
   height = "48px",
   width,
   borderRadius = "20px 0px 20px 0",
+  padding = "18px 25px",
   sx = {},
 }) => {
   return (
@@ -27,14 +28,15 @@ const CustomButton2 = ({
         color: textColor,
         borderRadius,
         height,
+        padding,
         width: fullWidth ? "100%" : width,
         fontFamily: "DM Sans",
         ...sx,
       }}
       className={`
-        inline-flex items-center justify-center gap-2 px-4 py-4
+        inline-flex items-center justify-center gap-2 px-6 py-6
         font-medium whitespace-nowrap
-        text-[18px] leading-[24px]
+        text-[18px] leading-[30px]
         border transition-all duration-300 ease-in-out
         hover:opacity-90 hover:brightness-110
         disabled:opacity-60 disabled:cursor-not-allowed
