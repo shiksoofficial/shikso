@@ -12,7 +12,7 @@ const BlogPage = async () => {
     const posts = res?.data;
     return (
         <div>
-            <HeroSection imageurl="https://i.pinimg.com/1200x/ab/fb/b8/abfbb88b47aeca6f22df1302f6f92f64.jpg" title="Welcome to Our Website" title2="Our Blogs" button={false} />
+            <HeroSection imageurl="https://i.pinimg.com/1200x/ab/fb/b8/abfbb88b47aeca6f22df1302f6f92f64.jpg" title="Welcome to Our Website" title2="Our Blogs" button={false} breadcom ={[{title: "Blogs"}]}/>
             <div className="custom-container p-6 md:p-10">
                 <h2 className='responsiveheading2 mb-5'>Blogs</h2>
                 <div className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">

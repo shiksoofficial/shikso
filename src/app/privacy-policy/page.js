@@ -26,7 +26,7 @@ const Page = () => {
             //   { name: "Privacy Policy", url: "/privacy-policy" }
             // ]}
             />
-            <CommonBanner1 title={"Privacy Policy"} />
+            <CommonBanner1 title={"Privacy Policy"} breadcom={[  { title: "Privacy Policy" } ]}/>
 
             <div className="custom-container bg-white">
                 <p className="dm_sans responsive-text text-[#1A2E33] font-medium  mt-10  mb-2 sm:mb-8 ">{`Welcome to Zentrail. Your privacy is critically important to us, and we are committed to protecting the information you share with us. This Privacy Policy outlines what data we collect, how we use it, how we protect it, and your rights regarding your personal information.`}</p>

@@ -30,7 +30,7 @@ const Page = () => {
             //   { name: "Cookies & Tracking Policy", url: "/cookies-policy" }
             // ]}
             />
-            <CommonBanner1 title={"Cookies & Consent Policy"} />
+            <CommonBanner1 title={"Cookies & Consent Policy"} breadcom={[  { title: "Cookies" } ]} />
 
             <div className="custom-container bg-white">
                 <p className="responsive-text text-[#1A2E33]  font-medium  mt-10   mb-2 sm:mb-5  ">{`At `}<strong>{`Zentrail`}</strong>{`, we value your privacy. This Cookies Policy explains how and why cookies and similar technologies are used when you visit our website.`}</p>

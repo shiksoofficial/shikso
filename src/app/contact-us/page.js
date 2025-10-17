@@ -77,7 +77,7 @@ const ContactUs = () => {
   return (
     <>
       <div className='bg-slate-100'>
-        <HeroSection imageurl="https://i.pinimg.com/1200x/5a/a3/63/5aa3639eab9fc1a7c6efc97f98502ed9.jpg" title="Welcome To Our Website" title2="Get In Touch" button={false} />
+        <HeroSection imageurl="https://i.pinimg.com/1200x/5a/a3/63/5aa3639eab9fc1a7c6efc97f98502ed9.jpg" title="Welcome To Our Website" title2="Get In Touch" button={false} breadcom ={[{title: "Contact Us"}]} />
         <div className='custom-container py-6 md:py-10'>
           <h2 className='dm_sans responsiveheading2 text-center'>{`Get In Touch Using The Contact Form`}</h2>
           <p className='max-w-[700px] text-center m-auto mt-2'>{`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum necessitatibus eius earum voluptates sed!`}</p>
