@@ -1,4 +1,4 @@
-import FAQ from '@/common-component/commonFaq'
+import CommonFaq from '@/common-component/CommonFaq/CommonFaq'
 import BlogDescription from '@/component/blog/BlogDescription'
 import HeroSection from '@/component/homepage/HeroSection'
 import { BASE_URL_API } from '@/lib/common'
@@ -17,7 +17,7 @@ const BlogDesc = async ({ params }) => {
   
           },]} />
       <BlogDescription blog={data?.data?.blog} />
-      <FAQ faqData={data?.data?.blog?.faq} />
+      <CommonFaq faqData={data?.data?.blog?.faq} />
     </div>
   )
 }

@@ -81,39 +81,84 @@
 // export default SEO;
 
 
+// "use client";
+
+// import Head from "next/head";
+// import { usePathname } from "next/navigation";
+
+// const SEO = ({
+//   metaTitle = "Default Title",
+//   metaDescription = "Default description.",
+//   favicon = "/favicon.ico",
+// }) => {
+//   const pathname = usePathname();
+//   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+//   const url = `${baseUrl}${pathname}`;
+
+//   return (
+//     <Head>
+//       <title>{metaTitle}</title>
+//       <meta name="description" content={metaDescription} />
+//       <link rel="icon" href={favicon} />
+//       <link rel="canonical" href={url} />
+
+//       {/* Open Graph */}
+//       <meta property="og:title" content={metaTitle} />
+//       <meta property="og:description" content={metaDescription} />
+//       <meta property="og:url" content={url} />
+//       <meta property="og:type" content="website" />
+//       <meta property="og:image" content={`${baseUrl}/og-image.png`} />
+
+//       {/* Twitter Card */}
+//       <meta name="twitter:card" content="summary_large_image" />
+//       <meta name="twitter:title" content={metaTitle} />
+//       <meta name="twitter:description" content={metaDescription} />
+//       <meta name="twitter:image" content={`${baseUrl}/og-image.png`} />
+//     </Head>
+//   );
+// };
+
+// export default SEO;
 "use client";
 
 import Head from "next/head";
-import { usePathname } from "next/navigation";
 
 const SEO = ({
-  metaTitle = "Default Title",
-  metaDescription = "Default description.",
+  title = "Default Title",
+  description = "Default description",
+  keywords = [],
+  image = "/logo.png",
+  route = "/",
   favicon = "/favicon.ico",
 }) => {
-  const pathname = usePathname();
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-  const url = `${baseUrl}${pathname}`;
+  const canonical = route.startsWith("http") ? route : `${baseUrl}${route}`;
+  const ogImage = image.startsWith("http") ? image : `${baseUrl}${image}`;
 
   return (
     <Head>
-      <title>{metaTitle}</title>
-      <meta name="description" content={metaDescription} />
+      {/* Basic SEO */}
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      {keywords.length > 0 && (
+        <meta name="keywords" content={keywords.join(", ")} />
+      )}
+      <link rel="canonical" href={canonical} />
       <link rel="icon" href={favicon} />
-      <link rel="canonical" href={url} />
 
       {/* Open Graph */}
-      <meta property="og:title" content={metaTitle} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:url" content={url} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={canonical} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content={`${baseUrl}/og-image.png`} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:image:alt" content={title} />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={metaTitle} />
-      <meta name="twitter:description" content={metaDescription} />
-      <meta name="twitter:image" content={`${baseUrl}/og-image.png`} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
     </Head>
   );
 };
