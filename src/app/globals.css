@@ -268,5 +268,17 @@ body {
   transform: translateY(calc(var(--scrollY) * 0.5px));
 }
 
+#nprogress {
+  pointer-events: none;
+}
 
+#nprogress .bar {
+  background: #dc3545 !important;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
 

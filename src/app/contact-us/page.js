@@ -1,8 +1,12 @@
+"use client"
 import CustomButton from '@/common-component/CustomButton/CustomButton'
 import CustomInput from '@/common-component/CustomInput'
 import Testimonial from '@/common-component/Testimonial/Testimonial'
 import HeroSection from '@/component/homepage/HeroSection'
+import { apiClient } from '@/lib/api-client'
+import { BASE_URL_API } from '@/lib/common'
 import React from 'react'
+import { useForm } from 'react-hook-form'
 import { FaUser } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 
@@ -39,8 +43,37 @@ const testimonialData = [
 
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam earum libero rem maxime magnam. Similique esse ab earum, autem consectetur."
   },
-]
+]   
+
 const ContactUs = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({ mode: "onChange", 
+    reValidateMode: "onChange"});
+
+  const onSubmit = async (data) => {
+    const payload = {
+      fullName: `${data.firstname} ${data.lastname}`,
+      phoneNo: "",
+      email: data.email,
+      message: data.message,
+      sourcePage: "travel",
+    }
+    console.log(payload)
+    try {
+      const res = await apiClient.post("inquiryform/travel", payload);
+      console.log(res)
+      alert(res?.data?.message)
+      reset();
+    } catch (error) {
+      console.log(error?.response?.data?.message);
+      alert(error?.response?.data?.message);
+    }
+  };
+
   return (
     <>
       <div className='bg-slate-100'>
@@ -52,46 +85,75 @@ const ContactUs = () => {
         <div className='custom-container py-6 md:py-10'>
           <div className='grid grid-cols-12 gap-7'>
             <div className='col-span-12 md:col-span-8 '>
-              <div className='grid grid-cols-2 gap-x-7 gap-y-4'>
-                <div>
-                  <CustomInput
-                    name="firstname"
-                    placeholder="Enter your first name"
-                    // value={form.name}F
-                    // onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    startIcon={<FaUser size={16} />}
-                  />
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+              // className="max-w-lg mx-auto p-6 bg-white rounded-2xl shadow-md space-y-5"
+              >
+                <div className='grid grid-cols-2 gap-x-7 gap-y-4'>
+                  <div>
+                    <CustomInput
+                      name="firstname"
+                      placeholder="Enter your first name"
+                      // value={form.name}F
+                      // onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      startIcon={<FaUser size={16} />}
+                      register={register}
+                      validateRules={{
+                        required: "Firstname is required",
+                      }}
+                      errors={errors}
+                    />
+                  </div>
+                  <div>
+                    <CustomInput
+                      name="lastname"
+                      placeholder="Enter your last name"
+                      // value={form.name}F
+                      // onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      startIcon={<FaUser size={16} />}
+                      register={register}
+                      validateRules={{
+                        required: "Lastname is required",
+                      }}
+                      errors={errors}
+                    />
+                  </div>
+                  <div className='col-span-2'>
+                    <CustomInput
+                      name="email"
+                      placeholder="Enter your Email"
+                      // value={form.name}F
+                      // onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      startIcon={<MdEmail size={16} />}
+                      register={register}
+                      errors={errors}
+                      validateRules={{
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                          message: "Please enter a valid email address",
+                        },
+                      }}
+                    />
+                  </div>
+                  <div className='col-span-2'>
+                    <CustomInput
+                      name="message"
+                      // value={form.name}F
+                      // onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      placeholder="Write your message..."
+                      multiline
+                      rows={8}
+                      register={register}
+                      validateRules={{
+                        required: "Message is required",
+                      }}
+                      errors={errors}
+                    />
+                  </div>
+                  <CustomButton loading={isSubmitting} type='submit' color='#dc3545' height='35px'>SEND MESSAGE</CustomButton>
                 </div>
-                <div>
-                  <CustomInput
-                    name="lastname"
-                    placeholder="Enter your last name"
-                    // value={form.name}F
-                    // onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    startIcon={<FaUser size={16} />}
-                  />
-                </div>
-                <div className='col-span-2'>
-                  <CustomInput
-                    name="email"
-                    placeholder="Enter your Email"
-                    // value={form.name}F
-                    // onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    startIcon={<MdEmail size={16} />}
-                  />
-                </div>
-                <div className='col-span-2'>
-                  <CustomInput
-                    name="email"
-                    // value={form.name}F
-                    // onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="Write your message..."
-                    multiline
-                    rows={8}
-                  />
-                </div>
-                <CustomButton color='#dc3545' height='35px'>SEND MESSAGE</CustomButton>
-              </div>
+              </form>
             </div>
 
             <div className='col-span-12 md:col-span-4 p-10 bg-white'>

@@ -5,15 +5,15 @@ const CustomInput = ({
     name,
     type = "text",
     placeholder = "",
-    value,
-    onChange,
-    error,
+    validateRules={},
     disabled = false,
     startIcon,
     endIcon,
     className = "",
     multiline = false,
     rows = 4,
+    register,
+    errors,
 }) => {
     return (
         <div className={`w-full ${className}`}>
@@ -28,7 +28,6 @@ const CustomInput = ({
 
             <div
                 className={`flex items-center border rounded-[2px] bg-white px-3 py-2 transition-all duration-200 
-        ${error ? "border-red-500" : "border-gray-300"} 
         ${disabled ? "bg-gray-100 cursor-not-allowed" : "bg-white focus-within:border-slate-500"}
         `}
             >
@@ -38,23 +37,21 @@ const CustomInput = ({
 
                 {multiline ? (
                     <textarea
+                        {...register(name, validateRules)}
                         id={name}
                         name={name}
                         rows={rows}
                         placeholder={placeholder}
-                        value={value}
-                        onChange={onChange}
                         disabled={disabled}
                         className="w-full outline-none resize-none text-gray-800 placeholder-gray-400 bg-transparent"
                     />
                 ) : (
                     <input
+                        {...register(name, validateRules)}
                         id={name}
                         name={name}
                         type={type}
                         placeholder={placeholder}
-                        value={value}
-                        onChange={onChange}
                         disabled={disabled}
                         className="w-full outline-none text-gray-800 placeholder-gray-400 bg-transparent"
                     />
@@ -66,8 +63,8 @@ const CustomInput = ({
                 )}
             </div>
 
-            {error && (
-                <p className="text-red-500 text-sm mt-1">{error}</p>
+            {errors[name] && (
+                <p className="text-red-500 text-sm mt-1"> {errors[name]?.message || `${label || name} is required`}</p>
             )}
         </div>
     );
