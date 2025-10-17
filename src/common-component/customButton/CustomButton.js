@@ -30,13 +30,13 @@ const CustomButton = ({
         borderRadius,
         height,
         width: fullWidth ? "100%" : width,
-        fontFamily: "Manrope",
+        fontFamily: "dm_sans",
         ...sx,
       }}
       className={`
         inline-flex items-center justify-center gap-2
         px-6 font-medium text-white
-        text-[16px] leading-[24px] whitespace-nowrap
+         text-[14px]  sm:text-[16px]  md:text-[18px]  lg:text-[20px] leading-[30px] whitespace-nowrap
         transition-all duration-300 ease-in-out
         hover:opacity-90 hover:shadow-md
         disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer

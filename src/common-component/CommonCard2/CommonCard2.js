@@ -4,7 +4,9 @@ const CommonCard2 = ({ icon, title, description, founder}) => {
     return (
 <div>
   
-  <div className="relative  max-w-xs mx-auto bg-white shadow p-7 text-center flex flex-col items-center hover:shadow- cursor-pointer">
+  <div className="relative  max-w-xs mx-auto bg-white shadow p-7 text-center flex flex-col items-center 
+   cursor-pointer  hover:bg-gray-200  focus:bg-gray-200  active:bg-gray-200  group-hover:bg-gray-200
+     group-focus:bg-gray-200  group-active:bg-gray-200">
     <div className="absolute top-[-45px] ">
     <div className="w-24 h-24 border-3 border-amber-400 rounded-full overflow-hidden">
       <img

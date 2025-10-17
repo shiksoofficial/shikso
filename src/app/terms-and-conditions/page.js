@@ -8,10 +8,7 @@ import { MdCall } from 'react-icons/md';
 import SEO from '@/common-component/Seo';
 import { useRouter } from 'next/navigation';
 import { Router } from 'next/router';
-// import CustomButton from '@/common-component/customButton';
-// import CustomButton2 from '@/common-component/customBotton2';
-
-
+import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 
 const Page = () => {
     const router = useRouter()
@@ -34,31 +31,11 @@ const Page = () => {
             //     { name: "Terms & Conditions", url: "/terms-and-conditions" }
             // ]}
             />
-            {/* <CustomBanner1 title={"Terms & Conditions"} breadcom="terms-and-conditions"/> */}
+
+            <CommonBanner1 title={"Terms and conditions Policy"} />
 
             <div className="custom-container bg-white">
-                {/* <CustomButton
-                    onClick={() => router.push("/privacy-policy")}>
-                    {`open privacy policy`}
-                </CustomButton>
-                <CustomButton color="#35C0F0"
-                    onClick={() => alert("Clicked!")}>
-                    Submit
-                </CustomButton>
-                <CustomButton loading color="#35C0F0">
-                    Loading...
-                </CustomButton>
-
-                <CustomButton >Learn More with us</CustomButton>
-                <CustomButton2
-                    color="#ffc107"        // background color (changeable)
-                    textColor="#FFFFFF"    // text color (changeable)
-                    borderColor="#ffc107"  // border color (changeable)
-                >
-                    Learn More with us
-                </CustomButton2>
-                <CustomButton2>    Learn More with us</CustomButton2> */}
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mt-10   mb-7 ">{`Welcome to Zentrail!`}</h2>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mt-10   mb-7 ">{`Welcome to Ed-Tech!`}</h2>
                 <p className="responsive-text text-[#1A2E33]  font-medium  mb-5   ">{`These Terms & Conditions ("Agreement") govern your access to and use of the Zentrail website ( `}   <a
                     href={`https://${"www.zentrail.in".replace(
                         /\s/g,

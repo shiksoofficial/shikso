@@ -105,21 +105,21 @@ const Header = () => {
     <header className="absolute left-0 w-full z-[100]">
       <div className="custom-container">
         <div className="flex justify-between py-5 items-center">
-          <p className="text-[50px] font-bold text-white">{`Kiddy.`}</p>
+          <p className="dm_sans text-[50px] font-bold text-white">{`Kiddy.`}</p>
           <div className="hidden md:flex gap-5 text-sm">
             <div className="w-[250px] flex gap-5 items-center">
               <div><MdLocationPin size={30} color="#fdb62f"/></div>
-              <span className="text-white">{`34 Street Name, City Name Here, United States`}</span>
+              <span className="dm_sans text-white">{`34 Street Name, City Name Here, United States`}</span>
             </div>
             <div className="w-[250px] flex gap-5 items-center">
-              <div><FaRegClock size={30} color="#dc3545"/></div> <span className="text-white">{`Sunday - Friday 8:00AM - 4:00PM 
+              <div><FaRegClock size={30} color="#dc3545"/></div> <span className="dm_sans text-white">{`Sunday - Friday 8:00AM - 4:00PM 
               Saturday CLOSED`}</span>
             </div>
           </div>
         </div>
 
         <div className="bg-white px-10 py-6 rounded-[50px] flex justify-between items-center">
-          <ul className="hidden md:flex gap-8 text-black font-medium">
+          <ul className="dm_sans hidden md:flex gap-8 text-black font-medium">
             {menuItems.map((item, i) => (
               <li key={i}>
                 <Link

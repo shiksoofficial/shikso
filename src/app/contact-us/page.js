@@ -46,7 +46,7 @@ const ContactUs = () => {
       <div className='bg-slate-100'>
         <HeroSection imageurl="https://i.pinimg.com/1200x/5a/a3/63/5aa3639eab9fc1a7c6efc97f98502ed9.jpg" title="Welcome To Our Website" title2="Get In Touch" button={false} />
         <div className='custom-container py-6 md:py-10'>
-          <h2 className='responsiveheading2 text-center'>{`Get In Touch Using The Contact Form`}</h2>
+          <h2 className='dm_sans responsiveheading2 text-center'>{`Get In Touch Using The Contact Form`}</h2>
           <p className='max-w-[700px] text-center m-auto mt-2'>{`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum necessitatibus eius earum voluptates sed!`}</p>
         </div>
         <div className='custom-container py-6 md:py-10'>
@@ -95,13 +95,13 @@ const ContactUs = () => {
             </div>
 
             <div className='col-span-12 md:col-span-4 p-10 bg-white'>
-              <h3 className='responsiveheading2 mb-5'>{`Contact Info`}</h3>
+              <h3 className='dm_sans responsiveheading2 mb-5'>{`Contact Info`}</h3>
               <p className='mt-3'>{`Address:`}</p>
-              <p className='text-slate-500'>{`34 Street Name, City Name Here, United States`}</p>
+              <p className='dm_sans text-slate-500'>{`34 Street Name, City Name Here, United States`}</p>
               <p className='mt-3'>{`Phone:`}</p>
-              <p className='text-slate-500'>{`+1 242 4942 290`}</p>
+              <p className='dm_sans text-slate-500'>{`+1 242 4942 290`}</p>
               <p className='mt-3'>{`Email:`}</p>
-              <p className='text-slate-500'>{`info@yourdomain.com`}</p>
+              <p className='dm_sans text-slate-500'>{`info@yourdomain.com`}</p>
             </div>
           </div>
         </div>
