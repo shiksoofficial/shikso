@@ -8,7 +8,7 @@ import React from 'react'
 const AboutPage = () => {
   return (
     <>
-     <HeroSection imageurl="/aboutus/hero_1.jpg" title="Welcome To Our Website" title2="About Us"/>
+     <HeroSection imageurl="/aboutus/hero_1.jpg" title="Welcome To Our Website" title2="About Us" breadcom ={[{title: "About Us"}]}/>
     <About1 />
     <About2 />
     <About3 />

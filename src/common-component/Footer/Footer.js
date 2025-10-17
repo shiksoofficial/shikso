@@ -1,14 +1,14 @@
 "use client";
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react'
-import { usePathname } from 'next/navigation';
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { usePathname } from "next/navigation";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { RiTelegram2Fill } from "react-icons/ri";
 const Footer = () => {
-    const pathname = usePathname();
+  const pathname = usePathname();
 
-    const footerData = {
+  const footerData = {
     brand: {
       name: "About Us",
       description:
@@ -63,24 +63,26 @@ const Footer = () => {
   };
   return (
     <footer className="bg-[#1A2E33] ">
-<div className="custom-container px-4 sm:px-6 lg:px-2 py-10">
+      <div className="custom-container px-4 sm:px-6 lg:px-2 py-10">
         <div className="grid grid-cols-12 border-b border-gray-500 pb-8 gap-3.5  md:gap-4 lg:gap-8">
           <div className="col-span-12 sm:col-span-12  lg:col-span-5  lg:mr:28 xl:mr-32">
-            <div className="text-lg md:text-xl font-medium font-responsive text-red-500">
+            <div className="text-lg md:text-xl font-medium  text-red-500">
               <Link href="/">{footerData.brand.name}</Link>
             </div>
-            <p className="mt-5 text-[16px] footer_commanText font-responsive text-white">
+            <p className="mt-5 text-[16px] footer_commanText  text-white">
               {footerData.brand.description}
             </p>
           </div>
           <div className="col-span-6 sm:col-span-6  lg:col-span-3">
-            <div className="mb-1 sm:mb-5 text-[20px] dm_sans text-red-500">Quick Links</div>
+            <div className="mb-1 sm:mb-5 text-[20px] dm_sans text-red-500">
+              Quick Links
+            </div>
             <div className="flex flex-col space-y-2">
               {footerData.quickLinks1.map((link, index) => (
                 <Link
                   key={index}
                   href={link.url}
-                  className={`text-sm md:text-base font-responsive text-white hover:text-rose-600 transition-colors ${
+                  className={`text-sm md:text-base  text-white hover:text-rose-600 transition-colors ${
                     pathname === link.url ? "text-red-500" : ""
                   }`}
                 >
@@ -90,8 +92,8 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-span-6 sm:col-span-6  lg:col-span-3  text-white">
-            <div className=" mb-1  sm:mb-5 text-[20px] dm_sans">{`Contact Info`}</div>
-            <div className="flex items-center gap-3.5 text-sm md:text-base font-responsive ">
+            <div className=" mb-1  sm:mb-5 text-[20px] dm_sans  text-red-500">{`Contact Info`}</div>
+            <div className="flex items-center gap-3.5 text-sm md:text-base">
               <div className="relative">
                 <IoLogoWhatsapp size={28} />
               </div>
@@ -107,13 +109,13 @@ const Footer = () => {
                 {footerData.contactInfo.phone}
               </Link>
             </div>
-            <div className="flex items-center gap-3.5 text-sm md:text-base mt-3 font-responsive  ">
+            <div className="flex items-center gap-3.5 text-sm md:text-base mt-3">
               <div className="relative">
                 <RiTelegram2Fill size={28} />
               </div>
               <Link
                 href={`mailto:${footerData.contactInfo.email}`}
-                className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-md "
+                className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
               >
                 {footerData.contactInfo.email}
               </Link>
@@ -192,8 +194,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-   
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
