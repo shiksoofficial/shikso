@@ -164,7 +164,7 @@ const Header = () => {
           }`}
       >
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-semibold"></h2>
+          <p className="text-2xl font-semibold"></p>
           <button aria-label="close-btn" onClick={() => setIsOpen(false)}>
             <MdClose size={28} />
           </button>

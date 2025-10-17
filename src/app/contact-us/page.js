@@ -5,10 +5,30 @@ import Testimonial from '@/common-component/Testimonial/Testimonial'
 import HeroSection from '@/component/homepage/HeroSection'
 import { apiClient } from '@/lib/api-client'
 import { BASE_URL_API } from '@/lib/common'
+import { getCanonicalUrl } from '@/lib/seo'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { FaUser } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
+
+// export const metadata = {
+//   title: "Contact us",
+//   description: "Get in touch with us for inquiries or collaborations.",
+//   keywords: ["contact", "zentrail", "support"],
+//   alternates: { canonical: getCanonicalUrl("/contact-us") },
+//   openGraph: {
+//     title: "Contact us",
+//     description: "Reach out for any queries.",
+//     url: getCanonicalUrl("/"),
+//     images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+//   },
+//     twitter: {
+//     card: 'summary_large_image',
+//     title: "Contact us",
+//     description:"Reach out for any queries.",
+//     images:[{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+//   },
+// };
 
 const testimonialData = [
   {

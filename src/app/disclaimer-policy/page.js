@@ -6,6 +6,25 @@ import { FaMapPin } from "react-icons/fa6";
 import Link from 'next/link';
 import SEO from '@/common-component/Seo';
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
+import { getCanonicalUrl } from '@/lib/seo';
+export const metadata = {
+  title: "Disclaimer Policy",
+  description: "Get in touch with us for inquiries or collaborations.",
+  keywords: ["contact", "zentrail", "support"],
+  alternates: { canonical: getCanonicalUrl("/disclaimer-policy") },
+  openGraph: {
+    title: "Disclaimer Policy",
+    description: "Reach out for any queries.",
+    url: getCanonicalUrl("/"),
+    images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+  },
+    twitter: {
+    card: 'summary_large_image',
+    title: "Disclaimer Policy",
+    description:"Reach out for any queries.",
+    images:[{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+  },
+};
 
 const Page = () => {
     return (

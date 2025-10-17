@@ -9,15 +9,21 @@ import { getCanonicalUrl } from "@/lib/seo";
 import React from "react";
 
 export const metadata = {
-  title: "Contact Us - Zentrail",
+  title: "Home",
   description: "Get in touch with us for inquiries or collaborations.",
   keywords: ["contact", "zentrail", "support"],
   alternates: { canonical: getCanonicalUrl("/") },
   openGraph: {
-    title: "Contact Zentrail",
+    title: "Home",
     description: "Reach out for any queries.",
     url: getCanonicalUrl("/"),
     images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+  },
+    twitter: {
+    card: 'summary_large_image',
+    title: "Home",
+    description:"Reach out for any queries.",
+    images:[{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
   },
 };
 
