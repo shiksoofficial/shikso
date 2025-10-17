@@ -32,7 +32,7 @@ const Page = () => {
             // ]}
             />
 
-            <CommonBanner1 title={"Terms and conditions Policy"} />
+            <CommonBanner1 title={"Terms and conditions Policy"} breadcom={[  { title: "Terms and conditions Policy" } ]} />
 
             <div className="custom-container bg-white">
                 <h2 className="responsiveheading2 text-[#1A2E33] font-medium mt-10   mb-7 ">{`Welcome to Ed-Tech!`}</h2>

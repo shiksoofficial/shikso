@@ -28,7 +28,7 @@ const Page = () => {
             // ]}
             />
 
-            <CommonBanner1 title={"Disclaimer"} />
+            <CommonBanner1 title={"Disclaimer"} breadcom={[  { title: "Disclaimer" } ]}/>
 
             <div className="custom-container bg-white">
                 <p className=" responsive-text text-[#1A2E33] font-medium  mt-10     mb-7  ">{`This Disclaimer governs your use of our website `}
