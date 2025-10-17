@@ -36,7 +36,7 @@ const CustomButton2 = ({
       className={`
         inline-flex items-center justify-center gap-2 px-6 py-6
         font-medium whitespace-nowrap
-        text-[18px] leading-[30px]
+        text-[14px]  sm:text-[16px]  md:text-[18px]  lg:text-[20px] leading-[30px]
         border transition-all duration-300 ease-in-out
         hover:opacity-90 hover:brightness-110
         disabled:opacity-60 disabled:cursor-not-allowed

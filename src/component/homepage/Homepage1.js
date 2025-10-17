@@ -31,8 +31,8 @@ const Homepage1 = () => {
         {data?.map((val) => <div key={val.id}>
           <div style={{backgroundColor:val.color}} className='px-7 py-10'>
             <div style={{backgroundColor:val.color}} className='size-15 justify-self-center rounded-full flex justify-center items-center mt-[-70px]'>{val.icon}</div>
-            <p className='text-white font-medium text-center mb-2'>{val.title}</p>
-            <p className='text-slate-200 text-center'>{val.description}</p>
+            <p className='dm_sans text-white font-medium text-center mb-2'>{val.title}</p>
+            <p className='dm_sans text-slate-200 text-center'>{val.description}</p>
           </div>
         </div>)}
       </div>
