@@ -1,72 +1,36 @@
-"use client";
 import React from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaMapPin } from 'react-icons/fa6';
 import { TfiEmail } from 'react-icons/tfi';
 import { MdCall } from 'react-icons/md';
-import SEO from '@/common-component/Seo';
-import { useRouter } from 'next/navigation';
-import { Router } from 'next/router';
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import { getCanonicalUrl } from '@/lib/seo';
 
-// export const metadata = {
-//   title: "Terms & Conditions",
-//   description: "Get in touch with us for inquiries or collaborations.",
-//   keywords: ["contact", "zentrail", "support"],
-//   alternates: { canonical: getCanonicalUrl("/terms-and-conditions") },
-//   openGraph: {
-//     title: "Terms & Conditions",
-//     description: "Reach out for any queries.",
-//     url: getCanonicalUrl("/"),
-//     images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
-//   },
-//     twitter: {
-//     card: 'summary_large_image',
-//     title: "Terms & Conditions",
-//     description:"Reach out for any queries.",
-//     images:[{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
-//   },
-// };
+export const metadata = {
+  title: "Terms & Conditions",
+  description: "Get in touch with us for inquiries or collaborations.",
+  keywords: ["contact", "zentrail", "support"],
+  alternates: { canonical: getCanonicalUrl("/terms-and-conditions") },
+  openGraph: {
+    title: "Terms & Conditions",
+    description: "Reach out for any queries.",
+    url: getCanonicalUrl("/"),
+    images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+  },
+    twitter: {
+    card: 'summary_large_image',
+    title: "Terms & Conditions",
+    description:"Reach out for any queries.",
+    images:[{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+  },
+};
 const Page = () => {
-    const router = useRouter()
     return (
         <>
-            <SEO
-            // url="http://www.zentrail.in/terms-and-conditions"
-            // metaTitle="Terms & Conditions of Zentrail | Offbeat travel Services in India  "
-            // metaDescription=" Read the terms and conditions of Zentrail to understand your rights, responsibilities, and our travel service policies before booking your trip."
-            // keywords=" Terms & Conditions of Zentrail, Offbeat travel Services in India, trekking in India, Travel service policies.|"
-            // canonical="http://www.zentrail.in/terms-and-conditions"
-            // ogTitle="Terms & Conditions of Zentrail | Offbeat travel Services in India "
-            // ogDescription=" 	Read the terms and conditions of Zentrail to understand your rights, responsibilities, and our travel service policies before booking your trip."
-            // // ogImage={`${SITE_URL}/og-image.jpg`}
-            // twitterTitle="Terms & Conditions of Zentrail | Offbeat travel Services in India "
-            // twitterDescription="Read the terms and conditions of Zentrail to understand your rights, responsibilities, and our travel service policies before booking your trip."
-            // // twitterImage={`${SITE_URL}/logoo.jpg`}
-            // robots="index, follow"
-            // breadcrumbItems={[
-            //     { name: "Terms & Conditions", url: "/terms-and-conditions" }
-            // ]}
-            />
-
-            <CommonBanner1 title={"Terms and conditions Policy"} breadcom={[  { title: "Terms and conditions Policy" } ]} />
-
+            <CommonBanner1 title={"Terms and conditions Policy"} breadcom={[{ title: "Terms and conditions Policy" }]} />
             <div className="custom-container bg-white">
                 <h2 className="responsiveheading2 text-[#1A2E33] font-medium mt-10   mb-7 ">{`Welcome to Ed-Tech!`}</h2>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-5   ">{`These Terms & Conditions ("Agreement") govern your access to and use of the Zentrail website ( `}   <a
-                    href={`https://${"www.zentrail.in".replace(
-                        /\s/g,
-                        ""
-                    )} `}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className=" cursor-pointer responsive-text   text-[#35C0F0]  gap-1.5 "
-                >
-                    {"www.zentrail.in"}
-                </a>
-                    {` ) and services. By booking a travel batch or using our website, you agree to the following terms.`}</p>
                 <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`1. Eligibility`}</h2>
                 <p className="responsive-text text-[#1A2E33]  font-medium  mb-2   ">{`To book or register on Zentrail, you must:`}</p>
                 <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33]   mb-5 sm:mb-7  ">
@@ -115,23 +79,22 @@ const Page = () => {
                 <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`9. Contact Us`}</h2>
                 <p className="responsive-text text-[#1A2E33]  font-medium mb-2  "><strong>{`Zentrail`}</strong></p>
                 <p className="responsive-text text-[#1A2E33]  font-medium mb-1  items-center flex gap-1.5"><FaMapPin />{`Plot No 500, Kakrola Housing Complex, Dwarka Mor, Delhi – 17079`}</p>
-                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium mb-1  ">
-                    <a
-                        href={`mailto:${"info@zentrail.in"}`}
-                        className=" responsive-text text-[#1A2E33] cursor-pointer items-center text-sm md:text-sm lg:text-md flex gap-1.5"
+               <Link href="mailto:info@zentrail.in">
+                    <p className="dm_sans responsive-text text-[#1A2E33] font-medium mb-1 cursor-pointer items-center text-sm md:text-sm lg:text-md flex gap-1.5"
                     >
-                        <TfiEmail />{`Email: `}<strong>{"info@zentrail.in"}</strong>
-                    </a></p>
-                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium mb-2  ">
-                    <a
-                        href="tel:8287316546"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className=" cursor-pointer responsive-text items-center  text-[#1A2E33] flex gap-1.5 "
+                        <TfiEmail />
+                        {`Email: `}
+                        <strong>{"info@zentrail.in"}</strong>
+                    </p>
+                </Link>
+                <Link href="tel:8287316546">
+                    <p className="dm_sans responsive-text text-[#1A2E33] font-medium mb-2 cursor-pointer items-center flex gap-1.5"
                     >
-                        <MdCall />{"Phone: "} <strong>{"+91 8287316546"}</strong>
-                    </a>
-                </p>
+                        <MdCall />
+                        {"Phone: "}
+                        <strong>{"+91 8287316546"}</strong>
+                    </p>
+                </Link>
                 <div className="justify-items-center sm:justify-items-end   sm:w-full mt-5 mb-14">
                     <p className="text-[20px]  pr-12 mb-2 text-[#4D5D60]">{`Powered by-`}</p>
                     <div  >
