@@ -1,11 +1,15 @@
 "use client"
 import CustomButton from "@/common-component/CustomButton/CustomButton";
+import { countAtom } from "@/store/atoms";
+import { useAtom } from "jotai";
 import CustomLinkBtn from "@/common-component/CustomLinkBtn/CustomLinBtn";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const HeroSection = ({ imageurl, title, title2, button, breadcom }) => {
+    const [count, setCount] = useAtom(countAtom);
+    console.log(count)
 
   const [offsetY, setOffsetY] = useState(0);
   const handleScroll = () => setOffsetY(window.scrollY);
@@ -15,7 +19,7 @@ const HeroSection = ({ imageurl, title, title2, button, breadcom }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div className="w-full h-[90vh] md:h-[120vh] relative shrink-0 overflow-hidden">
+    <div className="w-full h-[600px] md:h-[600px] relative shrink-0 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent z-10 pointer-events-none"></div>
       <div
         className="absolute inset-0 will-change-transform transition-transform duration-200 ease-out"
@@ -34,7 +38,7 @@ const HeroSection = ({ imageurl, title, title2, button, breadcom }) => {
         />
       </div>
       <div
-        className=" absolute inset-0 z-10 flex items-end pb-15 md:pb-40 lg:pb-60"
+        className=" absolute inset-0 z-10 flex items-end pb-15 "
         style={{
           transform: `translateY(-${offsetY * 0.4}px)`,
         }}

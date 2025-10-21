@@ -26,7 +26,7 @@ const ContactForm = () => {
     }
     console.log(payload)
     try {
-      const res = await apiClient.post("inquiryform/travel", payload);
+      const res = await apiClient.post("inquiryform/ed_tech", payload);
       console.log(res)
       alert(res?.data?.message)
       reset();
