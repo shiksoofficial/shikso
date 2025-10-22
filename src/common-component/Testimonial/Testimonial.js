@@ -28,7 +28,7 @@ const Testimonial = ({ testimonialData }) => {
                     {testimonialData?.map(({ icon, title, partner, description }, index) => (
                         <SplideSlide key={index}>
                             <div key={index} className="flex flex-col sm:flex-row justify-between w-full mb-6">
-                                <div className=" flex-initial flex justify-start">
+                                <div className=" ">
                                     <Image
                                         src={icon}
                                         alt={title}
@@ -37,7 +37,7 @@ const Testimonial = ({ testimonialData }) => {
                                     />
 
                                 </div>
-                                <div className="flex-1 text-left  sm:pl-6 mb-4">
+                                <div className="flex-1  text-left  sm:pl-6 mb-4">
                                     <h3 className="dm_sans responsiveheading6 font-semibold mb-2 text-white">
                                         {title}
                                     </h3>
