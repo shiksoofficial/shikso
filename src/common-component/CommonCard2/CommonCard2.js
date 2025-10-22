@@ -9,13 +9,12 @@ const CommonCard2 = ({ icon, title, description, founder }) => {
    cursor-pointer  hover:bg-gray-200  focus:bg-gray-200  active:bg-gray-200  group-hover:bg-gray-200
      group-focus:bg-gray-200  group-active:bg-gray-200">
         <div className="absolute top-[-45px] ">
-          <div className="w-24 h-24 border-3 border-amber-400 rounded-full overflow-hidden">
+          <div className=" border-3 border-amber-400 rounded-full overflow-hidden">
             <Image
               src={icon}
               alt={title}
               width={96}
               height={96}
-              className="object-cover"
             />
           </div>
         </div>

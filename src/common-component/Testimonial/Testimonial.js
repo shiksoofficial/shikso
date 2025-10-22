@@ -28,13 +28,12 @@ const Testimonial = ({ testimonialData }) => {
                     {testimonialData?.map(({ icon, title, partner, description }, index) => (
                         <SplideSlide key={index}>
                             <div key={index} className="flex flex-col sm:flex-row justify-between w-full mb-6">
-                                <div className="w-25 sm:w-28 flex-initial flex justify-start">
+                                <div className=" flex-initial flex justify-start">
                                     <Image
                                         src={icon}
                                         alt={title}
                                         width={80}
                                         height={80}
-                                        className="object-contain"
                                     />
 
                                 </div>

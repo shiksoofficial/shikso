@@ -13,7 +13,6 @@ const CommonCard1 = ({ icon, title, description, buttonText, buttoncolor }) => {
           alt={title}
           width={80}
           height={80}
-          className="object-contain"
         />
 
       </div>
