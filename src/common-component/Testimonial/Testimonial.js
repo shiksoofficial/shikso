@@ -2,6 +2,7 @@
 import React from 'react';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import Image from 'next/image';
 
 const Testimonial = ({ testimonialData }) => {
     return (
@@ -19,7 +20,7 @@ const Testimonial = ({ testimonialData }) => {
                         gap: "1.5rem",
                         arrows: false,
                         pagination: true,
-                      
+
                     }}
                     aria-label="Client Testimonials"
                     className="w-full"
@@ -28,11 +29,14 @@ const Testimonial = ({ testimonialData }) => {
                         <SplideSlide key={index}>
                             <div key={index} className="flex flex-col sm:flex-row justify-between w-full mb-6">
                                 <div className="w-25 sm:w-28 flex-initial flex justify-center sm:justify-start">
-                                    <img
+                                    <Image
                                         src={icon}
                                         alt={title}
-                                        className="w-24 h-24 object-contain"
+                                        width={80}
+                                        height={80}
+                                        className="object-contain"
                                     />
+
                                 </div>
                                 <div className="flex-1 text-left pl-2 sm:pl-6 mb-4">
                                     <h3 className="dm_sans responsiveheading6 font-semibold mb-2 text-white">
