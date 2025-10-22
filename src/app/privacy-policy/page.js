@@ -3,48 +3,30 @@ import Image from 'next/image';
 import { TfiEmail } from "react-icons/tfi";
 import { MdCall } from "react-icons/md";
 import Link from 'next/link';
-import SEO from '@/common-component/Seo';
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import { getCanonicalUrl } from '@/lib/seo';
 export const metadata = {
-  title: "Privacy Policy",
-  description: "Get in touch with us for inquiries or collaborations.",
-  keywords: ["contact", "zentrail", "support"],
-  alternates: { canonical: getCanonicalUrl("/privacy-policy") },
-  openGraph: {
     title: "Privacy Policy",
-    description: "Reach out for any queries.",
-    url: getCanonicalUrl("/"),
-    images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
-  },
+    description: "Get in touch with us for inquiries or collaborations.",
+    keywords: ["contact", "zentrail", "support"],
+    alternates: { canonical: getCanonicalUrl("/privacy-policy") },
+    openGraph: {
+        title: "Privacy Policy",
+        description: "Reach out for any queries.",
+        url: getCanonicalUrl("/"),
+        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    },
     twitter: {
-    card: 'summary_large_image',
-    title: "Privacy Policy",
-    description:"Reach out for any queries.",
-    images:[{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
-  },
+        card: 'summary_large_image',
+        title: "Privacy Policy",
+        description: "Reach out for any queries.",
+        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    },
 };
 const Page = () => {
     return (
         <>
-            <SEO
-            // url="http://www.zentrail.in/privacy-policy"
-            // metaTitle="Zentrail Privacy Policy | Best Travel Adventures in India. "
-            // metaDescription="Read Privacy Policy of Zentrail to know how we collect, use, and protect your personal data during bookings and browsing online. Transparency is our priority."
-            // keywords="Zentrail Privacy Policy, Best Travel Adventures in India, book trek online, adventure Travel India, trekking in India |"
-            // canonical="http://www.zentrail.in/privacy-policy"
-            // ogTitle="Zentrail Privacy Policy | Best Travel Adventures in India."
-            // ogDescription="Read Privacy Policy of Zentrail to know how we collect, use, and protect your personal data during bookings and browsing online. Transparency is our priority."
-            // ogImage={`${SITE_URL}/og-image.jpg`}
-            // twitterTitle="Zentrail Privacy Policy | Best Travel Adventures in India."
-            // twitterDescription="Read Privacy Policy of Zentrail to know how we collect, use, and protect your personal data during bookings and browsing online. Transparency is our priority."
-            // twitterImage={`${SITE_URL}/logoo.jpg`}
-            // robots="index, follow"
-            // breadcrumbItems={[
-            //   { name: "Privacy Policy", url: "/privacy-policy" }
-            // ]}
-            />
-            <CommonBanner1 title={"Privacy Policy"} breadcom={[  { title: "Privacy Policy" } ]}/>
+            <CommonBanner1 title={"Privacy Policy"} breadcom={[{ title: "Privacy Policy" }]} />
 
             <div className="custom-container bg-white">
                 <p className="dm_sans responsive-text text-[#1A2E33] font-medium  mt-10  mb-2 sm:mb-8 ">{`Welcome to Zentrail. Your privacy is critically important to us, and we are committed to protecting the information you share with us. This Privacy Policy outlines what data we collect, how we use it, how we protect it, and your rights regarding your personal information.`}</p>
@@ -121,25 +103,22 @@ const Page = () => {
 
                 <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`9. Contact Us `}</h2>
                 <p className="dm_sans responsive-text text-[#1A2E33]  font-medium mb-4   ">{`If you have questions about this Privacy Policy, feel free to reach out at:`}</p>
-                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium mb-2  ">
-                    <a
-                        href={`mailto:${"info@zentrail.in"}`}
-                        className=" responsive-text text-[#1A2E33] cursor-pointer items-center text-sm md:text-sm lg:text-md flex gap-1.5"
+               <Link href="mailto:info@zentrail.in">
+                    <p className="dm_sans responsive-text text-[#1A2E33] font-medium mb-1 cursor-pointer items-center text-sm md:text-sm lg:text-md flex gap-1.5"
                     >
-                        <TfiEmail />{`Email: `}<strong>{"info@zentrail.in"}</strong>
-                    </a></p>
-                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium mb-2  ">
-                    <a
-                        href="tel:8287316546"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className=" cursor-pointer responsive-text items-center  text-[#1A2E33] flex gap-1.5 "
+                        <TfiEmail />
+                        {`Email: `}
+                        <strong>{"info@zentrail.in"}</strong>
+                    </p>
+                </Link>
+                <Link href="tel:8287316546">
+                    <p className="dm_sans responsive-text text-[#1A2E33] font-medium mb-2 cursor-pointer items-center flex gap-1.5"
                     >
-                        <MdCall />{"Phone: "} <strong>{"+91 8287316546"}</strong>
-                    </a>
-                </p>
-
-
+                        <MdCall />
+                        {"Phone: "}
+                        <strong>{"+91 8287316546"}</strong>
+                    </p>
+                </Link>
                 <div className="justify-items-center sm:justify-items-end   sm:w-full mt-5 mb-14">
                     <p className="text-[20px]  pr-12 mb-2 text-[#4D5D60]">{`Powered by-`}</p>
                     <div  >
@@ -152,9 +131,7 @@ const Page = () => {
                             />
                         </Link>
                     </div>
-
                 </div>
-
             </div>
         </>
     )

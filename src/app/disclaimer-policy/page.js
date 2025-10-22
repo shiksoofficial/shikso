@@ -4,63 +4,33 @@ import { TfiEmail } from "react-icons/tfi";
 import { MdCall } from "react-icons/md";
 import { FaMapPin } from "react-icons/fa6";
 import Link from 'next/link';
-import SEO from '@/common-component/Seo';
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import { getCanonicalUrl } from '@/lib/seo';
 export const metadata = {
-  title: "Disclaimer Policy",
-  description: "Get in touch with us for inquiries or collaborations.",
-  keywords: ["contact", "zentrail", "support"],
-  alternates: { canonical: getCanonicalUrl("/disclaimer-policy") },
-  openGraph: {
     title: "Disclaimer Policy",
-    description: "Reach out for any queries.",
-    url: getCanonicalUrl("/"),
-    images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
-  },
+    description: "Get in touch with us for inquiries or collaborations.",
+    keywords: ["contact", "zentrail", "support"],
+    alternates: { canonical: getCanonicalUrl("/disclaimer-policy") },
+    openGraph: {
+        title: "Disclaimer Policy",
+        description: "Reach out for any queries.",
+        url: getCanonicalUrl("/"),
+        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    },
     twitter: {
-    card: 'summary_large_image',
-    title: "Disclaimer Policy",
-    description:"Reach out for any queries.",
-    images:[{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
-  },
+        card: 'summary_large_image',
+        title: "Disclaimer Policy",
+        description: "Reach out for any queries.",
+        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    },
 };
 
 const Page = () => {
     return (
         <>
-            <SEO
-            // url="http://www.zentrail.in/disclaimer-policy"
-            // metaTitle="Disclaimer Policy | Zentrail tours and trekking in India   "
-            // metaDescription=" Read the disclaimer of Zentrail to understand the limitations of liability, use of information, external links, travel content, and insurance policies."
-            // keywords=" Disclaimer of Zentrail, Offbeat travel Services in India, trekking in India, tour and trekking "
-            // canonical="http://www.zentrail.in/disclaimer-policy"
-            // ogTitle="Disclaimer Policy | Zentrail tours and trekking in India  "
-            // ogDescription=" 	Read the disclaimer of Zentrail to understand the limitations of liability, use of information, external links, travel content, and insurance policies."
-            // ogImage={`${SITE_URL}/og-image.jpg`}
-            // twitterTitle="Disclaimer Policy | Zentrail tours and trekking in India  "
-            // twitterDescription="Read the disclaimer of Zentrail to understand the limitations of liability, use of information, external links, travel content, and insurance policies."
-            // twitterImage={`${SITE_URL}/logoo.jpg`}
-            // robots="index, follow"
-            // breadcrumbItems={[
-            //   { name: "Disclaimer Policy", url: "/disclaimer-policy" }
-            // ]}
-            />
-
-            <CommonBanner1 title={"Disclaimer"} breadcom={[  { title: "Disclaimer" } ]}/>
+            <CommonBanner1 title={"Disclaimer"} breadcom={[{ title: "Disclaimer" }]} />
 
             <div className="custom-container bg-white">
-                <p className=" responsive-text text-[#1A2E33] font-medium  mt-10     mb-7  ">{`This Disclaimer governs your use of our website `}
-                    <a href={`https://${"www.zentrail.in".replace(
-                        /\s/g,
-                        ""
-                    )} `}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className=" cursor-pointer responsive-text   text-[#35C0F0]  gap-1.5 "
-                    >
-                        {"www.zentrail.in"}
-                    </a> {` and the information provided here. By accessing or using the site, you agree to the following:`}</p>
                 <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`1. General Information`}</h2>
                 <p className="responsive-text text-[#1A2E33]  font-medium  mb-4 sm:mb-7 ">{`Zentrail provides this website as a service to the public. While we make every effort to keep information such as itineraries, descriptions, and prices accurate and up to date, we do not make any guarantees regarding completeness, reliability, or suitability. Use of the content is entirely at your own risk.`}</p>
                 <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`2. Liability`}</h2>
@@ -78,25 +48,22 @@ const Page = () => {
                 <p className="responsive-text text-[#1A2E33]  font-medium  mb-4 sm:mb-4 ">{`For further assistance, get in touch with us at:`}</p>
                 <p className="responsive-text text-[#1A2E33]  font-medium mb-2  "><strong>{`Zentrail`}</strong></p>
                 <p className="responsive-text text-[#1A2E33]  font-medium mb-1  items-center flex gap-1.5"><FaMapPin />{`Plot No 500, Kakrola Housing Complex, Dwarka Mor, Delhi – 17079`}</p>
-                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium mb-1  ">
-                    <a
-                        href={`mailto:${"info@zentrail.in"}`}
-                        className=" responsive-text text-[#1A2E33] cursor-pointer items-center text-sm md:text-sm lg:text-md flex gap-1.5"
+               <Link href="mailto:info@zentrail.in">
+                    <p className="dm_sans responsive-text text-[#1A2E33] font-medium mb-1 cursor-pointer items-center text-sm md:text-sm lg:text-md flex gap-1.5"
                     >
-                        <TfiEmail />{`Email: `}<strong>{"info@zentrail.in"}</strong>
-                    </a></p>
-                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium mb-2  ">
-                    <a
-                        href="tel:8287316546"
-
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className=" cursor-pointer responsive-text items-center  text-[#1A2E33] flex gap-1.5 "
+                        <TfiEmail />
+                        {`Email: `}
+                        <strong>{"info@zentrail.in"}</strong>
+                    </p>
+                </Link>
+                <Link href="tel:8287316546">
+                    <p className="dm_sans responsive-text text-[#1A2E33] font-medium mb-2 cursor-pointer items-center flex gap-1.5"
                     >
-                        <MdCall />{"Phone: "} <strong>{"+91 8287316546"}</strong>
-                    </a>
-                </p>
-
+                        <MdCall />
+                        {"Phone: "}
+                        <strong>{"+91 8287316546"}</strong>
+                    </p>
+                </Link>
                 <div className="justify-items-center sm:justify-items-end   sm:w-full mt-5 mb-14">
                     <p className="text-[20px]  pr-12 mb-2 text-[#4D5D60]">{`Powered by-`}</p>
                     <div  >
@@ -109,7 +76,6 @@ const Page = () => {
                             />
                         </Link>
                     </div>
-
                 </div>
             </div>
         </>

@@ -7,49 +7,31 @@ import { PiMagnifyingGlassDuotone } from "react-icons/pi";
 import { FcSettings } from "react-icons/fc";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import Link from 'next/link';
-import SEO from '@/common-component/Seo';
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import { getCanonicalUrl } from '@/lib/seo';
 export const metadata = {
-  title: "Cookies Policy",
-  description: "Get in touch with us for inquiries or collaborations.",
-  keywords: ["contact", "zentrail", "support"],
-  alternates: { canonical: getCanonicalUrl("/cookies-policy") },
-  openGraph: {
     title: "Cookies Policy",
-    description: "Reach out for any queries.",
-    url: getCanonicalUrl("/"),
-    images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
-  },
+    description: "Get in touch with us for inquiries or collaborations.",
+    keywords: ["contact", "zentrail", "support"],
+    alternates: { canonical: getCanonicalUrl("/cookies-policy") },
+    openGraph: {
+        title: "Cookies Policy",
+        description: "Reach out for any queries.",
+        url: getCanonicalUrl("/"),
+        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    },
     twitter: {
-    card: 'summary_large_image',
-    title: "Cookies Policy",
-    description:"Reach out for any queries.",
-    images:[{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
-  },
+        card: 'summary_large_image',
+        title: "Cookies Policy",
+        description: "Reach out for any queries.",
+        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    },
 };
 
 const Page = () => {
     return (
         <>
-            <SEO
-            // url="http://www.zentrail.in/cookies-policy"
-            // metaTitle=" Cookies & Tracking Policy | Zentrail Tour and Trekking in India   "
-            // metaDescription=" Learn how Zentrail uses cookies to enhance your experience. Understand our tracking, data usage, and consent policies to ensure safe booking online with Zentrail tour and trekking. "
-            // keywords="Cookies & Tracking Policy,Tour and Trekking in India, Zentrail travel and trekking in india, consent and policies "
-            // canonical="http://www.zentrail.in/cookies-policy"
-            // ogTitle="  Cookies & Tracking Policy | Zentrail Tour and Trekking in India  "
-            // ogDescription=" 	Learn how Zentrail uses cookies to enhance your experience. Understand our tracking, data usage, and consent policies to ensure safe booking online with Zentrail tour and trekking. 	"
-            // ogImage={`${SITE_URL}/og-image.jpg`}
-            // twitterTitle="Cookies & Tracking Policy | Zentrail Tour and Trekking in India   "
-            // twitterDescription="Learn how Zentrail uses cookies to enhance your experience. Understand our tracking, data usage, and consent policies to ensure safe booking online with Zentrail tour and trekking.  "
-            // twitterImage={`${SITE_URL}/logoo.jpg`}
-            // robots="index, follow"
-            // breadcrumbItems={[
-            //   { name: "Cookies & Tracking Policy", url: "/cookies-policy" }
-            // ]}
-            />
-            <CommonBanner1 title={"Cookies & Consent Policy"} breadcom={[  { title: "Cookies" } ]} />
+            <CommonBanner1 title={"Cookies & Consent Policy"} breadcom={[{ title: "Cookies" }]} />
 
             <div className="custom-container bg-white">
                 <p className="responsive-text text-[#1A2E33]  font-medium  mt-10   mb-2 sm:mb-5  ">{`At `}<strong>{`Zentrail`}</strong>{`, we value your privacy. This Cookies Policy explains how and why cookies and similar technologies are used when you visit our website.`}</p>
@@ -96,17 +78,14 @@ const Page = () => {
                     <li>{`To collect anonymized visitor statistics.`}</li>
                 </ul>
                 <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`Your Consent`}</h2>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1 ">{`When you first visit `}<a
-                    href={`https://${"www.zentrail.in".replace(
-                        /\s/g,
-                        ""
-                    )} `}
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1 ">{`When you first visit `} </p>
+                <Link href="https://www.zentrail.in"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className=" cursor-pointer responsive-text   text-[#35C0F0]  gap-1.5 "
-                >
-                    {"www.zentrail.in"}
-                </a> {`, a cookie consent banner will appear asking for your permission. By continuing to use the website, you consent to our use of cookies as outlined in this policy.`}</p>
+                    rel="noopener noreferrer">
+                    <p className='responsive-text font-medium text-blue-400'>
+                        {"www.zentrail.in"} </p>
+                </Link>
+                <p> {`, a cookie consent banner will appear asking for your permission. By continuing to use the website, you consent to our use of cookies as outlined in this policy.`}</p>
                 <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">{`You may`} <strong>{`accept`}</strong>{`,`} <strong>{`reject`}</strong>{`, or`}  <strong>{`customize`}</strong> {` your cookie settings.`}</p>
                 <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`Managing Cookies`}</h2>
                 <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-3 ">{`You can control cookies through your browser settings. Here's how:`}</p>
@@ -130,23 +109,22 @@ const Page = () => {
                 <p className="responsive-text text-[#1A2E33]  font-medium  mb-4 sm:mb-4 ">{`For queries about cookies or privacy:`}</p>
                 <p className="responsive-text text-[#1A2E33]  font-medium mb-2  "><strong>{`Zentrail`}</strong></p>
                 <p className="responsive-text text-[#1A2E33]  font-medium mb-1  items-center flex gap-1.5"><FaMapPin />{`Plot No 500, Kakrola Housing Complex, Dwarka Mor, Delhi – 17079`}</p>
-                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium mb-1  ">
-                    <a
-                        href={`mailto:${"info@zentrail.in"}`}
-                        className=" responsive-text text-[#1A2E33] cursor-pointer items-center text-sm md:text-sm lg:text-md flex gap-1.5"
+                <Link href="mailto:info@zentrail.in">
+                    <p className="dm_sans responsive-text text-[#1A2E33] font-medium mb-1 cursor-pointer items-center text-sm md:text-sm lg:text-md flex gap-1.5"
                     >
-                        <TfiEmail />{`Email: `}<strong>{"info@zentrail.in"}</strong>
-                    </a></p>
-                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium mb-2  ">
-                    <a
-                        href="tel:8287316546"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className=" cursor-pointer responsive-text items-center  text-[#1A2E33] flex gap-1.5 "
+                        <TfiEmail />
+                        {`Email: `}
+                        <strong>{"info@zentrail.in"}</strong>
+                    </p>
+                </Link>
+                <Link href="tel:8287316546">
+                    <p className="dm_sans responsive-text text-[#1A2E33] font-medium mb-2 cursor-pointer items-center flex gap-1.5"
                     >
-                        <MdCall />{"Phone: "} <strong>{"+91 8287316546"}</strong>
-                    </a>
-                </p>
+                        <MdCall />
+                        {"Phone: "}
+                        <strong>{"+91 8287316546"}</strong>
+                    </p>
+                </Link>
                 <div className="justify-items-center sm:justify-items-end   sm:w-full mt-5 mb-14">
                     <p className="text-[20px]  pr-12 mb-2 text-[#4D5D60]">{`Powered by-`}</p>
                     <div  >

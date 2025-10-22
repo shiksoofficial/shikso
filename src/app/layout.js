@@ -1,8 +1,9 @@
-import { Geist, Geist_Mono ,DM_Sans,  Indie_Flower, } from "next/font/google";
+import { Geist, Geist_Mono, DM_Sans, Indie_Flower, } from "next/font/google";
 import "./globals.css";
 import Header from "@/common-component/Header/Header";
 import Footer from "@/common-component/Footer/Footer";
 import ProgressBar from "@/common-component/ProgressBar";
+import { Provider } from "jotai";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +23,7 @@ export const dmSans = DM_Sans({
 export const indieFlower = Indie_Flower({
   subsets: ["latin"],
   variable: "--font-indie-flower",
-   weight: ["400"],
+  weight: ["400"],
 });
 
 // export const metadata = {
@@ -37,9 +38,11 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable}  ${indieFlower.variable} ${dmSans.variable} antialiased`}
       >
         <ProgressBar />
-        <Header/>
-        {children}
-        <Footer/>
+        <Provider>
+          <Header />
+          {children}
+          <Footer />
+        </Provider>
       </body>
     </html>
   );

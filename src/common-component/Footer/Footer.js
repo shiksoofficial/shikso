@@ -83,7 +83,7 @@ const Footer = () => {
                   key={index}
                   href={link.url}
                   className={`text-sm md:text-base  text-white hover:text-rose-600 transition-colors ${
-                    pathname === link.url ? "text-red-500" : ""
+                    pathname === link.url ? "text-red-500 underline" : ""
                   }`}
                 >
                   {link.label}
