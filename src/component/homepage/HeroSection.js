@@ -1,5 +1,5 @@
 "use client"
-import CustomButton from "@/common-component/CustomButton/CustomButton";
+import CustomButton from "../../common-component/CustomButton/CustomButton";
 import { countAtom } from "@/store/atoms";
 import { useAtom } from "jotai";
 import CustomLinkBtn from "@/common-component/CustomLinkBtn/CustomLinBtn";

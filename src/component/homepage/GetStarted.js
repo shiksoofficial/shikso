@@ -1,4 +1,4 @@
-import CustomButton from '@/common-component/CustomButton/CustomButton'
+import CustomButton from '../../common-component/CustomButton/CustomButton'
 import React from 'react'
 
 const GetStarted = () => {

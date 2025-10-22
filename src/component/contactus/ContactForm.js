@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import CustomButton from '@/common-component/CustomButton/CustomButton'
+import CustomButton from '../../common-component/CustomButton/CustomButton'
 import CustomInput from '@/common-component/CustomInput'
 import { apiClient } from '@/lib/api-client'
 import { useForm } from 'react-hook-form'
