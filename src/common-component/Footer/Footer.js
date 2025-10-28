@@ -20,6 +20,7 @@ const Footer = () => {
       { label: "About us", url: "/about-us" },
       { label: "Contact us", url: "/contact-us" },
       { label: "Blogs", url: "/blogs" },
+      { label: "News", url: "/educational-news" },
       // { label: "Gallery", url: "/gallery" },
     ],
 
@@ -82,9 +83,8 @@ const Footer = () => {
                 <Link
                   key={index}
                   href={link.url}
-                  className={`text-sm md:text-base  text-white hover:text-rose-600 transition-colors ${
-                    pathname === link.url ? "text-red-500 underline" : ""
-                  }`}
+                  className={`text-sm md:text-base  text-white hover:text-rose-600 transition-colors ${pathname === link.url ? "text-red-500 underline" : ""
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -179,9 +179,8 @@ const Footer = () => {
               <span key={i} className="flex items-center">
                 <Link
                   href={link.url}
-                  className={`hover:underline capitalize ${
-                    pathname === link.url ? "underline" : ""
-                  }`}
+                  className={`hover:underline capitalize ${pathname === link.url ? "underline" : ""
+                    }`}
                 >
                   {link.label}
                 </Link>

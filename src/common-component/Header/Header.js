@@ -98,6 +98,7 @@ const Header = () => {
     { title: "Home", href: "/" },
     { title: "About", href: "/about-us" },
     { title: "Blog", href: "/blogs" },
+    { title: "News", href: "/educational-news" },
     { title: "Contact", href: "/contact-us" },
   ];
 
@@ -108,11 +109,11 @@ const Header = () => {
           <p className="dm_sans text-[50px] font-bold text-white">{`Kiddy.`}</p>
           <div className="hidden md:flex gap-5 text-sm">
             <div className="w-[250px] flex gap-5 items-center">
-              <div><MdLocationPin size={30} color="#fdb62f"/></div>
+              <div><MdLocationPin size={30} color="#fdb62f" /></div>
               <span className="dm_sans text-white">{`34 Street Name, City Name Here, United States`}</span>
             </div>
             <div className="w-[250px] flex gap-5 items-center">
-              <div><FaRegClock size={30} color="#dc3545"/></div> <span className="dm_sans text-white">{`Sunday - Friday 8:00AM - 4:00PM 
+              <div><FaRegClock size={30} color="#dc3545" /></div> <span className="dm_sans text-white">{`Sunday - Friday 8:00AM - 4:00PM 
               Saturday CLOSED`}</span>
             </div>
           </div>
