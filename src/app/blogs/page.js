@@ -27,7 +27,7 @@ export const metadata = {
   },
 };
 const BlogPage = async () => {
-    const res = await apiClient.get(`${BASE_URL_API}blogs/all/ed_tech`);
+    const res = await apiClient.get(`${BASE_URL_API}blogs/all/ed_tech?type=blogs`);
     const posts = res?.data;
     return (
         <div>
