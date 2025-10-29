@@ -4,6 +4,7 @@ import HeroSection from '@/component/homepage/HeroSection'
 import { BASE_URL_API } from '@/lib/common'
 import axios from 'axios'
 import React, { useId } from 'react'
+
 // Dynamic Metadata Function
 export async function generateMetadata({ params }) {
   try {
@@ -22,14 +23,14 @@ export async function generateMetadata({ params }) {
       "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100"
 
     return {
-      title: blog?.meta?.title || "Blog Detail",
+      title: blog?.meta?.title || "News Detail",
       description: blog?.meta?.description,
-      keywords: blog?.meta?.keywords || ["blog", "zentrail", "travel"],
+      keywords: blog?.meta?.keywords || ["blog"],
       alternates: {
         canonical: canonicalUrl
       },
       openGraph: {
-        title: blog?.meta?.title || "Blog Detail",
+        title: blog?.meta?.title || "News Detail",
         description: blog?.meta?.description,
         images: [
           {
@@ -62,14 +63,15 @@ export async function generateMetadata({ params }) {
     }
   }
 }
-const BlogDesc = async ({ params }) => {
+
+const EducationalNewsDesc = async ({ params }) => {
   const { id } = await params
   const data = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech`)
   return (
     <div>
-      <HeroSection imageurl={data?.data?.blog?.featuredImage?.url} title="Welcome to Our Website" title2="Our Blogs" button={false} breadcom={[{ title: "Blogs" }, {
+      <HeroSection imageurl={data?.data?.blog?.featuredImage?.url} title="Welcome to Our Website" title2="Educational News" button={false} breadcom={[{ title: "News" }, {
         id: 2,
-        title: ` ${data?.data?.blog?.uid}` || "Blog Detail",
+        title: ` ${data?.data?.blog?.uid}` || "News Detail",
 
       },]} />
       <BlogDescription blog={data?.data?.blog} />
@@ -80,4 +82,4 @@ const BlogDesc = async ({ params }) => {
   )
 }
 
-export default BlogDesc
+export default EducationalNewsDesc;

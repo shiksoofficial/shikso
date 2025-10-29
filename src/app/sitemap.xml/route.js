@@ -7,6 +7,7 @@ export async function GET() {
     "about-us",
     "contact-us",
     "blogs",
+    "educational-news",
     "disclaimer-policy",
     "privacy-policy",
     "terms-and-conditions",
@@ -15,7 +16,7 @@ export async function GET() {
 
   let blogs = [];
   try {
-    const blogResponse = await apiClient.get("blogs/all/travel");
+    const blogResponse = await apiClient.get("blogs/all/ed_tech?type=blog");
     const data = blogResponse.data.blogs;
 
     if (Array.isArray(data)) {
@@ -24,7 +25,20 @@ export async function GET() {
   } catch (error) {
     console.log("Error fetching blogs:", error);
   }
-  const allUrls = staticPages.concat(blogs);
+
+  let news = [];
+  try {
+    const blogResponse = await apiClient.get("blogs/all/ed_tech?type=news");
+    const data = blogResponse.data.blogs;
+
+    if (Array.isArray(data)) {
+      news = data.map((item) => `educational-news/${item?.uid}`);
+    }
+  } catch (error) {
+    console.log("Error fetching blogs:", error);
+  }
+
+  const allUrls = staticPages.concat(blogs,news);
 
   const urls = allUrls.map((page) => {
     return `
