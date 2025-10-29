@@ -8,22 +8,22 @@ import { getCanonicalUrl } from '@/lib/seo'
 import axios from 'axios'
 
 export const metadata = {
-  title: "Blog",
-  description: "Get in touch with us for inquiries or collaborations.",
-  keywords: ["contact", "zentrail", "support"],
-  alternates: { canonical: getCanonicalUrl("/blogs") },
-  openGraph: {
-    title: "Blog",
-    description: "Reach out for any queries.",
-    url: getCanonicalUrl("/"),
-    images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
-  },
+    title: "News",
+    description: "Get in touch with us for inquiries or collaborations.",
+    keywords: ["contact", "zentrail", "support"],
+    alternates: { canonical: getCanonicalUrl("/educational-news") },
+    openGraph: {
+        title: "News",
+        description: "Reach out for any queries.",
+        url: getCanonicalUrl("/"),
+        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    },
     twitter: {
-    card: 'summary_large_image',
-    title: "Blog",
-    description:"Reach out for any queries.",
-    images:[{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
-  },
+        card: 'summary_large_image',
+        title: "News",
+        description: "Reach out for any queries.",
+        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    },
 };
 
 const EducationalNewsPage = async () => {
@@ -48,7 +48,7 @@ const EducationalNewsPage = async () => {
                         <div className='p-3'>
                             <p className='text-slate-500 text-[13px]'>{val?.createdAt.split("T")[0]}</p>
                             <h3 className='line-clamp-2 mt-3 mb-4 h-[50px]'>{val.title}</h3>
-                            <CustomLinkBtn color='red' height="30px" href={`blogs/${val?.uid}`}>{`Read More +`}</CustomLinkBtn>
+                            <CustomLinkBtn color='red' height="30px" href={`educational-news/${val?.uid}`}>{`Read More +`}</CustomLinkBtn>
                         </div>
                     </div>)}
                 </div>

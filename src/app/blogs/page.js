@@ -27,8 +27,9 @@ export const metadata = {
   },
 };
 const BlogPage = async () => {
-    const res = await apiClient.get(`${BASE_URL_API}blogs/all/ed_tech?type=blogs`);
+    const res = await apiClient.get(`${BASE_URL_API}blogs/all/ed_tech?type=blog`);
     const posts = res?.data;
+    console.log(posts);
     return (
         <div>
             <HeroSection imageurl="https://i.pinimg.com/1200x/ab/fb/b8/abfbb88b47aeca6f22df1302f6f92f64.jpg" title="Welcome to Our Website" title2="Our Blogs" button={false} breadcom ={[{title: "Blogs"}]}/>
