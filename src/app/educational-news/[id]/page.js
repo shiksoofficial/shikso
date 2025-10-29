@@ -14,7 +14,7 @@ export async function generateMetadata({ params }) {
     console.log(blog)
 
     // Base URL for canonical and images
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://zentrail-delta.vercel.app"
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ed-tech-opal.vercel.app"
     const canonicalUrl = `${baseUrl}/blogs/${id}`
 
     // Default image fallback
@@ -23,14 +23,14 @@ export async function generateMetadata({ params }) {
       "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100"
 
     return {
-      title: blog?.meta?.title || "Blog Detail",
+      title: blog?.meta?.title || "News Detail",
       description: blog?.meta?.description,
-      keywords: blog?.meta?.keywords || ["blog", "zentrail", "travel"],
+      keywords: blog?.meta?.keywords || ["blog"],
       alternates: {
         canonical: canonicalUrl
       },
       openGraph: {
-        title: blog?.meta?.title || "Blog Detail",
+        title: blog?.meta?.title || "News Detail",
         description: blog?.meta?.description,
         images: [
           {
@@ -71,7 +71,7 @@ const EducationalNewsDesc = async ({ params }) => {
     <div>
       <HeroSection imageurl={data?.data?.blog?.featuredImage?.url} title="Welcome to Our Website" title2="Educational News" button={false} breadcom={[{ title: "News" }, {
         id: 2,
-        title: ` ${data?.data?.blog?.uid}` || "Blog Detail",
+        title: ` ${data?.data?.blog?.uid}` || "News Detail",
 
       },]} />
       <BlogDescription blog={data?.data?.blog} />
