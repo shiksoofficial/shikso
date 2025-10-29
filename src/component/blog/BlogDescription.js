@@ -29,35 +29,45 @@ const BlogDescription = ({ blog }) => {
      padding-bottom:20px;
      padding-top:20px;
 }
-
-@media (max-width: 640px) {
+     @media (min-width: 250px) {
   .custom-container {
   margin-left: auto;
   margin-right: auto;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     padding-bottom:20px;
-       padding-top:20px;
+       padding-top:30px;
   }
 }
-@media (max-width: 768px) {
+
+@media (min-width: 640px) {
+  .custom-container {
+  margin-left: auto;
+  margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom:20px;
+       padding-top:30px;
+  }
+}
+@media (min-width: 768px) {
   .custom-container {
   margin-left: auto;
   margin-right: auto;
     padding-left: 2rem;
     padding-right: 2rem;
       padding-bottom:20px;
-         padding-top:20px;
+         padding-top:30px;
   }
 }
-@media (max-width: 1024px) {
+@media (min-width: 1024px) {
   .custom-container {
   margin-left: auto;
   margin-right: auto;
     padding-left: 2.5rem;
     padding-right: 2.5rem;
       padding-bottom:20px;
-         padding-top:20px;
+         padding-top:30px;
   }
 }
 
