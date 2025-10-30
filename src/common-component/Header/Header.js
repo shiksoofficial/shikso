@@ -108,14 +108,14 @@ const Header = () => {
         <div className="flex justify-between py-5 items-center">
           <p className="dm_sans text-[50px] font-bold text-white">{`Kiddy.`}</p>
           <div className="hidden md:flex gap-5 text-sm">
-            <div className="w-[250px] flex gap-5 items-center">
+            <div className="w-[350px] flex gap-5 items-center">
               <div><MdLocationPin size={30} color="#fdb62f" /></div>
-              <span className="dm_sans text-white">{`34 Street Name, City Name Here, United States`}</span>
+              <span className="dm_sans text-white">{`SRP co-working space, 48, E-5, Arera Colony, Bhopal, Madhya Pradesh, India , 462016`}</span>
             </div>
-            <div className="w-[250px] flex gap-5 items-center">
+            {/* <div className="w-[250px] flex gap-5 items-center">
               <div><FaRegClock size={30} color="#dc3545" /></div> <span className="dm_sans text-white">{`Sunday - Friday 8:00AM - 4:00PM 
               Saturday CLOSED`}</span>
-            </div>
+            </div> */}
           </div>
         </div>
 

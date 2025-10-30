@@ -25,8 +25,8 @@ const Footer = () => {
     ],
 
     contactInfo: {
-      phone: "+91 7777777777",
-      email: "test@mail.com",
+      phone: "+91 7974186754",
+      email: "info@vyomedge.com",
     },
     socialMedia: [
       {
