@@ -97,8 +97,19 @@ const Footer = () => {
           <div className="col-span-6 sm:col-span-6  lg:col-span-3  text-white">
             <div className=" mb-1  sm:mb-5 text-[20px] dm_sans  text-red-500">{`Contact Info`}</div>
             <div className="flex items-center gap-3.5 text-sm md:text-base">
+
               <div className="relative">
-                <IoLogoWhatsapp size={28} />
+                <Link
+                  href={`https://wa.me/${footerData.contactInfo.phone.replace(
+                    /\s/g,
+                    ""
+                  )} `}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dm_sans hover:underline cursor-pointer"
+                >
+                  <IoLogoWhatsapp size={28} />
+                </Link>
               </div>
               <Link
                 href={`https://wa.me/${footerData.contactInfo.phone.replace(
@@ -114,7 +125,12 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-3.5 text-sm md:text-base mt-3">
               <div className="relative">
-                <RiTelegram2Fill size={28} />
+                <Link
+                  href={`mailto:${footerData.contactInfo.email}`}
+                  className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
+                >
+                  <RiTelegram2Fill size={28} />
+                </Link>
               </div>
               <Link
                 href={`mailto:${footerData.contactInfo.email}`}
