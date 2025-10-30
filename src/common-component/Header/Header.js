@@ -106,11 +106,11 @@ const Header = () => {
     <header className="absolute left-0 w-full z-[100]">
       <div className="custom-container">
         <div className="flex justify-between py-5 items-center">
-          <p className="dm_sans text-[50px] font-bold text-white">{`Kiddy.`}</p>
+          <p className="dm_sans text-[50px] font-bold text-white">{`SHIKSO`}</p>
           <div className="hidden md:flex gap-5 text-sm">
             <div className="w-[350px] flex gap-5 items-center">
               <div><MdLocationPin size={30} color="#fdb62f" /></div>
-              <span className="dm_sans text-white">{`SRP co-working space, 48, E-5, Arera Colony, Bhopal, Madhya Pradesh, India , 462016`}</span>
+              <span className="dm_sans text-white">{` FF12, SRP Arcade, E-5/48, E-5, Arera Colony, Bhopal, Madhya Pradesh 462016`}</span>
             </div>
             {/* <div className="w-[250px] flex gap-5 items-center">
               <div><FaRegClock size={30} color="#dc3545" /></div> <span className="dm_sans text-white">{`Sunday - Friday 8:00AM - 4:00PM 

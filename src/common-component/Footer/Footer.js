@@ -5,14 +5,16 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { RiTelegram2Fill } from "react-icons/ri";
+import { FaLocationDot } from "react-icons/fa6";
+
 const Footer = () => {
   const pathname = usePathname();
 
   const footerData = {
     brand: {
-      name: "About Us",
+      name: "About Shikso",
       description:
-        "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.",
+        "Shikso is a next-generation smart learning platform built to empower students, parents, and schools through AI-powered, gamified, and adaptive education systems. We make learning smarter, measurable, and accessible — for everyone.",
       // logo: "/footerlogo.png",
     },
     quickLinks1: [
@@ -26,7 +28,8 @@ const Footer = () => {
 
     contactInfo: {
       phone: "+91 7974186754",
-      email: "info@vyomedge.com",
+      email: "support@shikso.com",
+      address: "FF12, SRP Arcade, E-5/48, E-5, Arera Colony, Bhopal, Madhya Pradesh 462016",
     },
     socialMedia: [
       {
@@ -60,7 +63,7 @@ const Footer = () => {
       { label: "Disclaimer", url: "/disclaimer-policy" },
       { label: "Cookies", url: "/cookies-policy" },
     ],
-    copyright: " xyz.com",
+    copyright: " Shikso.com",
   };
   return (
     <footer className="bg-[#1A2E33] ">
@@ -118,6 +121,17 @@ const Footer = () => {
                 className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
               >
                 {footerData.contactInfo.email}
+              </Link>
+            </div>
+            <div className="flex items-center gap-3.5 text-sm md:text-base mt-3">
+              <div className="relative">
+                <FaLocationDot size={28} />
+              </div>
+              <Link
+                href={`mailto:${footerData.contactInfo.email}`}
+                className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
+              >
+                {footerData.contactInfo.address}
               </Link>
             </div>
             {/* <div className="flex gap-1 sm:gap-2 mt-3.5 sm:mt-5 md:mt-6">
