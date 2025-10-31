@@ -4,6 +4,7 @@ import Header from "@/common-component/Header/Header";
 import Footer from "@/common-component/Footer/Footer";
 import ProgressBar from "@/common-component/ProgressBar";
 import { Provider } from "jotai";
+import ClientWrapper from "@/common-component/ConnectUsModal/ClientWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,9 +40,11 @@ export default function RootLayout({ children }) {
       >
         <ProgressBar />
         <Provider>
-          <Header />
-          {children}
-          <Footer />
+          <ClientWrapper>
+            <Header />
+            {children}
+            <Footer />
+          </ClientWrapper>
         </Provider>
       </body>
     </html>

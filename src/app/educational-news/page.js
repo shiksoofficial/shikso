@@ -8,30 +8,34 @@ import { getCanonicalUrl } from '@/lib/seo'
 import axios from 'axios'
 
 export const metadata = {
-    title: "News",
-    description: "Get in touch with us for inquiries or collaborations.",
-    keywords: ["contact", "zentrail", "support"],
+    title: "Shikso News | Educational Updates | Smart Learning & AI in Education",
+    description: "Stay informed with Shikso News — your trusted source for educational updates, AI in education, digital classrooms, and smart learning innovations in India and beyond.",
+    keywords: ["Shikso news", " educational news India", " smart learning news", "AI education updates", " modern school news", "gamified learning", "Shikso SmartSet updates", "digital education trends", " online learning news"],
     alternates: { canonical: getCanonicalUrl("/educational-news") },
     openGraph: {
-        title: "News",
-        description: "Reach out for any queries.",
+        title: "Shikso News | Educational Updates | Smart Learning & AI in Education",
+        description: "Stay informed with Shikso News — your trusted source for educational updates, AI in education, digital classrooms, and smart learning innovations in India and beyond.",
         url: getCanonicalUrl("/"),
         images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
     },
     twitter: {
         card: 'summary_large_image',
-        title: "News",
-        description: "Reach out for any queries.",
+        title: "Shikso News | Educational Updates | Smart Learning & AI in Education",
+        description: "Stay informed with Shikso News — your trusted source for educational updates, AI in education, digital classrooms, and smart learning innovations in India and beyond.",
         images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
     },
 };
 
 const EducationalNewsPage = async () => {
-    const res = await apiClient.get(`${BASE_URL_API}blogs/all/ed_tech?type=news`);
+    const res = await apiClient.get(`${BASE_URL_API}blogs/all/ed_tech?type=news&status=Published`);
     const posts = res?.data;
     return (
         <div>
-            <HeroSection imageurl="https://i.pinimg.com/1200x/ab/fb/b8/abfbb88b47aeca6f22df1302f6f92f64.jpg" title="Welcome to Our Website" title2="Educational News" button={false} breadcom={[{ title: "News" }]} />
+            <HeroSection imageurl="https://i.pinimg.com/1200x/ab/fb/b8/abfbb88b47aeca6f22df1302f6f92f64.jpg"
+                title="Welcome to Shikso Educational News"
+                title2="Latest Updates from the World of Smart Learning"
+                paragraph="Explore the latest happenings in modern education — from AI-based learning systems to digital classroom transformation, all brought to you by Shikso."
+                button={false} breadcom={[{ title: "News" }]} />
             <div className="custom-container p-6 md:p-10">
                 <h2 className='responsiveheading2 mb-5'>{`Educational News`}</h2>
                 <div className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">

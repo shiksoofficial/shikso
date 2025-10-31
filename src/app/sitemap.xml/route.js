@@ -16,7 +16,7 @@ export async function GET() {
 
   let blogs = [];
   try {
-    const blogResponse = await apiClient.get("blogs/all/ed_tech?type=blog");
+    const blogResponse = await apiClient.get("blogs/all/ed_tech?type=blog&status=Published");
     const data = blogResponse.data.blogs;
 
     if (Array.isArray(data)) {
@@ -28,7 +28,7 @@ export async function GET() {
 
   let news = [];
   try {
-    const blogResponse = await apiClient.get("blogs/all/ed_tech?type=news");
+    const blogResponse = await apiClient.get("blogs/all/ed_tech?type=news&status=Published");
     const data = blogResponse.data.blogs;
 
     if (Array.isArray(data)) {
