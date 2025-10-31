@@ -1,4 +1,5 @@
 import HeroSection from '@/component/homepage/HeroSection'
+import { getCanonicalUrl } from '@/lib/seo';
 import React from 'react'
 
 export const metadata = {
