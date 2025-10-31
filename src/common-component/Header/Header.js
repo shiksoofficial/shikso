@@ -87,6 +87,9 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { MdMenu, MdClose } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa";
 import { MdLocationPin } from "react-icons/md";
+import { FaPinterestP } from "react-icons/fa6";
+import { FaTumblr } from "react-icons/fa6";
+import { RiInstagramFill } from "react-icons/ri";
 
 
 
@@ -106,7 +109,7 @@ const Header = () => {
     <header className="absolute left-0 w-full z-[100]">
       <div className="custom-container">
         <div className="flex justify-between py-5 items-center">
-          <p className="dm_sans text-[50px] font-bold text-white">{`SHIKSO`}</p>
+          <Link href="/"> <p className="dm_sans text-[50px] font-bold text-white">{`SHIKSO`}</p></Link>
           <div className="hidden md:flex gap-5 text-sm">
             <div className="w-[350px] flex gap-5 items-center">
               <div><MdLocationPin size={30} color="#fdb62f" /></div>
@@ -144,9 +147,12 @@ const Header = () => {
             </button>
 
             <ul className="flex gap-4 text-black">
-              <li><Link href="/" aria-label="facebook link"><FaFacebookF /></Link></li>
-              <li><Link href="/" aria-label="twitter link"><FaTwitter /></Link></li>
-              <li><Link href="/" aria-label="linkedin link"><FaLinkedinIn /></Link></li>
+              <li><Link href="/"  target="_blank" rel="noopener noreferrer" aria-label="facebook link" ><FaFacebookF /></Link></li>
+              <li><Link href="/https://x.com/shiksoofficial"  target="_blank" rel="noopener noreferrer" aria-label="twitter link"><FaTwitter /></Link></li>
+              <li><Link href="/"  target="_blank" rel="noopener noreferrer" aria-label="linkedin link"><FaLinkedinIn /></Link></li>
+              <li><Link href="/https://www.pinterest.com/shiksoofficial/?actingBusinessId=1094515653098162404"  target="_blank" rel="noopener noreferrer" aria-label="PinIntrest link"><FaPinterestP /></Link></li>
+              <li><Link href="/https://www.tumblr.com/dashboard"  target="_blank" rel="noopener noreferrer" aria-label="Tumblr link">< FaTumblr /></Link></li>
+              <li><Link href="/https://www.instagram.com/shikso_official?utm_source=qr&igsh=MWdoMWttaXYwOHhnZA=="  target="_blank" rel="noopener noreferrer" aria-label="Instagram link"><RiInstagramFill /></Link></li>
             </ul>
           </div>
         </div>

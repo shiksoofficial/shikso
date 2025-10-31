@@ -61,15 +61,15 @@ const ConnectUsModal = ({ open, setOpen }) => {
                     {/* Close Button */}
                     <button
                         onClick={handleClose}
-                        className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 transition-colors  rounded-full p-1.5 shadow-md hover:shadow-lg hover:bg-white z-10"
+                        className="absolute top-4 right-3 sm:right-4 text-gray-600 hover:text-gray-900 transition-colors   hover:bg-white z-10"
                         aria-label="Close modal"
                     >
                         <IoClose size={24} />
                     </button>
 
                     {/* Modal Content */}
-                    <div className="p-6 md:p-8">
-                        <h2 className="dm_sans responsiveheading2 text-center mb-1 ">
+                    <div className="p-6 md:p-8 w-fit m-auto">
+                        <h2 className="dm_sans  responsiveheading6 text-center mb-1 ">
                             {`Get In Touch Using The Contact Form`}
                         </h2>
 
