@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
     console.log(blog)
 
     // Base URL for canonical and images
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ed-tech-opal.vercel.app"
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.shikso.com"
     const canonicalUrl = `${baseUrl}/blogs/${id}`
 
     // Default image fallback

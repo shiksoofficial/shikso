@@ -11,11 +11,10 @@ export async function generateMetadata({ params }) {
     const { id } = await params
     const { data } = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech`)
     const blog = data?.blog
-    console.log(blog)
 
     // Base URL for canonical and images
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ed-tech-opal.vercel.app"
-    const canonicalUrl = `${baseUrl}/blogs/${id}`
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.shikso.com"
+    const canonicalUrl = `${baseUrl}/educational-news/${id}`
 
     // Default image fallback
     const ogImage = blog?.featuredImage?.url ||
