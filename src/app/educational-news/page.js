@@ -27,7 +27,9 @@ export const metadata = {
 };
 
 const EducationalNewsPage = async () => {
-    const res = await apiClient.get(`${BASE_URL_API}blogs/all/ed_tech?type=news&status=Published`);
+    const res = await apiClient.get(`${BASE_URL_API}blogs/all/ed_tech?type=news&status=Published`,
+        { cache: "no-store" }
+    );
     const posts = res?.data;
     return (
         <div>

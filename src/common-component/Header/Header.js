@@ -19,7 +19,7 @@
 //               {`34 Street Name, City Name Here, United States`}
 //             </p>
 //             <p className="w-[250px] leading-tight text-white">
-//               {`Sunday - Friday 8:00AM - 4:00PM 
+//               {`Sunday - Friday 8:00AM - 4:00PM
 //               Saturday CLOSED`}
 //             </p>
 //           </div>
@@ -91,8 +91,6 @@ import { FaPinterestP } from "react-icons/fa6";
 import { FaTumblr } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
 
-
-
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname(); // current path
@@ -109,10 +107,15 @@ const Header = () => {
     <header className="absolute left-0 w-full z-[100]">
       <div className="custom-container">
         <div className="flex justify-between py-5 items-center">
-          <Link href="/"> <p className="dm_sans text-[50px] font-bold text-white">{`SHIKSO`}</p></Link>
+          <Link href="/">
+            {" "}
+            <p className="dm_sans text-[50px] font-bold text-white">{`SHIKSO`}</p>
+          </Link>
           <div className="hidden md:flex gap-5 text-sm">
             <div className="w-[350px] flex gap-5 items-center">
-              <div><MdLocationPin size={30} color="#fdb62f" /></div>
+              <div>
+                <MdLocationPin size={30} color="#fdb62f" />
+              </div>
               <span className="dm_sans text-white">{` FF12, SRP Arcade, E-5/48, E-5, Arera Colony, Bhopal, Madhya Pradesh 462016`}</span>
             </div>
             {/* <div className="w-[250px] flex gap-5 items-center">
@@ -127,7 +130,7 @@ const Header = () => {
             {menuItems.map((item, i) => (
               <li key={i}>
                 <Link
-                  aria-label="menuss"
+                  aria-label="menu"
                   href={item.href}
                   className={pathname === item.href ? "text-red-800" : ""}
                 >
@@ -147,12 +150,66 @@ const Header = () => {
             </button>
 
             <ul className="flex gap-4 text-black">
-              <li><Link href="/"  target="_blank" rel="noopener noreferrer" aria-label="facebook link" ><FaFacebookF /></Link></li>
-              <li><Link href="/https://x.com/shiksoofficial"  target="_blank" rel="noopener noreferrer" aria-label="twitter link"><FaTwitter /></Link></li>
-              <li><Link href="/"  target="_blank" rel="noopener noreferrer" aria-label="linkedin link"><FaLinkedinIn /></Link></li>
-              <li><Link href="/https://www.pinterest.com/shiksoofficial/?actingBusinessId=1094515653098162404"  target="_blank" rel="noopener noreferrer" aria-label="PinIntrest link"><FaPinterestP /></Link></li>
-              <li><Link href="/https://www.tumblr.com/dashboard"  target="_blank" rel="noopener noreferrer" aria-label="Tumblr link">< FaTumblr /></Link></li>
-              <li><Link href="/https://www.instagram.com/shikso_official?utm_source=qr&igsh=MWdoMWttaXYwOHhnZA=="  target="_blank" rel="noopener noreferrer" aria-label="Instagram link"><RiInstagramFill /></Link></li>
+              <li>
+                <Link
+                  href="https://www.facebook.com/people/Shikso/61582800338789/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="facebook link"
+                >
+                  <FaFacebookF />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://x.com/shiksoofficial"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="twitter link"
+                >
+                  <FaTwitter />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="linkedin link"
+                >
+                  <FaLinkedinIn />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://in.pinterest.com/shiksoofficial/?actingBusinessId=1094515653098162404"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Pinterest link"
+                >
+                  <FaPinterestP />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.tumblr.com/dashboard"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Tumblr link"
+                >
+                  <FaTumblr />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.instagram.com/shikso_official?igsh=MTU0c2liODFxdTJqeg=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram link"
+                >
+                  <RiInstagramFill />
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -160,15 +217,17 @@ const Header = () => {
 
       {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black/50 z-[99] transition-opacity duration-300 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
+        className={`fixed inset-0 bg-black/50 z-[99] transition-opacity duration-300 ${
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
         onClick={() => setIsOpen(false)}
       ></div>
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white z-[100] p-6 shadow-lg transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed top-0 right-0 h-full w-64 bg-white z-[100] p-6 shadow-lg transform transition-transform duration-300 ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex justify-between items-center mb-6">
           <p className="text-2xl font-semibold"></p>
