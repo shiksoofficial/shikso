@@ -43,7 +43,10 @@ const Page = () => {
                     })}{" "}
 
                 </p>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`Welcome to `}<strong className="font-bold">{`Shikso `}</strong>{` (https://www.shikso.com).`} </p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`Welcome to `}<strong className="font-bold">{`Shikso `}</strong>{`(`}
+                <Link href="https://www.shikso.com"  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="website link">{`www.shikso.com`}</Link>{`).`} </p>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2   ">{` This Cookies Policy explains how and why we use cookies and similar tracking technologies when you visit our website, mobile application, or use our online learning services.`}</p>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium mb-5 sm:mb-7 ">{`  They help websites recognize your device, store preferences, and enhance user experience by remembering information such as login details, browsing activity, and site preferences.`}</p>
                 <hr className='text-[#1A2E33] mt-2 mb-5'></hr>

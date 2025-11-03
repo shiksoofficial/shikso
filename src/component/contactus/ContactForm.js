@@ -6,6 +6,7 @@ import { apiClient } from '@/lib/api-client'
 import { useForm } from 'react-hook-form'
 import { FaUser } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
+import { toast } from "react-toastify";
 
 const ContactForm = () => {
   const {
@@ -30,11 +31,11 @@ const ContactForm = () => {
     try {
       const res = await apiClient.post("inquiryform/ed_tech", payload);
       console.log(res)
-      alert(res?.data?.message)
+      toast.success(res?.data?.message)
       reset();
     } catch (error) {
       console.log(error?.response?.data?.message);
-      alert(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message);
     }
   };
   return (
