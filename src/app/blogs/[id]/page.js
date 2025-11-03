@@ -67,11 +67,11 @@ const BlogDesc = async ({ params }) => {
   const data = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech`)
   return (
     <div>
-      <HeroSection imageurl={data?.data?.blog?.featuredImage?.url} title="Welcome to Our Website" title2="Our Blogs" button={false} breadcom={[{ title: "Blogs" }, {
-        id: 2,
-        title: ` ${data?.data?.blog?.uid}` || "Blog Detail",
-
-      },]} />
+      <HeroSection imageurl={data?.data?.blog?.featuredImage?.url} title="Welcome to Our Website" title2="Our Blogs" button={false} 
+       breadcom={[
+                    { title: "Blogs", url: "/blogs" },
+                    { title: data?.data?.blog?.uid || "Blogs Detail" },
+                ]} />
       <BlogDescription blog={data?.data?.blog} />
       {Array.isArray(data?.data?.blog?.faq) && data?.data?.blog?.faq?.[0]?.question?.length > 0 && (
         <CommonFaq faqData={data?.data?.blog?.faq} />

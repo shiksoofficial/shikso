@@ -66,12 +66,13 @@ const HeroSection = ({ imageurl, title, title2, paragraph, button, breadcom }) =
                   Home
                 </Link>
                 {breadcom?.map((item, index) => {
+                    const isLast = index === breadcom.length - 1;
                   return (
                     <React.Fragment key={index}>
                       /
-                      {item?.url ? (
+                    {!isLast ? (
                         <Link
-                          href={item?.url}
+                          href={item?.url || "#"}
                           className="dm_sans text-[15px] text-white hover:text-[#dc3545] transition-colors responsive-text"
                         >
                           {item.title}
