@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form'
 import { FaUser } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 import { IoClose } from 'react-icons/io5'
+import { toast } from 'react-toastify'
 
 const ConnectUsModal = ({ open, setOpen }) => {
     const handleClose = () => {
@@ -36,12 +37,12 @@ const ConnectUsModal = ({ open, setOpen }) => {
         try {
             const res = await apiClient.post("inquiryform/ed_tech", payload);
             console.log(res)
-            alert(res?.data?.message)
+            toast.success(res?.data?.message)
             reset();
             handleClose();
         } catch (error) {
             console.log(error?.response?.data?.message);
-            alert(error?.response?.data?.message);
+            toast.error(error?.response?.data?.message);
         }
     };
 

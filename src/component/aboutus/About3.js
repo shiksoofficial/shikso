@@ -38,7 +38,7 @@ const cardsData = [
 const About3 = () => {
   return (
     <div className="bg-[#17a2b8] p-2">
-      <div className="custom-container mt-6 md:mt-10 text-center">
+      <div className="custom-container mt-6 md:mt-10 text-center items-center justify-items-center">
         <h2 className="indie_flower font-light responsiveheading6 text-[#fd4d40] mb-1 leading-1.5">
           {`  Our Smart Learning Bundles`}  </h2>
         <h3 className="dm_sans responsiveheading2 text-white font-light mb-2 lg:mb-8 leading-1.5 ">

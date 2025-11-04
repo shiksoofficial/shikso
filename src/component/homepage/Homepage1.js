@@ -27,12 +27,14 @@ const data = [
 const Homepage1 = () => {
   return (
     <div className='custom-container my-10 md:my-20'>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 '>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 '>
         {data?.map((val) => <div key={val.id}>
           <div style={{ backgroundColor: val.color }} className='px-7 py-10'>
             <div style={{ backgroundColor: val.color }} className='size-15 justify-self-center rounded-full flex justify-center items-center mt-[-70px]'>{val.icon}</div>
             <p className='dm_sans text-white font-medium text-center mb-2'>{val.title}</p>
-            <p className='dm_sans text-slate-200 text-center'>{val.description}</p>
+            <div className='  sm:h-[175px] md:h-[130px] lg:h-[160px]'>
+              <p className='dm_sans text-slate-200 text-center'>{val.description}</p>
+            </div>
           </div>
         </div>)}
       </div>

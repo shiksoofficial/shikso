@@ -77,7 +77,7 @@ const Footer = () => {
               {footerData.brand.description}
             </p>
           </div>
-          <div className="col-span-6 sm:col-span-6  lg:col-span-3">
+          <div className="col-span-5 sm:col-span-6  lg:col-span-3">
             <div className="mb-1 sm:mb-5 text-[20px] dm_sans text-red-500">
               Quick Links
             </div>
@@ -94,7 +94,7 @@ const Footer = () => {
               ))}
             </div>
           </div>
-          <div className="col-span-6 sm:col-span-6  lg:col-span-3  text-white">
+          <div className="col-span-7 sm:col-span-6  lg:col-span-3  text-white">
             <div className=" mb-1  sm:mb-5 text-[20px] dm_sans  text-red-500">{`Contact Info`}</div>
             <div className="flex items-center gap-3.5 text-sm md:text-base">
 
@@ -141,11 +141,23 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-3.5 text-sm md:text-base mt-3">
               <div className="relative">
-                <FaLocationDot size={28} />
-              </div>
-              <Link
-                href={`mailto:${footerData.contactInfo.email}`}
+                  <Link
+              href={`https://www.google.com/maps?q=${encodeURIComponent(footerData.contactInfo.address)}`}
                 className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
+                 target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="address link"
+              >
+                <FaLocationDot size={28} />
+                  </Link>
+              </div>
+            
+               <Link
+              href={`https://www.google.com/maps?q=${encodeURIComponent(footerData.contactInfo.address)}`}
+                className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
+                 target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="address link"
               >
                 {footerData.contactInfo.address}
               </Link>

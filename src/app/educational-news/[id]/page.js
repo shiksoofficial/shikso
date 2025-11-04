@@ -68,11 +68,11 @@ const EducationalNewsDesc = async ({ params }) => {
   const data = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech`)
   return (
     <div>
-      <HeroSection imageurl={data?.data?.blog?.featuredImage?.url} title="Welcome to Our Website" title2="Educational News" button={false} breadcom={[{ title: "News" }, {
-        id: 2,
-        title: ` ${data?.data?.blog?.uid}` || "News Detail",
-
-      },]} />
+      <HeroSection imageurl={data?.data?.blog?.featuredImage?.url} title="Welcome to Our Website" title2="Educational News" button={false}
+        breadcom={[
+          { title: "News", url: "/educational-news" },
+          { title: data?.data?.blog?.uid || "News Detail"},
+        ]} />
       <BlogDescription blog={data?.data?.blog} />
       {Array.isArray(data?.data?.blog?.faq) && data?.data?.blog?.faq?.[0]?.question?.length > 0 && (
         <CommonFaq faqData={data?.data?.blog?.faq} />

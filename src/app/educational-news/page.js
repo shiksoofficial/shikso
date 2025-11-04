@@ -40,15 +40,20 @@ const EducationalNewsPage = async () => {
                 button={false} breadcom={[{ title: "News" }]} />
             <div className="custom-container p-6 md:p-10">
                 <h2 className='responsiveheading2 mb-5'>{`Educational News`}</h2>
-                <div className="grid grid-cols-2 xs:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                    {posts?.blogs?.map((val) => <div key={val?._id} className='shadow-md rounded-tl-[20px] rounded-tr-[0px] rounded-br-[20px] rounded-bl-[0px] overflow-hidden'>
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {posts?.blogs?.map((val) => <div key={val?._id} className=' rounded-tl-[20px] rounded-tr-[0px] rounded-br-[20px] rounded-bl-[0px] overflow-hidden
+                    shadow-md  transition-all duration-300 ease-in-out
+                     hover:scale-105 hover:shadow focus:scale-105 focus:shadow active:scale-105 active:shadow cursor-pointer'>
                         <div className='relative w-full h-[180px] rounded-tl-[20px] rounded-tr-[0px] rounded-br-[20px] rounded-bl-[0px] overflow-hidden'>
                             <Image
                                 src={val?.featuredImage?.url || "/placeholder.jpg"}
                                 fill
                                 quality={90}
                                 alt={val?.featuredImage?.alt || "Blog Image"}
-                                className='object-cover'
+                                className='object-cover transition-transform duration-300  
+                                group-hover:scale-110  
+                                group-focus:scale-110   
+                                group-active:scale-110'
                             />
                         </div>
                         <div className='p-3'>

@@ -22,7 +22,7 @@ const About1 = () => {
                     <h3 className='dm_sans responsiveheading2 font-light mb:2 lg:mb-4 leading-1.5 '>{` Empowering Students with Smart, Engaging, and AI-Powered Education`}</h3>
                     <p className='dm_sans responsive-text font-light text-[#6c757d] mb-1 leading-6! lg:leading-8! '>{` Shikso is an innovative AI-powered education platform designed to bridge the gap between traditional teaching and modern learning. Our mission is to make high-quality education accessible, interactive, and data-driven for every student — whether in cities or small towns.`}</p>
                     <p className='dm_sans responsive-text font-light text-[#6c757d] mb-1 leading-6! lg:leading-8! '>{`With SmartSets like Navodaya SmartSet and Sainik School SmartSet, we help students prepare for competitive school entrance exams through fun, gamified, and intelligent learning systems.`}</p>
-                    <p className='dm_sans responsive-text font-light text-[#6c757d] mb-1 leading-6! lg:leading-8! '>{`“At Shikso, we don’t just teach — we make students fall in love with learning.”`}</p>
+                    <p className='dm_sans responsive-text font-light text-[#6c757d]  mb-5 lg:mb-2 leading-6! lg:leading-8! '>{`“At Shikso, we don’t just teach — we make students fall in love with learning.”`}</p>
                     <CustomLinkBtn
                         href='/about-us'
                         color="#ffc107"
