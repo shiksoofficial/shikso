@@ -149,8 +149,8 @@ const Header = () => {
               <MdMenu size={28} color="#000" />
             </button>
 
-            <ul className="flex gap-4 text-black">
-              <li>
+            <ul className="flex gap-4  ">
+              <li className="text-blue-600">
                 <Link
                   href="https://www.facebook.com/people/Shikso/61582800338789/"
                   target="_blank"
@@ -160,17 +160,17 @@ const Header = () => {
                   <FaFacebookF />
                 </Link>
               </li>
-              <li>
+              <li  className="text-green-500">
                 <Link
                   href="https://x.com/shiksoofficial"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="twitter link"
                 >
-                  <FaTwitter />
+                  <FaTwitter  />
                 </Link>
               </li>
-              <li>
+              <li className="text-blue-900">
                 <Link
                   href="https://linkedin.com/"
                   target="_blank"
@@ -180,17 +180,17 @@ const Header = () => {
                   <FaLinkedinIn />
                 </Link>
               </li>
-              <li>
+              <li className="text-red-700">
                 <Link
                   href="https://in.pinterest.com/shiksoofficial/?actingBusinessId=1094515653098162404"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Pinterest link"
                 >
-                  <FaPinterestP />
+                  <FaPinterestP color="error" />
                 </Link>
               </li>
-              <li>
+              <li className="text-[#35465C]">
                 <Link
                   href="https://www.tumblr.com/dashboard"
                   target="_blank"
@@ -200,7 +200,7 @@ const Header = () => {
                   <FaTumblr />
                 </Link>
               </li>
-              <li>
+              <li className="text-[#C71585]">
                 <Link
                   href="https://www.instagram.com/shikso_official?igsh=MTU0c2liODFxdTJqeg=="
                   target="_blank"
