@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import CustomLinkBtn from '@/common-component/CustomLinkBtn/CustomLinBtn';
 import HeroSection from '@/component/homepage/HeroSection';
 import Image from 'next/image';

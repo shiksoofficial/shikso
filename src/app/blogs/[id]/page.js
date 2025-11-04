@@ -10,7 +10,6 @@ export async function generateMetadata({ params }) {
     const { id } = await params
     const { data } = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech`)
     const blog = data?.blog
-    console.log(blog)
 
     // Base URL for canonical and images
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.shikso.com"
@@ -67,7 +66,8 @@ const BlogDesc = async ({ params }) => {
   const data = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech`)
   return (
     <div>
-      <HeroSection imageurl={data?.data?.blog?.featuredImage?.url} title="Welcome to Our Website" title2="Our Blogs" button={false} 
+      <HeroSection imageurl={data?.data?.blog?.featuredImage?.url} title="Welcome to Our Website"
+       title2= {data?.data?.blog?.title} button={false} 
        breadcom={[
                     { title: "Blogs", url: "/blogs" },
                     { title: data?.data?.blog?.uid || "Blogs Detail" },
