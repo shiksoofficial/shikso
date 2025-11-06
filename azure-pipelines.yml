@@ -27,31 +27,31 @@ stages:
               vercel deploy --prod --token ARyuWAO6SJoPOyVWycwuqALp
             displayName: 'Deploy to Vercel (production)'
 
-  # - stage: Prod
-  #   displayName: 'Deploy to Production'
-  #   dependsOn: Dev
-  #   condition: succeeded()
-  #   jobs:
-  #     - deployment: DeployProd
-  #       environment: Production   
-  #       displayName: 'Deploy to Vercel - Prod'
-  #       variables:
-  #               VERCEL_PROJECT_ID: 'prj_MuXcIUzpCV9bDkNJDu2QIxWP9O3d'
-  #               VERCEL_ORG_ID: 'gPLVlvJxaFI0eeU4D9A2btu2'
-  #               VERCEL_TOKEN: 'ARyuWAO6SJoPOyVWycwuqALp'
+  - stage: Prod
+    displayName: 'Deploy to Production'
+    dependsOn: Dev
+    condition: succeeded()
+    jobs:
+      - deployment: DeployProd
+        environment: Production   
+        displayName: 'Deploy to Vercel - Prod'
+        variables:
+                VERCEL_PROJECT_ID: 'prj_MuXcIUzpCV9bDkNJDu2QIxWP9O3d'
+                VERCEL_ORG_ID: 'gPLVlvJxaFI0eeU4D9A2btu2'
+                VERCEL_TOKEN: 'ARyuWAO6SJoPOyVWycwuqALp'
 
-  #       strategy:
-  #         runOnce:
-  #           deploy:
+        strategy:
+          runOnce:
+            deploy:
             
-  #             steps:               
+              steps:               
 
-  #               - script: |
-  #                   vercel pull --yes --environment=production --token ARyuWAO6SJoPOyVWycwuqALp
-  #                 displayName: 'Pull Vercel environment variables'
+                - script: |
+                    vercel pull --yes --environment=production --token ARyuWAO6SJoPOyVWycwuqALp
+                  displayName: 'Pull Vercel environment variables'
 
-  #               - script: |
-  #                   vercel deploy --prod --token ARyuWAO6SJoPOyVWycwuqALp
-  #                 displayName: 'Deploy to Vercel (production)'
+                - script: |
+                    vercel deploy --prod --token ARyuWAO6SJoPOyVWycwuqALp
+                  displayName: 'Deploy to Vercel (production)'
 
             
