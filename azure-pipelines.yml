@@ -13,7 +13,7 @@ stages:
       - job: DeployDev
         displayName: 'Deploy to Vercel - Dev'
         variables:
-          VERCEL_PROJECT_ID: 'prj_MuXcIUzpCV9bDkNJDu2QIxWP9O3d'
+          VERCEL_PROJECT_ID: 'prj_VYlL8Zi049lVL50CTFsbPDWyKk66'
           VERCEL_ORG_ID: 'gPLVlvJxaFI0eeU4D9A2btu2'
           VERCEL_TOKEN: 'ARyuWAO6SJoPOyVWycwuqALp'
         steps:
@@ -36,7 +36,7 @@ stages:
   #       environment: Production   
   #       displayName: 'Deploy to Vercel - Prod'
   #       variables:
-  #               VERCEL_PROJECT_ID: 'prj_jZiWbaB0vs78tR6iOILxGYti024W'
+  #               VERCEL_PROJECT_ID: 'prj_MuXcIUzpCV9bDkNJDu2QIxWP9O3d'
   #               VERCEL_ORG_ID: 'gPLVlvJxaFI0eeU4D9A2btu2'
   #               VERCEL_TOKEN: 'ARyuWAO6SJoPOyVWycwuqALp'
 
