@@ -90,6 +90,7 @@ import { MdLocationPin } from "react-icons/md";
 import { FaPinterestP } from "react-icons/fa6";
 import { FaTumblr } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
+import Image from "next/image";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -109,7 +110,12 @@ const Header = () => {
         <div className="flex justify-between py-5 items-center">
           <Link href="/">
             {" "}
-            <p className="dm_sans text-[50px] font-bold text-white">{`SHIKSO`}</p>
+                <Image
+                  src={"/Shiksologo.png"}
+                  alt="Vyomedge Website"
+                  width={200}
+                  height={25}
+                />
           </Link>
           <div className="hidden md:flex gap-5 text-sm">
             <div className="w-[350px] flex gap-5 items-center">

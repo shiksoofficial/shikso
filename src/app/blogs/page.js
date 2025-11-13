@@ -18,13 +18,13 @@ export const metadata = {
         title: " Shikso Blog | Smart Learning Insights | Modern Education & AI-Driven Learning",
         description: " Discover expert articles from Shikso on smart learning, modern school education, AI-based teaching, gamified learning, and digital classroom innovations. Stay ahead with the future of education.",
         url: getCanonicalUrl("/"),
-        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+        images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {
         card: 'summary_large_image',
         title: " Shikso Blog | Smart Learning Insights | Modern Education & AI-Driven Learning",
         description: " Discover expert articles from Shikso on smart learning, modern school education, AI-based teaching, gamified learning, and digital classroom innovations. Stay ahead with the future of education.",
-        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+        images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
 };
 const BlogPage = async () => {

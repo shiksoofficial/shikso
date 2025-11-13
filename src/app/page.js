@@ -19,13 +19,13 @@ export const metadata = {
     title: " Shikso – The Future of Learning",
     description: "Experience AI-powered, gamified, and adaptive education with Shikso — your child’s smartest learning companion.",
     url: getCanonicalUrl("/"),
-    images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
   twitter: {
     card: 'summary_large_image',
     title: "Shikso – Smart Learning Platform for Students | AI Powered Education System",
     description: " Shikso is a global AI-powered smart learning platform that makes education intelligent, engaging, and measurable. Practice smarter with SmartSets like Navodaya and Sainik School — designed for students, parents, and modern schools.",
-    images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
 };
 

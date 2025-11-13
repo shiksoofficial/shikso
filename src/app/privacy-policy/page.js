@@ -16,13 +16,13 @@ export const metadata = {
         title: " Shikso Privacy Policy | Data Protection & User Information Security",
         description: " Read Shikso’s Privacy Policy to learn how we collect, use, and protect your personal data while delivering secure, AI-powered smart learning experiences.",
         url: getCanonicalUrl("/"),
-        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+        images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {
         card: 'summary_large_image',
         title: " Shikso Privacy Policy | Data Protection & User Information Security",
         description: " Read Shikso’s Privacy Policy to learn how we collect, use, and protect your personal data while delivering secure, AI-powered smart learning experiences.",
-        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+        images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
 };
 const Page = () => {
