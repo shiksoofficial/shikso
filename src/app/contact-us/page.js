@@ -14,13 +14,13 @@ export const metadata = {
     title: " Contact Shikso | Smart Learning Platform | Get in Touch",
     description: " Connect with Shikso — India’s modern education and AI-powered smart learning platform for schools, students, and parents. Reach us today to explore our innovative learning solutions.",
     url: getCanonicalUrl("/"),
-    images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
   twitter: {
     card: 'summary_large_image',
     title: " Contact Shikso | Smart Learning Platform | Get in Touch",
     description: " Connect with Shikso — India’s modern education and AI-powered smart learning platform for schools, students, and parents. Reach us today to explore our innovative learning solutions.",
-    images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
 };
 

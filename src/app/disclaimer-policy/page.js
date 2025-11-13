@@ -16,13 +16,13 @@ export const metadata = {
         title: "Disclaimer | Shikso – Educational Information Transparency",
         description: "Read Shikso’s official Disclaimer to understand the terms of using our educational content, resources, and website responsibly.",
         url: getCanonicalUrl("/"),
-        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+        images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {
         card: 'summary_large_image',
         title: "Disclaimer | Shikso – Educational Information Transparency",
         description: "Read Shikso’s official Disclaimer to understand the terms of using our educational content, resources, and website responsibly.",
-        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+        images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
 };
 

@@ -71,7 +71,13 @@ const Footer = () => {
         <div className="grid grid-cols-12 border-b border-gray-500 pb-8 gap-3.5  md:gap-4 lg:gap-8">
           <div className="col-span-12 sm:col-span-12  lg:col-span-5  lg:mr:28 xl:mr-32">
             <div className="text-lg md:text-xl font-medium  text-red-500">
-              <Link href="/">{footerData.brand.name}</Link>
+              <Link href="/">
+                <Image
+                  src={"/Shiksologo.png"}
+                  alt="Vyomedge Website"
+                  width={200}
+                  height={25}
+                /></Link>
             </div>
             <p className="mt-5 text-[16px] footer_commanText  text-white">
               {footerData.brand.description}
@@ -141,23 +147,23 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-3.5 text-sm md:text-base mt-3">
               <div className="relative">
-                  <Link
-              href={`https://www.google.com/maps?q=${encodeURIComponent(footerData.contactInfo.address)}`}
-                className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
-                 target="_blank"
+                <Link
+                  href={`https://www.google.com/maps?q=${encodeURIComponent(footerData.contactInfo.address)}`}
+                  className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
+                  target="_blank"
                   rel="noopener noreferrer"
                   aria-label="address link"
-              >
-                <FaLocationDot size={28} />
-                  </Link>
+                >
+                  <FaLocationDot size={28} />
+                </Link>
               </div>
-            
-               <Link
-              href={`https://www.google.com/maps?q=${encodeURIComponent(footerData.contactInfo.address)}`}
+
+              <Link
+                href={`https://www.google.com/maps?q=${encodeURIComponent(footerData.contactInfo.address)}`}
                 className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
-                 target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="address link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="address link"
               >
                 {footerData.contactInfo.address}
               </Link>

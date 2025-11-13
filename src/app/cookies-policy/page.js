@@ -16,13 +16,13 @@ export const metadata = {
         title: " Cookies Policy | Shikso – How We Use Cookies",
         description: " Learn how Shikso uses cookies to improve user experience, personalize content, and ensure secure browsing across our educational platform.",
         url: getCanonicalUrl("/"),
-        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+        images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {
         card: 'summary_large_image',
         title: " Cookies Policy | Shikso – How We Use Cookies",
         description: " Learn how Shikso uses cookies to improve user experience, personalize content, and ensure secure browsing across our educational platform.",
-        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+        images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
 };
 

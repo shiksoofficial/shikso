@@ -15,13 +15,13 @@ export const metadata = {
     title: " Shikso – AI-Powered Smart Learning Platform for Modern Students",
     description: " Shikso is India’s first AI-powered smart learning ecosystem that helps students learn smarter through gamified practice, personalized analytics, and modern school education tools. Explore Navodaya SmartSet, Sainik School SmartSet & more.",
     url: getCanonicalUrl("/"),
-    images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
   twitter: {
     card: 'summary_large_image',
     title: " Shikso – AI-Powered Smart Learning Platform for Modern Students",
     description: " Shikso is India’s first AI-powered smart learning ecosystem that helps students learn smarter through gamified practice, personalized analytics, and modern school education tools. Explore Navodaya SmartSet, Sainik School SmartSet & more.",
-    images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+    images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
 };
 const AboutPage = () => {

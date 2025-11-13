@@ -17,13 +17,13 @@ export const metadata = {
         title: "Shikso News | Educational Updates | Smart Learning & AI in Education",
         description: "Stay informed with Shikso News — your trusted source for educational updates, AI in education, digital classrooms, and smart learning innovations in India and beyond.",
         url: getCanonicalUrl("/"),
-        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+        images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {
         card: 'summary_large_image',
         title: "Shikso News | Educational Updates | Smart Learning & AI in Education",
         description: "Stay informed with Shikso News — your trusted source for educational updates, AI in education, digital classrooms, and smart learning innovations in India and beyond.",
-        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+        images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
 };
 
