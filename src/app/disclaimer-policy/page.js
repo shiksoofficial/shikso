@@ -103,7 +103,7 @@ const Page = () => {
                     <div  >
                         <Link href="/" >
                             <Image
-                                src="/privacyLogo.png"
+                                src="/Shiksologo.png"
                                 alt="logo"
                                 width={155}
                                 height={180}
