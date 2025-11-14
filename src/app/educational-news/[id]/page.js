@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
     // Default image fallback
     const ogImage = blog?.featuredImage?.url ||
       blog?.image ||
-      "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100"
+      "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"
 
     return {
       title: blog?.meta?.title || "News Detail",
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }) {
         description: blog?.meta?.description,
         images: [
           {
-            url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100",
+            url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png",
             width: 1200,
             height: 630,
             alt: blog?.title || "Blog Image",
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }) {
         card: 'summary_large_image',
         title: blog?.meta?.title,
         description: blog?.meta?.description,
-        images: [{ url: "https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100" }],
+        images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
       },
     }
   } catch (error) {
@@ -57,7 +57,7 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: "Blog",
         description: "Read our latest blog post",
-        images: ["https://zentrail-delta.vercel.app/_next/image?url=%2Fzantraillogo.png&w=1920&q=100"],
+        images: ["https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"],
       },
     }
   }
