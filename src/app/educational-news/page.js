@@ -7,6 +7,7 @@ import { apiClient } from '@/lib/api-client'
 import { BASE_URL_API } from '@/lib/common'
 import { getCanonicalUrl } from '@/lib/seo'
 import axios from 'axios'
+import Link from 'next/link';
 
 export const metadata = {
     title: "Shikso News | Educational Updates | Smart Learning & AI in Education",
@@ -26,12 +27,25 @@ export const metadata = {
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
 };
+const LIMIT = 8;
 
-const EducationalNewsPage = async () => {
-    const res = await apiClient.get(`${BASE_URL_API}blogs/all/ed_tech?type=news&status=Published`,
+const EducationalNewsPage = async ({ searchParams }) => {
+   const page = Math.max(1, Number(searchParams?.page) || 1);
+    const res = await apiClient.get(`${BASE_URL_API}blogs/all/ed_tech?type=news&status=Published&page=${page}&limit=${LIMIT}`,
         { cache: "no-store" }
     );
     const posts = res?.data;
+     const blogs = Array.isArray(posts?.blogs) ? posts.blogs : []; 
+
+    const totalFromApi =
+        typeof posts?.totalBlogs === "number" ? posts.totalBlogs : 
+        typeof posts?.total === "number" ? posts.total :           
+        (posts?.pagination?.total ?? posts?.count ?? undefined);   
+
+    const totalPages = totalFromApi ? Math.ceil(totalFromApi / LIMIT) : undefined; 
+    const hasPrev = page > 1; 
+    const hasNext = totalPages ? page < totalPages : blogs.length === LIMIT; 
+
     return (
         <div>
             <HeroSection imageurl="https://i.pinimg.com/1200x/ab/fb/b8/abfbb88b47aeca6f22df1302f6f92f64.jpg"
@@ -63,6 +77,28 @@ const EducationalNewsPage = async () => {
                             <CustomLinkBtn color='red' height="30px" href={`educational-news/${val?.uid}`}>{`Read More +`}</CustomLinkBtn>
                         </div>
                     </div>)}
+
+                </div>
+               <div className="mt-10 flex items-center justify-center gap-5">
+                    <Link
+                        href={{ pathname: "/educational-news", query: { page: Math.max(1, page - 1) } }} 
+                        scroll={false} 
+                        className={`px-4 py-2 rounded bg-gray-200 text-black text-sm ${!hasPrev ? "pointer-events-none opacity-50" : ""}`} 
+                        aria-disabled={!hasPrev} 
+                        prefetch 
+                    >
+                        ← Previous
+                    </Link>
+
+                    <Link
+                        href={{ pathname: "/educational-news", query: { page: page + 1 } }} 
+                        scroll={false}
+                        className={`px-4 py-2 rounded bg-gray-200 text-black text-sm ${!hasNext ? "pointer-events-none opacity-50" : ""}`} 
+                        aria-disabled={!hasNext} 
+                        prefetch 
+                    >
+                        Next →
+                    </Link>
                 </div>
             </div>
         </div>
