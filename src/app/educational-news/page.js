@@ -38,7 +38,7 @@ const EducationalNewsPage = async () => {
   const totalFromApi =
     typeof posts?.totalBlogs === "number" ? posts.totalBlogs :
       typeof posts?.total === "number" ? posts.total :
-        (posts?.pagination?.total ?? posts?.count ?? 0);
+        (posts?.pagination?.total ?? posts?.count ?? undefined);
 
 
 
