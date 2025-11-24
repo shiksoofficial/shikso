@@ -25,7 +25,7 @@ export const metadata = {
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
 };
-const LIMIT = 4;
+const LIMIT = 8;
 
 const BlogPage = async () => {
     const page = 1;
