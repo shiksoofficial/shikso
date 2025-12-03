@@ -107,12 +107,7 @@ const Header = () => {
     {
       title: "Exams", href: "/exams",
       subtitles: [
-        { title: "Exam Updates", href: "/exam/updates" },
-        { title: "Exam Schedule", href: "/exam/schedule" },
-        { title: "Admit Cards", href: "/exam/admit-card" },
-        { title: "Results", href: "/exam/results" },
-        { title: "Syllabus", href: "/exam/syllabus" },
-        { title: "Previous Papers", href: "/exam/previous-papers" },
+        { title: "Navodaya", href: "/navodaya-smartset" },
       ],
     },
   ];
@@ -193,7 +188,7 @@ const Header = () => {
               <MdMenu size={28} color="#000" />
             </button>
 
-            <ul className="flex gap-4 items-center ">
+            <ul className="flex gap-2 items-center ">
               <li className="text-blue-600">
                 <Link
                   href="https://www.facebook.com/people/Shikso/61582800338789/"
@@ -262,7 +257,7 @@ const Header = () => {
                   rel="noopener noreferrer"
                   aria-label="Instagram link"
                 >
-                  <CgProfile />
+                  <CgProfile size={30} />
                 </Link>
               </li>
             </ul>
@@ -296,7 +291,7 @@ const Header = () => {
                 aria-label="menus"
                 href={item.href}
                 className={pathname === item.href ? "text-red-800" : ""}
-                onClick={() => setIsOpen(false)} // close sidebar
+                onClick={() => setIsOpen(false)} 
               >
                 {item.title}
               </Link>
