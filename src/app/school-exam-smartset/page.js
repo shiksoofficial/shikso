@@ -28,6 +28,9 @@ const SchoolExamSmartSet = () => {
         title="Welcome To Our Website"
         title2="Get In Touch"
         button={false} breadcom={[{ title: "School ExamSmart Set" }]} />
+      <div>
+        {`  Comming Soon.....`}
+      </div>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import ConnectUsModal from '@/common-component/ConnectUsModal/ConnectUsModal';
+import TestSeriesCard from '@/common-component/TestSeriesCard/TestSeriesCard';
 import HeroSection from '@/component/homepage/HeroSection'
-import Navodaya1 from '@/component/navodaya/Navodaya1';
+import Section1 from '@/component/smartset/Section1';
 import { getCanonicalUrl } from '@/lib/seo';
 import React from 'react'
 
@@ -23,6 +24,7 @@ export const metadata = {
   },
 };
 
+
 const NavodayaSmartSet = () => {
   return (
     <div>
@@ -30,8 +32,7 @@ const NavodayaSmartSet = () => {
         title="Welcome To Our Website"
         title2="Get In Touch"
         button={false} breadcom={[{ title: "Novadaya SmartSet" }]} />
-      <Navodaya1 />
-      <ConnectUsModal />
+      <Section1 />
     </div>
   )
 }
