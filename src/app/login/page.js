@@ -6,13 +6,44 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import CustomInput from "@/common-component/CustomInput";
 import HeroSection from "@/component/homepage/HeroSection";
 import CustomButton from "@/common-component/CustomButton/CustomButton";
+import { apiClient2 } from "@/lib/api-client";
+import { toast } from "react-toastify";
+import { setToken, setUser } from "@/lib/auth";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const router = useRouter();
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
   const [showPassword, setShowPassword] = useState(false);
 
-  const onSubmit = (data) => {
-    console.log("Login:", data);
+  const onSubmit = async (data) => {
+    try {
+      const response = await apiClient2.post("/authsishko/login", {
+        email: data.email,
+        password: data.password,
+      });
+      
+      // Store token if present in response
+      const token = response?.data?.token || response?.data?.access_token || response?.data?.data?.token;
+      if (token) {
+        setToken(token);
+      }
+
+      // Store user data if present in response
+      const userData = response?.data?.user || response?.data?.data?.user || response?.data?.data;
+      if (userData) {
+        setUser(userData);
+      }
+      
+      toast.success("Login successful!");
+      console.log("Login successful:", response.data);
+      
+      // Redirect to home or dashboard
+      router.push("/");
+    } catch (error) {
+      const errorMessage = error?.response?.data?.message || "Login failed. Please check your credentials.";
+      toast.error(errorMessage);
+    }
   };
 
   return (
@@ -72,6 +103,8 @@ export default function LoginPage() {
             <CustomButton
               type="submit"
               className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-medium transition"
+              loading={isSubmitting}
+              disabled={isSubmitting}
             >
               Log In
             </CustomButton>
