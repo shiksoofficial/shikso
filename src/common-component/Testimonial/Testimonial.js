@@ -2,12 +2,14 @@
 import React from 'react';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import Image from 'next/image';
+import { FaStar } from "react-icons/fa";
 
 const Testimonial = ({ testimonialData }) => {
     return (
         <div className="custom-container m-6 md:m-10 text-center ">
-            <p className='indie_flower font-light responsiveheading6 text-[#fd4d40] mb-1 leading-1.5 '>{`Testimonial`}</p>
-            <h2 className='dm_sans responsiveheading2 font-light mb-6 leading-1.5 '>{`What Our Client Says About Us`}</h2>
+            <p className='indie_flower font-light responsiveheading6 text-[#fd4d40] mb-1 leading-1.5 '>{`Testimonials`}</p>
+            <h2 className='dm_sans responsiveheading2 font-light mb-6 leading-1.5 '>{`What Our Users Say About Shikso`}</h2>
             <div className="relative max-w-4xl mx-auto bg-[#fd4d40] shadow p-4  lg:p-6 text-center flex flex-col items-center cursor-pointer rounded-lg overflow-hidden">
                 <Splide
                     options={{
@@ -19,28 +21,36 @@ const Testimonial = ({ testimonialData }) => {
                         gap: "1.5rem",
                         arrows: false,
                         pagination: true,
-                      
+
                     }}
                     aria-label="Client Testimonials"
                     className="w-full"
                 >
-                    {testimonialData?.map(({ icon, title, partner, description }, index) => (
+                    {testimonialData?.map(({ icon, title, rating, description }, index) => (
                         <SplideSlide key={index}>
                             <div key={index} className="flex flex-col sm:flex-row justify-between w-full mb-6">
-                                <div className="w-25 sm:w-28 flex-initial flex justify-center sm:justify-start">
-                                    <img
+                                <div className=" ">
+                                    <Image
                                         src={icon}
                                         alt={title}
-                                        className="w-24 h-24 object-contain"
+                                        width={80}
+                                        height={80}
                                     />
+
                                 </div>
-                                <div className="flex-1 text-left pl-2 sm:pl-6 mb-4">
+                                <div className="flex-1  text-left  sm:pl-6 mb-4">
                                     <h3 className="dm_sans responsiveheading6 font-semibold mb-2 text-white">
                                         {title}
                                     </h3>
-                                    <p className="dm_sans responsive-text font-light text-red-300 mb-3">
-                                        {partner}
-                                    </p>
+                                    <div className="flex items-center gap-1 mb-2">
+                                        {[...Array(5)].map((_, i) => (
+                                            <FaStar
+                                                key={i}
+                                                color={i < rating ? "#FFD700" : "#ccc"}
+                                                size={18}
+                                            />
+                                        ))}
+                                    </div>
                                     <p className="dm_sans responsiveheading6 font-light text-gray-100 leading-10 pr-1 lg:pr-10 ">
                                         {description}
                                     </p>

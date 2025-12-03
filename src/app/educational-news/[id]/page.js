@@ -4,6 +4,7 @@ import HeroSection from '@/component/homepage/HeroSection'
 import { BASE_URL_API } from '@/lib/common'
 import axios from 'axios'
 import React, { useId } from 'react'
+
 // Dynamic Metadata Function
 export async function generateMetadata({ params }) {
   try {
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }) {
 
     // Base URL for canonical and images
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.shikso.com"
-    const canonicalUrl = `${baseUrl}/blogs/${id}`
+    const canonicalUrl = `${baseUrl}/educational-news/${id}`
 
     // Default image fallback
     const ogImage = blog?.featuredImage?.url ||
@@ -21,14 +22,14 @@ export async function generateMetadata({ params }) {
       "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"
 
     return {
-      title: blog?.meta?.title || "Blog Detail",
+      title: blog?.meta?.title || "News Detail",
       description: blog?.meta?.description,
-      keywords: blog?.meta?.keywords || ["blog", "zentrail", "travel"],
+      keywords: blog?.meta?.keywords || ["blog"],
       alternates: {
         canonical: canonicalUrl
       },
       openGraph: {
-        title: blog?.meta?.title || "Blog Detail",
+        title: blog?.meta?.title || "News Detail",
         description: blog?.meta?.description,
         images: [
           {
@@ -61,17 +62,18 @@ export async function generateMetadata({ params }) {
     }
   }
 }
-const BlogDesc = async ({ params }) => {
+
+const EducationalNewsDesc = async ({ params }) => {
   const { id } = await params
   const data = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech`)
   return (
     <div>
-      <HeroSection imageurl={data?.data?.blog?.featuredImage?.url} title="Welcome to Our Website"
-       title2= {data?.data?.blog?.title} button={false} 
-       breadcom={[
-                    { title: "Blogs", url: "/blogs" },
-                    { title: data?.data?.blog?.uid || "Blogs Detail" },
-                ]} />
+      <HeroSection imageurl={data?.data?.blog?.featuredImage?.url} title="Welcome to Our Website" 
+      title2= {data?.data?.blog?.title} button={false}
+        breadcom={[
+          { title: "News", url: "/educational-news" },
+          { title: data?.data?.blog?.uid || "News Detail"},
+        ]} />
       <BlogDescription blog={data?.data?.blog} />
       {Array.isArray(data?.data?.blog?.faq) && data?.data?.blog?.faq?.[0]?.question?.length > 0 && (
         <CommonFaq faqData={data?.data?.blog?.faq} />
@@ -80,4 +82,4 @@ const BlogDesc = async ({ params }) => {
   )
 }
 
-export default BlogDesc
+export default EducationalNewsDesc;

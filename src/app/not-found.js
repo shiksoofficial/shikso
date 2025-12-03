@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { FaHome, FaArrowLeft, FaSearch, FaBookOpen } from 'react-icons/fa';
-import CustomButton from '@/common-component/CustomButton/CustomButton';
 import CustomLinkBtn from '@/common-component/CustomLinkBtn/CustomLinBtn';
 
 export default function NotFound() {

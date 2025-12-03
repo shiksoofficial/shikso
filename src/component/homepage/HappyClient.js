@@ -6,19 +6,19 @@ const HappyClient = () => {
             <div className='grid grid-cols-2 md:grid-cols-4'>
                 <div className='text-center px-5 py-5 md:py-20'>
                     <p className='dm_sans responsiveheading2 mb-3 text-[#16c3b0]'>{`3423`}</p>
-                <p>{`Happy Client`}</p>
+                    <p>{`Happy Learners`}</p>
                 </div>
-                  <div className='text-center px-5 py-5 md:py-20'>
+                <div className='text-center px-5 py-5 md:py-20'>
                     <p className='dm_sans responsiveheading2 mb-3 text-[#fdb62f]'>{`4398`}</p>
-                    <p>{`Members`}</p>
+                    <p>{` Active Members`}</p>
                 </div>
-                  <div className='text-center px-5 py-5 md:py-20'>
+                <div className='text-center px-5 py-5 md:py-20'>
                     <p className='dm_sans responsiveheading2 mb-3 text-[#71bc42]'>{`50+`}</p>
-                    <p>{`Staffs`}</p>
+                    <p>{`Expert Educators`}</p>
                 </div>
-                  <div className='text-center px-5 py-5 md:py-20'>
+                <div className='text-center px-5 py-5 md:py-20'>
                     <p className='dm_sans responsiveheading2 mb-3 text-[#dc3545]'>{`2000+`}</p>
-                    <p>{`Our Followers`}  </p>
+                    <p>{`Social Followers`}  </p>
                 </div>
             </div>
 

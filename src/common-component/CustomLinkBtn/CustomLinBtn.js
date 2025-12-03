@@ -10,7 +10,7 @@ const CustomLinkBtn = ({
   height = "50px",
   width,
   borderRadius = "20px 0px 20px 0",
-   textColor = "#FFFFFF", 
+  textColor = "#FFFFFF",
   fullWidth = false,
   startIcon,
   endIcon,
@@ -25,7 +25,7 @@ const CustomLinkBtn = ({
       className={`
         inline-flex items-center justify-center gap-2
         px-6 font-medium text-white
-        text-[14px]  sm:text-[16px]  md:text-[18px]  lg:text-[20px] leading-[30px] whitespace-nowrap
+        text-[14px]  sm:text-[16px]  md:text-[18px]  lg:text-[18px] leading-[25px] whitespace-nowrap
         transition-all duration-300 ease-in-out
         hover:opacity-90 hover:shadow-md
         cursor-pointer
