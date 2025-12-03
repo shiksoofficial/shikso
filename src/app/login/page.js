@@ -23,11 +23,13 @@ export default function LoginPage() {
         paragraph=" Shikso is a next-generation smart learning platform that transforms traditional education into an interactive, data-driven experience. Designed for today’s students, parents, and schools, Shikso blends AI-based personalization, gamified practice, and performance analytics to create a learning journey that’s fun, effective, and future-ready."
         // button={true}
         breadcom={[{ title: "Login" }]} />
-      <div className="min-h-screen flex items-center justify-center bg-[#f7f9fc]">
-        <div className="w-full max-w-md bg-white p-10 rounded-xl shadow-sm border border-gray-200">
+      <div className=" bg-[#f5f7fb] flex items-center justify-center p-4">
+        <div className="w-full max-w-lg bg-white rounded-2xl shadow-md p-8 border border-gray-200">
           <div className="flex justify-center mb-3">
             <div className="bg-blue-500 text-white font-semibold px-5 py-3 rounded-xl text-xl">
-              Shikso
+              <Link href="/" className=" hover:underline">
+                Shikso
+              </Link>
             </div>
           </div>
           <h2 className="text-center text-2xl font-semibold text-gray-900">

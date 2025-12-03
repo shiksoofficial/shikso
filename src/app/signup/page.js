@@ -25,8 +25,8 @@ export default function CreateAccount() {
                 paragraph=" Shikso is a next-generation smart learning platform that transforms traditional education into an interactive, data-driven experience. Designed for today’s students, parents, and schools, Shikso blends AI-based personalization, gamified practice, and performance analytics to create a learning journey that’s fun, effective, and future-ready."
                 // button={true}
                 breadcom={[{ title: "Sign up" }]} />
-            <div className="min-h-screen bg-[#f5f7fb] flex items-center justify-center p-4">
-                <div className="w-full max-w-md bg-white rounded-2xl shadow-md p-8 border border-gray-200">
+            <div className=" bg-[#f5f7fb] flex items-center justify-center p-4">
+                <div className="w-full max-w-lg bg-white rounded-2xl shadow-md p-8 border border-gray-200">
                     <h2 className="text-3xl font-semibold text-center">Create Account</h2>
                     <p className="text-center text-gray-500 mt-1 text-sm">
                         Already have an account?{" "}
@@ -121,9 +121,13 @@ export default function CreateAccount() {
                     </form>
                     <p className="text-center text-xs text-gray-500 mt-4">
                         By signing up, you agree to our{" "}
-                        <span className="text-blue-600 cursor-pointer">Terms of Service</span>{" "}
+                        <Link href="/terms-and-conditions" className="text-blue-600 font-medium hover:underline">
+                            Terms of Service{" "}
+                        </Link>
                         and{" "}
-                        <span className="text-blue-600 cursor-pointer">Privacy Policy</span>.
+                        <Link href="/privacy-policy" className="text-blue-600 font-medium hover:underline">
+                            Privacy Policy
+                        </Link>
                     </p>
                 </div>
             </div>
