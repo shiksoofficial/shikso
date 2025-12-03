@@ -91,9 +91,11 @@ import { FaPinterestP } from "react-icons/fa6";
 import { FaTumblr } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
 import Image from "next/image";
+import { CgProfile } from "react-icons/cg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(null);
   const pathname = usePathname(); // current path
 
   const menuItems = [
@@ -102,6 +104,17 @@ const Header = () => {
     { title: "Blog", href: "/blogs" },
     { title: "News", href: "/educational-news" },
     { title: "Contact", href: "/contact-us" },
+    {
+      title: "Exams", href: "/exams",
+      subtitles: [
+        { title: "Exam Updates", href: "/exam/updates" },
+        { title: "Exam Schedule", href: "/exam/schedule" },
+        { title: "Admit Cards", href: "/exam/admit-card" },
+        { title: "Results", href: "/exam/results" },
+        { title: "Syllabus", href: "/exam/syllabus" },
+        { title: "Previous Papers", href: "/exam/previous-papers" },
+      ],
+    },
   ];
 
   return (
@@ -110,12 +123,12 @@ const Header = () => {
         <div className="flex justify-between py-5 items-center">
           <Link href="/">
             {" "}
-                <Image
-                  src={"/Shiksologo.png"}
-                  alt="Vyomedge Website"
-                  width={200}
-                  height={25}
-                />
+            <Image
+              src={"/Shiksologo.png"}
+              alt="Vyomedge Website"
+              width={200}
+              height={25}
+            />
           </Link>
           <div className="hidden md:flex gap-5 text-sm">
             <div className="w-[350px] flex gap-5 items-center">
@@ -134,7 +147,14 @@ const Header = () => {
         <div className="bg-white px-10 py-6 rounded-[50px] flex justify-between items-center">
           <ul className="dm_sans hidden md:flex gap-8 text-black font-medium">
             {menuItems.map((item, i) => (
-              <li key={i}>
+              <li
+                key={i}
+                className="relative group"
+                onMouseEnter={() =>
+                  item.subtitles && setDropdownOpen(item.title)
+                }
+                onMouseLeave={() => setDropdownOpen(null)}
+              >
                 <Link
                   aria-label="menu"
                   href={item.href}
@@ -142,6 +162,24 @@ const Header = () => {
                 >
                   {item.title}
                 </Link>
+
+
+                {item.subtitles && dropdownOpen === item.title && (
+                  <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg p-3 z-[200]">
+                    <ul className="flex flex-col gap-2">
+                      {item.subtitles.map((sub, index) => (
+                        <li key={index}>
+                          <Link
+                            href={sub.href}
+                            className="block text-gray-700 hover:text-red-800"
+                          >
+                            {sub.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -155,7 +193,7 @@ const Header = () => {
               <MdMenu size={28} color="#000" />
             </button>
 
-            <ul className="flex gap-4  ">
+            <ul className="flex gap-4 items-center ">
               <li className="text-blue-600">
                 <Link
                   href="https://www.facebook.com/people/Shikso/61582800338789/"
@@ -166,14 +204,14 @@ const Header = () => {
                   <FaFacebookF />
                 </Link>
               </li>
-              <li  className="text-green-500">
+              <li className="text-green-500">
                 <Link
                   href="https://x.com/shiksoofficial"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="twitter link"
                 >
-                  <FaTwitter  />
+                  <FaTwitter />
                 </Link>
               </li>
               <li className="text-blue-900">
@@ -216,6 +254,17 @@ const Header = () => {
                   <RiInstagramFill />
                 </Link>
               </li>
+              |
+               <li >
+                <Link
+                  href="login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram link"
+                >
+                  <CgProfile />
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -223,17 +272,15 @@ const Header = () => {
 
       {/* Overlay */}
       <div
-        className={`fixed inset-0 bg-black/50 z-[99] transition-opacity duration-300 ${
-          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 bg-black/50 z-[99] transition-opacity duration-300 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         onClick={() => setIsOpen(false)}
       ></div>
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white z-[100] p-6 shadow-lg transform transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-64 bg-white z-[100] p-6 shadow-lg transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex justify-between items-center mb-6">
           <p className="text-2xl font-semibold"></p>
