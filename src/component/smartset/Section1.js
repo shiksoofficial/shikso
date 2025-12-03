@@ -48,7 +48,7 @@ const testSeriesData = [
   },
 ];
 
-const Navodaya1 = () => {
+const Section1 = () => {
   const [activeTab, setActiveTab] = useState('overview');
   const router = useRouter();
 
@@ -64,6 +64,7 @@ const Navodaya1 = () => {
   };
 
   return (
+    <>
     <div className="custom-container m-6 md:m-10">
       <div className="mx-auto bg-white p-6 md:p-10 rounded-xl shadow">
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
@@ -181,7 +182,8 @@ const Navodaya1 = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
-export default Navodaya1;
+export default Section1;

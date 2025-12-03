@@ -4,6 +4,7 @@ import CustomButton2 from "../CustomBotton2/CustomButton2";
 import { FaUsers } from "react-icons/fa";
 import { MdLayers } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
+import { FaEarthAmericas } from "react-icons/fa6";
 
 const TestSeriesCard = ({
   img,
@@ -42,7 +43,7 @@ const TestSeriesCard = ({
           <p className="text-xs text-gray-600">Free Tests</p>
         </div>
       </div>
-      <p className="text-xs text-gray-700 mt-3">🌐 {languages}</p>
+      <p className="text-xs text-gray-700 mt-3 flex items-center gap-2"><FaEarthAmericas  className="text-blue-600"/> {languages}</p>
       <div className="mt-3 space-y-2 text-sm text-gray-700">
         <p className="flex items-center gap-2">
           <MdLayers size={16} className="text-green-600" /> {category}
