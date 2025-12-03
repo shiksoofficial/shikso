@@ -5,6 +5,8 @@ import Footer from "@/common-component/Footer/Footer";
 import ProgressBar from "@/common-component/ProgressBar";
 import { Provider } from "jotai";
 import ClientWrapper from "@/common-component/ConnectUsModal/ClientWrapper";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,6 +48,18 @@ export default function RootLayout({ children }) {
             <Footer />
           </ClientWrapper>
         </Provider>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </body>
     </html>
   );
