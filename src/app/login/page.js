@@ -8,8 +8,11 @@ import HeroSection from "@/component/homepage/HeroSection";
 import CustomButton from "@/common-component/CustomButton/CustomButton";
 import { apiClient2 } from "@/lib/api-client";
 import { toast } from "react-toastify";
+import { setToken, setUser } from "@/lib/auth";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
+  const router = useRouter();
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -20,8 +23,23 @@ export default function LoginPage() {
         password: data.password,
       });
       
+      // Store token if present in response
+      const token = response?.data?.token || response?.data?.access_token || response?.data?.data?.token;
+      if (token) {
+        setToken(token);
+      }
+
+      // Store user data if present in response
+      const userData = response?.data?.user || response?.data?.data?.user || response?.data?.data;
+      if (userData) {
+        setUser(userData);
+      }
+      
       toast.success("Login successful!");
       console.log("Login successful:", response.data);
+      
+      // Redirect to home or dashboard
+      router.push("/");
     } catch (error) {
       const errorMessage = error?.response?.data?.message || "Login failed. Please check your credentials.";
       toast.error(errorMessage);

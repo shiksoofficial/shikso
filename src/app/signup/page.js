@@ -7,8 +7,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { apiClient2 } from "@/lib/api-client";
 import { toast } from "react-toastify";
+import { setToken, setUser } from "@/lib/auth";
+import { useRouter } from "next/navigation";
 
 export default function CreateAccount() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -24,8 +27,23 @@ export default function CreateAccount() {
         mobile_no: data.mobile,
       });
       
+      // Store token if present in response
+      const token = response?.data?.token || response?.data?.access_token || response?.data?.data?.token;
+      if (token) {
+        setToken(token);
+      }
+
+      // Store user data if present in response
+      const userData = response?.data?.user || response?.data?.data?.user || response?.data?.data;
+      if (userData) {
+        setUser(userData);
+      }
+      
       toast.success("Account created successfully!");
       console.log("Registration successful:", response.data);
+      
+      // Redirect to login page or home
+      router.push("/login");
     } catch (error) {
       const errorMessage = error?.response?.data?.message || "Registration failed. Please try again.";
       toast.error(errorMessage);
