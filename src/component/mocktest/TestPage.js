@@ -1,4 +1,8 @@
 'use client'
+import CommonTestList from '@/common-component/CommonTestList/CommonTestList'
+import CustomButton2 from '@/common-component/CustomBotton2/CustomButton2'
+import CustomButton from '@/common-component/CustomButton/CustomButton'
+import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 
 const TestPage = () => {
@@ -7,6 +11,7 @@ const TestPage = () => {
   const [timeLeft, setTimeLeft] = useState(1200) // 20 minutes in seconds
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState({})
+  const [showTestList, setShowTestList] = useState(true);
 
   const mockQuestions = [
     {
@@ -193,21 +198,28 @@ const TestPage = () => {
           </div>
           <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8">
             <p className="text-sm text-gray-700">
-            {`  Note:Once you start the test, the timer will begin. 
+              {`  Note:Once you start the test, the timer will begin. 
               You cannot pause the test. Make sure you have a stable internet connection.`}
             </p>
           </div>
-          <div className="flex space-x-4">
-            <button 
-              onClick={handleBackToList}
-              className="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
-              Cancel
-            </button>
-            <button 
+          <div className="flex justify-around space-x-4">
+            <Link
+              href="/navodaya-smartset"
+              className="mb-4 inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
+            >
+
+              <CustomButton2
+                onClick={handleBackToList}
+                color='gray'
+                className="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
+                Cancel
+              </CustomButton2>
+            </Link>
+            <CustomButton2
               onClick={handleStartTest}
               className="flex-1 bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
               Start Test
-            </button>
+            </CustomButton2>
           </div>
         </div>
       </div>
@@ -218,7 +230,7 @@ const TestPage = () => {
   if (showResults) {
     const score = calculateScore();
     const percentage = (score / mockQuestions.length) * 100;
-    
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
         <div className="bg-white rounded-xl shadow-2xl p-12 max-w-4xl w-full">
@@ -240,7 +252,7 @@ const TestPage = () => {
                   const isCorrect = userAnswer === question.correct;
                   const correctAnswer = question.options[question.correct];
                   const userAnswerText = userAnswer !== undefined ? question.options[userAnswer] : 'Not answered';
-                  
+
                   return (
                     <div key={question.id} className="p-4 bg-white rounded-lg border">
                       <div className="flex items-center justify-between mb-2">
@@ -251,13 +263,13 @@ const TestPage = () => {
                       </div>
                       <div className="text-xs text-gray-600 space-y-1">
                         <div>
-                          <span className="font-medium">Your Answer:</span> 
+                          <span className="font-medium">Your Answer:</span>
                           <span className={`ml-1 ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
                             {userAnswerText}
                           </span>
                         </div>
                         <div>
-                          <span className="font-medium">Correct Answer:</span> 
+                          <span className="font-medium">Correct Answer:</span>
                           <span className="ml-1 text-green-600">{correctAnswer}</span>
                         </div>
                       </div>
@@ -291,12 +303,12 @@ const TestPage = () => {
           </div>
 
           <div className="flex space-x-4">
-            <button 
+            <button
               onClick={handleBackToList}
               className="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
               Back to Tests
             </button>
-            <button 
+            <button
               onClick={handleStartTest}
               className="flex-1 bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
               Retake Test
@@ -345,11 +357,10 @@ const TestPage = () => {
               <button
                 key={idx}
                 onClick={() => handleAnswerSelect(question.id, idx)}
-                className={`w-full text-left p-4 rounded-lg border-2 transition ${
-                  answers[question.id] === idx
+                className={`w-full text-left p-4 rounded-lg border-2 transition ${answers[question.id] === idx
                     ? 'border-indigo-600 bg-indigo-50'
                     : 'border-gray-200 hover:border-indigo-300'
-                }`}
+                  }`}
               >
                 <span className="font-semibold text-gray-700">
                   {String.fromCharCode(65 + idx)}.
@@ -399,13 +410,12 @@ const TestPage = () => {
                   <button
                     key={idx}
                     onClick={() => setCurrentQuestion(idx)}
-                    className={`w-7 h-7 text-xs rounded-md font-semibold transition ${
-                      idx === currentQuestion
+                    className={`w-7 h-7 text-xs rounded-md font-semibold transition ${idx === currentQuestion
                         ? 'bg-indigo-600 text-white'
                         : answers[mockQuestions[idx].id] !== undefined
-                        ? 'bg-green-500 text-white'
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                    }`}
+                          ? 'bg-green-500 text-white'
+                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                      }`}
                   >
                     {idx + 1}
                   </button>
@@ -427,7 +437,7 @@ const TestPage = () => {
                 </span>
               </div>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4">
               <div className="flex items-center justify-center space-x-4 text-sm">
                 <div className="flex items-center space-x-2">
