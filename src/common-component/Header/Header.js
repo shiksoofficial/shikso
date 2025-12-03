@@ -250,7 +250,7 @@ const Header = () => {
                 </Link>
               </li>
               |
-               <li >
+              <li >
                 <Link
                   href="login"
                   target="_blank"
@@ -291,7 +291,7 @@ const Header = () => {
                 aria-label="menus"
                 href={item.href}
                 className={pathname === item.href ? "text-red-800" : ""}
-                onClick={() => setIsOpen(false)} 
+                onClick={() => setIsOpen(false)}
               >
                 {item.title}
               </Link>

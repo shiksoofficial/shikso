@@ -46,7 +46,7 @@ const TestSeriesPage = ({ params }) => {
                 clipRule="evenodd"
               />
             </svg>
-            Back to Test Series
+            {`  Back to Test Series`}
           </Link>
 
           <div className="border rounded-xl p-6 bg-white mt-4">
@@ -56,7 +56,7 @@ const TestSeriesPage = ({ params }) => {
                   {seriesData?.title || "Test Series"}
                 </h2>
                 <p className="text-sm text-gray-500 mt-1">
-                  {seriesData?.totalTests} Total Tests • {seriesData?.freeTests} Free Tests
+                  {seriesData?.totalTests}{` Total Tests •`} {seriesData?.freeTests} {`Free Tests`}
                 </p>
               </div>
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">
@@ -77,21 +77,21 @@ const TestSeriesPage = ({ params }) => {
                     <div>
                       <h3 className="font-medium text-gray-800">{test.name}</h3>
                       <p className="text-sm text-gray-500">
-                        {test.questions} Questions • {test.duration}
+                        {test.questions}{` Questions • `}{test.duration}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-medium ${test.status === "Free"
-                          ? "bg-green-100 text-green-700"
-                          : "bg-yellow-100 text-yellow-700"
+                        ? "bg-green-100 text-green-700"
+                        : "bg-yellow-100 text-yellow-700"
                         }`}
                     >
                       {test.status}
                     </span>
                     <CustomButton color="#71bc42">
-                      Start Test
+                      {`  Start Test`}
                     </CustomButton>
                   </div>
                 </div>
@@ -99,10 +99,10 @@ const TestSeriesPage = ({ params }) => {
             </div>
             <div className="mt-6 pt-4 border-t flex justify-between items-center">
               <p className="text-sm text-gray-500">
-                Showing 5 of {seriesData?.totalTests} tests
+                {`Showing 5 of `} {seriesData?.totalTests} {` tests`}
               </p>
               <button className="text-blue-600 hover:text-blue-800 font-medium text-sm">
-                Load More Tests →
+                {`   Load More Tests →`}
               </button>
             </div>
           </div>

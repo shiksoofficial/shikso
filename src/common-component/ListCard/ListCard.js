@@ -9,13 +9,12 @@ const ListCard = ({ test }) => {
         {test.labels.map((label, i) => (
           <span
             key={i}
-            className={`px-2 py-1 rounded text-white ${
-              label === "LIVE TEST"
-                ? "bg-red-500"
-                : label === "FREE"
+            className={`px-2 py-1 rounded text-white ${label === "LIVE TEST"
+              ? "bg-red-500"
+              : label === "FREE"
                 ? "bg-green-500"
                 : "bg-purple-500"
-            }`}
+              }`}
           >
             {label}
           </span>
@@ -28,13 +27,13 @@ const ListCard = ({ test }) => {
       {/* Details Row */}
       <div className="flex items-center flex-wrap gap-4 text-sm text-gray-600">
         <p className="flex items-center gap-1">
-          <FiHelpCircle /> {test.questions} Questions
+          <FiHelpCircle /> {test.questions} {` Questions`}
         </p>
         <p className="flex items-center gap-1">
-          <FiStar /> {test.marks} Marks
+          <FiStar /> {test.marks} {` Marks`}
         </p>
         <p className="flex items-center gap-1">
-          <FiClock /> {test.time} Mins
+          <FiClock /> {test.time} {` Mins`}
         </p>
       </div>
 
@@ -45,7 +44,7 @@ const ListCard = ({ test }) => {
 
       {/* Users */}
       <p className="text-xs text-gray-500 mt-1 flex items-center gap-1">
-        <FiUsers /> {test.users} Users
+        <FiUsers /> {test.users} {` Users`}
       </p>
 
       {/* Button */}
