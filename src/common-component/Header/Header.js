@@ -82,7 +82,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { MdMenu, MdClose } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa";
@@ -92,11 +92,37 @@ import { FaTumblr } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
 import Image from "next/image";
 import { CgProfile } from "react-icons/cg";
+import { getToken } from "@/lib/auth";
+import LoginModal from "@/common-component/LoginModal/LoginModal";
+import SignupModal from "@/common-component/SignupModal/SignupModal";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
   const pathname = usePathname(); // current path
+  const router = useRouter();
+
+  const handleProfileClick = (e) => {
+    e.preventDefault();
+    const token = getToken();
+    if (token) {
+      router.push("/profile");
+    } else {
+      setIsLoginModalOpen(true);
+    }
+  };
+
+  const handleSwitchToSignup = () => {
+    setIsLoginModalOpen(false);
+    setIsSignupModalOpen(true);
+  };
+
+  const handleSwitchToLogin = () => {
+    setIsSignupModalOpen(false);
+    setIsLoginModalOpen(true);
+  };
 
   const menuItems = [
     { title: "Home", href: "/" },
@@ -113,7 +139,18 @@ const Header = () => {
   ];
 
   return (
-    <header className="absolute left-0 w-full z-[100]">
+    <>
+      <LoginModal 
+        open={isLoginModalOpen} 
+        setOpen={setIsLoginModalOpen} 
+        onSwitchToSignup={handleSwitchToSignup}
+      />
+      <SignupModal 
+        open={isSignupModalOpen} 
+        setOpen={setIsSignupModalOpen} 
+        onSwitchToLogin={handleSwitchToLogin}
+      />
+      <header className="absolute left-0 w-full z-[100]">
       <div className="custom-container">
         <div className="flex justify-between py-5 items-center">
           <Link href="/">
@@ -153,20 +190,29 @@ const Header = () => {
                 <Link
                   aria-label="menu"
                   href={item.href}
-                  className={pathname === item.href ? "text-red-800" : ""}
+                  className={
+                    pathname === item.href || 
+                    (item.subtitles && item.subtitles.some(sub => pathname === sub.href))
+                      ? "text-red-800" 
+                      : ""
+                  }
                 >
                   {item.title}
                 </Link>
 
 
                 {item.subtitles && dropdownOpen === item.title && (
-                  <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg p-3 z-[200]">
+                  <div 
+                    className="absolute left-0 top-full pt-2 w-48 bg-white shadow-lg rounded-lg p-3 z-[200]"
+                    onMouseEnter={() => setDropdownOpen(item.title)}
+                    onMouseLeave={() => setDropdownOpen(null)}
+                  >
                     <ul className="flex flex-col gap-2">
                       {item.subtitles.map((sub, index) => (
                         <li key={index}>
                           <Link
                             href={sub.href}
-                            className="block text-gray-700 hover:text-red-800"
+                            className={`block ${pathname === sub.href ? "text-red-800 font-semibold" : "text-gray-700 hover:text-red-800"}`}
                           >
                             {sub.title}
                           </Link>
@@ -251,14 +297,13 @@ const Header = () => {
               </li>
               |
               <li >
-                <Link
-                  href="login"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram link"
+                <button
+                  onClick={handleProfileClick}
+                  className="cursor-pointer"
+                  aria-label="Profile link"
                 >
                   <CgProfile size={30} />
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
@@ -300,6 +345,7 @@ const Header = () => {
         </ul>
       </div>
     </header>
+    </>
   );
 };
 
