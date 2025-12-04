@@ -18,7 +18,7 @@ function NewsListPagination({ initialBlogs, totalBlogs, limit }) {
     setLoading(true);
     try {
       const res = await fetch(
-        `${BASE_URL_API}blogs/all/ed_tech?type=news&status=Published&page=${page}&limit=${limit}`,
+        `${BASE_URL_API}blogs/all/ed_tech?type=news&status=Published&page`,
         { cache: "no-store" }
       );
       const data = await res.json();
@@ -40,7 +40,6 @@ function NewsListPagination({ initialBlogs, totalBlogs, limit }) {
             <div className="h-10 w-10 rounded-full border-2 border-red-500 border-t-transparent animate-spin" />
           </div>
         )}
-
         <div className={loading ? "pointer-events-none select-none" : ""}>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 i">
             {blogs.map((val) => (
