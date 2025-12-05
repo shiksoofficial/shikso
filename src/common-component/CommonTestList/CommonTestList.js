@@ -26,7 +26,7 @@ const CommonTestList = ({
   }
   return (
      <div className="custom-container m-6 md:m-10">
-        <div className="mx-auto bg-white p-6 md:p-10 rounded-xl shadow">
+        <div className="mx-auto bg-white p-6 md:p-10 rounded-xl shadow ">
           <Link
             href="/navodaya-smartset"
             className="mb-4 inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
@@ -45,7 +45,7 @@ const CommonTestList = ({
             </svg>
             {`  Back to Test Series`}
           </Link>
-    <div className="border rounded-xl p-6 bg-white mt-4">
+    <div className="border-gray-300 border-1  rounded-xl p-6 bg-white mt-4">
       <div className="flex justify-between items-center mb-6">
         <div>
           <h2 className="text-xl font-semibold text-gray-700">{title}</h2>
@@ -58,13 +58,13 @@ const CommonTestList = ({
           {languages}
         </span>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-3 ">
         {testList.map((test) => (
           <div
             key={test.id}
-            className="flex flex-col sm:flex-row justify-between items-center p-4 border rounded-lg hover:bg-gray-50 transition-colors"
+            className=" border-1 border-gray-300 flex flex-col sm:flex-row justify-between items-center p-4 rounded-lg hover:bg-gray-50 transition-colors"
           >
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 ">
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
                 <span className="text-blue-600 font-semibold">{test.id}</span>
               </div>
@@ -90,7 +90,7 @@ const CommonTestList = ({
           </div>
         ))}
       </div>
-      <div className="mt-6 pt-4 border-t flex justify-between items-center">
+      <div className="mt-6 pt-4 border-t border-gray-300   flex justify-between items-center">
         <p className="text-sm text-gray-500">
          {`Showing `} {showingCount} {` of `} {totalTests} {` tests`}
         </p>

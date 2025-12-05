@@ -19,10 +19,10 @@ const TestSeriesCard = ({
   moreTests,
   text,
   onClick,
-  page, // Add page prop
+  page, 
 }) => {
   return (
-    <div className="w-full max-w-sm bg-white rounded-2xl shadow-md p-5 border">
+    <div className="w-full max-w-sm bg-white rounded-2xl shadow-md p-5 border-gray-300 border-1">
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-semibold mt-4">{title}</h2>
       </div>

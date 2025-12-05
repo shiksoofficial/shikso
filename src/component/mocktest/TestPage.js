@@ -122,6 +122,25 @@ const TestPage = () => {
   ];
 
   useEffect(() => {
+    // Hide the body scroll to prevent scrolling behind the fullscreen component
+    document.body.style.overflow = 'hidden';
+    // Hide header and footer elements if they exist
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
+    const nav = document.querySelector('nav');
+
+    if (header) header.style.display = 'none';
+    if (footer) footer.style.display = 'none';
+    if (nav) nav.style.display = 'none';
+    return () => {
+      document.body.style.overflow = 'auto';
+      if (header) header.style.display = '';
+      if (footer) footer.style.display = '';
+      if (nav) nav.style.display = '';
+    };
+  }, []);
+
+  useEffect(() => {
     let timer;
     if (testStarted && !showResults && timeLeft > 0) {
       timer = setInterval(() => {
@@ -182,23 +201,23 @@ const TestPage = () => {
   // Instructions page
   if (!testStarted && !showResults) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+      <div className="fixed inset-0 z-50 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center overflow-auto">
         <div className="bg-white rounded-xl shadow-2xl p-12 max-w-2xl">
           <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">{`Mock Test Instructions`}</h2>
           <div className="space-y-4 text-gray-700 mb-8">
             <div className="flex items-start space-x-3">
-              <p>{`Duration 20 minutes`}</p>
+              <p>{`Duration : 20 minutes`}</p>
             </div>
             <div className="flex items-start space-x-3">
-              <p>{`Questions: ${mockQuestions.length}`}</p>
+              <p>{`Questions : ${mockQuestions.length}`}</p>
             </div>
             <div className="flex items-start space-x-3">
-              <p>{`Marking:Each question carries 1 mark`}</p>
+              <p>{`Marking : Each question carries 1 mark`}</p>
             </div>
           </div>
           <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8">
             <p className="text-sm text-gray-700">
-              {`  Note:Once you start the test, the timer will begin. 
+              {`Note : Once you start the test, the timer will begin. 
               You cannot pause the test. Make sure you have a stable internet connection.`}
             </p>
           </div>
@@ -232,10 +251,10 @@ const TestPage = () => {
     const percentage = (score / mockQuestions.length) * 100;
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-        <div className="bg-white rounded-xl shadow-2xl p-12 max-w-4xl w-full">
+      <div className="fixed inset-0 z-50 bg-gradient-to-br from-blue-50 to-indigo-100 overflow-auto">
+        <div className="bg-white rounded-xl shadow-2xl p-12  w-full items-center">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">{`Test Results<`}</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">{`Test Results`}</h2>
             <div className="text-6xl font-bold text-indigo-600 mb-2">{score}/{mockQuestions.length}</div>
             <div className="text-2xl text-gray-600 mb-4">{percentage.toFixed(1)}%</div>
             <div className={`text-lg font-semibold ${percentage >= 60 ? 'text-green-600' : 'text-red-600'}`}>
@@ -255,11 +274,15 @@ const TestPage = () => {
 
                   return (
                     <div key={question.id} className="p-4 bg-white rounded-lg border">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-semibold">Q{idx + 1}</span>
-                        <span className={`text-sm font-semibold ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
-                          {isCorrect ? '✓ Correct' : '✗ Wrong'}
-                        </span>
+                      <div className="flex flex-col mb-2">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className={`text-sm font-semibold ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
+                            {isCorrect ? '✓ Correct' : '✗ Wrong'}
+                          </span>
+                        </div>
+                        <div className='flex gap-2'>
+                          <span className="text-sm font-semibold">Q{idx + 1}</span>
+                          <p className="text-sm text-gray-800 font-medium">{question.question}</p> </div>
                       </div>
                       <div className="text-xs text-gray-600 space-y-1">
                         <div>
@@ -306,12 +329,12 @@ const TestPage = () => {
             <button
               onClick={handleBackToList}
               className="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
-            {`  Back to Tests`}
+              {`  Back to Tests`}
             </button>
             <button
               onClick={handleStartTest}
               className="flex-1 bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
-             {` Retake Test`}
+              {` Retake Test`}
             </button>
           </div>
         </div>
@@ -322,19 +345,21 @@ const TestPage = () => {
   // Test page
   const question = mockQuestions[currentQuestion];
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="fixed inset-0 z-50 bg-gradient-to-br from-blue-50 to-indigo-100 overflow-auto">
       <div className="bg-white shadow-md sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <span className="font-semibold text-gray-800">{`Mock Test`}</span>
-            </div>
-            <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-2 bg-indigo-100 px-4 py-2 rounded-lg">
-                <span className="font-bold text-indigo-600">{formatTime(timeLeft)}</span>
+        <div className="bg-white shadow-md sticky top-0 z-10">
+          <div className="max-w-7xl mx-auto px-4 py-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <span className="font-semibold text-gray-800">{`Mock Test`}</span>
               </div>
-              <div className="text-gray-600">
-               {` Question`} {currentQuestion + 1} of {mockQuestions.length}
+              <div className="flex items-center space-x-6">
+                <div className="flex items-center space-x-2 bg-indigo-100 px-4 py-2 rounded-lg">
+                  <span className="font-bold text-indigo-600">{formatTime(timeLeft)}</span>
+                </div>
+                <div className="text-gray-600">
+                  {` Question`} {currentQuestion + 1} of {mockQuestions.length}
+                </div>
               </div>
             </div>
           </div>
@@ -358,8 +383,8 @@ const TestPage = () => {
                 key={idx}
                 onClick={() => handleAnswerSelect(question.id, idx)}
                 className={`w-full text-left p-4 rounded-lg border-2 transition ${answers[question.id] === idx
-                    ? 'border-indigo-600 bg-indigo-50'
-                    : 'border-gray-200 hover:border-indigo-300'
+                  ? 'border-indigo-600 bg-indigo-50'
+                  : 'border-gray-200 hover:border-indigo-300'
                   }`}
               >
                 <span className="font-semibold text-gray-700">
@@ -378,7 +403,7 @@ const TestPage = () => {
                 disabled={currentQuestion === 0}
                 className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-semibold disabled:opacity-50 hover:bg-gray-300 transition text-sm"
               >
-              {`  ← Previous`}
+                {`  ← Previous`}
               </button>
 
               {currentQuestion < mockQuestions.length - 1 ? (
@@ -386,14 +411,14 @@ const TestPage = () => {
                   onClick={() => setCurrentQuestion(currentQuestion + 1)}
                   className="px-4 py-2 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition text-sm"
                 >
-                 {` Next →`}
+                  {` Next →`}
                 </button>
               ) : (
                 <button
                   onClick={handleSubmitTest}
                   className="px-4 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition text-sm"
                 >
-                {`  Submit Test`}
+                  {`  Submit Test`}
                 </button>
               )}
             </div>
@@ -402,7 +427,7 @@ const TestPage = () => {
             <div className="w-full">
               <div className="text-center mb-3">
                 <span className="text-sm text-gray-600">
-                {`  Jump to Question: `}<span className="font-semibold">{currentQuestion + 1} of {mockQuestions.length}</span>
+                  {`  Jump to Question: `}<span className="font-semibold">{currentQuestion + 1} of {mockQuestions.length}</span>
                 </span>
               </div>
               <div className="flex flex-wrap justify-center gap-1 max-h-32 overflow-y-auto">
@@ -411,10 +436,10 @@ const TestPage = () => {
                     key={idx}
                     onClick={() => setCurrentQuestion(idx)}
                     className={`w-7 h-7 text-xs rounded-md font-semibold transition ${idx === currentQuestion
-                        ? 'bg-indigo-600 text-white'
-                        : answers[mockQuestions[idx].id] !== undefined
-                          ? 'bg-green-500 text-white'
-                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                      ? 'bg-indigo-600 text-white'
+                      : answers[mockQuestions[idx].id] !== undefined
+                        ? 'bg-green-500 text-white'
+                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                       }`}
                   >
                     {idx + 1}
