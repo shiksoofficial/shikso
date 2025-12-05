@@ -6,22 +6,23 @@ import { TfiEmail } from 'react-icons/tfi';
 import { MdCall } from 'react-icons/md';
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import { getCanonicalUrl } from '@/lib/seo';
+import { SiWebmoney } from "react-icons/si";
 
 export const metadata = {
-    title: " Shikso Terms & Conditions | Smart Learning Platform User Agreement",
-    description: " Read the official Terms & Conditions of Shikso — your trusted AI-powered smart learning and gamified education platform for modern students.",
-    keywords: ["Shikso terms and conditions", "smart learning platform", " AI education policy, online learning agreement", "user terms Shikso", "student learning platform rules"],
+    title: "Shikso Terms & Conditions| Smart Learning Platform Agreement",
+    description: "  Explore Shikso’s official Terms & Conditions – understand your rights, responsibilities, and usage policies for our AI-powered Smart Learning Platform.",
+    keywords: ["Shikso terms and conditions", " smart learning platform policy", " AI education terms", "online learning agreement", "student platform rules", " Shikso SmartSet policy"],
     alternates: { canonical: getCanonicalUrl("/terms-and-conditions") },
     openGraph: {
-        title: " Shikso Terms & Conditions | Smart Learning Platform User Agreement",
-        description: " Read the official Terms & Conditions of Shikso — your trusted AI-powered smart learning and gamified education platform for modern students.",
+        title: "Shikso Terms & Conditions| Smart Learning Platform Agreement",
+        description: "  Explore Shikso’s official Terms & Conditions – understand your rights, responsibilities, and usage policies for our AI-powered Smart Learning Platform.",
         url: getCanonicalUrl("/"),
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {
         card: 'summary_large_image',
-        title: " Shikso Terms & Conditions | Smart Learning Platform User Agreement",
-        description: " Read the official Terms & Conditions of Shikso — your trusted AI-powered smart learning and gamified education platform for modern students.",
+        title: "Shikso Terms & Conditions| Smart Learning Platform Agreement",
+        description: "  Explore Shikso’s official Terms & Conditions – understand your rights, responsibilities, and usage policies for our AI-powered Smart Learning Platform.",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
 };
@@ -36,112 +37,204 @@ const Page = () => {
                 <p className="dm_sans responsive-text text-[#1A2E33] font-normal"><strong className="font-bold">{`Address : `}</strong>
                     {` FF12, SRP Arcade, E-5/48, E-5, Arera Colony, Bhopal, Madhya Pradesh 462016`}</p>
                 <p className="dm_sans responsive-text text-[#1A2E33] font-normal"><strong className="font-bold">{`Phone : `}</strong>   {` +91 7974186754`}  </p>
-                <p className="dm_sans responsive-text text-[#1A2E33] font-normal"><strong className="font-bold">{`Email : `}</strong>   {` info@shikso.com`}  </p>
+                <p className="dm_sans responsive-text text-[#1A2E33] font-normal"><strong className="font-bold">{`Email : `}</strong>   <Link href="mailto:info@shikso.com" className='text-blue-400'>{` info@shikso.com`}</Link>   </p>
+                <p className="dm_sans responsive-text text-[#1A2E33] font-normal"><strong className="font-bold">{`Website : `}</strong>    <Link href="https://www.shikso.com" className='text-blue-400' target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="website link">{`https://www.shikso.com`}</Link>  </p>
                 <hr className='text-[#1A2E33] mt-4 mb-5'></hr>
                 <h2 className="dm_sans dm_sans responsiveheading2 text-[#1A2E33] font-medium mt-5 mb-2">{`1. Introduction`}</h2>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`Welcome to `}<strong className='font-bold'>{` Shikso`}</strong>{`, an AI-powered smart learning platform designed to make education interactive, accessible, and fun.`}</p>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2   ">{` By accessing or using our website, mobile app, or SmartSet learning services, you agree to comply with and be bound by these `}<strong className='font-bold'>{` Terms and Conditions.`}</strong></p>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`If you do not agree to these terms, please do not use the platform.`}</p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`Welcome to `}<strong className='font-bold'>{` Shikso`}</strong>{`,  your AI-powered`} <strong className='font-bold'>{`smart learning platform `}</strong>{`designed to make education smarter, more interactive, and accessible for every student.`}</p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2   ">{`These `}<strong className='font-bold'>{`Terms and Conditions (“Terms”)`}</strong>{` govern your access to and use of our website, mobile app, digital learning tools, and other related services (collectively referred to as the “Platform”).`}</p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`By visiting, registering, or using Shikso, you agree to comply with these Terms. If you do not agree, please refrain from using the platform.`}</p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`Shikso is committed to providing an innovative, reliable, and secure environment for students, parents, and educators. These Terms explain how you can responsibly use our services and what we expect from you as a valued user.`}</p>
                 <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`2. Use of Our Services`}</h2>
-                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33]    mb-3  ">
-                    <li>{`You must use Shikso only for lawful educational purposes.`}</li>
-                    <li>{`Users under 18 years of age must use the platform with the consent and supervision of a parent or guardian.`}</li>
-                    <li>{`You agree not to misuse, copy, or attempt to disrupt the website, learning modules, or software system.`}</li>
-                </ul>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`We reserve the right to restrict or terminate access for users violating these terms.`}</p>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`2. Purpose of the Platform`}</h2>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1 sm:mb-2  ">{`Shikso provides an integrated learning ecosystem called `}<strong className='font-bold'>{`SmartSet `}</strong>{`— a unique combination of study tools, practice tests, AI-powered analytics, and personalized learning modules.`}</p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1 sm:mb-2  ">{` The goal is to make `}<strong className='font-bold'>{` online education, exam preparation, `}</strong>{`and`} <strong className='font-bold'>{`concept understanding `}</strong>{`more efficient, fun, and measurable.`}</p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`The content available on Shikso — including text, videos, quizzes, and interactive lessons — is for`}<strong className='font-bold'>{` educational and informational purposes  `}</strong>{`only. It is not intended to replace official classroom teaching or certified academic programs.`} </p>
                 <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`3. Account Creation`}</h2>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`To access certain features (e.g., personalized dashboards, SmartSets, mock tests), you must create a `}<strong className='font-bold'>{` Shikso account.`}</strong></p>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{` You are responsible for:`}</p>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`3. Acceptance of Terms`}</h2>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`By using Shikso, you acknowledge that :`}</p>
                 <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33]  mb-3  ">
-                    <li>{`Keeping your login credentials confidential.`}</li>
-                    <li>{`Ensuring the information you provide is accurate and updated.`} </li>
-                    <li>{`All activity occurring under your account.`}</li>
+                    <li>{`You have read and understood these Terms fully.`}</li>
+                    <li>{`You are legally competent to agree to them.`} </li>
+                    <li>{`If you are under 18 years old, you are using the Platform under the supervision of a parent, guardian, or teacher.`}</li>
                 </ul>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`If we suspect unauthorized access or misuse, your account may be suspended or permanently disabled.`}</p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`If you are using Shikso on behalf of an institution (like a school or tuition center), you represent that you are authorized to bind that organization to these Terms.`}</p>
                 <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`4. Payment & Subscription`}</h2>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`Some services (e.g., Premium SmartSets, Mock Tests, AI Reports) require payment.`}</p>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`4. Eligibility to Use`}</h2>
                 <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-5 sm:mb-7    ">
-                    <li>{`All fees are displayed clearly before checkout.`}</li>
-                    <li>{`Payments are processed through secure third-party gateways (e.g., Razorpay, Stripe).`} </li>
-                    <li>{`Fees once paid are  `}<strong className='font-bold'>{` non-refundable`}</strong>{` , except in cases of proven transaction errors or technical issues from our side.`}</li>
-                    <li>{`Shikso reserves the right to modify pricing or subscription terms at any time with prior notice.`}</li>
+                    <li>{`Shikso’s services are intended for students, parents, teachers, and institutions seeking `}<strong className='font-bold'>{`digital learning resources.`}</strong></li>
+                    <li>{`Users must ensure that their use of the platform complies with all applicable laws.`} </li>
+                    <li>{`Shikso reserves the right to deny access or terminate accounts if eligibility requirements are not met or if misuse is detected.`}</li>
                 </ul>
                 <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`5. Intellectual Property Rights`}</h2>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`All content on this platform — including questions, explanations, videos, software, UI design, and branding — is the exclusive property of `}<strong className='font-bold'>{` Shikso.`}</strong></p>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-2   ">{` You are `}<strong className='font-bold'>{` not allowed`}</strong>{` to copy, redistribute, sell, or modify any content without written permission.`}</p>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`Violation of these rights may lead to legal action under applicable copyright laws.`}</p>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`6. User-Generated Content`}</h2>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`If you upload, comment, or share feedback, you:`}</p>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`5. Account Creation & Responsibilities`}</h2>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`To access personalized dashboards, mock tests, SmartSets, and progress analytics, you need to`}<strong className='font-bold'>{`  create a Shikso account.`}</strong></p>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-2   ">{`  During registration, you must:`}</p>
                 <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3     ">
-                    <li>{`Grant Shikso a non-exclusive right to use that content for improvement or promotional purposes`}</li>
-                    <li>{`Agree that your content does not violate any third-party rights or contain harmful material`} </li>
+                    <li>{`Provide accurate, complete, and updated information.`}</li>
+                    <li>{`Keep your login credentials private.`} </li>
+                    <li>{`Notify us immediately if you suspect unauthorized activity.`} </li>
                 </ul>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`Shikso reserves the right to remove any inappropriate or misleading content.`}</p>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`You are fully responsible for all actions under your account. If we find suspicious, fraudulent, or abusive activity, we may suspend or permanently deactivate your account.`}</p>
                 <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`7. Limitation of Liability`}</h2>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`While we strive to provide accurate and reliable educational content, Shikso does not guarantee specific outcomes or exam results.`}</p>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{` We are not liable for:`}</p>
-                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3    ">
-                    <li>{`Any technical interruptions, data loss, or third-party errors`}</li>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`6. Use of the Platform`}</h2>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`When using Shikso, you agree to :`}</p>
+                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3 ">
+                    <li>{`Use it only for lawful, educational, and non-commercial purposes.`}</li>
+                    <li>{`Respect the intellectual property of Shikso and other users.`} </li>
+                    <li>{`Avoid sharing, distributing, or copying our content without permission.`} </li>
+                    <li>{`Not attempt to hack, disrupt, or interfere with our systems, servers, or software.`} </li>
+                </ul>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`Any violation of these rules can result in account termination and possible legal action.`}</p>
+                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`7. Subscription, Payments & Refunds`}</h2>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`Some of Shikso’s features — such as `}<strong className='font-bold'>{` Premium SmartSets, Mock Tests,`}</strong>{` and`}<strong className='font-bold'>{` AI Learning Reports`}</strong>{` — are paid services.`}</p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   "><strong className='font-bold'>{`Payment Terms :`}</strong></p>
+                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3">
+                    <li>{`All fees are displayed transparently at checkout.`}</li>
+                    <li>{`Payments are securely processed through verified payment gateways such as Razorpay or Stripe.`} </li>
+                    <li>{`You agree to provide valid billing information and authorize payment for selected plans.`} </li>
+                </ul>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   "><strong className='font-bold'>{`Refund Policy :`}</strong></p>
+                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3">
+                    <li>{`Fees once paid are`}<strong className='font-bold'>{`non-refundable `}</strong>{`, except in cases of duplicate charges or verified technical errors caused by Shikso.`}</li>
+                    <li>{`Refunds, if approved, are credited to the original payment source within 7–14 working days.`} </li>
+                </ul>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   "><strong className='font-bold'>{`Subscription Policy :`}</strong></p>
+                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-5 sm:mb-7">
+                    <li>{`Subscriptions renew automatically unless canceled before the renewal date.`}</li>
                     <li>{`Any damages resulting from misuse or misinterpretation of content`} </li>
                 </ul>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`Use of the platform is entirely at your own risk.`}</p>
                 <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`8. Data Privacy`}</h2>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`We value your privacy.`}</p>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{` All data collection and processing are governed by our `}<strong className='font-bold'>{`  Privacy Policy `}</strong>{` , which explains how we handle personal information securely and transparently.`}</p>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`8. Intellectual Property Rights`}</h2>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`All materials, including questions, videos, animations, study notes, designs, logos, and software, are the `}<strong className='font-bold'>{`  intellectual property of Shikso.`}</strong>{``}</p>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1   ">{` You are granted a `}<strong className='font-bold'>{`  limited, non-transferable, non-exclusive license `}</strong>{` to access and use the platform for your personal learning.`}</p>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-3  ">{`You`}<strong className='font-bold'>{` must not : `}</strong></p>
+                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3">
+                    <li>{`Copy, distribute, reproduce, or sell Shikso’s content.`}</li>
+                    <li>{`Reverse-engineer or manipulate our software or database.`} </li>
+                    <li>{`Use our name, logo, or design elements without written consent.`} </li>
+                </ul>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`Violation of these rights may lead to legal action under copyright and trademark laws.`}</p>
                 <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`9. Links to Third Parties`}</h2>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`Our website or app may contain links to external websites or partners.`}</p>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{` We are `}<strong className='font-bold'>{` not responsible `}</strong>{` for the content, privacy, or security practices of these third-party platforms.`}</p>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`9. User-Generated Content`}</h2>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`When you upload, post, or share content (e.g., comments, notes, feedback, or test questions), you :`}</p>
+                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3">
+                    <li>{`Grant Shikso a`} <strong className='font-bold'>{` worldwide, non-exclusive, royalty-free license `}</strong>{`to use, display, and improve upon that content for educational or promotional purposes.`}</li>
+                    <li>{`Confirm that your content does not infringe upon any third-party rights or contain offensive material.`} </li>
+                </ul>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`Shikso reserves the right to `}<strong className='font-bold'>{`moderate, edit, or remove `}</strong>{`any user content that violates our guidelines or legal standards.`}</p>
                 <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`10. Termination`}</h2>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`Shikso reserves the right to:`}</p>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`10. Accuracy of Information`}</h2>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`Shikso makes every effort to provide accurate and up-to-date educational content. However :`}</p>
                 <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3    ">
-                    <li>{`Suspend or terminate access to any user violating the Terms`}</li>
-                    <li>{`Remove inappropriate accounts or fraudulent activity without prior notice`} </li>
+                    <li>{`We do not guarantee that all content is free from errors or omissions.`}</li>
+                    <li>{`We are not responsible for academic results or exam outcomes based on our materials.`} </li>
                 </ul>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`Upon termination, all rights to use our platform and content immediately cease.`}</p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  ">{`Learning success depends on individual effort, preparation, and understanding.`}</p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{` Always verify official academic details (such as syllabus or exam pattern) from your school or official authority.`}</p>
                 <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`11. Indemnification`}</h2>
-                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`You agree to indemnify and hold harmless `}<strong className='font-bold'>{` Shikso `}</strong>{` , its affiliates, and team members from any claims, damages, or expenses arising from:`}</p>
-                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-5 sm:mb-7    ">
-                    <li>{`Your use or misuse of the platform`}</li>
-                    <li>{`Violation of these Terms or applicable laws`} </li>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`11. Limitation of Liability`}</h2>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`While we aim to deliver a smooth and reliable experience, Shikso is `}<strong className='font-bold'>{` not liable `}</strong>{` for :`}</p>
+                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3">
+                    <li>{`Service interruptions, technical failures, or data loss.`}</li>
+                    <li>{`Unauthorized access, hacking attempts, or data breaches beyond our reasonable control.`} </li>
+                    <li>{`Losses or damages resulting from misuse, misunderstanding, or reliance on content provided on the platform.`} </li>
                 </ul>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`All use of Shikso is `}<strong className='font-bold'>{` at your own risk.`}</strong></p>
                 <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`12. Changes to These Terms`}</h2>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`We may update these Terms & Conditions periodically to reflect new features, policies, or legal requirements.`}</p>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1   ">{` All changes will be posted on this page with a revised “Effective Date.”`}</p>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{` Continued use of the platform constitutes acceptance of the updated terms.`}</p>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`12. Disclaimer of Warranties`}</h2>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`Shikso is provided on an`}<strong className='font-bold'>{`  “as is” and “as available” `}</strong>{` basis.`}</p>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-3   ">{` We make no express or implied warranties regarding :`}</p>
+                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3">
+                    <li>{`Continuous availability or error-free service.`}</li>
+                    <li>{`Accuracy, completeness, or reliability of the content.`} </li>
+                    <li>{`Compatibility of the platform with your devices.`} </li>
+                    <li>{`Guaranteed academic performance or outcomes.`} </li>
+                </ul>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`You acknowledge that using Shikso means accepting these inherent limitations.`}</p>
                 <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`13. Governing Law`}</h2>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`These Terms are governed by the laws of `}<strong className='font-bold'>{` India `}</strong>{` , and any disputes shall be subject to the jurisdiction of the courts in `}<strong className='font-bold'>{`Bhopal, Madhya Pradesh.`}</strong></p>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`13. Data Privacy & Security`}</h2>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`Your privacy is extremely important to us.`}</p>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1   ">{` All personal data collected by Shikso is handled in accordance with our `}<strong className='font-bold'>{`Privacy Policy. `}</strong></p>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-3   ">{`We ensure:`}</p>
+                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3">
+                    <li>{`Secure data storage using encryption and verified systems.`}</li>
+                    <li>{`Limited access to personal information only for authorized personnel.`} </li>
+                    <li>{`No selling or renting of personal data to third parties.`} </li>
+                </ul>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`However, no digital platform can be 100% secure. Users are encouraged to maintain safe browsing habits and report any suspicious activity.`}</p>
                 <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`14. Contact Us`}</h2>
-                <p className="responsive-text text-[#1A2E33]  font-medium mb-2  ">{`For any questions or clarifications regarding these Terms & Conditions:`}</p>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`14. Links to Third Parties`}</h2>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium   ">{`Shikso may display or link to third-party websites, educational tools, or payment gateways.`}</p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1 sm:mb-2  ">{` These external sites are not under our control, and we are `}<strong className='font-bold'>{` not responsible `}</strong>{`for their content, policies, or security.`} </p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`We advise users to review the`}<strong className='font-bold'>{` terms and privacy policies  `}</strong>{`of third-party platforms before interacting with them.`} </p>
+                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`15. Termination of Access`}</h2>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`Shikso reserves the right to :`}</p>
+                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3">
+                    <li>{`Suspend or terminate user access for violations of these Terms or applicable law.`}</li>
+                    <li>{`Remove accounts involved in fraudulent or harmful activities.`} </li>
+                    <li>{`Refuse service or restrict features to maintain platform integrity.`} </li>
+                </ul>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`Once terminated, you lose access to all services, data, and content associated with your account. `}</p>
+                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`16. Indemnification`}</h2>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`You agree to indemnify and hold harmless Shikso, its founders, employees, and partners from any`}<strong className='font-bold'>{`claims, damages, or losses `}</strong>{`arising from :`}</p>
+                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3">
+                    <li>{`Your use or misuse of the platform.`}</li>
+                    <li>{`Violation of these Terms.`} </li>
+                    <li>{`Infringement of any intellectual property or third-party rights.`} </li>
+                </ul>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`This clause protects Shikso against legal or financial damages caused by user misconduct. `}</p>
+                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`17. Modifications to Services`}</h2>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`To keep improving, Shikso may :`}</p>
+                <ul className="responsive-text list-disc px-6  font-medium text-[#1A2E33] mb-3">
+                    <li>{`Update, modify, or discontinue features or services at any time.`}</li>
+                    <li>{`Change pricing, course structures, or functionalities as part of platform upgrades.`} </li>
+                </ul>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{`We will make reasonable efforts to notify users of major changes, but we are not obligated to maintain legacy versions or outdated content.`}</p>
+                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`18. Updates to Terms`}</h2>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium ">{`These Terms may be updated periodically to reflect new policies, services, or legal requirements.`}</p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium ">{` The revised Terms will be effective immediately once posted on this page with an updated “Effective Date.”`} </p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{` Continued use of Shikso after updates signifies acceptance of the new Terms.`} </p>
+                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`19. Governing Law & Jurisdiction`}</h2>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium   ">{`These Terms and all related matters shall be governed by the`}<strong className='font-bold'>{` laws of India. `}</strong></p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{` All disputes shall fall under the exclusive jurisdiction of the`}<strong className='font-bold'>{`  courts of Bhopal, Madhya Pradesh.  `}</strong> </p>
+                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`20. Entire Agreement`}</h2>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium   ">{`These Terms, together with our`}<strong className='font-bold'>{` Privacy Policy, Disclaimer`}</strong>{` ,and any other linked policies, form the `}<strong className='font-bold'>{` entire agreement `}</strong>{`between you and Shikso.`}</p>
+                <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7  ">{` If any clause is found invalid, the remaining provisions will continue to apply in full force.`} </p>
+                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
+                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`21. Communication & Contact`}</h2>
+                <p className="responsive-text text-[#1A2E33]  font-medium mb-2  ">{`For questions, feedback, or clarification regarding these Terms, please contact us at :`}</p>
                 <p className="responsive-text text-[#1A2E33]  font-medium mb-2  "><strong className='font-bold'>{`Shikso`}</strong></p>
-                <p className="responsive-text text-[#1A2E33]  font-medium mb-1  lg:items-center flex gap-1.5"><FaMapPin /><strong className='font-bold'>{`Address:`}</strong>{`SRP Co-Working Space, 48, E-5, Arera Colony, Bhopal, Madhya Pradesh, India – 462016`}</p>
+                <p className="dm_sans responsive-text text-[#1A2E33] font-medium mb-2 cursor-pointer items-center flex gap-1.5"><FaMapPin className='text-blue-500' />  <strong className='font-bold text-[#1A2E33]'>{`Address :`}</strong>{`SRP Co-Working Space, 48, E-5, Arera Colony, Bhopal, Madhya Pradesh, India – 462016`}</p>
                 <Link href="mailto:info@shikso.com">
-                    <p className="dm_sans responsive-text text-[#1A2E33] font-medium mb-1 cursor-pointer items-center text-sm md:text-sm lg:text-md flex gap-1.5"
-                    >
+                    <p className="dm_sans responsive-text text-blue-500 font-medium mb-2 cursor-pointer items-center flex gap-1.5">
                         <TfiEmail />
-                        <strong className='font-bold'>{`Email: `}</strong>
+                        <strong className='font-bold text-[#1A2E33]'>{`Email : `}</strong>
                         {"info@shikso.com"}
                     </p>
                 </Link>
                 <Link href="tel:+91 7974186754">
-                    <p className="dm_sans responsive-text text-[#1A2E33] font-medium mb-2 cursor-pointer items-center flex gap-1.5"
-                    >
+                    <p className="dm_sans responsive-text text-blue-500 font-medium mb-2 cursor-pointer items-center flex gap-1.5">
                         <MdCall />
-                        <strong className='font-bold'>{"Phone: "}</strong>
+                        <strong className='font-bold text-[#1A2E33]'>{"Phone : "}</strong>
                         {"+91 7974186754"}
                     </p>
+                </Link>
+                <Link href="https://www.shikso.com" className='text-blue-400' target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="website link">
+                    <p className="dm_sans responsive-text text-blue-500 font-medium mb-2 cursor-pointer items-center flex gap-1.5">
+                        <SiWebmoney />
+                        <strong className='font-bold text-[#1A2E33]'>{`Website : `}</strong>   {`https://www.shikso.com`}  </p>
                 </Link>
                 <div className="justify-items-center sm:justify-items-end   sm:w-full mt-5 mb-14">
                     <p className="text-[20px]  pr-12 mb-2 text-[#4D5D60]">{`Powered by-`}</p>

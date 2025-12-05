@@ -17,7 +17,7 @@ const CommonFaq = ({faqData}) => {
             className={`px-[15px] sm:px-[33px] md:px-[38px] py-[14px] sm:py-[15px] md:py-[17px] rounded-[20px] border border-[#93ADB2] cursor-pointer transition-all 
              ${
                expanded === index
-                 ? "bg-[#37863F] text-white"
+                 ? "bg-rose-600 text-white"
                  : "bg-transparent text-[#1A2E33]"
              }
             `}
@@ -60,4 +60,4 @@ export default CommonFaq;
 //   },
 // ];
 
-   {/* <FAQ faqData={faqData} /> */}
+   {/* <CommonFaq faqData={faqData} /> */}

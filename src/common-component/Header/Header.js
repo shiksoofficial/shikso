@@ -82,7 +82,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { MdMenu, MdClose } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa";
@@ -91,10 +91,38 @@ import { FaPinterestP } from "react-icons/fa6";
 import { FaTumblr } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
 import Image from "next/image";
+import { CgProfile } from "react-icons/cg";
+import { getToken } from "@/lib/auth";
+import LoginModal from "@/common-component/LoginModal/LoginModal";
+import SignupModal from "@/common-component/SignupModal/SignupModal";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
   const pathname = usePathname(); // current path
+  const router = useRouter();
+
+  const handleProfileClick = (e) => {
+    e.preventDefault();
+    const token = getToken();
+    if (token) {
+      router.push("/profile");
+    } else {
+      setIsLoginModalOpen(true);
+    }
+  };
+
+  const handleSwitchToSignup = () => {
+    setIsLoginModalOpen(false);
+    setIsSignupModalOpen(true);
+  };
+
+  const handleSwitchToLogin = () => {
+    setIsSignupModalOpen(false);
+    setIsLoginModalOpen(true);
+  };
 
   const menuItems = [
     { title: "Home", href: "/" },
@@ -102,162 +130,223 @@ const Header = () => {
     { title: "Blog", href: "/blogs" },
     { title: "News", href: "/educational-news" },
     { title: "Contact", href: "/contact-us" },
+    {
+      title: "Exams", href: "/exams",
+      subtitles: [
+        { title: "Navodaya", href: "/navodaya-smartset" },
+        { title: "Sainik", href: "/sainik-school-smartset" },
+      ],
+    },
   ];
 
   return (
-    <header className="absolute left-0 w-full z-[100]">
-      <div className="custom-container">
-        <div className="flex justify-between py-5 items-center">
-          <Link href="/">
-            {" "}
-                <Image
-                  src={"/Shiksologo.png"}
-                  alt="Vyomedge Website"
-                  width={200}
-                  height={25}
-                />
-          </Link>
-          <div className="hidden md:flex gap-5 text-sm">
-            <div className="w-[350px] flex gap-5 items-center">
-              <div>
-                <MdLocationPin size={30} color="#fdb62f" />
+    <>
+      <LoginModal
+        open={isLoginModalOpen}
+        setOpen={setIsLoginModalOpen}
+        onSwitchToSignup={handleSwitchToSignup}
+      />
+      <SignupModal
+        open={isSignupModalOpen}
+        setOpen={setIsSignupModalOpen}
+        onSwitchToLogin={handleSwitchToLogin}
+      />
+      <header className="absolute left-0 w-full z-[100]">
+        <div className="custom-container">
+          <div className="flex justify-between py-5 items-center">
+            <Link href="/">
+              {" "}
+              <Image
+                src={"/Shiksologo.png"}
+                alt="Vyomedge Website"
+                width={200}
+                height={25}
+              />
+            </Link>
+            <div className="hidden md:flex gap-5 text-sm">
+              <div className="w-[350px] flex gap-5 items-center">
+                <div>
+                  <MdLocationPin size={30} color="#fdb62f" />
+                </div>
+                <span className="dm_sans text-white">{` FF12, SRP Arcade, E-5/48, E-5, Arera Colony, Bhopal, Madhya Pradesh 462016`}</span>
               </div>
-              <span className="dm_sans text-white">{` FF12, SRP Arcade, E-5/48, E-5, Arera Colony, Bhopal, Madhya Pradesh 462016`}</span>
-            </div>
-            {/* <div className="w-[250px] flex gap-5 items-center">
+              {/* <div className="w-[250px] flex gap-5 items-center">
               <div><FaRegClock size={30} color="#dc3545" /></div> <span className="dm_sans text-white">{`Sunday - Friday 8:00AM - 4:00PM 
               Saturday CLOSED`}</span>
             </div> */}
+            </div>
+          </div>
+
+          <div className="bg-white px-10 py-6 rounded-[50px] flex justify-between items-center">
+            <ul className="dm_sans hidden md:flex gap-8 text-black font-medium">
+              {menuItems.map((item, i) => (
+                <li
+                  key={i}
+                  className="relative group"
+                  onMouseEnter={() =>
+                    item.subtitles && setDropdownOpen(item.title)
+                  }
+                  onMouseLeave={() => setDropdownOpen(null)}
+                >
+                  <Link
+                    aria-label="menu"
+                    href={item.href}
+                    className={
+                      pathname === item.href ||
+                        (item.subtitles && item.subtitles.some(sub => pathname === sub.href))
+                        ? "text-red-800"
+                        : ""
+                    }
+                  >
+                    {item.title}
+                  </Link>
+
+
+                  {item.subtitles && dropdownOpen === item.title && (
+                    <div
+                      className="absolute left-0 top-full pt-2 w-48 bg-white shadow-lg rounded-lg p-3 z-[200]"
+                      onMouseEnter={() => setDropdownOpen(item.title)}
+                      onMouseLeave={() => setDropdownOpen(null)}
+                    >
+                      <ul className="flex flex-col gap-2">
+                        {item.subtitles.map((sub, index) => (
+                          <li key={index}>
+                            <Link
+                              href={sub.href}
+                              className={`block ${pathname === sub.href ? "text-red-800 font-semibold" : "text-gray-700 hover:text-red-800"}`}
+                            >
+                              {sub.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex items-center gap-5">
+              <button
+                aria-label="menu-btn"
+                onClick={() => setIsOpen(true)}
+                className="md:hidden flex items-center"
+              >
+                <MdMenu size={28} color="#000" />
+              </button>
+
+              <ul className="flex gap-2 items-center ">
+                <li className="text-blue-600">
+                  <Link
+                    href="https://www.facebook.com/people/Shikso/61582800338789/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="facebook link"
+                  >
+                    <FaFacebookF />
+                  </Link>
+                </li>
+                <li className="text-green-500">
+                  <Link
+                    href="https://x.com/shiksoofficial"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="twitter link"
+                  >
+                    <FaTwitter />
+                  </Link>
+                </li>
+                <li className="text-blue-900">
+                  <Link
+                    href="https://linkedin.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="linkedin link"
+                  >
+                    <FaLinkedinIn />
+                  </Link>
+                </li>
+                <li className="text-red-700">
+                  <Link
+                    href="https://in.pinterest.com/shiksoofficial/?actingBusinessId=1094515653098162404"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Pinterest link"
+                  >
+                    <FaPinterestP color="error" />
+                  </Link>
+                </li>
+                <li className="text-[#35465C]">
+                  <Link
+                    href="https://www.tumblr.com/dashboard"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Tumblr link"
+                  >
+                    <FaTumblr />
+                  </Link>
+                </li>
+                <li className="text-[#C71585]">
+                  <Link
+                    href="https://www.instagram.com/shikso_official?igsh=MTU0c2liODFxdTJqeg=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram link"
+                  >
+                    <RiInstagramFill />
+                  </Link>
+                </li>
+                |
+                <li className="text-gray-500" >
+                  <button
+                    onClick={handleProfileClick}
+                    className="cursor-pointer"
+                    aria-label="Profile link"
+                  >
+                    <CgProfile size={30} />
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="bg-white px-10 py-6 rounded-[50px] flex justify-between items-center">
-          <ul className="dm_sans hidden md:flex gap-8 text-black font-medium">
+        {/* Overlay */}
+        <div
+          className={`fixed inset-0 bg-black/50 z-[99] transition-opacity duration-300 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+            }`}
+          onClick={() => setIsOpen(false)}
+        ></div>
+
+        {/* Sidebar */}
+        <div
+          className={`fixed top-0 right-0 h-full w-64 bg-white z-[100] p-6 shadow-lg transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+        >
+          <div className="flex justify-between items-center mb-6">
+            <p className="text-2xl font-semibold"></p>
+            <button aria-label="close-btn" onClick={() => setIsOpen(false)}>
+              <MdClose size={28} />
+            </button>
+          </div>
+
+          <ul className="flex flex-col gap-5 text-lg text-gray-800">
             {menuItems.map((item, i) => (
               <li key={i}>
                 <Link
-                  aria-label="menu"
+                  aria-label="menus"
                   href={item.href}
                   className={pathname === item.href ? "text-red-800" : ""}
+                  onClick={() => setIsOpen(false)}
                 >
                   {item.title}
                 </Link>
               </li>
             ))}
           </ul>
-
-          <div className="flex items-center gap-5">
-            <button
-              aria-label="menu-btn"
-              onClick={() => setIsOpen(true)}
-              className="md:hidden flex items-center"
-            >
-              <MdMenu size={28} color="#000" />
-            </button>
-
-            <ul className="flex gap-4  ">
-              <li className="text-blue-600">
-                <Link
-                  href="https://www.facebook.com/people/Shikso/61582800338789/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="facebook link"
-                >
-                  <FaFacebookF />
-                </Link>
-              </li>
-              <li  className="text-green-500">
-                <Link
-                  href="https://x.com/shiksoofficial"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="twitter link"
-                >
-                  <FaTwitter  />
-                </Link>
-              </li>
-              <li className="text-blue-900">
-                <Link
-                  href="https://linkedin.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="linkedin link"
-                >
-                  <FaLinkedinIn />
-                </Link>
-              </li>
-              <li className="text-red-700">
-                <Link
-                  href="https://in.pinterest.com/shiksoofficial/?actingBusinessId=1094515653098162404"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Pinterest link"
-                >
-                  <FaPinterestP color="error" />
-                </Link>
-              </li>
-              <li className="text-[#35465C]">
-                <Link
-                  href="https://www.tumblr.com/dashboard"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Tumblr link"
-                >
-                  <FaTumblr />
-                </Link>
-              </li>
-              <li className="text-[#C71585]">
-                <Link
-                  href="https://www.instagram.com/shikso_official?igsh=MTU0c2liODFxdTJqeg=="
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram link"
-                >
-                  <RiInstagramFill />
-                </Link>
-              </li>
-            </ul>
-          </div>
         </div>
-      </div>
-
-      {/* Overlay */}
-      <div
-        className={`fixed inset-0 bg-black/50 z-[99] transition-opacity duration-300 ${
-          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-        onClick={() => setIsOpen(false)}
-      ></div>
-
-      {/* Sidebar */}
-      <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white z-[100] p-6 shadow-lg transform transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="flex justify-between items-center mb-6">
-          <p className="text-2xl font-semibold"></p>
-          <button aria-label="close-btn" onClick={() => setIsOpen(false)}>
-            <MdClose size={28} />
-          </button>
-        </div>
-
-        <ul className="flex flex-col gap-5 text-lg text-gray-800">
-          {menuItems.map((item, i) => (
-            <li key={i}>
-              <Link
-                aria-label="menus"
-                href={item.href}
-                className={pathname === item.href ? "text-red-800" : ""}
-                onClick={() => setIsOpen(false)} // close sidebar
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
 

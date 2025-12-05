@@ -23,6 +23,7 @@ const Footer = () => {
       { label: "Contact us", url: "/contact-us" },
       { label: "Blogs", url: "/blogs" },
       { label: "News", url: "/educational-news" },
+      { label: "Exams", url: "/exams" },
       // { label: "Gallery", url: "/gallery" },
     ],
 
