@@ -1,7 +1,7 @@
 import { apiClient } from "@/lib/api-client";
 
 export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const staticPages = [
     "",
     "about-us",
@@ -16,7 +16,9 @@ export async function GET() {
 
   let blogs = [];
   try {
-    const blogResponse = await apiClient.get("blogs/all/ed_tech?type=blog&status=Published");
+    const blogResponse = await apiClient.get(
+      "blogs/all/ed_tech?type=blog&status=Published"
+    );
     const data = blogResponse.data.blogs;
 
     if (Array.isArray(data)) {
@@ -28,9 +30,10 @@ export async function GET() {
 
   let news = [];
   try {
-    const blogResponse = await apiClient.get("blogs/all/ed_tech?type=news&status=Published");
+    const blogResponse = await apiClient.get(
+      "blogs/all/ed_tech?type=news&status=Published"
+    );
     const data = blogResponse.data.blogs;
-
     if (Array.isArray(data)) {
       news = data.map((item) => `educational-news/${item?.uid}`);
     }
@@ -38,7 +41,7 @@ export async function GET() {
     console.log("Error fetching blogs:", error);
   }
 
-  const allUrls = staticPages.concat(blogs,news);
+  const allUrls = staticPages.concat(blogs, news);
 
   const urls = allUrls.map((page) => {
     return `
@@ -58,7 +61,7 @@ export async function GET() {
 
   return new Response(sitemap.trim(), {
     headers: {
-      'Content-Type': 'application/xml',
+      "Content-Type": "application/xml",
     },
   });
 }
