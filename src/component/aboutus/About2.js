@@ -6,44 +6,35 @@ const cardsData = [
     id: 1,
     icon: "/aboutus/about-3-1.svg",
     founder: "Founder",
-    title: "AI-Based Personalization",
-    description: " Adaptive learning paths for every student."
+    title: "1- Gamified Learning Platform",
+    points: [
+      "Earn badges and streaks for consistency.",
+      "Unlock levels as you master subjects.",
+      "Celebrate every milestone with rewards.",
+    ],
   },
   {
     id: 2,
     icon: "/aboutus/about-3-1.svg",
     founder: "Founder",
-    title: "Gamified Practice",
-    description: "Fun, motivating, and streak-based progress system.",
+    title: "2- AI Powered Education Platform",
+    points: [
+      "Detects weak areas and recommends focused topics.",
+      "Adjusts difficulty levels based on performance.",
+      "Data-driven insight that enhances every learning experience.",
+    ],
   },
   {
     id: 3,
     icon: "/aboutus/about-3-1.svg",
     founder: "Founder",
-    title: " Affordable & Accessible",
-    description: "Quality learning for every home and school.",
+    title: "3- Adaptive Learning Platform",
+    points: [
+      "Suggests quick videos to close knowledge gaps",
+      "Unlimited topic-wise questions",
+      "Analytics and dashboards to measure results.",
+    ],
   },
-  {
-    id: 4,
-    icon: "/aboutus/about-3-1.svg",
-    founder: "Founder",
-    title: "Comprehensive Dashboard",
-    description: " Track scores, time, and topic-wise growth.",
-  },
-  {
-    id: 5,
-    icon: "/aboutus/about-3-1.svg",
-    founder: "Founder",
-    title: " India’s First SmartSet Platform",
-    description: "Built for exams like Navodaya & Sainik School – and beyond.",
-  },
-  // {
-  //   id: 6,
-  //   icon: "/aboutus/about-3-1.svg",
-  //   founder:"Founder",
-  //   title: "Indoor Games",
-  //   description: "Fun, motivating, and streak-based progress system.",
-  // },
 ];
 
 const About2 = () => {
@@ -62,6 +53,7 @@ const About2 = () => {
               key={item.id}
               icon={item.icon}
               title={item.title}
+              points={item.points}
               description={item.description}
               founder={item.founder}
 

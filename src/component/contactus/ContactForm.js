@@ -42,10 +42,11 @@ const ContactForm = () => {
     <div className='bg-slate-100'>
       <div className='custom-container py-6 md:py-10'>
         <h2 className='dm_sans responsiveheading2 text-center'>{`Get In Touch With Shikso`}</h2>
-        <p className='max-w-[700px] text-center m-auto mt-2'>{`At Shikso, we believe education should be fun, futuristic, and accessible to every learner. Whether you’re a parent, student, or school, our team is here to assist you with personalized solutions and guidance.`}</p>
-        <p className='max-w-fit text-center m-auto mt-2'>{` Please fill out the contact form below — we’ll get back to you as soon as possible.`}</p>
+        <p className='max-w-fit text-center m-auto mt-2'>{`At Shikso, we’re reimagining education for the future — blending technology, creativity, and compassion.`}</p>
+        <p className='max-w-fit text-center m-auto mt-2'>{`If you have questions, ideas, or just want to explore how Shikso can fit into your learning journey — we’re only a message away.`}</p>
+        <p className='max-w-fit text-center m-auto mt-2'><strong className='font-bold'>{`Fill out the form`}</strong>{` , and our team will get back to you faster than your next quiz streak! `}</p>
       </div>
-      <div className='custom-container py-6 md:py-10'>
+      <div className='custom-container py-6 md:py-8'>
         <div className='grid grid-cols-12 gap-7'>
           <div className='col-span-12 lg:col-span-8 '>
             <form
@@ -126,11 +127,12 @@ const ContactForm = () => {
             <p className='mt-3'>{`Phone:`}</p>
             <p className='dm_sans text-slate-500'>{` +91 7974186754`}</p>
             <p className='mt-3'>{`Email:`}</p>
-            <p className='dm_sans text-slate-500'>{` info@shikso.com (you can update when finalized)`}</p>
+            <p className='dm_sans text-slate-500'>{` info@shikso.com `}</p>
             <p className='mt-3'>{`Working Hours:`}</p>
-            <p className='dm_sans text-slate-500'>{` Monday – Friday: 8:00 AM – 6:00 PM
-                                Saturday: 9:00 AM – 2:00 PM
-                                  Sunday: Closed`}</p>
+            <p className='dm_sans text-slate-500'>{` Monday – Friday: 8:00 AM – 6:00 PM`}</p>
+            <p className='dm_sans text-slate-500'>{` Saturday: 9:00 AM – 2:00 PM`}</p>
+            <p className='dm_sans text-slate-500'>{`Sunday: Closed`}</p>
+
           </div>
         </div>
       </div>

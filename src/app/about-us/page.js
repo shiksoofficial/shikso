@@ -1,3 +1,4 @@
+import ExamSection3 from '@/common-component/ExamSection3/ExamSection3'
 import About1 from '@/component/aboutus/About1'
 import About2 from '@/component/aboutus/About2'
 import About3 from '@/component/aboutus/About3'
@@ -7,20 +8,20 @@ import { getCanonicalUrl } from '@/lib/seo'
 
 import React from 'react'
 export const metadata = {
-  title: " Shikso – AI-Powered Smart Learning Platform for Modern Students",
-  description: " Shikso is India’s first AI-powered smart learning ecosystem that helps students learn smarter through gamified practice, personalized analytics, and modern school education tools. Explore Navodaya SmartSet, Sainik School SmartSet & more.",
-  keywords: ["smart learning platform", "AI powered education", "modern school learning", "gamified learning platform", "adaptive education system"],
+  title: "About Shikso | Innovative Learning Ecosystem for Students |",
+  description: " Learn about Shikso India’s first AI-powered Innovative learning ecosystem For students, parents, and teachers that helps students practice, learn, & evolve",
+  keywords: ["Adaptive Learning System", "Innovative Learning ecosystem", " Adaptive Learning Platform for Schools", " AI Powered Education", "Modern School Learning", "Gamified Learning Platform, Navodaya SmartSet", "Sainik School SmartSet", " Online Exam Practice", "Personalized Learning Dashboard", "Educational Analytics", "Future of EdTech"],
   alternates: { canonical: getCanonicalUrl("/about-us") },
   openGraph: {
-    title: " Shikso – AI-Powered Smart Learning Platform for Modern Students",
-    description: " Shikso is India’s first AI-powered smart learning ecosystem that helps students learn smarter through gamified practice, personalized analytics, and modern school education tools. Explore Navodaya SmartSet, Sainik School SmartSet & more.",
+    title: "About Shikso | Innovative Learning Ecosystem for Students |",
+    description: " Learn about Shikso India’s first AI-powered Innovative learning ecosystem For students, parents, and teachers that helps students practice, learn, & evolve",
     url: getCanonicalUrl("/"),
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: " Shikso – AI-Powered Smart Learning Platform for Modern Students",
-    description: " Shikso is India’s first AI-powered smart learning ecosystem that helps students learn smarter through gamified practice, personalized analytics, and modern school education tools. Explore Navodaya SmartSet, Sainik School SmartSet & more.",
+    title: "About Shikso | Innovative Learning Ecosystem for Students |",
+    description: " Learn about Shikso India’s first AI-powered Innovative learning ecosystem For students, parents, and teachers that helps students practice, learn, & evolve",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
 };
@@ -30,11 +31,23 @@ const AboutPage = () => {
       <HeroSection imageurl="/aboutus/hero_1.jpg"
         title=" Welcome to Shikso – Your Child’s Smart Learning Companion"
         title2=" AI-Powered Education for Modern Students"
-        paragraph=" Shikso is a next-generation smart learning platform that transforms traditional education into an interactive, data-driven experience. Designed for today’s students, parents, and schools, Shikso blends AI-based personalization, gamified practice, and performance analytics to create a learning journey that’s fun, effective, and future-ready."
+        paragraph=" Practice | Learn | Evolve |"
         // button={true}
         breadcom={[{ title: "About Us" }]} />
       <About1 />
       <About2 />
+      <ExamSection3
+        title="Built for Students, Teachers, and Parents"
+        description="Shikso connects the entire learning ecosystem through one platform:"
+        points={[
+          "Students — Get personalized quizzes, mock tests, and instant feedback.",
+          " Teachers — Access smart tools to assign lessons and track performance.",
+          " Parents — Monitor growth through easy progress reports and analytics.",
+        ]}
+        line1="Together, they form a learning loop that grows stronger every day:"
+        highlightText="Practice → Analyze → Improve → Repeat → Grow"
+
+      />
       <About3 />
       <About4 />
     </>
