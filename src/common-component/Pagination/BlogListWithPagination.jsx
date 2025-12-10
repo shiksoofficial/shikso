@@ -34,7 +34,7 @@ function BlogListWithPagination({ initialBlogs, totalBlogs, limit }) {
 
     return (
         <>
-            <div className="relative" aria-busy={loading}>
+            <div className="relative " aria-busy={loading} >
                 {loading && (
                     <div className="absolute inset-0 z-10 flex items-center justify-center bg-white/70 backdrop-blur-sm">
                         <div className="h-10 w-10 rounded-full border-2 border-red-500 border-t-transparent animate-spin" />
@@ -46,8 +46,8 @@ function BlogListWithPagination({ initialBlogs, totalBlogs, limit }) {
                         {blogs.map((val) => (
                             <div
                                 key={val?._id}
-                                className="rounded-tl-[20px] rounded-tr-[0px] rounded-br-[20px] rounded-bl-[0px] overflow-hidden 
-              shadow-md transition-all duration-300 ease-in-out
+                                className="rounded-[10px]  overflow-hidden 
+              shadow-md transition-all duration-300 ease-in-out bg-[#E5FBFF]
               hover:scale-105 hover:shadow focus:scale-105 focus:shadow active:scale-105 active:shadow cursor-pointer"
                             >
                                 <div className="relative w-full h-[180px] rounded-tl-[20px] rounded-tr-[0px] rounded-br-[20px] rounded-bl-[0px] overflow-hidden">

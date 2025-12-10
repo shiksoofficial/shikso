@@ -1,97 +1,54 @@
-"use client"
-import CustomButton from "../../common-component/CustomButton/CustomButton";
-import { countAtom } from "@/store/atoms";
-import { useAtom } from "jotai";
-import CustomLinkBtn from "@/common-component/CustomLinkBtn/CustomLinBtn";
+"use client";
+
+import { useState } from "react";
+import CustomButton2 from "@/common-component/CustomBotton2/CustomButton2";
+import CustomButton from "@/common-component/CustomButton/CustomButton";
 import Image from "next/image";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
 import ConnectUsModal from "@/common-component/ConnectUsModal/ConnectUsModal";
 
-const HeroSection = ({ imageurl, title, title2, paragraph, button, breadcom }) => {
-  const [count, setCount] = useAtom(countAtom);
-  console.log(count)
-
-  const [offsetY, setOffsetY] = useState(0);
-  const handleScroll = () => setOffsetY(window.scrollY);
-  useEffect(() => {
-    const handleScroll = () => setOffsetY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+export default function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpen = () => setIsModalOpen(true);
+  const handleClose = () => setIsModalOpen(false);
 
   return (
     <>
       <ConnectUsModal open={isModalOpen} setOpen={setIsModalOpen} />
-      <div className="w-full h-[710px] sm-[610px] lg:h-[600px] relative shrink-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent z-10 pointer-events-none"></div>
-        <div
-          className="absolute inset-0 will-change-transform transition-transform duration-200 ease-out"
-          style={{
-            transform: `translateY(${offsetY * 0.5}px) scale(1.05)`,
-          }}
-        >
-          <Image
-            src={imageurl}
-            alt="bannerImage"
-            fill
-            priority
-            quality={100}
-            className="object-cover"
+      <section className="w-full bg-[#E6F9FF] py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:flex items-center justify-between gap-20">
+          <div className="sm:w-1/2 space-y-6">
+            <h1
+              className="text-4xl lg:text-5xl font-bold leading-tight text-gray-900"
+              dangerouslySetInnerHTML={{
+                __html: `Learn Smarter.<br/>Shine Brighter.<br/>With Shikso!`,
+              }}
+            />
+            <p className="text-gray-700 text-lg max-w-md">
+              {` Fun, focused, and personalized learning for every young achiever.`}
+            </p>
+            <div className="flex items-center gap-4">
+              <CustomButton onClick={handleOpen}>
+                {`Start Learning`}
+              </CustomButton>
 
-          />
-        </div>
-        <div
-          className=" absolute inset-0 z-10 flex items-end pb-15 "
-          style={{
-            transform: `translateY(-${offsetY * 0.4}px)`,
-          }}
-        >
-          <div className="custom-container w-full">
-            <p className="indie_flower text-[#dc3545] responsive-text font-medium">{title}</p>
-            <h1 className="dm_sans responsive-heading text-white">
-              {title2}
-            </h1>
-            <p className="dm_sans mt-5 mb-10 text-white responsive-text">{paragraph}</p>
-            {button && <CustomButton color="#dc3545" ariaLabel={"Connect with Us"} onClick={() => setIsModalOpen(true)}>
-              {`LEARN MORE`}
-            </CustomButton>
-              // <CustomLinkBtn color="#dc3545" ariaLabel={"Connect with Us"} onClick={() => setIsModalOpen(true)} >{`LEARN MORE`}</CustomLinkBtn>
-            }
-            {breadcom?.length > 0 && (
-              <div className="flex items-center gap-1.5 text-white text-base">
-                <Link href="/" aria-label="home icon" className="dm_sans text-[15px] text-white hover:text-[#dc3545] transition-colors">
-                  Home
-                </Link>
-                {breadcom?.map((item, index) => {
-                    const isLast = index === breadcom.length - 1;
-                  return (
-                    <React.Fragment key={index}>
-                      /
-                    {!isLast ? (
-                        <Link
-                          href={item?.url || "#"}
-                          className="dm_sans text-[15px] text-white hover:text-[#dc3545] transition-colors responsive-text"
-                        >
-                          {item.title}
-                        </Link>
-                      ) : (
-                        <span className="dm_sans text-[15px] text-white responsive-text">
-                          {item.title}
-                        </span>
-                      )}
-                    </React.Fragment>
-                  );
-                })}
-              </div>
-            )}
+              <CustomButton2 variant="primary">
+                {`View Courses`}
+              </CustomButton2>
+            </div>
+          </div>
+          <div className="sm:w-1/2 flex items-center justify-center mt-10 sm:mt-0">
+            <div className="relative w-full max-w-[600px] aspect-[600/418]">
+              <Image
+                src="/herobanner.webp"
+                alt="Mascot"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
-};
-
-export default HeroSection;
+}

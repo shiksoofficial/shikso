@@ -67,25 +67,11 @@ const Footer = () => {
     copyright: " Shikso.com",
   };
   return (
-    <footer className="bg-[#1A2E33] ">
+    <footer className="bg-[#15686E] ">
       <div className="custom-container px-4 sm:px-6 lg:px-2 py-10">
         <div className="grid grid-cols-12 border-b border-gray-500 pb-8 gap-3.5  md:gap-4 lg:gap-8">
-          <div className="col-span-12 sm:col-span-12  lg:col-span-5  lg:mr:28 xl:mr-32">
-            <div className="text-lg md:text-xl font-medium  text-red-500">
-              <Link href="/">
-                <Image
-                  src={"/Shiksologo.png"}
-                  alt="Vyomedge Website"
-                  width={200}
-                  height={25}
-                /></Link>
-            </div>
-            <p className="mt-5 text-[16px] footer_commanText  text-white">
-              {footerData.brand.description}
-            </p>
-          </div>
-          <div className="col-span-5 sm:col-span-6  lg:col-span-3">
-            <div className="mb-1 sm:mb-5 text-[20px] dm_sans text-red-500">
+          <div className="col-span-5 sm:col-span-3  lg:col-span-3  lg:mr:28 xl:mr-32">
+            <div className="mb-1 sm:mb-5 text-[20px] dm_sans text-[#FFF46C]">
               Quick Links
             </div>
             <div className="flex flex-col space-y-2">
@@ -93,16 +79,34 @@ const Footer = () => {
                 <Link
                   key={index}
                   href={link.url}
-                  className={`text-sm md:text-base  text-white hover:text-rose-600 transition-colors ${pathname === link.url ? "text-red-500 underline" : ""
+                  className={`text-sm md:text-base  text-white hover:text-[#FFF46C] transition-colors ${pathname === link.url ? "text-red-500 underline" : ""
                     }`}
                 >
                   {link.label}
                 </Link>
               ))}
             </div>
+
           </div>
-          <div className="col-span-7 sm:col-span-6  lg:col-span-3  text-white">
-            <div className=" mb-1  sm:mb-5 text-[20px] dm_sans  text-red-500">{`Contact Info`}</div>
+          <div className="col-span-5 sm:col-span-3 lg:col-span-3">
+            <div className="mb-1 sm:mb-5 text-[20px] dm_sans text-[#FFF46C]">
+              Quick Links
+            </div>
+            {/* <div className="flex flex-col space-y-2">
+              {footerData.quickLinks1.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.url}
+                  className={`text-sm md:text-base  text-white hover:text-[#FFF46C] transition-colors ${pathname === link.url ? "text-red-500 underline" : ""
+                    }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div> */}
+          </div>
+          <div className="col-span-12 sm:col-span-6  lg:col-span-6  text-white">
+            <div className=" mb-1  sm:mb-5 text-[20px] dm_sans  text-[#FFF46C]">{`Contact Info`}</div>
             <div className="flex items-center gap-3.5 text-sm md:text-base">
 
               <div className="relative">
@@ -189,8 +193,36 @@ const Footer = () => {
             </div> */}
           </div>
         </div>
-        <div className="flex flex-col md:flex-col lg:flex-row   justify-between items-center text-sm md:text-base mt-4 lg:mt-7 space-y-2 md:space-y-2 lg:space-y-0">
-          <div className=" text-[16px] flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[rgba(222,242,252,1)]">
+        <div className="flex flex-wrap  justify-center sm:justify-start text-[#FFF46C] pt-4">
+          {footerData.bottomLinks.map((link, i) => (
+            <span key={i} className="flex items-center">
+              <Link
+                href={link.url}
+                className={`hover:underline capitalize ${pathname === link.url ? "underline" : ""
+                  }`}
+              >
+                {link.label}
+              </Link>
+              {i < footerData.bottomLinks.length - 1 && (
+                <span className="mx-1 sm:mx-2">|</span>
+              )}
+            </span>
+          ))}
+        </div>
+
+      </div>
+      <div className="bg-white">
+        <div className=" custom-container flex flex-col md:flex-col lg:flex-row   justify-between items-center text-sm md:text-base py-6  space-y-2 md:space-y-2 lg:space-y-0">
+          <div className=" ">
+            <Link href="/">
+              <Image
+                src={"/Shiksologo.png"}
+                alt="Vyomedge Website"
+                width={200}
+                height={25}
+              /></Link>
+          </div>
+          <div className=" text-[16px] flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-black">
             © {new Date().getFullYear()}
             <Link href="/" className="hover:underline">
               {footerData.copyright}
@@ -222,22 +254,6 @@ const Footer = () => {
                 />
               </Link>
             </div>
-          </div>
-          <div className="flex flex-wrap  justify-center sm:justify-end text-[rgba(232,248,225,1)]">
-            {footerData.bottomLinks.map((link, i) => (
-              <span key={i} className="flex items-center">
-                <Link
-                  href={link.url}
-                  className={`hover:underline capitalize ${pathname === link.url ? "underline" : ""
-                    }`}
-                >
-                  {link.label}
-                </Link>
-                {i < footerData.bottomLinks.length - 1 && (
-                  <span className="mx-1 sm:mx-2">|</span>
-                )}
-              </span>
-            ))}
           </div>
         </div>
       </div>

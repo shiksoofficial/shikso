@@ -5,6 +5,7 @@ import { FaUsers } from "react-icons/fa";
 import { MdLayers } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
 import { FaEarthAmericas } from "react-icons/fa6";
+import CustomButton from "../CustomButton/CustomButton";
 
 const TestSeriesCard = ({
   img,
@@ -59,17 +60,17 @@ const TestSeriesCard = ({
         {/* Use Link if page is provided, otherwise use onClick */}
         {page ? (
           <Link href={page}>
-            <CustomButton2 className="w-full mt-4 bg-cyan-600 text-white py-2 rounded-lg font-semibold hover:bg-cyan-700 transition">
+            <CustomButton className="w-full mt-4 bg-cyan-600  py-2 rounded-lg font-semibold hover:bg-cyan-700 transition">
               {text}
-            </CustomButton2>
+            </CustomButton>
           </Link>
         ) : (
-          <CustomButton2
+          <CustomButton
             onClick={onClick}
-            className="w-full mt-4 bg-cyan-600 text-white py-2 rounded-lg font-semibold hover:bg-cyan-700 transition"
+            className="w-full mt-4 bg-cyan-600  py-2 rounded-lg font-semibold hover:bg-cyan-700 transition"
           >
             {text}
-          </CustomButton2>
+          </CustomButton>
         )}
       </div>
     </div>

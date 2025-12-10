@@ -1,3 +1,4 @@
+import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1'
 import ExamSection3 from '@/common-component/ExamSection3/ExamSection3'
 import About1 from '@/component/aboutus/About1'
 import About2 from '@/component/aboutus/About2'
@@ -28,11 +29,10 @@ export const metadata = {
 const AboutPage = () => {
   return (
     <>
-      <HeroSection imageurl="/aboutus/hero_1.jpg"
-        title=" Welcome to Shikso – Your Child’s Smart Learning Companion"
-        title2=" AI-Powered Education for Modern Students"
-        paragraph=" Practice | Learn | Evolve |"
-        // button={true}
+      <CommonBanner1
+        title={"Welcome to Shikso"}
+        paraghraph={"AI-Powered Education for Modern Students"}
+        tagline={"Practice | Learn | Evolve |"}
         breadcom={[{ title: "About Us" }]} />
       <About1 />
       <About2 />

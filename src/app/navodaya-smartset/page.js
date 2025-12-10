@@ -1,9 +1,9 @@
+import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import CommonFaq from '@/common-component/CommonFaq/CommonFaq';
 import ExamSection1 from '@/common-component/ExamSection1/ExamSection1';
 import ExamSection2 from '@/common-component/ExamSection2/ExamSection2';
 import ExamSection3 from '@/common-component/ExamSection3/ExamSection3';
 import ExamSection4 from '@/common-component/ExamSection4/ExamSection4';
-import HeroSection from '@/component/homepage/HeroSection'
 import { getCanonicalUrl } from '@/lib/seo';
 import React from 'react'
 
@@ -42,10 +42,11 @@ const faqData = [
 const NavodayaSmartSet = () => {
   return (
     <div>
-      <HeroSection imageurl="/aboutus/hero_1.jpg"
-        title="Navodaya SmartSet – Practice Smarter, Dream Bigger"
-        title2="Get exam-ready with Shikso’s AI-powered Navodaya SmartSet — smart tests, instant insights, faster success."
-        button={false} breadcom={[{ title: "Novadaya SmartSet" }]} />
+      <CommonBanner1
+        title={"Navodaya Smart Set "}
+        paraghraph={"Navodaya Updates & Information – Stay Prepared, Stay Confident"}
+        paraghraph1={"Stay exam-ready with all Navodaya updates, syllabus details, and smart study materials in one trusted place."}
+        breadcom={[{ title: "Navodaya Smart Set" }]} />
       <div className="custom-container m-6 md:m-10">
         <p>{`Many students work hard, dreaming of joining Jawahar Navodaya Vidyalaya, yet often find themselves wondering — “Am I practicing the right way?” “Why do my mistakes repeat?” “How do toppers study so well?” Parents, too, wish for the best support for their child’s success. That’s where Shikso’s navodaya exam practice SmartSet steps in — a simple, smart, and powerful way to turn preparation into confidence. Because every child deserves a fair chance, every dream deserves the right direction, and every parent deserves peace of mind.`}</p>
       </div>

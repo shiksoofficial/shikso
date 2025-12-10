@@ -1,14 +1,15 @@
 export const dynamic = "force-dynamic";
-import HeroSection from '@/component/homepage/HeroSection'
 import { apiClient } from '@/lib/api-client'
 import { BASE_URL_API } from '@/lib/common'
 import { getCanonicalUrl } from '@/lib/seo'
 import axios from 'axios'
 import React from 'react'
 import BlogListWithPagination from '@/common-component/Pagination/BlogListWithPagination';
-import CommonCard4 from '@/common-component/CommonCard4/CommonCard4';
 import CommonFaq from '@/common-component/CommonFaq/CommonFaq';
-import CustomLinkBtn from '@/common-component/CustomLinkBtn/CustomLinBtn';
+import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
+import Blog3 from '@/component/blog/Blog3';
+import Blog1 from '@/component/blog/Blog1';
+import Blog2 from '@/component/blog/Blog2';
 
 export const metadata = {
     title: "Explore Shikso Blog for Smart and AI driven Learning Insight",
@@ -87,27 +88,17 @@ const BlogPage = async () => {
 
     return (
         <div>
-            <HeroSection imageurl="https://i.pinimg.com/1200x/ab/fb/b8/abfbb88b47aeca6f22df1302f6f92f64.jpg"
-                title="Welcome to Shikso Blog"
-                title2=" Where Smart Learning Meets Smart Thinking"
-                paragraph=" Explore ideas, trends, and innovations that are shaping the future of school education. Learn how AI, gamification, and digital tools are making learning more fun, personalized, and effective."
-                button={false} breadcom={[{ title: "Blogs" }]} />
-            <div className="custom-container p-6 md:p-10">
-                <div
-                    className="border-gray-300 border rounded-xl p-6 ">
-                    <h2 className='responsiveheading2 mb-5'>{`Where Smart Learning Meets Smart Thinking`}</h2>
-                    <p className="responsive-text text-[#1A2E33] ">{`Education is changing — and we’re here to tell the story.`}</p>
-                    <p className="responsive-text text-[#1A2E33] mb-4">{` From smart classrooms to AI-driven learning tools, the `}<strong className='font-bold'>{` Shikso Blog `}</strong>{` brings you the latest ideas, trends, and real stories from schools across India and beyond.`}</p>
-                    <p className="responsive-text text-[#1A2E33] mb-4">{`Whether you’re a teacher shaping young minds, a parent guiding your child, or a student ready to explore new learning adventures — this is your space to stay curious, inspired, and connected. `}</p>
-                    <CustomLinkBtn
-                        href='/about-us'
-                        color="#ffc107"
-                        textColor="#000"
-                    >
-                        {`  More About us`}
-                    </CustomLinkBtn>
+            <CommonBanner1
+                title={"Shikso Blogs "}
+                paraghraph={"Smart Learning Insights & Modern Education Trends"}
+                breadcom={[{ title: "Blogs" }]} />
+            <Blog1 />
+            {/* <Blog2 /> */}
+            <div className="custom-container py-4 md:py-8">
+                <div className='flex gap-2 items-center'>
+                    <div className="w-[20px] h-[35px] bg-[#FFF46C] rounded-r-full"></div>
+                    <h2 className='responsiveheading2'>{`Blogs`}</h2>
                 </div>
-                <h2 className='responsiveheading2 mt-8 mb-5'>{`Blogs`}</h2>
                 <div className="mt-10 flex items-center justify-center gap-5">
                     <BlogListWithPagination
                         initialBlogs={blogs}
@@ -115,17 +106,9 @@ const BlogPage = async () => {
                         limit={LIMIT}
                     />
                 </div>
-                <CommonCard4
-                    title="Why Read the Shikso Blog?"
-                    description="Because the future of education is being written today — in every classroom, on every screen, and through every curious learner."
-                    tagline="Shikso — Practice | Learn | Evolve "
-                    paragraph=" At Shikso, we make learning fun, futuristic, and full of possibilities."
-                    bgColor="#3498db"
-                    buttonText="Learn more"
-                    redirectUrl="/"
-                />
-                <CommonFaq faqData={faqData} />
             </div>
+            <Blog3 />
+            <CommonFaq title=" - Shikso Blog & Education Insights" faqData={faqData} />
         </div>
     )
 }
