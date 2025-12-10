@@ -2,43 +2,46 @@
 import { IoMdAdd } from "react-icons/io";
 import { FaMinus } from "react-icons/fa6";
 import { useState } from "react";
+import { BiSolidCircleHalf } from "react-icons/bi";
 
-const CommonFaq = ({faqData}) => {
+const CommonFaq = ({ faqData, title }) => {
   const [expanded, setExpanded] = useState(null);
   const handleChange = (index) => {
     setExpanded(expanded === index ? null : index);
   };
   return (
-    <div className="custom-container py-7">
-      <h2 className="responsiveheading2 text-center mb-5">{`FAQs`}</h2>
+    <div className="custom-container py-7 ">
+      <div className='flex gap-2 w-fit m-auto'>
+        <div className="w-[20px] h-[35px] bg-[#FFF46C] rounded-r-full"></div>
+        <h2 className="responsiveheading2 mb-5 flex w-fit m-auto items-center gap-2">{`FAQs `}{""}{title}</h2>
+      </div>
+
       {faqData?.map((item, index) => (
         <div key={index} className="mb-2.5">
           <div
-            className={`px-[15px] sm:px-[33px] md:px-[38px] py-[14px] sm:py-[15px] md:py-[17px] rounded-[20px] border border-[#93ADB2] cursor-pointer transition-all 
-             ${
-               expanded === index
-                 ? "bg-rose-600 text-white"
-                 : "bg-transparent text-[#1A2E33]"
-             }
+            className={`px-[15px] sm:px-[33px] md:px-[38px] py-[14px] sm:py-[15px] md:py-[17px]  cursor-pointer transition-all 
+             ${expanded === index
+                ? " text-[#484545]"
+                : "bg-transparent text-[#1A2E33]"
+              }
             `}
             onClick={() => handleChange(index)}
           >
-            <div className="flex justify-between items-center ">
+            <div className="flex gap-3 ">
+              {expanded === index ? (
+                <FaMinus size="32px" className="shrink-0 transform transition-all duration-200 bg-[#00D6FF]  rounded-full p-1 text-[#FFF46C]" />
+              ) : (
+                <IoMdAdd size="32px" className="shrink-0 transform transition-all duration-200 bg-[#00D6FF]  rounded-full p-1 text-[#FFF46C]" />
+              )}
               <h3
-                className={`responsiveheading6 dm_sans font-medium  text-[#1A2E33] ${
-                  expanded === index ? "text-white" : "text-[#1A2E33]"
-                }`}
+                className={`responsiveheading6 dm_sans font-medium  text-[#1A2E33] ${expanded === index ? "text-[#1D1C1C]" : "text-[#1A2E33]"
+                  }`}
               >
                 {item.question}
               </h3>
-              {expanded === index ? (
-                <FaMinus  className="transform transition-all duration-200" />
-              ) : (
-                <IoMdAdd className="transform transition-all duration-200" />
-              )}
             </div>
             {expanded === index && (
-              <div className="mt-1.5 md:mt-3">
+              <div className="mt-1.5 md:mt-3 pl-11">
                 <p className="responsive-text dm_sans">{item.answer}</p>
               </div>
             )}
@@ -60,4 +63,4 @@ export default CommonFaq;
 //   },
 // ];
 
-   {/* <CommonFaq faqData={faqData} /> */}
+{/* <CommonFaq faqData={faqData} /> */ }

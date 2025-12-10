@@ -45,8 +45,8 @@ function NewsListPagination({ initialBlogs, totalBlogs, limit }) {
             {blogs.map((val) => (
               <div
                 key={val?._id}
-                className="rounded-tl-[20px] rounded-tr-[0px] rounded-br-[20px] rounded-bl-[0px] overflow-hidden 
-              shadow-md transition-all duration-300 ease-in-out
+                className="rounded-[10px] overflow-hidden 
+              shadow-md transition-all duration-300 ease-in-out bg-[#E5FBFF]
               hover:scale-105 hover:shadow focus:scale-105 focus:shadow active:scale-105 active:shadow cursor-pointer"
               >
                 <div className="relative w-full h-[180px] rounded-tl-[20px] rounded-tr-[0px] rounded-br-[20px] rounded-bl-[0px] overflow-hidden">

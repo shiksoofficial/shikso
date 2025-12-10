@@ -29,31 +29,22 @@ export const metadata = {
 const Page = () => {
     return (
         <>
-            <CommonBanner1 title={"Privacy Policy"} breadcom={[{ title: "Privacy Policy" }]} />
+            <CommonBanner1
+                title={"Privacy Policy - Shikso"}
+                breadcom={[{ title: "Privacy Policy" }]} />
 
             <div className="custom-container bg-white">
-                <h2 className="dm_sans dm_sans responsiveheading2 text-[#1A2E33] font-medium mt-5 mb-5 sm:mb-7"><strong className='font-bold'>{`Privacy Policy – Shikso`}</strong></h2>
-                <p className="dm_sans responsive-text text-[#1A2E33] font-normal"><strong className="font-bold">{`Effective Date : `}</strong>{` October 2025`}</p>
-                <p className="dm_sans responsive-text text-[#1A2E33] font-normal"><strong className="font-bold">{`Business Name : `}</strong> {` Shikso`}</p>
-                <p className="dm_sans responsive-text text-[#1A2E33] font-normal"><strong className="font-bold">{`Address : `}</strong>
-                    {` FF12, SRP Arcade, E-5/48, E-5, Arera Colony, Bhopal, Madhya Pradesh 462016`}</p>
-                <p className="dm_sans responsive-text text-[#1A2E33] font-normal"><strong className="font-bold">{`Phone : `}</strong>   {` +91 7974186754`}  </p>
-                <p className="dm_sans responsive-text text-[#1A2E33] font-normal"><strong className="font-bold">{`Email : `}</strong>   <Link href="mailto:info@shikso.com" className='text-blue-400'>{` info@shikso.com`}</Link></p>
-                <hr className='text-[#1A2E33] mt-4 mb-5'></hr>
-                <h2 className="dm_sans dm_sans responsiveheading2 text-[#1A2E33] font-medium mt-5 mb-2">{`1. Introduction`}</h2>
-                <ul className="dm_san responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
-                    <li>{`Welcome to `}<strong className='font-bold'>{` Shikso`}</strong>{` , an AI-powered smart learning platform dedicated to making education engaging, affordable, and accessible.`}</li>
-                    <li>{`This Privacy Policy explains how we collect, use, disclose, retain and protect your personal information when you :`}
-                        <ul className="dm_san responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-1 ">
-                            <li>{`visit our website,`}</li>
-                            <li>{`use our mobile application, or`}</li>
-                            <li>{`otherwise interact with our services (“Platform”).`}</li>
-                        </ul>
-                    </li>
-                    <li>{`By accessing or using our Platform, you accept the practices described in this policy. If you do not agree with this policy, please do not use or access the Platform.`}</li>
-                    <li>{`We are committed to protecting your privacy and securing your personal data in compliance with applicable laws and best practices (for example as seen in comparable policies such as those of established edtech providers).`}</li>
+                <h2 className="dm_sans dm_sans responsiveheading2 text-[#1A2E33] font-medium mt-10 mb-2">{`1. Introduction`}</h2>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-2  ">{`Welcome to `}<strong className='font-bold'>{` Shikso`}</strong>{` , an AI-powered smart learning platform dedicated to making education engaging, affordable, and accessible.`}</p>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-2  ">{`This Privacy Policy explains how we collect, use, disclose, retain and protect your personal information when you :`}</p>
+                <ul className="dm_san responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-1 ">
+                    <li>{`visit our website,`}</li>
+                    <li>{`use our mobile application, or`}</li>
+                    <li>{`otherwise interact with our services (“Platform”).`}</li>
                 </ul>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
+
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-2  ">{`By accessing or using our Platform, you accept the practices described in this policy. If you do not agree with this policy, please do not use or access the Platform.`}</p>
+                <p className="responsive-text text-[#1A2E33]  font-medium  mb-2  ">{`We are committed to protecting your privacy and securing your personal data in compliance with applicable laws and best practices (for example as seen in comparable policies such as those of established edtech providers).`}</p>
                 <h2 className="dm_sans dm_sans responsiveheading2 text-[#1A2E33] font-medium  mb-2">{`2. Information We Collect`}</h2>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2   ">{`We collect information from and about you in a range of ways. The types of data we collect include :`}</p>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   "><strong className='font-bold'>{`2.1 Personal Information (provided by you)`}</strong></p>
@@ -96,8 +87,6 @@ const Page = () => {
                     </li>
                     <li>{`You may control cookies via your browser or device settings, but disabling some may affect features and functionality.`}</li>
                 </ul>
-
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
                 <h2 className="dm_sans dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`3. How We Use Your Information`}</h2>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium mb-2  ">{`We use your information for a variety of business and operational purposes. Key uses include :`}</p>
                 <ul className="dm_san responsive-text list-disc px-6  text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">
@@ -110,7 +99,6 @@ const Page = () => {
                     <li>{`To comply with legal obligations, respond to lawful requests from authorities, enforce our terms and protect our rights`}</li>
                     <li>{`To perform internal research and analytics (e.g., aggregated use-trends) so we can continuously enhance educational outcomes.`}</li>
                 </ul>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
                 <h2 className="dm_sans dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`4. Data Security & Retention`}</h2>
                 <ul className="dm_san responsive-text list-disc px-6  text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">
                     <li>{`We implement industry-standard security measures, including encryption, access-controls, regular audits and secure development practices, to safeguard your personal data.`}</li>
@@ -119,7 +107,6 @@ const Page = () => {
                     <li>{`Though we strive for sound security, no method of transmission over the internet or electronic storage is completely secure; we cannot guarantee absolute protection.`}</li>
                     <li>{`We retain your personal data for as long as necessary to fulfil the purposes described in this policy, or as required by law. When no longer needed, we securely delete or anonymise your data.`}</li>
                 </ul>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
                 <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`5. Sharing & Disclosure of Information `}</h2>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium mb-1 ">{`We respect your privacy and do not sell or rent your personal data to third parties. We may share or disclose information only under the conditions described below :`}</p>
                 <ul className="dm_san responsive-text list-disc px-6  text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">
@@ -128,7 +115,6 @@ const Page = () => {
                     <li>{`With institutional or educational partners (such as schools or coaching centres) only with your explicit consent, and `}<strong className='font-bold'>{` only `}</strong>{` to facilitate delivery of educational services.`}</li>
                     <li>{`In the event of a business reorganisation (merger, acquisition, sale of assets), information may be transferred in whole or part under the condition that the recipient applies this policy or equivalent protections.`}</li>
                 </ul>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
                 <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`6. Cookies Policy & Similar Tracking `}</h2>
                 <ul className="dm_san responsive-text list-disc px-6  text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">
                     <li>{`We use first-party and third-party cookies and tracking technologies to enhance your experience, remember your preferences and analyse Platform use.`}</li>
@@ -136,7 +122,6 @@ const Page = () => {
                     <li>{`You may opt to delete or disable cookies through your browser or device settings. Please note: disabling cookies may reduce functionality – certain features may not be available.`}</li>
                     <li>{`Third-party cookies (from analytics, advertising networks) may track users across websites; you may review their privacy policies separately.`}</li>
                 </ul>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
                 <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`7. Third-Party Services & External Integrations`}</h2>
                 <ul className="dm_san responsive-text list-disc px-6  text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">
                     <li>{`Our Platform may integrate with or include links to external services, APIs or embedded content (for example, analytics tools, video-hosting platforms, social sharing, chat functions).`}</li>
@@ -144,7 +129,6 @@ const Page = () => {
                     <li>{`We encourage you to review the privacy policies of any third-party services you access via our Platform.`}</li>
                     <li>{`In some cases, your data may be transferred to these third parties under contractual arrangements for specified purposes (e.g., Google Analytics, Mixpanel) — always under regulated and secure processes.`}</li>
                 </ul>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
                 <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`8. Children’s Privacy `}</h2>
                 <ul className="dm_san responsive-text list-disc px-6  text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">
                     <li>{`We recognise the importance of safeguarding children’s privacy, especially in the educational context.`}</li>
@@ -152,7 +136,6 @@ const Page = () => {
                     <li>{`We do not knowingly collect unnecessary personal data of minors. If you believe we have inadvertently collected data from a child without lawful consent, please contact us (info@shikso.com) and we will promptly delete the data.`}</li>
                     <li>{`Parents or legal guardians are encouraged to monitor and supervise their child’s interaction with the Platform.`}</li>
                 </ul>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
                 <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`9. Your Rights & Choices`}</h2>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium mb-1 ">{`Depending on applicable laws and subject to bona-fide verification, you may have the following rights with respect to your personal data :`}</p>
                 <ul className="dm_san responsive-text list-disc px-6  text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">
@@ -165,34 +148,29 @@ const Page = () => {
                     <li>{`To exercise any of these rights, please contact us at : `} <Link href="mailto:info@shikso.com" className='text-blue-400'>{` info@shikso.com`}</Link> {`. We will respond within the timeframe required by applicable law.`}</li>
                     <li>{`If you object to or restrict a particular use of your data, be aware that certain features of our Platform may become unavailable.`}</li>
                 </ul>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
                 <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`10. International Data Transfers`}</h2>
                 <ul className="dm_san responsive-text list-disc px-6  text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">
                     <li>{`Because we provide services globally or via cloud-based infrastructure, your personal data may be transferred, stored or processed in countries outside your own jurisdiction (such as within or outside India).`}</li>
                     <li>{`Where such transfers occur, we will ensure appropriate safeguards are in place (for example standard contractual clauses, equivalent protections) to maintain data security and rights.`}</li>
                     <li>{`By using our Platform, you consent to such transfers and the storage of your data in locations that may have different data protection laws.`}</li>
                 </ul>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
                 <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`11. Retention & Deletion Policy`}</h2>
                 <ul className="dm_san responsive-text list-disc px-6  text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">
                     <li>{`We retain your personal data only for as long as it is reasonably necessary for the purposes we collected it for (including legal, regulatory, tax, accounting or audit obligations).`}</li>
                     <li>{`Once data is no longer required, we either securely delete it or anonymise it so it can no longer be associated with you.`}</li>
                     <li>{`For educational progress data, we may retain aggregated or anonymised versions to support product improvement, analytics and historical performance tracking, even after individual account closure.`}</li>
                 </ul>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
                 <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`12. Security Incident Response & Breach Notification`}</h2>
                 <ul className="dm_san responsive-text list-disc px-6  text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">
                     <li>{`In the event of a data breach or security incident affecting your personal information, we will follow applicable incident-response protocols, promptly notify affected individuals and relevant authorities where required by law.`}</li>
                     <li>{`We maintain logs, review our processes and periodically test our systems to reduce the risk of incidents and continuously improve our security posture.`}</li>
                 </ul>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
                 <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`13. Changes to This Privacy Policy`}</h2>
                 <ul className="dm_san responsive-text list-disc px-6  text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">
                     <li>{`We may update this Privacy Policy from time to time in response to changes in our practices, service enhancements, new functionality or legal/regulatory developments.`}</li>
                     <li>{`When we make changes, we will revise the “Effective Date” at the top of this page. We encourage you to review the Policy periodically.`}</li>
                     <li>{`Your continued use of the Platform after the new version becomes effective will constitute your acceptance of the revised Policy.`}</li>
                 </ul>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
                 <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`14. Additional Provisions (Miscellaneous)`}</h2>
                 <ul className="dm_san responsive-text list-disc px-6  text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">
                     <li><strong className='font-bold'>{`Consent : `}</strong>{`By registering or using our Platform, you consent to the collection, use and disclosure of your information as described in this Policy.`}</li>
@@ -202,7 +180,6 @@ const Page = () => {
                     <li><strong className='font-bold'>{`Severability : `}</strong>{` If any provision of this Policy is found invalid or unenforceable, the remaining provisions will continue in full force and effect.`}</li>
                     <li><strong className='font-bold'>{`Entire Agreement :`}</strong>{` This Privacy Policy, together with any other terms and conditions or agreements referenced, constitutes the entire agreement between you and Shikso regarding data-protection matters.`}</li>
                 </ul>
-                <hr className='text-[#1A2E33] mt-2 mb-5'></hr>
                 <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`15. Contact Us`}</h2>
                 <p className="responsive-text text-[#1A2E33]  font-medium  mb-2  ">{`For any privacy-related concerns, please reach out:`}</p>
                 <p className="responsive-text text-[#1A2E33]  font-medium mb-2  "><strong className='font-bold'>{`Shikso`}</strong></p>
@@ -228,7 +205,17 @@ const Page = () => {
                         <SiWebmoney />
                         <strong className='font-bold text-[#1A2E33]'>{`Website : `}</strong>   {`https://www.shikso.com`}  </p>
                 </Link>
-                <div className="justify-items-center sm:justify-items-end   sm:w-full mt-5 mb-14">
+
+                 <p className="responsive-text text-[#1A2E33] mt-12 mb-12">
+                    <strong className="font-bold">{`Published Date : `}</strong> {` October 30, 2025`}{" "}
+                    | <strong className="font-bold">{` Last Updated : `}</strong>{" "}
+                    {new Date().toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                    })}{" "} {`, Shikso`}
+                </p>
+                {/* <div className="justify-items-center sm:justify-items-end   sm:w-full mt-5 mb-14">
                     <p className="text-[20px]  pr-12 mb-2 text-[#4D5D60]">{`Powered by-`}</p>
                     <div  >
                         <Link href="/" >
@@ -240,7 +227,7 @@ const Page = () => {
                             />
                         </Link>
                     </div>
-                </div>
+                </div> */}
             </div>
         </>
     )

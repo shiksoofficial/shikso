@@ -49,7 +49,7 @@ const ConnectUsModal = ({ open, setOpen }) => {
     if (!open) return null;
 
     return (
-        <div className="fixed inset-0 z-500 flex items-center justify-center">
+        <div className="fixed inset-0 z-1000 flex items-center justify-center">
             {/* Backdrop/Overlay */}
             <div
                 className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
@@ -58,11 +58,11 @@ const ConnectUsModal = ({ open, setOpen }) => {
 
             {/* Modal Container */}
             <div className="relative z-50 w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
-                <div className="bg-slate-100 rounded-lg shadow-2xl">
+                <div className="bg-[#E5FBFF] rounded-lg shadow-2xl">
                     {/* Close Button */}
                     <button
                         onClick={handleClose}
-                        className="absolute top-4 right-3 sm:right-4 text-gray-600 hover:text-gray-900 transition-colors   hover:bg-white z-10"
+                        className="absolute top-2 right-4 sm:right-4 text-gray-600 hover:text-gray-900 transition-colors   hover:bg-white z-10"
                         aria-label="Close modal"
                     >
                         <IoClose size={24} />
@@ -70,10 +70,12 @@ const ConnectUsModal = ({ open, setOpen }) => {
 
                     {/* Modal Content */}
                     <div className="p-6 md:p-8 w-fit m-auto">
-                        <h2 className="dm_sans  responsiveheading6 text-center mb-1 ">
-                            {`Get In Touch Using The Contact Form`}
-                        </h2>
-
+                        <div className="flex gap-2 items-center justify-center-safe">
+                            <div className="w-[15px] h-[25px] bg-[#FFF46C] rounded-r-full shrink-0"></div>
+                            <h2 className="dm_sans  responsiveheading6   ">
+                                {`Get In Touch Using The Contact Form`}
+                            </h2>
+                        </div>
                         <div className="custom-container py-3">
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-7 gap-y-4">
@@ -122,7 +124,7 @@ const ConnectUsModal = ({ open, setOpen }) => {
                                             name="message"
                                             placeholder="Write your message..."
                                             multiline
-                                            rows={8}
+                                            rows={4}
                                             register={register}
                                             validateRules={{
                                                 required: "Message is required",
@@ -130,14 +132,13 @@ const ConnectUsModal = ({ open, setOpen }) => {
                                             errors={errors}
                                         />
                                     </div>
-                                    <div className="col-span-1 sm:col-span-2">
+                                    <div className="col-span-1 sm:col-span-2 items-end">
                                         <CustomButton
                                             loading={isSubmitting}
                                             type="submit"
-                                            color="#dc3545"
-                                            height="35px"
+                                            className='h-[30px] md:h-[40px]'
                                         >
-                                            SEND MESSAGE
+                                            {`Submit`}
                                         </CustomButton>
                                     </div>
                                 </div>

@@ -4,11 +4,11 @@ import React from "react";
 
 const CustomButton = ({
   children,
-  color = "#35C0F0",
+  color = "#FFF46C", 
   type = "button",
-  height = "50px",
+  height,
   width,
-  borderRadius = "20px 0px 20px 0",
+  borderRadius = "12px",
   onClick,
   disabled = false,
   fullWidth = false,
@@ -35,23 +35,29 @@ const CustomButton = ({
       }}
       className={`
         inline-flex items-center justify-center gap-2
-        px-6 font-medium text-white
-         text-[14px]  sm:text-[16px]  md:text-[18px]  lg:text-[20px] leading-[30px] whitespace-nowrap
+        px-6 py-3 font-normal text-gray-900 
+        text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px]
+        leading-[30px] whitespace-nowrap
+        rounded-lg shadow 
         transition-all duration-300 ease-in-out
-        hover:opacity-90 hover:shadow-md
-        disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer
+
+        hover:scale-[1.03] hover:opacity-90
+        disabled:opacity-60 disabled:cursor-not-allowed
+
         ${className}
       `}
     >
       {loading && (
-        <span className="w-4 h-4 border-2 border-t-transparent border-white rounded-full animate-spin"></span>
+        <span className="w-4 h-4 border-2 border-t-transparent border-black rounded-full animate-spin"></span>
       )}
+
       {startIcon && <span className="flex items-center">{startIcon}</span>}
+
       <span>{children}</span>
+
       {endIcon && <span className="flex items-center">{endIcon}</span>}
     </button>
   );
 };
 
 export default CustomButton;
-

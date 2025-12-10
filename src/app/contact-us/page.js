@@ -1,25 +1,27 @@
+import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1'
 import Testimonial from '@/common-component/Testimonial/Testimonial'
 import ContactForm from '@/component/contactus/ContactForm'
-import HeroSection from '@/component/homepage/HeroSection'
+import ContactUs1 from '@/component/contactus/ContactUs1'
+import ContactUs2 from '@/component/contactus/ContactUs2'
 import { getCanonicalUrl } from '@/lib/seo'
 import React from 'react'
 
 
 export const metadata = {
-  title: " Contact Shikso | Smart Learning Platform | Get in Touch",
-  description: " Connect with Shikso — India’s modern education and AI-powered smart learning platform for schools, students, and parents. Reach us today to explore our innovative learning solutions.",
-  keywords: ["contact", "zentrail", "support"],
+  title: "Contact Shikso | Smart Learning Platform | Get in Touch",
+  description: "Connect with Shikso — India’s modern education and AI-powered smart learning platform for schools, students, and parents. Reach us today for learning beyond.",
+  keywords: ["contact Shikso", " Shikso learning app", " AI learning platform", " smart education support", "connect Shikso team", "AI in education India", " Shikso contact form",],
   alternates: { canonical: getCanonicalUrl("/contact-us") },
   openGraph: {
-    title: " Contact Shikso | Smart Learning Platform | Get in Touch",
-    description: " Connect with Shikso — India’s modern education and AI-powered smart learning platform for schools, students, and parents. Reach us today to explore our innovative learning solutions.",
+    title: "Contact Shikso | Smart Learning Platform | Get in Touch",
+    description: "Connect with Shikso — India’s modern education and AI-powered smart learning platform for schools, students, and parents. Reach us today for learning beyond.",
     url: getCanonicalUrl("/"),
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: " Contact Shikso | Smart Learning Platform | Get in Touch",
-    description: " Connect with Shikso — India’s modern education and AI-powered smart learning platform for schools, students, and parents. Reach us today to explore our innovative learning solutions.",
+    title: "Contact Shikso | Smart Learning Platform | Get in Touch",
+    description: "Connect with Shikso — India’s modern education and AI-powered smart learning platform for schools, students, and parents. Reach us today for learning beyond.",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
 };
@@ -61,11 +63,13 @@ const ContactUs = () => {
   return (
     <>
       <div>
-        <HeroSection imageurl="https://i.pinimg.com/1200x/5a/a3/63/5aa3639eab9fc1a7c6efc97f98502ed9.jpg"
-          title="Welcome to Shikso" title2=" Empowering Smart Education for Every Child"
-          paragraph=" Discover how Shikso is transforming modern schooling through technology, gamified learning, and AI-driven progress tracking."
-          button={false} breadcom={[{ title: "Contact Us" }]} />
+        <CommonBanner1
+          title={"Contact Shikso"}
+          paraghraph={"Let’s Build the Future of Smart Learning Together"}
+          breadcom={[{ title: "Contact Us" }]} />
+        <ContactUs1 />
         <ContactForm />
+        <ContactUs2 />
         <Testimonial testimonialData={testimonialData} />
       </div>
     </>

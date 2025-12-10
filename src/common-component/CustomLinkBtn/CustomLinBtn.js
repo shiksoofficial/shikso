@@ -9,7 +9,7 @@ const CustomLinkBtn = ({
   color = "#35C0F0",
   height = "50px",
   width,
-  borderRadius = "20px 0px 20px 0",
+  borderRadius = "12px",
   textColor = "#FFFFFF",
   fullWidth = false,
   startIcon,

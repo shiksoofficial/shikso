@@ -28,11 +28,11 @@ const CustomInput = ({
 
             <div
                 className={`flex items-center border rounded-[2px] bg-white px-3 py-2 transition-all duration-200 
-        ${disabled ? "bg-gray-100 cursor-not-allowed" : "bg-white focus-within:border-slate-500"}
+        ${disabled ? "bg-gray-100 cursor-not-allowed" : "bg-white focus-within:border-slate-500 border-none"}
         `}
             >
                 {startIcon && (
-                    <span className="mr-2 text-gray-400 flex items-center">{startIcon}</span>
+                    <span className="mr-2 text-[#484545] flex items-center">{startIcon}</span>
                 )}
 
                 {multiline ? (

@@ -130,14 +130,38 @@ const Header = () => {
     { title: "Blog", href: "/blogs" },
     { title: "News", href: "/educational-news" },
     { title: "Contact", href: "/contact-us" },
+
+  ];
+  const menuItems1 = [
     {
-      title: "Exams", href: "/exams",
+      title: "Navodaya", href: "/navodaya-smartset",
       subtitles: [
-        { title: "Navodaya", href: "/navodaya-smartset" },
-        { title: "Sainik", href: "/sainik-school-smartset" },
+        { title: "Syllabus", href: "/navodaya-smartse" },
+        { title: "Old Paper", href: "/sainik-school-smartse" },
+        { title: "Mock Tests", href: "/sainik-school-smartse" },
+        { title: "Unlimited Practise", href: "/sainik-school-smartse" },
       ],
     },
-  ];
+    {
+      title: "Sainik School", href: "/sainik-school-smartset",
+      subtitles: [
+        { title: "Syllabus", href: "/navodaya-smartse" },
+        { title: "Old Paper", href: "/sainik-school-smartse" },
+        { title: "Mock Tests", href: "/sainik-school-smartse" },
+        { title: "Unlimited Practise", href: "/sainik-school-smartse" },
+      ],
+    },
+  ]
+  const isActive = (item) => {
+    return (
+      pathname === item.href ||
+      (item.subtitles && item.subtitles.some((sub) => pathname === sub.href))
+    );
+  };
+
+  const isSubtitleActive = (subHref) => {
+    return pathname === subHref;
+  };
 
   return (
     <>
@@ -151,18 +175,9 @@ const Header = () => {
         setOpen={setIsSignupModalOpen}
         onSwitchToLogin={handleSwitchToLogin}
       />
-      <header className="absolute left-0 w-full z-[100]">
+      <header className="absolute w-full z-[1000]">
         <div className="custom-container">
-          <div className="flex justify-between py-5 items-center">
-            <Link href="/">
-              {" "}
-              <Image
-                src={"/Shiksologo.png"}
-                alt="Vyomedge Website"
-                width={200}
-                height={25}
-              />
-            </Link>
+          {/* <div className="flex justify-between py-5 items-center">
             <div className="hidden md:flex gap-5 text-sm">
               <div className="w-[350px] flex gap-5 items-center">
                 <div>
@@ -170,15 +185,71 @@ const Header = () => {
                 </div>
                 <span className="dm_sans text-white">{` FF12, SRP Arcade, E-5/48, E-5, Arera Colony, Bhopal, Madhya Pradesh 462016`}</span>
               </div>
-              {/* <div className="w-[250px] flex gap-5 items-center">
+              <div className="w-[250px] flex gap-5 items-center">
               <div><FaRegClock size={30} color="#dc3545" /></div> <span className="dm_sans text-white">{`Sunday - Friday 8:00AM - 4:00PM 
               Saturday CLOSED`}</span>
-            </div> */}
             </div>
-          </div>
+            </div>
+          </div> */}
 
-          <div className="bg-white px-10 py-6 rounded-[50px] flex justify-between items-center">
-            <ul className="dm_sans hidden md:flex gap-8 text-black font-medium">
+          <div className="flex justify-between items-center py-2 lg:py-1">
+            <ul className="dm_sans hidden md:flex  md:gap-16 lg:gap-35 text-black font-medium responsive-text md:pr-3 lg:pr-10">
+              {menuItems1.map((item, i) => (
+                <li
+                  key={i}
+                  className="relative group"
+                  onMouseEnter={() =>
+                    item.subtitles && setDropdownOpen(item.title)
+                  }
+                  onMouseLeave={() => setDropdownOpen(null)}
+                >
+                  <Link
+                    aria-label="menu"
+                    href={item.href}
+                    className={`relative ${isActive(item)
+                      ? "text-black font-extrabold before:content-[''] before:absolute before:-top-5 before:left-1/2 before:-translate-x-1/2 before:w-8 before:h-4 before:bg-[#FFF46C] before:rounded-b-full flex flex-nowrap"
+                      : ""
+                      }`}
+                  >
+                    {item.title}
+                  </Link>
+                  {item.subtitles && dropdownOpen === item.title && (
+                    <div
+                      className="absolute left-0 top-full pt-2 w-[200px] bg-white shadow-lg rounded-xl p-3 z-[200]  border-1 border-gray-500  "
+                      onMouseEnter={() => setDropdownOpen(item.title)}
+                      onMouseLeave={() => setDropdownOpen(null)}
+                    >
+                      <ul className="flex flex-col gap-3 ">
+                        {item.subtitles.map((sub, index) => (
+                          <li key={index}>
+                            <Link
+                              href={sub.href}
+                              className={`relative pl-5 block ${isSubtitleActive(sub.href)
+                                ? "text-black font-extrabold before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:left-0 before:w-2 before:h-4 before:bg-[#FFF46C] before:rounded-r-full"
+                                : "text-gray-700 hover:text-black"
+                                }`}
+                            >
+                              {sub.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <Link href="/">
+              {" "}
+              <Image
+                src={"/Shiksologo.png"}
+                alt="Shikso Logo"
+                width={200}
+                height={25}
+                className="flex justify-items-end-safe md:px-4 lg:px-7"
+              />
+            </Link>
+            <ul className="dm_sans hidden md:flex justify-items-end-safe md:gap-3 lg:gap-8 text-black font-medium  ">
               {menuItems.map((item, i) => (
                 <li
                   key={i}
@@ -191,17 +262,13 @@ const Header = () => {
                   <Link
                     aria-label="menu"
                     href={item.href}
-                    className={
-                      pathname === item.href ||
-                        (item.subtitles && item.subtitles.some(sub => pathname === sub.href))
-                        ? "text-red-800"
-                        : ""
-                    }
+                    className={`relative ${isActive(item)
+                      ? "text-black font-extrabold before:content-[''] before:absolute before:-top-5 before:left-1/2 before:-translate-x-1/2 before:w-8 before:h-4 before:bg-[#FFF46C] before:rounded-b-full"
+                      : ""
+                      }`}
                   >
                     {item.title}
                   </Link>
-
-
                   {item.subtitles && dropdownOpen === item.title && (
                     <div
                       className="absolute left-0 top-full pt-2 w-48 bg-white shadow-lg rounded-lg p-3 z-[200]"
@@ -213,7 +280,10 @@ const Header = () => {
                           <li key={index}>
                             <Link
                               href={sub.href}
-                              className={`block ${pathname === sub.href ? "text-red-800 font-semibold" : "text-gray-700 hover:text-red-800"}`}
+                              className={`relative pl-5 block ${isSubtitleActive(sub.href)
+                                ? "text-black font-extrabold before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:left-0 before:w-2 before:h-4 before:bg-[#FFF46C] before:rounded-r-full"
+                                : "text-gray-700 hover:text-black"
+                                }`}
                             >
                               {sub.title}
                             </Link>
@@ -225,7 +295,6 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-
             <div className="flex items-center gap-5">
               <button
                 aria-label="menu-btn"
@@ -235,7 +304,7 @@ const Header = () => {
                 <MdMenu size={28} color="#000" />
               </button>
 
-              <ul className="flex gap-2 items-center ">
+              {/* <ul className="flex gap-2 items-center ">
                 <li className="text-blue-600">
                   <Link
                     href="https://www.facebook.com/people/Shikso/61582800338789/"
@@ -306,7 +375,7 @@ const Header = () => {
                     <CgProfile size={30} />
                   </button>
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>
@@ -330,17 +399,38 @@ const Header = () => {
             </button>
           </div>
 
-          <ul className="flex flex-col gap-5 text-lg text-gray-800">
+          <ul className="flex flex-col gap-3 text-lg text-gray-800">
             {menuItems.map((item, i) => (
               <li key={i}>
                 <Link
                   aria-label="menus"
                   href={item.href}
-                  className={pathname === item.href ? "text-red-800" : ""}
+                  className={`relative pl-5 block ${pathname === item.href
+                    ? "text-black font-extrabold before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:left-0 before:w-2 before:h-4 before:bg-[#FFF46C] before:rounded-r-full"
+                    : "text-gray-700 hover:text-black"
+                    }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title}
                 </Link>
+              </li>
+            ))}
+          </ul>
+          <ul className="flex flex-col gap-3 text-lg text-gray-800 mt-3">
+            {menuItems1.map((item, i) => (
+              <li key={i}>
+                <Link
+                  aria-label="menus"
+                  href={item.href}
+                  className={`relative pl-5 block ${isActive(item)
+                    ? "text-black font-extrabold before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:left-0 before:w-2 before:h-4 before:bg-[#FFF46C] before:rounded-r-full"
+                    : "text-gray-700 hover:text-black"
+                    }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.title}
+                </Link>
+                
               </li>
             ))}
           </ul>

@@ -1,6 +1,5 @@
+import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import CommonTestList from '@/common-component/CommonTestList/CommonTestList';
-import CustomButton from '@/common-component/CustomButton/CustomButton';
-import HeroSection from '@/component/homepage/HeroSection';
 import Link from 'next/link';
 import React from 'react';
 
@@ -24,10 +23,10 @@ const TestSeriesPage = ({ params }) => {
 
   return (
     <>
-      <HeroSection imageurl="/aboutus/hero_1.jpg"
+      <CommonBanner1 imageurl="/aboutus/hero_1.jpg"
         title="Welcome To Our Website"
-        title2="Get In Touch"
-        button={false} breadcom={[{ title: "Novadaya SmartSet" }]} />
+        paraghraph="Get In Touch"
+        breadcom={[{ title: "Novadaya SmartSet" }]} />
      
 
           <CommonTestList
