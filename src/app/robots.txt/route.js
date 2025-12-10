@@ -1,27 +1,27 @@
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
 export async function GET() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ;
   
   const robotsTxt = `User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: ${baseUrl}/sitemap.xml
+Sitemap: https://www.shikso.com/sitemap.xml
 
-# Disallow admin or private areas (if any)
-Disallow: /admin/
+User-agent: *
 Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /server/
 Disallow: /_next/
-Disallow: /private/
+Disallow: /static/
+Disallow: /*?*
 
-# Allow important pages
-Allow: /
-Allow: /about-us
-Allow: /blogs
-Allow: /contact-us
-Allow: /privacy-policy
-Allow: /terms-and-conditions
-Allow: /disclaimer-policy
-Allow: /cookies-policy`;
+Allow: /_next/static/
+Allow: /images/
+Allow: /assets/
+Allow: /fonts/`;
 
   return new Response(robotsTxt, {
     headers: {
