@@ -9,20 +9,20 @@ import { getCanonicalUrl } from '@/lib/seo';
 import { SiWebmoney } from "react-icons/si";
 
 export const metadata = {
-    title: "Navodaya Updates & Information – Latest JNV Exam News",
-    description: "Get the latest Navodaya exam updates & Information, syllabus details, blogs, smart study material for Class 6 & 9. Stay prepared and confident with Shikso.",
-    keywords: ["navodaya updates", "jnv exam information", "navodaya syllabus", "class 6 navodaya updates,", "class 9 navodaya updates", "shikso navodaya", "navodaya notifications", " navodaya preparation tips"],
+    title: "  Disclaimer | Shikso – Educational Information Transparency",
+    description: " Read Shikso’s Disclaimer to understand the terms for using our educational platform, learning content, practice resources, and skill development responsibly.",
+    keywords: ["Shikso disclaimer", "education platform terms", " online learning disclaimer", "student information disclaimer", "Shikso policy"],
     alternates: { canonical: getCanonicalUrl("/disclaimer-policy") },
     openGraph: {
         title: " Disclaimer | Shikso – Educational Information Transparency",
-        description: "Get the latest Navodaya exam updates & Information, syllabus details, blogs, smart study material for Class 6 & 9. Stay prepared and confident with Shikso.",
+        description: " Read Shikso’s Disclaimer to understand the terms for using our educational platform, learning content, practice resources, and skill development responsibly.",
         url: getCanonicalUrl("/"),
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {
         card: 'summary_large_image',
         title: " Disclaimer | Shikso – Educational Information Transparency",
-        description: "Get the latest Navodaya exam updates & Information, syllabus details, blogs, smart study material for Class 6 & 9. Stay prepared and confident with Shikso.",
+        description: " Read Shikso’s Disclaimer to understand the terms for using our educational platform, learning content, practice resources, and skill development responsibly.",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
 };
@@ -120,7 +120,7 @@ const Page = () => {
                 <Link href="https://www.shikso.com" className='text-blue-400' target="_blank"
                     rel="noopener noreferrer"
                     aria-label="website link">
-                    <p className="dm_sans responsive-text text-blue-500 font-medium cursor-pointer items-center flex gap-1.5 mb-12">
+                    <p className="dm_sans responsive-text text-blue-500 font-medium  cursor-pointer items-center flex gap-1.5 mb-12">
                         <SiWebmoney />
                         <strong className='font-bold text-[#1A2E33]'>{`Website : `}</strong>   {`https://www.shikso.com`}  </p>
                 </Link>
