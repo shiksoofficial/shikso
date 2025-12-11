@@ -1,52 +1,90 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import CustomButton2 from "@/common-component/CustomBotton2/CustomButton2";
 import CustomButton from "@/common-component/CustomButton/CustomButton";
-import Image from "next/image";
 import ConnectUsModal from "@/common-component/ConnectUsModal/ConnectUsModal";
 
-export default function HeroSection() {
+export default function HeroSection({
+  breadcom = [],
+  title = `Learn Smarter.<br/>Shine Brighter.<br/>With Shikso!`,
+  title2 = `Fun, focused, and personalized learning for every young achiever.`,
+  image = "/herobanner.webp",
+  showPrimaryBtn = true,
+  primaryBtnText = "Start Learning",
+  onPrimaryClick,
+  showSecondaryBtn = true,
+  secondaryBtnText = "View Courses",
+  secondaryBtnLink = "/courses",
+}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpen = () => setIsModalOpen(true);
-  const handleClose = () => setIsModalOpen(false);
+  const handlePrimary = () => {
+    if (onPrimaryClick) return onPrimaryClick();
+    setIsModalOpen(true);
+  };
 
   return (
     <>
       <ConnectUsModal open={isModalOpen} setOpen={setIsModalOpen} />
-      <section className="w-full bg-[#E6F9FF] py-20">
-        <div className="max-w-7xl mx-auto px-6 sm:flex items-center justify-between gap-20">
-          <div className="sm:w-1/2 space-y-6">
-            <h1
-              className="text-4xl lg:text-5xl font-bold leading-tight text-gray-900"
-              dangerouslySetInnerHTML={{
-                __html: `Learn Smarter.<br/>Shine Brighter.<br/>With Shikso!`,
-              }}
-            />
-            <p className="text-gray-700 text-lg max-w-md">
-              {` Fun, focused, and personalized learning for every young achiever.`}
-            </p>
-            <div className="flex items-center gap-4">
-              <CustomButton onClick={handleOpen}>
-                {`Start Learning`}
-              </CustomButton>
+      <section className=" bg-[#E6F9FF] relative">
+        <div className="custom-container py-6 md:py-10">
+          <div className="grid sm:grid-cols-2 gap-2 pt-18 sm:pt-13 md:pt-6 items-center ">
+            <div className="space-y-6">
+              <h1 className="responsive-heading  font-bold! leading-tight text-gray-900"
+                dangerouslySetInnerHTML={{ __html: title }} />
+              <p className="text-gray-700 text-lg max-w-md">{title2}</p>
+              <div className="flex items-center gap-4">
+                {showPrimaryBtn && (
+                  <CustomButton onClick={handlePrimary}>
+                    {primaryBtnText}
+                  </CustomButton>
+                )}
 
-              <CustomButton2 variant="primary">
-                {`View Courses`}
-              </CustomButton2>
+                {showSecondaryBtn && (
+                  <CustomButton2 variant="primary" href={secondaryBtnLink}>
+                    {secondaryBtnText}
+                  </CustomButton2>
+                )}
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <div className="relative w-full max-w-[600px] aspect-[600/418]">
+                <Image
+                  src={image}
+                  alt="Hero"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </div>
           </div>
-          <div className="sm:w-1/2 flex items-center justify-center mt-10 sm:mt-0">
-            <div className="relative w-full max-w-[600px] aspect-[600/418]">
-              <Image
-                src="/herobanner.webp"
-                alt="Mascot"
-                fill
-                className="object-contain"
-              />
+          {breadcom?.length > 0 && (
+            <div className="max-w-7xl mx-auto mt-1">
+              <div className="flex items-center text-gray-700 text-sm">
+                <Link href="/" className="hover:text-[#FFF46C] ">
+                  {` Home`}
+                </Link>
+                {breadcom.map((item, index) => (
+                  <React.Fragment key={index}>
+                    <span className="px-1">/</span>
+                    {item?.url ? (
+                      <Link
+                        href={item.url}
+                        className="hover:text-[#FFF46C] px-1"
+                      >
+                        {item.title}
+                      </Link>
+                    ) : (
+                      <span className="px-1 text-gray-900">{item.title}</span>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
     </>

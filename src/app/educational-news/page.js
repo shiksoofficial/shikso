@@ -9,6 +9,8 @@ import NewsListPagination from '@/common-component/Pagination/NewsListPagination
 import CommonFaq from '@/common-component/CommonFaq/CommonFaq';
 import CustomLinkBtn from '@/common-component/CustomLinkBtn/CustomLinBtn';
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
+import News1 from '@/component/educationalnews/News1';
+import News2 from '@/component/educationalnews/News2';
 
 export const metadata = {
   title: "Shikso News | Latest Education Updates & Exam Alerts |",
@@ -91,25 +93,12 @@ const EducationalNewsPage = async () => {
 
   return (
     <div>
-    <CommonBanner1
-                title={"Shikso News"}
-                paraghraph={"Latest Updates • School Announcements • Education Headlines"}
-                breadcom={[{ title: "News" }]} />
+      <CommonBanner1
+        title={"Shikso News"}
+        paraghraph={"Latest Updates • School Announcements • Education Headlines"}
+        breadcom={[{ title: "News" }]} />
+         <News1 />
       <div className="custom-container p-6 md:p-10">
-        <div
-          className="border-gray-300 border rounded-xl p-6 ">
-          <h2 className='responsiveheading2 mb-5'>{`Your Daily Window Into What’s Changing in Education`}</h2>
-          <p className="responsive-text text-[#1A2E33] ">{`Schools are evolving, exams are shifting, and new policies are shaping the future — Shikso News brings it all to you, fast and clear.`}</p>
-          <p className="responsive-text text-[#1A2E33] mb-4">{`From government announcements to school-level updates, competitive exam alerts, and big changes in the education system, this is where information meets impact.
-            Whether you’re a parent tracking updates, a student preparing for exams, or an educator staying informed — this is your trusted space for verified, timely, and easy-to-understand education news.`}</p>
-          <CustomLinkBtn
-            href='/about-us'
-            color="#ffc107"
-            textColor="#000"
-          >
-            {`  More About us`}
-          </CustomLinkBtn>
-        </div>
         <h2 className='responsiveheading2 mt-8 mb-5'>{`Educational News`}</h2>
         <div className="mt-10 flex items-center justify-center gap-5">
           <NewsListPagination
@@ -118,8 +107,9 @@ const EducationalNewsPage = async () => {
             limit={LIMIT}
           />
         </div>
-        <CommonFaq title=" – Shikso News & Education Updates" faqData={faqData} />
       </div>
+      <News2 />
+      <CommonFaq title=" – Shikso News & Education Updates" faqData={faqData} />
     </div>
   )
 }
