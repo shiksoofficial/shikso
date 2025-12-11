@@ -8,20 +8,20 @@ import CommonFaq from '@/common-component/CommonFaq/CommonFaq';
 
 
 export const metadata = {
-    title: "  Disclaimer | Shikso – Educational Information Transparency",
-    description: " Read Shikso’s Disclaimer to understand the terms for using our educational platform, learning content, practice resources, and skill development responsibly.",
-    keywords: ["Shikso disclaimer", "education platform terms", " online learning disclaimer", "student information disclaimer", "Shikso policy"],
+    title:"Navodaya Updates & Information – Latest JNV Exam News",
+    description: "Get the latest Navodaya exam updates & Information, syllabus details, blogs, smart study material for Class 6 & 9. Stay prepared and confident with Shikso.",
+    keywords: ["navodaya updates", "jnv exam information", "navodaya syllabus", " class 6 navodaya updates", "class 9 navodaya updates","shikso navodaya","navodaya notifications","navodaya preparation tips"],
     alternates: { canonical: getCanonicalUrl("/disclaimer-policy") },
     openGraph: {
-        title: " Disclaimer | Shikso – Educational Information Transparency",
-        description: " Read Shikso’s Disclaimer to understand the terms for using our educational platform, learning content, practice resources, and skill development responsibly.",
+        title:"Navodaya Updates & Information – Latest JNV Exam News",
+        description: "Get the latest Navodaya exam updates & Information, syllabus details, blogs, smart study material for Class 6 & 9. Stay prepared and confident with Shikso.",
         url: getCanonicalUrl("/"),
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {
         card: 'summary_large_image',
-        title: " Disclaimer | Shikso – Educational Information Transparency",
-        description: " Read Shikso’s Disclaimer to understand the terms for using our educational platform, learning content, practice resources, and skill development responsibly.",
+        title:"Navodaya Updates & Information – Latest JNV Exam News",
+        description: "Get the latest Navodaya exam updates & Information, syllabus details, blogs, smart study material for Class 6 & 9. Stay prepared and confident with Shikso.",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
 };
