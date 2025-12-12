@@ -68,14 +68,14 @@ const EducationalNewsDesc = async ({ params }) => {
   const data = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech`)
   return (
     <div>
-      <HeroSection image={data?.data?.blog?.featuredImage?.url} 
-      title={data?.data?.blog?.title} 
-       title2={false}
-        showPrimaryBtn={false} 
+      <HeroSection image={data?.data?.blog?.featuredImage?.url}
+        title={data?.data?.blog?.title}
+        title2={false}
+        showPrimaryBtn={false}
         showSecondaryBtn={false}
         breadcom={[
           { title: "News", url: "/educational-news" },
-          { title: data?.data?.blog?.uid || "News Detail"},
+          { title: data?.data?.blog?.uid || "News Detail" },
         ]} />
       <BlogDescription blog={data?.data?.blog} />
       {Array.isArray(data?.data?.blog?.faq) && data?.data?.blog?.faq?.[0]?.question?.length > 0 && (
