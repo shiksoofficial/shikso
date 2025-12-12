@@ -17,7 +17,7 @@ const Footer = () => {
         "Shikso is a next-generation smart learning platform built to empower students, parents, and schools through AI-powered, gamified, and adaptive education systems. We make learning smarter, measurable, and accessible — for everyone.",
       // logo: "/footerlogo.png",
     },
-    quickLinks1: [
+    quickLinks: [
       { label: "Home", url: "/" },
       { label: "About us", url: "/about-us" },
       { label: "Contact us", url: "/contact-us" },
@@ -25,6 +25,11 @@ const Footer = () => {
       { label: "News", url: "/educational-news" },
       { label: "Exams", url: "/exams" },
       // { label: "Gallery", url: "/gallery" },
+    ],
+
+     quickLinksSet: [
+      { label: "Navodaya", url: "/navodaya-smartset" },
+      { label: "Sainik School", url: "/sainik-school-smartset" },
     ],
 
     contactInfo: {
@@ -75,7 +80,7 @@ const Footer = () => {
               Quick Links
             </div>
             <div className="flex flex-col space-y-2">
-              {footerData.quickLinks1.map((link, index) => (
+              {footerData.quickLinks.map((link, index) => (
                 <Link
                   key={index}
                   href={link.url}
@@ -92,8 +97,8 @@ const Footer = () => {
             <div className="mb-1 sm:mb-5 text-[20px] dm_sans text-[#FFF46C]">
               Quick Links
             </div>
-            {/* <div className="flex flex-col space-y-2">
-              {footerData.quickLinks1.map((link, index) => (
+            <div className="flex flex-col space-y-2">
+              {footerData.quickLinksSet.map((link, index) => (
                 <Link
                   key={index}
                   href={link.url}
@@ -103,7 +108,7 @@ const Footer = () => {
                   {link.label}
                 </Link>
               ))}
-            </div> */}
+            </div>
           </div>
           <div className="col-span-12 sm:col-span-6  lg:col-span-6  text-white">
             <div className=" mb-1  sm:mb-5 text-[20px] dm_sans  text-[#FFF46C]">{`Contact Info`}</div>
