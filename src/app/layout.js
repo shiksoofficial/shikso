@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, DM_Sans, Indie_Flower, } from "next/font/google";
+import { Geist, Geist_Mono, DM_Sans, Indie_Flower } from "next/font/google";
 import "./globals.css";
 import Header from "@/common-component/Header/Header";
 import Footer from "@/common-component/Footer/Footer";
@@ -37,6 +37,28 @@ export const indieFlower = Indie_Flower({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          async
+          type="application/javascript"
+          src="https://news.google.com/swg/js/v1/swg-basic.js"
+        ></script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (self.SWG_BASIC = self.SWG_BASIC || []).push(basicSubscriptions => {
+                basicSubscriptions.init({
+                  type: "NewsArticle",
+                  isPartOfType: ["Product"],
+                  isPartOfProductId: "CAowrdnDDA:openaccess",
+                  clientOptions: { theme: "light", lang: "en" },
+                });
+              });
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable}  ${indieFlower.variable} ${dmSans.variable} antialiased`}
       >
