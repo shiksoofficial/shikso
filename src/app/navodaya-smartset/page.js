@@ -66,7 +66,7 @@ const cardsData = [
     title: "Mock Tests",
     discription: "Simulate real exam conditions with Navodaya SmartSet Mock Tests. Each test matches the pattern and difficulty level of the official exam, helping you manage time and build confidence.",
     buttonText: "Explore",
-    buttonLink: "/educational-news/updates-and-information",
+    buttonLink: "/mock-tests",
   },
   {
     img: "/news/news3.jpg",
@@ -74,7 +74,7 @@ const cardsData = [
     title: "Unlimited Practice Sets",
     discription: "Practice without limits! Access topic-wise and difficulty-based questions from all sections of the Navodaya exam practice set.",
     buttonText: "Explore",
-    buttonLink: "/educational-news/expansion",
+    buttonLink: "/unlimited-practice-sets",
   },
 ];
 

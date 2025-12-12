@@ -30,7 +30,7 @@ const Paper2 = () => {
     return (
         <div className='bg-[#E5FBFF]'>
             <div className="custom-container py-6 md:py-10">
-                <div className="grid grid-cols-12 gap-2 md:gap-7 mt-2 md:mt-4 items-center">
+                <div className="grid grid-cols-12 gap-8 mt-2 md:mt-4 items-center">
                     <div className="col-span-12 sm:col-span-6   ">
                         <div className='flex gap-2 items-center'>
                             <div className="w-[20px] h-[35px] bg-[#FFF46C] rounded-r-full"></div>
@@ -44,7 +44,8 @@ const Paper2 = () => {
                         </CustomButton>
                     </div>
 
-                    <div className="col-span-12 sm:col-span-6 gap-3 flex justify-center ">
+                    <div className="col-span-12 sm:col-span-6 gap-3  flex justify-center ">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {classCard.map((item) => (
                             <div
                                 key={item.id}
@@ -61,6 +62,7 @@ const Paper2 = () => {
                                 <p className="text-[#00000080] text-[16px] mt-1">{item.pdf}</p>
                             </div>
                         ))}
+                        </div>
                     </div>
 
                 </div>
