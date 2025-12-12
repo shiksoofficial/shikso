@@ -138,8 +138,8 @@ const Header = () => {
       subtitles: [
         { title: "Syllabus", href: "/navodaya-smartse" },
         { title: "Old Paper", href: "/sainik-school-smartse" },
-        { title: "Mock Tests", href: "/sainik-school-smartse" },
-        { title: "Unlimited Practise", href: "/sainik-school-smartse" },
+         { title: "Mock Tests", href: "/mock-tests" },
+        { title: "Unlimited Practise", href: "/unlimited-practice-sets" },
       ],
     },
     {
@@ -147,8 +147,8 @@ const Header = () => {
       subtitles: [
         { title: "Syllabus", href: "/navodaya-smartse" },
         { title: "Old Paper", href: "/sainik-school-smartse" },
-        { title: "Mock Tests", href: "/sainik-school-smartse" },
-        { title: "Unlimited Practise", href: "/sainik-school-smartse" },
+        { title: "Mock Tests", href: "/mock-tests" },
+        { title: "Unlimited Practise", href: "/unlimited-practice-sets" },
       ],
     },
   ]

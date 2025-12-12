@@ -29,17 +29,16 @@ export const metadata = {
   },
 };
 
-
-
 export default function Home() {
   return (
     <>
-
-      <HeroSection imageurl="https://i.pinimg.com/1200x/f2/66/48/f26648e326a0cf51a5dbd8c114336886.jpg"
-        title=" Welcome to Shikso – The Smart Learning Platform for Future-Ready Students"
-        title2="Transform Education with Fun, Intelligence, and Real Results"
-        paragraph=" At Shikso, we’re redefining how students learn. Our AI-powered learning platform blends smart technology, gamified learning, and real-time analytics to create a modern educational experience that’s engaging and effective. Whether your child is preparing for Navodaya, Sainik School, or simply wants to learn smarter — Shikso makes every step intelligent, interactive, and measurable."
-        button={true}
+      <HeroSection
+        title="Learn Smarter.</br> Shine Brighter.</br> With Shikso!"
+        subtitle="Fun, focused, and personalized learning for every young achiever."
+        primaryBtnText="Start Learning"
+        secondaryBtnText="View Cources"
+        secondaryBtnLink="/explore"
+        image="/herobanner.webp"
       />
       <Homepage1 />
       <About1 />

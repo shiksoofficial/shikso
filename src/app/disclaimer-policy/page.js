@@ -120,7 +120,7 @@ const Page = () => {
                 <Link href="https://www.shikso.com" className='text-blue-400' target="_blank"
                     rel="noopener noreferrer"
                     aria-label="website link">
-                    <p className="dm_sans responsive-text text-blue-500 font-medium cursor-pointer items-center flex gap-1.5 mb-12">
+                    <p className="dm_sans responsive-text text-blue-500 font-medium  cursor-pointer items-center flex gap-1.5 mb-12">
                         <SiWebmoney />
                         <strong className='font-bold text-[#1A2E33]'>{`Website : `}</strong>   {`https://www.shikso.com`}  </p>
                 </Link>

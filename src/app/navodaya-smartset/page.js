@@ -4,6 +4,10 @@ import ExamSection1 from '@/common-component/ExamSection1/ExamSection1';
 import ExamSection2 from '@/common-component/ExamSection2/ExamSection2';
 import ExamSection3 from '@/common-component/ExamSection3/ExamSection3';
 import ExamSection4 from '@/common-component/ExamSection4/ExamSection4';
+import Section1 from '@/component/smartset/Section1';
+import Section2 from '@/component/smartset/Section2';
+import Section3 from '@/component/smartset/Section3';
+import Section4 from '@/component/smartset/Section4';
 import { getCanonicalUrl } from '@/lib/seo';
 import React from 'react'
 
@@ -39,82 +43,68 @@ const faqData = [
   { question: "10. Is Smart Study Material for Students included in Navodaya SmartSet?", answer: "Yes, students get topic-wise notes, practice questions, tips, and detailed solutions." },
 ];
 
+const cardsData = [
+  {
+    img: "/news/news2.jpg",
+    alt: "Updates & Information",
+    title: "Updates & Information",
+    discription: "Get all important Navodaya Smart Study Material for students, exam updates, syllabus details, notifications, and useful information in one place, so you never miss anything important.",
+    buttonText: "Explore",
+    buttonLink: "/updates-and-information",
+  },
+  {
+    img: "/news/news2.jpg",
+    alt: "Previous Year Papers",
+    title: "Previous Year Papers",
+    discription: "Learn from the past! Solve actual Navodaya Entrance Exam questions from previous years to understand trends, question types, and the smart strategies that work.",
+    buttonText: "Explore",
+    buttonLink: "/previous-year-paper",
+  },
+  {
+    img: "/news/news3.jpg",
+    alt: "Mock Tests",
+    title: "Mock Tests",
+    discription: "Simulate real exam conditions with Navodaya SmartSet Mock Tests. Each test matches the pattern and difficulty level of the official exam, helping you manage time and build confidence.",
+    buttonText: "Explore",
+    buttonLink: "/mock-tests",
+  },
+  {
+    img: "/news/news3.jpg",
+    alt: "Unlimited Practice Sets",
+    title: "Unlimited Practice Sets",
+    discription: "Practice without limits! Access topic-wise and difficulty-based questions from all sections of the Navodaya exam practice set.",
+    buttonText: "Explore",
+    buttonLink: "/unlimited-practice-sets",
+  },
+];
+
+
 const NavodayaSmartSet = () => {
   return (
     <div>
       <CommonBanner1
-        title={"Navodaya Smart Set "}
-        paraghraph={"Navodaya Updates & Information – Stay Prepared, Stay Confident"}
-        paraghraph1={"Stay exam-ready with all Navodaya updates, syllabus details, and smart study materials in one trusted place."}
+        title={"Navodaya SmartSet – Practice Smarter, Dream Bigger"}
+        paraghraph={"Get exam-ready with Shikso’s AI-powered Navodaya SmartSet — smart tests, instant insights, faster success."}
         breadcom={[{ title: "Navodaya Smart Set" }]} />
-      <div className="custom-container m-6 md:m-10">
-        <p>{`Many students work hard, dreaming of joining Jawahar Navodaya Vidyalaya, yet often find themselves wondering — “Am I practicing the right way?” “Why do my mistakes repeat?” “How do toppers study so well?” Parents, too, wish for the best support for their child’s success. That’s where Shikso’s navodaya exam practice SmartSet steps in — a simple, smart, and powerful way to turn preparation into confidence. Because every child deserves a fair chance, every dream deserves the right direction, and every parent deserves peace of mind.`}</p>
+      <div className="custom-container py-6 md:py-10">
+        <div className='flex gap-2 '>
+          <div className="w-[20px] h-[35px] bg-[#FFF46C] rounded-r-full"></div>
+          <h3 className="dm_sans responsiveheading2 flex gap-2 items-center  mb-4 text-[#1D1C1C]">{`Explore Navodaya SmartSet Tools`} </h3>
+        </div>
+           <p className="dm_sans text-[#484545] responsive-text mb-8">{`Enhance your preparation with our comprehensive set of smart resources.`}</p>
+        <Section2 cards={cardsData} />
       </div>
-      <ExamSection1
-        title="Navodaya Smart Set"
-        overviewText={`Many students work hard, dreaming of joining Jawahar Navodaya Vidyalaya, yet often find themselves wondering — “Am I practicing the right way?” “Why do my mistakes repeat?” “How do toppers study so well?” Parents, too, wish for the best support for their child’s success. That’s where Shikso’s navodaya exam practice SmartSet steps in — a simple, smart, and powerful way to turn preparation into confidence. Because every child deserves a fair chance, every dream deserves the right direction, and every parent deserves peace of mind.`}
-
-        examInfo={{
-          title: "SSC GD 2026 Exam Information",
-          sections: [
-            {
-              heading: "Exam Pattern",
-              items: [
-                "Total Questions: 80",
-                "Total Marks: 160",
-                "Duration: 60 minutes",
-                "Negative Marking: 0.50 marks",
-              ],
-            },
-            {
-              heading: "Syllabus",
-              items: [
-                "General Intelligence & Reasoning",
-                "General Knowledge & Awareness",
-                "Elementary Mathematics",
-                "English/Hindi",
-              ],
-            },
-          ],
-        }}
-
-        testSeriesData={[
-          {
-            id: 1,
-            img: "",
-            title: "Test Series 1",
-            totalTests: 782,
-            freeTests: 13,
-            languages: "English",
-            category: "Test Series",
-            startDate: "25/12/25",
-            endDate: "29/12/25",
-            text: "View More",
-            page: "/test-series",
-          },
-          {
-            id: 2,
-            img: "/img/banking.png",
-            title: "Test Series 2",
-            totalTests: 650,
-            freeTests: 20,
-            languages: "English",
-            category: "Test Series",
-            startDate: "25/12/25",
-            endDate: "29/12/25",
-            text: "View More",
-            page: "/",
-          },
-        ]}
-      />
-      <ExamSection2
+      <Section1 />
+      <Section3 />
+      <Section4 />
+      {/* <ExamSection2
         title="Want to prepare smarter for Navodaya?"
         description="Subscribe to Shikso for a once-a-week free trial— Practice for free with Shikso."
         tagline="Practice | Learn | Evolve |"
         buttonText="Get Started"
         bgColor="#3498db"
-      />
-      <ExamSection3
+      /> */}
+      {/* <ExamSection3
         title="Navodaya SmartSet — Smart Study Made Simple"
         description="Preparing for the Navodaya Entrance should not be scary — it should feel simple, playful, and guided. With Navodaya Entrance Preparation Online, students get:"
         points={[
@@ -127,13 +117,13 @@ const NavodayaSmartSet = () => {
         highlightText="Practice → Analyze → Improve → Repeat → Grow"
         footerText="Every child deserves a study partner that understands them — and that’s exactly what Navodaya SmartSet does"
         aboutUsLink="/about-us"
-      />
+      /> */}
       <CommonFaq faqData={faqData} />
-      <ExamSection4
+      {/* <ExamSection4
         title="Start Your Navodaya Journey Today"
         description="Give your child the confidence, clarity, and smart guidance they deserve. Learning becomes easier when the right path is clear."
         aboutUsLink="/contact-us"
-      />
+      /> */}
 
 
     </div>
