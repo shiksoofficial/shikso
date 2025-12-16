@@ -7,12 +7,12 @@ import React from 'react'
 export const metadata = {
   title: "Shikso Sainik School SmartSet- Smart Learning for AISSEE Exam",
   description: " Prepare for the Sainik School Entrance Exam with Shikso SmartSet. Get mock tests, practice sets, PYQs, and a personalized resulting dashboard for students.",
-  keywords: ["Sainik School SmartSet", "Sainik School Online Coaching", "AISSEE exam practice", " Sainik School mock tests", "smart study material for students", " Sainik School entrance exam preparation", "personalized learning dashboard", "Shikso Sainik School"],
-  alternates: { canonical: getCanonicalUrl("/sainik-school-smartset") },
+  keywords: ["Sainik School SmartSet", "Sainik School Online Coaching", "AISSEE exam practice", " Sainik School mock tests,", "smart study material for students", " Sainik School entrance exam preparation", "personalized learning dashboard", "Shikso Sainik School"],
+  alternates: { canonical: "https://www.shikso.com/sainik-school-smartset" },
   openGraph: {
     title: "Shikso Sainik School SmartSet- Smart Learning for AISSEE Exam",
     description: " Prepare for the Sainik School Entrance Exam with Shikso SmartSet. Get mock tests, practice sets, PYQs, and a personalized resulting dashboard for students.",
-    url: getCanonicalUrl("/"),
+    url: "https://www.shikso.com/",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
   twitter: {

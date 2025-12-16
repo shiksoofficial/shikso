@@ -14,11 +14,11 @@ export const metadata = {
   title: "Shikso – Smart Learning Platform for Students | AI Powered Education System",
   description: " Shikso is a global AI-powered smart learning platform that makes education intelligent, engaging, and measurable. Practice smarter with SmartSets like Navodaya and Sainik School — designed for students, parents, and modern schools.",
   keywords: [" smart learning platform", "AI powered education", " modern school learning", "gamified learning platform", "adaptive education system"],
-  alternates: { canonical: getCanonicalUrl("/") },
+  alternates: { canonical: 'https://www.shikso.com/' },
   openGraph: {
     title: " Shikso – The Future of Learning",
     description: "Experience AI-powered, gamified, and adaptive education with Shikso — your child’s smartest learning companion.",
-    url: getCanonicalUrl("/"),
+    url: 'https://www.shikso.com/',
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
   twitter: {

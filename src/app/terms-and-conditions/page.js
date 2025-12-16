@@ -12,11 +12,11 @@ export const metadata = {
     title: "Shikso Terms & Conditions| Smart Learning Platform Agreement",
     description: "  Explore Shikso’s official Terms & Conditions – understand your rights, responsibilities, and usage policies for our AI-powered Smart Learning Platform.",
     keywords: ["Shikso terms and conditions", " smart learning platform policy", " AI education terms", "online learning agreement", "student platform rules", " Shikso SmartSet policy"],
-    alternates: { canonical: getCanonicalUrl("/terms-and-conditions") },
+    alternates: { canonical: "https://www.shikso.com/terms-and-conditions" },
     openGraph: {
         title: "Shikso Terms & Conditions| Smart Learning Platform Agreement",
         description: "  Explore Shikso’s official Terms & Conditions – understand your rights, responsibilities, and usage policies for our AI-powered Smart Learning Platform.",
-        url: getCanonicalUrl("/"),
+        url: "https://www.shikso.com/",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {

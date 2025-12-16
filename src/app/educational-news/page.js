@@ -16,11 +16,11 @@ export const metadata = {
   title: "Shikso News | Latest Education Updates & Exam Alerts |",
   description: "Get the latest education news, exam notifications, school updates, and government announcements on Shikso News. Stay informed with reliable education updates.",
   keywords: ["Shikso news", " educational news India", " exam alerts", "JNVST updates", "  AISSEE notifications", " school announcements", " education policy news", "edtech updates", " CBSE news", " student news India"],
-  alternates: { canonical: getCanonicalUrl("/educational-news") },
+  alternates: { canonical: "https://www.shikso.com/educational-news" },
   openGraph: {
     title: "Shikso News | Latest Education Updates & Exam Alerts |",
     description: "Get the latest education news, exam notifications, school updates, and government announcements on Shikso News. Stay informed with reliable education updates.",
-    url: getCanonicalUrl("/"),
+    url: "https://www.shikso.com/",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
   twitter: {

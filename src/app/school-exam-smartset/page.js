@@ -6,11 +6,11 @@ export const metadata = {
   title: "School Exam SmartSet",
   description: "Get in touch with us for inquiries or collaborations.",
   keywords: ["contact", "zentrail", "support"],
-  alternates: { canonical: getCanonicalUrl("/school-exam-smartset") },
+  alternates: { canonical: "https://www.shikso.com/school-exam-smartset" },
   openGraph: {
     title: "School Exam SmartSet",
     description: "Reach out for any queries.",
-    url: getCanonicalUrl("/"),
+    url: "https://www.shikso.com/",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
   twitter: {
