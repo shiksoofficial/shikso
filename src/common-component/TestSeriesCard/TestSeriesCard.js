@@ -6,6 +6,7 @@ import { MdLayers } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
 import { FaEarthAmericas } from "react-icons/fa6";
 import CustomButton from "../CustomButton/CustomButton";
+import Image from "next/image";
 
 const TestSeriesCard = ({
   img,
@@ -29,9 +30,9 @@ const TestSeriesCard = ({
       </div>
       <div className="w-full h-20 bg-gradient-to-r from-purple-300 to-green-300 flex items-center justify-center overflow-hidden mt-1">
         {img ? (
-          <img src={img} alt="img" className="w-full h-full object-cover" />
+          <Image src={img} alt="img" className="w-full h-full object-cover" />
         ) : (
-          <img src="/Shiksologo.png" alt="img" className="w-full h-full object-fit" />
+          <Image src="/Shiksologo.png" alt="img" className="w-full h-full object-fit" />
         )}
       </div>
       <div className="grid grid-cols-2 gap-3 mt-3">

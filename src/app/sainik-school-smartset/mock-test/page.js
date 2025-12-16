@@ -4,17 +4,17 @@ import { Mocktests2 } from '@/component/mocktests/Mocktests2'
 import Mocktests3 from '@/component/mocktests/Mocktests3'
 import React from 'react'
 import { getCanonicalUrl } from '@/lib/seo';
-import Mocktests1 from '@/component/mocktests/Mocktests1'
+import MockTests1 from '@/component/mocktests/mocktests1'
 
 export const metadata = {
   title: "Sainik School Mock Test Online AISSEE Practice- Class 6 & 9",
   description: "Attempt Sainik School mock tests for Class 6 & 9 with AISSEE-like patterns, instant analytics, answer keys, and downloadable PDFs. Smart learning practice with Shikso.",
   keywords: ["sainik school mock test", " AISSEE mock test", " sainik school online test", "class 6 sainik mock test", "class 9 sainik mock test", "Sainik School entrance practice", "AISSEE test series", "Shikso Sainik SmartSet"],
-  alternates: { canonical: getCanonicalUrl("/sainik-school-smartset/mock-test") },
+  alternates: { canonical: "https://www.shikso.co/sainik-school-smartset/mock-test" },
   openGraph: {
     title: "Sainik School Mock Test Online AISSEE Practice- Class 6 & 9",
     description: "Attempt Sainik School mock tests for Class 6 & 9 with AISSEE-like patterns, instant analytics, answer keys, and downloadable PDFs. Smart learning practice with Shikso.",
-    url: getCanonicalUrl("/"),
+    url: "https://www.shikso.com/",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
   twitter: {
@@ -106,7 +106,7 @@ const page = () => {
         title={"Sainik School Mock Test – Practice for Classes 6 to 9"}
         paraghraph={"Smart Sainik School mock tests with real exam practice and instant insights — only on Shikso."}
         breadcom={[{ title: "Mock Tests" }]} />
-      <Mocktests1
+      <MockTests1
         title="Select Your Class"
         description="Choose the appropriate class for the mock test."
         label="Class"

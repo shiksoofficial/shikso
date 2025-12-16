@@ -11,11 +11,11 @@ export const metadata = {
     title: "Sainik School Unlimited Practice | Topic-Wise Smart Learning",
     description: "Practice unlimited Sainik School questions topic-wise for Class 6 & 9. Get AI analytics, instant feedback & PYQ downloads with Shikso’s SmartSet.",
     keywords: ["sainik school unlimited practice", "sainik school online practice se", "class 6 sainik school practice", "class 9 sainik school practice", "sainik school mock test", "sainik school smartset", "sainik school topic wise practic", " sainik school ai analytics", "shikso sainik practice", "sainik school preparation online"],
-    alternates: { canonical: getCanonicalUrl("/sainik-school-smartset/unlimited-practice-sets") },
+    alternates: { canonical: "https://www.shikso.com/sainik-school-smartset/unlimited-practice" },
     openGraph: {
         title: "Sainik School Unlimited Practice | Topic-Wise Smart Learning",
         description: "Practice unlimited Sainik School questions topic-wise for Class 6 & 9. Get AI analytics, instant feedback & PYQ downloads with Shikso’s SmartSet.",
-        url: getCanonicalUrl("/"),
+        url: "https://www.shikso.com/",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {

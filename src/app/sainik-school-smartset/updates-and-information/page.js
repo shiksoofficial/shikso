@@ -11,11 +11,11 @@ export const metadata = {
     title: " Sainik School Updates & Information – Latest AISSEE Exam News",
     description: " Get the latest from Shikso for Sainik School exam updates & information, AISSEE syllabus details, smart study materials, preparation insights for Class 6 & 9.",
     keywords: [" sainik school exam updates", "sainik school exam updates and information", " sainik school exam updates for class 6 ", " sainik school exam updates for class 9", " aissee updates", "sainik school notifications", "sainik school syllabus"," shikso sainik smartset"," sainik exam news","aissee preparation tips"],
-    alternates: { canonical: getCanonicalUrl("/sainik-school-smartset/updates-and-information") },
+    alternates: { canonical: "https://www.shikso.com/sainik-school-smartset/updates-and-information" },
     openGraph: {
         title: " Sainik School Updates & Information – Latest AISSEE Exam News",
         description: " Get the latest from Shikso for Sainik School exam updates & information, AISSEE syllabus details, smart study materials, preparation insights for Class 6 & 9.",
-        url: getCanonicalUrl("/"),
+        url: "https://www.shikso.com/",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {

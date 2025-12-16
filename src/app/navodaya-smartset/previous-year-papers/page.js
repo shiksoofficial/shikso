@@ -10,7 +10,7 @@ export const metadata = {
     title: "Navodaya Previous Year Question Papers – Download PDFs",
     description: "Download Navodaya previous year question papers for Class 6 & 9. Get year-wise PDFs, online tests, answer keys, and AI analysis for smarter exam preparation.",
     keywords: [" navodaya previous year question paper", " navodaya class 6 pyq", " navodaya class 9 pyq", "navodaya pyq pdf download", " jnvst previous papers", " navodaya exam practice set", "navodaya pyq online test","shikso navodaya"],
-    alternates: { canonical: "https://www.shikso.com/previous-year-paper" },
+    alternates: { canonical: "https://www.shikso.com/navodaya-smartset/previous-year-papers" },
     openGraph: {
         title: "Navodaya Previous Year Question Papers – Download PDFs",
         description: "Download Navodaya previous year question papers for Class 6 & 9. Get year-wise PDFs, online tests, answer keys, and AI analysis for smarter exam preparation.",

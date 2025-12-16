@@ -10,11 +10,11 @@ export const metadata = {
     title: " Sainik School Previous Year Question Papers – Download PDFs",
     description: " Download Sainik School previous year question papers for Class 6 & 9. Get year-wise PDFs, online mock tests, answer keys, and AI-powered analysis for AISSEE preparation.",
     keywords: [" sainik school previous year question paper", "sainik school previous year question paper class 9", "sainik school previous year question paper class 6", "sainik school previous year question paper class 9 pdf download", " sainik school previous year question paper class 6 pdf download", "aissee pyq", "sainik school pyq online test", "shikso sainik smartset"],
-    alternates: { canonical: getCanonicalUrl("/sainik-school-smartset/previous-year-paper") },
+    alternates: { canonical: "https://www.shikso.com/sainik-school-smartset/previous-year-papers" },
     openGraph: {
         title: " Sainik School Previous Year Question Papers – Download PDFs",
         description: " Download Sainik School previous year question papers for Class 6 & 9. Get year-wise PDFs, online mock tests, answer keys, and AI-powered analysis for AISSEE preparation.",
-        url: getCanonicalUrl("/"),
+        url: "https://www.shikso.com/",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {

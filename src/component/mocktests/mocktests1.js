@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import CustomButton from "@/common-component/CustomButton/CustomButton";
 
-const MockTest1 = ({
+const MockTests1 = ({
   title = "Select Your Class",
   description = "Choose the appropriate class for the mock test.",
   label = "Class",
@@ -64,4 +64,4 @@ const MockTest1 = ({
   );
 };
 
-export default MockTest1;
+export default MockTests1;
