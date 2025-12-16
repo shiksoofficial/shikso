@@ -18,7 +18,7 @@ function NewsListPagination({ initialBlogs, totalBlogs, limit }) {
     setLoading(true);
     try {
       const res = await fetch(
-        `${BASE_URL_API}blogs/all/ed_tech?type=news&status=Published&page`,
+        `${BASE_URL_API}blogs/all/ed_tech?type=news&status=Published&page=${page}&limit=${limit}`,
         { cache: "no-store" }
       );
       const data = await res.json();

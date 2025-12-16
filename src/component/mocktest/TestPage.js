@@ -4,6 +4,8 @@ import CustomButton2 from '@/common-component/CustomBotton2/CustomButton2'
 import CustomButton from '@/common-component/CustomButton/CustomButton'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
+import { useRouter } from "next/navigation";
+
 
 const TestPage = () => {
   const [testStarted, setTestStarted] = useState(false)
@@ -12,6 +14,8 @@ const TestPage = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState({})
   const [showTestList, setShowTestList] = useState(true);
+  const router = useRouter();
+
 
   const mockQuestions = [
     {
@@ -196,6 +200,8 @@ const TestPage = () => {
     setTimeLeft(1200);
     setCurrentQuestion(0);
     setAnswers({});
+     router.push("/mock-tests");
+    
   };
 
   // Instructions page
@@ -222,23 +228,19 @@ const TestPage = () => {
             </p>
           </div>
           <div className="flex justify-around space-x-4">
-            <Link
-              href="/navodaya-smartset"
-              className="mb-4 inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
-            >
-
+          
               <CustomButton2
                 onClick={handleBackToList}
                 color='gray'
-                className="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
+                className=" ">
                 Cancel
               </CustomButton2>
-            </Link>
-            <CustomButton2
+            
+            <CustomButton
               onClick={handleStartTest}
-              className="flex-1 bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
+              className="py-0!">
               Start Test
-            </CustomButton2>
+            </CustomButton>
           </div>
         </div>
       </div>

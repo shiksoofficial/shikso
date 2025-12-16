@@ -19,7 +19,7 @@ export default function PracticeSets1() {
                 <div className="col-span-12 md:col-span-6">
                     <div className='flex gap-2 '>
                         <div className="w-[20px] h-[35px] bg-[#FFF46C] rounded-r-full"></div>
-                        <h3 className="dm_sans responsiveheading2 flex gap-2 items-center  mb-4 text-[#1D1C1C]">{`Select Your Practice Options`} </h3>
+                        <h2 className="dm_sans responsiveheading2 flex gap-2 items-center  mb-4 text-[#1D1C1C]">{`Select Your Practice Options`} </h2>
                     </div>
                     <p className="dm_sans text-[#484545] responsive-text whitespace-normal mb-8">{` Choose your class, subject, and topic to start practicing.`}</p>
                     <div className="mb-5">

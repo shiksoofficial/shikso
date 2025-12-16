@@ -97,7 +97,7 @@ const EducationalNewsPage = async () => {
         title={"Shikso News"}
         paraghraph={"Latest Updates • School Announcements • Education Headlines"}
         breadcom={[{ title: "News" }]} />
-         <News1 />
+      <News1 />
       <div className="custom-container p-6 md:p-10">
         <h2 className='responsiveheading2 mt-8 mb-5'>{`Educational News`}</h2>
         <div className="mt-10 flex items-center justify-center gap-5">

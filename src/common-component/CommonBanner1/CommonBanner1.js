@@ -3,7 +3,7 @@ import { IoHome } from "react-icons/io5";
 import React from 'react'
 import Link from "next/link";
 
-const CommonBanner1 = ({ title, breadcom = [], paraghraph, tagline,paraghraph1 }) => {
+const CommonBanner1 = ({ title, breadcom = [], paraghraph, tagline, paraghraph1 }) => {
 
     return (
         <div className="bg-[#FFFDEB] ">
@@ -13,11 +13,11 @@ const CommonBanner1 = ({ title, breadcom = [], paraghraph, tagline,paraghraph1 }
                         {title}
                     </h1>
                     <p className="text-[#484545] text-center responsive-text font-medium leading-tight mt-3">{paraghraph}</p>
-                     <p className="text-[#484545] text-center responsive-text font-medium leading-tight mt-3">{paraghraph1}</p>
+                    <p className="text-[#484545] text-center responsive-text font-medium leading-tight mt-3">{paraghraph1}</p>
                     <p className="text-red-500 text-center responsive-text font-medium leading-tight mt-3">{tagline}</p>
                     {breadcom?.length > 0 && (
                         <div className="flex text-center w-fit m-auto mt-3 ">
-                            <Link href="/" aria-label="home icon" className="dm_sans text-[15px]  hover:text-[#FFF46C] transition-colors px-2">
+                            <Link href="/" aria-label="home icon" className="dm_sans text-[15px]  hover:text-[#00D6FF] transition-colors px-2">
                                 {` Home`}
                             </Link>
                             {breadcom?.map((item, index) => {
@@ -27,7 +27,7 @@ const CommonBanner1 = ({ title, breadcom = [], paraghraph, tagline,paraghraph1 }
                                         {item?.url ? (
                                             <Link
                                                 href={item?.url}
-                                                className="dm_sans text-[15px]  hover:text-[#FFF46C] transition-colors px-2 "
+                                                className="dm_sans text-[15px]  hover:text-[#00D6FF] transition-colors px-2 "
                                             >
                                                 {item.title}
                                             </Link>

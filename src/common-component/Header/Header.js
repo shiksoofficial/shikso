@@ -125,30 +125,30 @@ const Header = () => {
   };
 
   const menuItems = [
-    { title: "Home", href: "/" },
-    { title: "About", href: "/about-us" },
+    // { title: "Home", href: "/" },
+    // { title: "About", href: "/about-us" },
     { title: "Blog", href: "/blogs" },
     { title: "News", href: "/educational-news" },
-    { title: "Contact", href: "/contact-us" },
+    // { title: "Contact", href: "/contact-us" },
 
   ];
   const menuItems1 = [
     {
       title: "Navodaya", href: "/navodaya-smartset",
       subtitles: [
-        { title: "Syllabus", href: "/navodaya-smartse" },
-        { title: "Old Paper", href: "/sainik-school-smartse" },
-         { title: "Mock Tests", href: "/mock-tests" },
-        { title: "Unlimited Practise", href: "/unlimited-practice-sets" },
+        { title: "Syllabus", href: "/navodaya-smartset/updates-and-information" },
+        { title: "Old Paper", href: "/navodaya-smartset/previous-year-paper" },
+        { title: "Mock Tests", href: "/navodaya-smartset/mock-test" },
+        { title: "Unlimited Practise", href: "/navodaya-smartset/unlimited-practice-sets" },
       ],
     },
     {
       title: "Sainik School", href: "/sainik-school-smartset",
       subtitles: [
-        { title: "Syllabus", href: "/navodaya-smartse" },
-        { title: "Old Paper", href: "/sainik-school-smartse" },
-        { title: "Mock Tests", href: "/mock-tests" },
-        { title: "Unlimited Practise", href: "/unlimited-practice-sets" },
+        { title: "Syllabus", href: "/sainik-school-smartset/updates-and-information" },
+        { title: "Old Paper", href: "/sainik-school-smartset//previous-year-paper" },
+        { title: "Mock Tests", href: "/sainik-school-smartset/mock-test" },
+        { title: "Unlimited Practise", href: "/sainik-school-smartset/unlimited-practice-sets" },
       ],
     },
   ]
@@ -430,7 +430,7 @@ const Header = () => {
                 >
                   {item.title}
                 </Link>
-                
+
               </li>
             ))}
           </ul>
