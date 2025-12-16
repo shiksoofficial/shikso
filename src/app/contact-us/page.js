@@ -11,11 +11,11 @@ export const metadata = {
   title: "Contact Shikso | Smart Learning Platform | Get in Touch",
   description: "Connect with Shikso — India’s modern education and AI-powered smart learning platform for schools, students, and parents. Reach us today for learning beyond.",
   keywords: ["contact Shikso", " Shikso learning app", " AI learning platform", " smart education support", "connect Shikso team", "AI in education India", " Shikso contact form",],
-  alternates: { canonical: getCanonicalUrl("/contact-us") },
+  alternates: { canonical: "https://www.shikso.com/contact-us" },
   openGraph: {
     title: "Contact Shikso | Smart Learning Platform | Get in Touch",
     description: "Connect with Shikso — India’s modern education and AI-powered smart learning platform for schools, students, and parents. Reach us today for learning beyond.",
-    url: getCanonicalUrl("/"),
+    url: "https://www.shikso.com/",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
   twitter: {

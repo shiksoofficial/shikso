@@ -12,11 +12,11 @@ export const metadata = {
   title: "About Shikso | Innovative Learning Ecosystem for Students |",
   description: " Learn about Shikso India’s first AI-powered Innovative learning ecosystem For students, parents, and teachers that helps students practice, learn, & evolve",
   keywords: ["Adaptive Learning System", "Innovative Learning ecosystem", " Adaptive Learning Platform for Schools", " AI Powered Education", "Modern School Learning", "Gamified Learning Platform, Navodaya SmartSet", "Sainik School SmartSet", " Online Exam Practice", "Personalized Learning Dashboard", "Educational Analytics", "Future of EdTech"],
-  alternates: { canonical: getCanonicalUrl("/about-us") },
+  alternates: { canonical: "https://www.shikso.com/about-us" },
   openGraph: {
     title: "About Shikso | Innovative Learning Ecosystem for Students |",
     description: " Learn about Shikso India’s first AI-powered Innovative learning ecosystem For students, parents, and teachers that helps students practice, learn, & evolve",
-    url: getCanonicalUrl("/"),
+    url: "https://www.shikso.com/",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
   twitter: {

@@ -12,11 +12,11 @@ export const metadata = {
     title: "  Cookies Policy | Shikso – How We Use Cookies",
     description: "Learn how Shikso uses cookies to personalize content, improve performance, and ensure a secure smart learning experience while you use our website & mobile app",
     keywords: ["Shikso cookies policy", "website cookies", "online learning cookies", "smart learning privacy", "education platform data", "education platform data", "cookies management",],
-    alternates: { canonical: getCanonicalUrl("/cookies-policy") },
+    alternates: { canonical: "https://www.shikso.com/cookies-policy" },
     openGraph: {
         title: " Cookies Policy | Shikso – How We Use Cookies",
         description: "Learn how Shikso uses cookies to personalize content, improve performance, and ensure a secure smart learning experience while you use our website & mobile app",
-        url: getCanonicalUrl("/"),
+        url: "https://www.shikso.com/",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {

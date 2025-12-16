@@ -12,11 +12,11 @@ export const metadata = {
     title: " Shikso Privacy Policy | Data Protection Information Security",
     description: "Read Shikso’s Privacy Policy to learn how we collect, use, and protect your personal data while delivering secure, AI-powered smart learning experiences.",
     keywords: ["Shikso privacy policy", " data protection", "user information security", "education data privacy", " online learning safety", "student data policy"],
-    alternates: { canonical: getCanonicalUrl("/privacy-policy") },
+    alternates: { canonical: "https://www.shikso.com/privacy-policy" },
     openGraph: {
         title: "Shikso Privacy Policy | Data Protection Information Security",
         description: "Read Shikso’s Privacy Policy to learn how we collect, use, and protect your personal data while delivering secure, AI-powered smart learning experiences.",
-        url: getCanonicalUrl("/"),
+        url: "https://www.shikso.com/",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {

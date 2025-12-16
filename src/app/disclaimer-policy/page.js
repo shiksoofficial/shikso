@@ -12,11 +12,11 @@ export const metadata = {
     title: "  Disclaimer | Shikso – Educational Information Transparency",
     description: " Read Shikso’s Disclaimer to understand the terms for using our educational platform, learning content, practice resources, and skill development responsibly.",
     keywords: ["Shikso disclaimer", "education platform terms", " online learning disclaimer", "student information disclaimer", "Shikso policy"],
-    alternates: { canonical: getCanonicalUrl("/disclaimer-policy") },
+    alternates: { canonical: "https://www.shikso.com/disclaimer-policy" },
     openGraph: {
         title: " Disclaimer | Shikso – Educational Information Transparency",
         description: " Read Shikso’s Disclaimer to understand the terms for using our educational platform, learning content, practice resources, and skill development responsibly.",
-        url: getCanonicalUrl("/"),
+        url: "https://www.shikso.com/",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     twitter: {

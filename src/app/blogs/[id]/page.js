@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+export const revalidate = 3600;
 import CommonFaq from '@/common-component/CommonFaq/CommonFaq'
 import BlogDescription from '@/component/blog/BlogDescription'
 import HeroSection from '@/component/homepage/HeroSection'

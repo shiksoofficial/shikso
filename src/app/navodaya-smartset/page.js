@@ -15,11 +15,11 @@ export const metadata = {
   title: "Shikso Navodaya SmartSet – Smart Practice for Entrance Exam",
   description: "Prepare for the Navodaya Entrance Exam Preparation Online with Shikso SmartSet. mock tests, PYQs, and AI insights to Boost accuracy, speed, and confidence",
   keywords: ["Navodaya SmartSet", " JNV exam practice", "Navodaya mock tests", "Navodaya PYQs", "JNVST preparation", "smart study material", " AI test analytics", "Shikso Navodaya"],
-  alternates: { canonical: getCanonicalUrl("/navodaya-smartset") },
+  alternates: { canonical: "https://www.shikso.com/navodaya-smartset" },
   openGraph: {
     title: "Shikso Navodaya SmartSet – Smart Practice for Entrance Exam",
     description: "Prepare for the Navodaya Entrance Exam Preparation Online with Shikso SmartSet. mock tests, PYQs, and AI insights to Boost accuracy, speed, and confidence",
-    url: getCanonicalUrl("/"),
+    url: "https://www.shikso.com/",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
   twitter: {
