@@ -22,7 +22,7 @@ export default function LoginPage() {
         email: data.email,
         password: data.password,
       });
-      
+
       // Store token if present in response
       const token = response?.data?.token || response?.data?.access_token || response?.data?.data?.token;
       if (token) {
@@ -34,10 +34,10 @@ export default function LoginPage() {
       if (userData) {
         setUser(userData);
       }
-      
+
       toast.success("Login successful!");
       console.log("Login successful:", response.data);
-      
+
       // Redirect to home or dashboard
       router.push("/");
     } catch (error) {
@@ -59,15 +59,15 @@ export default function LoginPage() {
           <div className="flex justify-center mb-3">
             <div className="bg-blue-500 text-white font-semibold px-5 py-3 rounded-xl text-xl">
               <Link href="/" className=" hover:underline">
-                Shikso
+                {`Shikso`}
               </Link>
             </div>
           </div>
           <h2 className="text-center text-2xl font-semibold text-gray-900">
-            Welcome Back
+            {` Welcome Back`}
           </h2>
           <p className="text-center text-gray-500 text-sm mt-1">
-            Sign in to continue to your account.
+            {`Sign in to continue to your account.`}
           </p>
           <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
             <CustomInput
@@ -97,21 +97,21 @@ export default function LoginPage() {
             />
             <div className="flex justify-end -mt-3">
               <Link href="#" className="text-sm text-blue-600 hover:underline">
-                Forgot Password?
+                {`Forgot Password?`}
               </Link>
             </div>
             <CustomButton
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-medium transition"
+              className="w-full   py-3 rounded-md font-medium transition"
               loading={isSubmitting}
               disabled={isSubmitting}
             >
-              Log In
+              {`Log In`}
             </CustomButton>
             <p className="text-center text-sm text-gray-600">
-              Don’t have an account?{" "}
+              {`Don’t have an account?`}{" "}
               <Link href="/signup" className="text-blue-600 font-medium hover:underline">
-                Sign Up
+                {`Sign Up`}
               </Link>
             </p>
           </form>
