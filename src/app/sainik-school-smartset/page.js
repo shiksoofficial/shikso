@@ -81,7 +81,7 @@ const cardsData = [
     title: "Previous Year Papers",
     discription: "Solve real AISSEE papers to understand what the exam expects from a future cadet: accuracy, speed, and sharp thinking.",
     buttonText: "Explore",
-    buttonLink: "/sainik-school-smartset/previous-year-paper",
+    buttonLink: "/sainik-school-smartset/previous-year-papers",
   },
   {
     img: "/news/news3.jpg",
@@ -97,7 +97,7 @@ const cardsData = [
     title: "Unlimited Practice Sets",
     discription: "Practice without limits! Access topic-wise and difficulty-based questions from all sections of the Navodaya exam practice set.",
     buttonText: "Explore",
-    buttonLink: "/sainik-school-smartset/unlimited-practice-sets",
+    buttonLink: "/sainik-school-smartset/unlimited-practice",
   },
 ];
 

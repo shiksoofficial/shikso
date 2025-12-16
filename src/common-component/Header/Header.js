@@ -57,18 +57,18 @@ const Header = () => {
       title: "Navodaya", href: "/navodaya-smartset",
       subtitles: [
         { title: "Syllabus", href: "/navodaya-smartset/updates-and-information" },
-        { title: "Old Paper", href: "/navodaya-smartset/previous-year-paper" },
+        { title: "Old Paper", href: "/navodaya-smartset/previous-year-papers" },
         { title: "Mock Tests", href: "/navodaya-smartset/mock-test" },
-        { title: "Unlimited Practise", href: "/navodaya-smartset/unlimited-practice-sets" },
+        { title: "Unlimited Practice", href: "/navodaya-smartset/unlimited-practice" },
       ],
     },
     {
       title: "Sainik School", href: "/sainik-school-smartset",
       subtitles: [
         { title: "Syllabus", href: "/sainik-school-smartset/updates-and-information" },
-        { title: "Old Paper", href: "/sainik-school-smartset//previous-year-paper" },
+        { title: "Old Paper", href: "/sainik-school-smartset/previous-year-papers" },
         { title: "Mock Tests", href: "/sainik-school-smartset/mock-test" },
-        { title: "Unlimited Practise", href: "/sainik-school-smartset/unlimited-practice-sets" },
+        { title: "Unlimited Practice", href: "/sainik-school-smartset/unlimited-practice" },
       ],
     },
   ]

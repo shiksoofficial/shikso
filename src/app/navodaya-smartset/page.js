@@ -54,7 +54,7 @@ const cardsData = [
     title: "Previous Year Papers",
     discription: "Learn from the past! Solve actual Navodaya Entrance Exam questions from previous years to understand trends, question types, and the smart strategies that work.",
     buttonText: "Explore",
-    buttonLink: "/navodaya-smartset/previous-year-paper",
+    buttonLink: "/navodaya-smartset/previous-year-papers",
   },
   {
     img: "/news/news3.jpg",
@@ -70,7 +70,7 @@ const cardsData = [
     title: "Unlimited Practice Sets",
     discription: "Practice without limits! Access topic-wise and difficulty-based questions from all sections of the Navodaya exam practice set.",
     buttonText: "Explore",
-    buttonLink: "/navodaya-smartset/unlimited-practice-sets",
+    buttonLink: "/navodaya-smartset/unlimited-practice",
   },
 ];
 
