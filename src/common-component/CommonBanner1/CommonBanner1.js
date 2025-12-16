@@ -1,5 +1,3 @@
-import { IoMdArrowBack } from "react-icons/io";
-import { IoHome } from "react-icons/io5";
 import React from 'react'
 import Link from "next/link";
 

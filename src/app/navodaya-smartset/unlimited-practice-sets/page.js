@@ -11,7 +11,7 @@ export const metadata = {
     title: "Navodaya Unlimited Practice | Topic-Wise Learning Online |",
     description: "Practice unlimited Navodaya questions by topic and subject wise for Class 6 & 9. Get instant feedback, AI analytics, and PYQ downloads with Shikso’s SmartSet.",
     keywords: ["navodaya unlimited practice", "navodaya topic wise practice", "class 6 navodaya practice", "class 9 navodaya practice", "navodaya online practice set", "navodaya smartset", "ai analytics navodaya", "shikso navodaya practice"],
-    alternates: { canonical: getCanonicalUrl("/unlimited-practice-sets") },
+    alternates: { canonical: getCanonicalUrl("/navodaya-smartset/unlimited-practice-sets") },
     openGraph: {
         title: "Navodaya Unlimited Practice | Topic-Wise Learning Online |",
         description: "Practice unlimited Navodaya questions by topic and subject wise for Class 6 & 9. Get instant feedback, AI analytics, and PYQ downloads with Shikso’s SmartSet.",

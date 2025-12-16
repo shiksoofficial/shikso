@@ -11,7 +11,7 @@ export const metadata = {
     title: "Navodaya Updates & Information – Latest JNV Exam News",
     description: "Get the latest Navodaya exam updates & Information, syllabus details, blogs, smart study material for Class 6 & 9. Stay prepared and confident with Shikso.",
     keywords: ["navodaya updates", "jnv exam information", "navodaya syllabus", " class 6 navodaya updates", "class 9 navodaya updates", "shikso navodaya", "navodaya notifications", "navodaya preparation tips"],
-    alternates: { canonical: getCanonicalUrl("/navodaya/updates-and-information") },
+    alternates: { canonical: getCanonicalUrl("/navodaya-smartset/updates-and-information") },
     openGraph: {
         title: "Navodaya Updates & Information – Latest JNV Exam News",
         description: "Get the latest Navodaya exam updates & Information, syllabus details, blogs, smart study material for Class 6 & 9. Stay prepared and confident with Shikso.",
