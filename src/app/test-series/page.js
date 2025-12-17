@@ -97,7 +97,7 @@ const TestSeriesPage = ({ params }) => {
       <CommonBanner1
         imageurl="/aboutus/hero_1.jpg"
         title={seriesInfo?.title || "Test Series"}
-        paraghraph="Attempt full-length mock tests"
+        paraghraph="Attempt full-length  tests"
         breadcom={[
           // { title: "Home", path: "/" },
           { title: "Test Series" },

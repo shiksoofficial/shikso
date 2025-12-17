@@ -40,10 +40,9 @@ const MockTests1 = ({
                   key={item}
                   onClick={() => setSelectedOption(item)}
                   className={`px-6 py-2 rounded-sm transition
-                    ${
-                      selectedOption === item
-                        ? "bg-[#CBF3FF] text-black"
-                        : "bg-[#E5FBFF] text-[#666]"
+                    ${selectedOption === item
+                      ? "bg-[#CBF3FF] text-black"
+                      : "bg-[#E5FBFF] text-[#666]"
                     }`}
                 >
                   {item}
@@ -54,6 +53,7 @@ const MockTests1 = ({
             <CustomButton
               className="mt-5 bg-[#FFF46C] px-6 py-2 font-medium hover:bg-[#ffe447]"
               disabled={!selectedOption}
+              onClick={() => window.location.href = "/test-series"}
             >
               {buttonText}
             </CustomButton>

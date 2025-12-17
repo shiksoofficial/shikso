@@ -1,6 +1,9 @@
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import CommonFaq from '@/common-component/CommonFaq/CommonFaq';
+import Section1 from '@/component/smartset/Section1';
 import Section2 from '@/component/smartset/Section2';
+import Section3 from '@/component/smartset/Section3';
+import Section4 from '@/component/smartset/Section4';
 import { getCanonicalUrl } from '@/lib/seo';
 import React from 'react'
 
@@ -127,6 +130,9 @@ const SainikSchoolSmartSet = () => {
         <p className="dm_sans text-[#484545] responsive-text mb-8">{`Enhance your preparation with our comprehensive set of smart resources.`}</p>
         <Section2 cards={cardsData} />
       </div>
+       <Section1 />
+      <Section3 />
+      <Section4 />
       <CommonFaq title="– Sainik School SmartSet" faqData={faqData} />
     </div>
   )

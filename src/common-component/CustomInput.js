@@ -53,7 +53,7 @@ const CustomInput = ({
                         type={type}
                         placeholder={placeholder}
                         disabled={disabled}
-                        className="w-full outline-none text-gray-800 placeholder-gray-400 bg-transparent"
+                        className="w-full outline-none text-gray-800 placeholder-gray-400 bg-transparent "
                     />
                 )}
 
