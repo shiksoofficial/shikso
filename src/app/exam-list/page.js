@@ -1,6 +1,7 @@
 "use client";
 
 import HeroSection from "@/component/homepage/HeroSection";
+import Image from "next/image";
 
 export default function ExamListPage() {
  const exams = [
@@ -32,7 +33,7 @@ export default function ExamListPage() {
             key={index}
             className="flex gap-2 items-center bg-white rounded-2xl shadow-sm hover:shadow-lg transition p-2   cursor-pointer border-1 border-gray-300 hover:-translate-y-1 duration-200"
           >
-            <img
+            <Image
               src={exam.img}
               alt={exam.title}
               className="w-12 h-12 object-contain mb-4"

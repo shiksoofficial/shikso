@@ -1,9 +1,5 @@
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import CommonFaq from '@/common-component/CommonFaq/CommonFaq';
-import ExamSection1 from '@/common-component/ExamSection1/ExamSection1';
-import ExamSection2 from '@/common-component/ExamSection2/ExamSection2';
-import ExamSection3 from '@/common-component/ExamSection3/ExamSection3';
-import ExamSection4 from '@/common-component/ExamSection4/ExamSection4';
 import Section1 from '@/component/smartset/Section1';
 import Section2 from '@/component/smartset/Section2';
 import Section3 from '@/component/smartset/Section3';
@@ -50,7 +46,7 @@ const cardsData = [
     title: "Updates & Information",
     discription: "Get all important Navodaya Smart Study Material for students, exam updates, syllabus details, notifications, and useful information in one place, so you never miss anything important.",
     buttonText: "Explore",
-    buttonLink: "/updates-and-information",
+    buttonLink: "/navodaya-smartset/updates-and-information",
   },
   {
     img: "/news/news2.jpg",
@@ -58,7 +54,7 @@ const cardsData = [
     title: "Previous Year Papers",
     discription: "Learn from the past! Solve actual Navodaya Entrance Exam questions from previous years to understand trends, question types, and the smart strategies that work.",
     buttonText: "Explore",
-    buttonLink: "/previous-year-paper",
+    buttonLink: "/navodaya-smartset/previous-year-papers",
   },
   {
     img: "/news/news3.jpg",
@@ -66,7 +62,7 @@ const cardsData = [
     title: "Mock Tests",
     discription: "Simulate real exam conditions with Navodaya SmartSet Mock Tests. Each test matches the pattern and difficulty level of the official exam, helping you manage time and build confidence.",
     buttonText: "Explore",
-    buttonLink: "/mock-tests",
+    buttonLink: "/navodaya-smartset/mock-test",
   },
   {
     img: "/news/news3.jpg",
@@ -74,12 +70,13 @@ const cardsData = [
     title: "Unlimited Practice Sets",
     discription: "Practice without limits! Access topic-wise and difficulty-based questions from all sections of the Navodaya exam practice set.",
     buttonText: "Explore",
-    buttonLink: "/unlimited-practice-sets",
+    buttonLink: "/navodaya-smartset/unlimited-practice",
   },
 ];
 
 
 const NavodayaSmartSet = () => {
+
   return (
     <div>
       <CommonBanner1
@@ -91,41 +88,13 @@ const NavodayaSmartSet = () => {
           <div className="w-[20px] h-[35px] bg-[#FFF46C] rounded-r-full"></div>
           <h3 className="dm_sans responsiveheading2 flex gap-2 items-center  mb-4 text-[#1D1C1C]">{`Explore Navodaya SmartSet Tools`} </h3>
         </div>
-           <p className="dm_sans text-[#484545] responsive-text mb-8">{`Enhance your preparation with our comprehensive set of smart resources.`}</p>
+        <p className="dm_sans text-[#484545] responsive-text mb-8">{`Enhance your preparation with our comprehensive set of smart resources.`}</p>
         <Section2 cards={cardsData} />
       </div>
       <Section1 />
       <Section3 />
       <Section4 />
-      {/* <ExamSection2
-        title="Want to prepare smarter for Navodaya?"
-        description="Subscribe to Shikso for a once-a-week free trial— Practice for free with Shikso."
-        tagline="Practice | Learn | Evolve |"
-        buttonText="Get Started"
-        bgColor="#3498db"
-      /> */}
-      {/* <ExamSection3
-        title="Navodaya SmartSet — Smart Study Made Simple"
-        description="Preparing for the Navodaya Entrance should not be scary — it should feel simple, playful, and guided. With Navodaya Entrance Preparation Online, students get:"
-        points={[
-          "Topic-wise learning made easy",
-          "Interactive questions for every chapter",
-          "Gamified rewards that build daily motivation.",
-          "Smart study material designed for young learners",
-          "AI suggestions to fix mistakes",
-        ]}
-        highlightText="Practice → Analyze → Improve → Repeat → Grow"
-        footerText="Every child deserves a study partner that understands them — and that’s exactly what Navodaya SmartSet does"
-        aboutUsLink="/about-us"
-      /> */}
       <CommonFaq faqData={faqData} />
-      {/* <ExamSection4
-        title="Start Your Navodaya Journey Today"
-        description="Give your child the confidence, clarity, and smart guidance they deserve. Learning becomes easier when the right path is clear."
-        aboutUsLink="/contact-us"
-      /> */}
-
-
     </div>
   )
 }

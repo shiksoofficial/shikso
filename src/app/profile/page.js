@@ -21,6 +21,7 @@ import {
   FaEdit
 } from "react-icons/fa";
 import { MdEmail, MdPhone, MdLocationOn, MdDateRange } from "react-icons/md";
+import Image from "next/image";
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -175,7 +176,7 @@ export default function ProfilePage() {
               <div className="relative">
                 <div className="w-32 h-32 rounded-full bg-white/20 backdrop-blur-sm border-4 border-white/30 flex items-center justify-center text-white text-5xl font-bold shadow-2xl">
                   {userData.profile_picture ? (
-                    <img
+                    <Image
                       src={userData.profile_picture}
                       alt={userData.name}
                       className="w-full h-full rounded-full object-cover"

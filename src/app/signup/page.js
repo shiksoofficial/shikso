@@ -3,14 +3,16 @@ import CustomButton from "@/common-component/CustomButton/CustomButton";
 import CustomInput from "@/common-component/CustomInput";
 import HeroSection from "@/component/homepage/HeroSection";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { apiClient2 } from "@/lib/api-client";
 import { toast } from "react-toastify";
 import { setToken, setUser } from "@/lib/auth";
 import { useRouter } from "next/navigation";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 export default function CreateAccount() {
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   const {
     register,
@@ -26,7 +28,7 @@ export default function CreateAccount() {
         password: data.password,
         mobile_no: data.mobile,
       });
-      
+
       // Store token if present in response
       const token = response?.data?.token || response?.data?.access_token || response?.data?.data?.token;
       if (token) {
@@ -38,10 +40,10 @@ export default function CreateAccount() {
       if (userData) {
         setUser(userData);
       }
-      
+
       toast.success("Account created successfully!");
       console.log("Registration successful:", response.data);
-      
+
       // Redirect to login page or home
       router.push("/login");
     } catch (error) {
@@ -62,14 +64,14 @@ export default function CreateAccount() {
       />
       <div className=" bg-[#f5f7fb] flex items-center justify-center p-4">
         <div className="w-full max-w-lg bg-white rounded-2xl shadow-md p-8 border border-gray-200">
-          <h2 className="text-3xl font-semibold text-center">Create Account</h2>
+          <h2 className="text-3xl font-semibold text-center">{`Create Account`}</h2>
           <p className="text-center text-gray-500 mt-1 text-sm">
-            Already have an account?{" "}
+            {` Already have an account?`}{" "}
             <Link
               href="/login"
               className="text-blue-600 font-medium hover:underline"
             >
-              Login
+              {`Login`}
             </Link>
           </p>
           <form className="mt-6 space-y-4" onSubmit={handleSubmit(onSubmit)}>
@@ -93,14 +95,22 @@ export default function CreateAccount() {
             <CustomInput
               label="Password"
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               register={register}
               errors={errors}
               validateRules={{ required: "Password is required" }}
+              endIcon={
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="cursor-pointer"
+                >
+                  {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                </span>
+              }
             />
             <div>
-              <label className="text-sm font-medium">Mobile Number</label>
+              <label className="text-sm font-medium">{`Mobile Number`}</label>
               <div className="flex gap-2 mt-1">
                 <input
                   type="text"
@@ -153,27 +163,27 @@ export default function CreateAccount() {
             /> */}
             <CustomButton
               type="submit"
-              className="w-full bg-blue-600 text-white py-3 rounded-lg mt-4 hover:bg-blue-700 transition font-medium"
+              className="w-full  transition font-medium"
               loading={isSubmitting}
               disabled={isSubmitting}
             >
-              Sign Up
+              {`Sign Up`}
             </CustomButton>
           </form>
           <p className="text-center text-xs text-gray-500 mt-4">
-            By signing up, you agree to our{" "}
+            {`By signing up, you agree to our`}{" "}
             <Link
               href="/terms-and-conditions"
               className="text-blue-600 font-medium hover:underline"
             >
-              Terms of Service{" "}
+              {`Terms of Service`}{" "}
             </Link>
-            and{" "}
+            {` and`}{" "}
             <Link
               href="/privacy-policy"
               className="text-blue-600 font-medium hover:underline"
             >
-              Privacy Policy
+              {` Privacy Policy`}
             </Link>
           </p>
         </div>

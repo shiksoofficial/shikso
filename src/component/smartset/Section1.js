@@ -1,7 +1,16 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import TestSeriesCard from '@/common-component/TestSeriesCard/TestSeriesCard';
+import { apiClient2 } from "@/lib/api-client";
+
+const SmallLoader = () => {
+  return (
+    <div className="flex justify-center py-10">
+      <div className="w-10 h-10 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin" />
+    </div>
+  );
+};
 
 const testSeriesData = [
   {
@@ -52,24 +61,83 @@ const Section1 = () => {
   const [activeTab, setActiveTab] = useState('overview');
   const router = useRouter();
 
+  const [data, setData] = useState(null);
+  const [seriesList, setSeriesList] = useState([]);
+
+  const [loadingCategory, setLoadingCategory] = useState(true);
+  const [loadingSeries, setLoadingSeries] = useState(false);
+
+  const [error, setError] = useState("");
+
   const tabs = [
     { id: 'overview', label: 'Overview' },
     { id: 'examInfo', label: 'Exam Info' },
     { id: 'testSeries', label: 'Test Series' },
   ];
 
-  // Handle card button click - Navigate to page
-  const handleViewMore = (page) => {
-    router.push(page);
+  const handleViewMore = (slug) => {
+    router.push(`/test-series/${slug}`);
   };
+
+  useEffect(() => {
+    const fetchCategory = async () => {
+      try {
+        const res = await apiClient2.get("/examcategory/exam-category");
+
+        const categoryData = Array.isArray(res.data?.data)
+          ? res.data.data[0]
+          : res.data?.data;
+
+        setData(categoryData || null);
+      } catch (err) {
+        setError("Failed to load category");
+      } finally {
+        setLoadingCategory(false);
+      }
+    };
+
+    fetchCategory();
+  }, []);
+
+  /* ================= FETCH SERIES ONLY WHEN TAB OPENS ================= */
+  useEffect(() => {
+  if (activeTab !== "testSeries" || seriesList.length > 0) return;
+
+  const fetchSeries = async () => {
+    setLoadingSeries(true);
+    try {
+      const res = await apiClient2.get("/exam-series/series-list");
+      const rawData = res.data?.data;
+      const finalSeries = Array.isArray(rawData) ? rawData : [];
+
+      setSeriesList(finalSeries);
+    } catch (err) {
+      setError("Failed to load test series");
+    } finally {
+      setLoadingSeries(false);
+    }
+  };
+
+  fetchSeries();
+}, [activeTab, seriesList.length]);
+
+
+  /* ================= ERROR ================= */
+  if (error) {
+    return (
+      <div className="custom-container p-10 text-center text-red-500">
+        {error}
+      </div>
+    );
+  }
 
   return (
     <>
       <div className="custom-container m-6 md:m-10">
         <div className="mx-auto bg-white p-6 md:p-10 rounded-xl shadow">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
-           {` SSC GD Constable 2026 Exam`}
-          </h1>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+            {loadingCategory ? "Loading..." : data?.category_name}
+          </h2>
 
           {/* Tabs Navigation */}
           <div className="border-b mt-8">
@@ -79,8 +147,8 @@ const Section1 = () => {
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`pb-2 cursor-pointer transition-all duration-200 ${activeTab === tab.id
-                      ? 'border-b-2 border-blue-600 text-blue-600'
-                      : 'hover:text-blue-600'
+                    ? 'border-b-2 border-blue-600 text-blue-600'
+                    : 'hover:text-blue-600'
                     }`}
                 >
                   {tab.label}
@@ -94,89 +162,58 @@ const Section1 = () => {
             {activeTab === 'overview' && (
               <div className="border rounded-xl p-6 bg-white">
                 <h2 className="text-xl font-semibold text-gray-800 mb-4">
-               {`SSC GD 2026 Overview`}
+                  {data?.category_name || "Overview"}
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700 leading-7">
-                  <div>
-                    <p>
-                     {`The Staff Selection Commission (SSC) has released the SSC GD
-                      Notification 2026 for 25487 Vacancies on 01, December 2025.
-                      Aspirants interested in Central Armed Police Forces (CAPFs), NIA,
-                      SSF, and Rifleman (GD) in Assam Rifles can apply for the exam.`}
-                    </p>
-                    <p className="mt-4">
-                    {`As per the revised SSC exam calendar, the SSC GD Constable
-                      application form 2026 will be available from 1st to 31st December
-                      2025. The SSC GD Constable exam is scheduled to take place in
-                      Feb–April 2026.`}
-                    </p>
-                  </div>
-                  <div>
-                    <p>
-                      {`Candidates can check the complete SSC GD 2026 exam schedule,
-                      eligibility, application process, syllabus, exam pattern, and
-                      other key details below.`}
-                    </p>
-                    <p className="mt-4">
-                     {`This comprehensive guide provides all the necessary information for
-                      aspiring candidates to prepare effectively and stay updated with
-                      the latest announcements from the commission.`}
-                    </p>
-                  </div>
-                </div>
+                <p className="text-gray-700">
+                  {data?.short_description || "No overview available"}
+                </p>
               </div>
             )}
 
             {/* Exam Info Tab */}
-            {activeTab === 'examInfo' && (
+            {activeTab === "examInfo" && (
               <div className="border rounded-xl p-6 bg-white">
                 <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                  {`SSC GD 2026 Exam Information`}
+                  {data?.category_name || "Overview"}
                 </h2>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="border rounded-lg p-4">
-                      <h3 className="font-semibold text-gray-800">Exam Pattern</h3>
-                      <ul className="mt-2 text-gray-600 list-disc list-inside space-y-1">
-                        <li>{`Total Questions: 80`}</li>
-                        <li>{`Total Marks: 160`}</li>
-                        <li>{`Duration: 60 minutes`}</li>
-                        <li>{`Negative Marking: 0.50 marks`}</li>
-                      </ul>
-                    </div>
-                    <div className="border rounded-lg p-4">
-                      <h3 className="font-semibold text-gray-800">{`Syllabus`}</h3>
-                      <ul className="mt-2 text-gray-600 list-disc list-inside space-y-1">
-                        <li>{`General Intelligence & Reasoning`}</li>
-                        <li>{`General Knowledge & Awareness`}</li>
-                        <li>{`Elementary Mathematics`}</li>
-                        <li>{`English/Hindi`}</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                {data?.syllabus ? (
+                  <div
+                    className="prose max-w-none"
+                    dangerouslySetInnerHTML={{ __html: data.syllabus }}
+                  />
+                ) : (
+                  <p>{`No syllabus available`}</p>
+                )}
               </div>
             )}
 
             {/* Test Series Tab */}
-            {activeTab === 'testSeries' && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {testSeriesData.map((item, index) => (
-                  <TestSeriesCard
-                    key={item.id || index}
-                    img={item.img}
-                    title={item.title}
-                    totalTests={item.totalTests}
-                    freeTests={item.freeTests}
-                    languages={item.languages}
-                    category={item.category}
-                    startDate={item.startDate}
-                    endDate={item.endDate}
-                    text={item.text}
-                    onClick={() => handleViewMore(item.page)}
-                  />
-                ))}
-              </div>
+            {activeTab === "testSeries" && (
+              <>
+                {loadingSeries ? (
+                  <SmallLoader />
+                ) : seriesList.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {seriesList.map((item) => (
+                      <TestSeriesCard
+                        key={item.id}
+                        img={item.image_url || "/img/default-series.png"}
+                        title={item.series_name}
+                        totalTests={item.total_exams}
+                        freeTests={item.is_free ? item.total_exams : 0}
+                        languages="English"
+                        category={item.category?.category_name || "Test Series"}
+                        startDate={item.start_date}
+                        endDate={item.end_date}
+                        text="View More"
+                        onClick={() => handleViewMore(item.slug || item.id)}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-center text-gray-600">{` No test series available`} </p>
+                )}
+              </>
             )}
           </div>
         </div>

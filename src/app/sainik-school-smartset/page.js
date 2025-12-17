@@ -1,9 +1,6 @@
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import CommonFaq from '@/common-component/CommonFaq/CommonFaq';
-import ExamSection1 from '@/common-component/ExamSection1/ExamSection1';
-import ExamSection2 from '@/common-component/ExamSection2/ExamSection2';
-import ExamSection3 from '@/common-component/ExamSection3/ExamSection3';
-import HeroSection from '@/component/homepage/HeroSection'
+import Section2 from '@/component/smartset/Section2';
 import { getCanonicalUrl } from '@/lib/seo';
 import React from 'react'
 
@@ -69,6 +66,41 @@ const faqData = [
   },
 ];
 
+const cardsData = [
+  {
+    img: "/news/news2.jpg",
+    alt: "Updates & Information",
+    title: "Updates & Information",
+    discription: "All important AISSEE updates, syllabus changes, exam notifications, and study material in one clean dashboard — so students, parents, and teachers stay aligned and fully informed.",
+    buttonText: "Explore",
+    buttonLink: "/sainik-school-smartset/updates-and-information",
+  },
+  {
+    img: "/news/news2.jpg",
+    alt: "Previous Year Papers",
+    title: "Previous Year Papers",
+    discription: "Solve real AISSEE papers to understand what the exam expects from a future cadet: accuracy, speed, and sharp thinking.",
+    buttonText: "Explore",
+    buttonLink: "/sainik-school-smartset/previous-year-papers",
+  },
+  {
+    img: "/news/news3.jpg",
+    alt: "Mock Tests",
+    title: "Mock Tests",
+    discription: "Experience exam discipline from home. SmartSet mock tests follow the official AISSEE pattern, building stamina, time management, and problem-solving strength.",
+    buttonText: "Explore",
+    buttonLink: "/sainik-school-smartset/mock-test",
+  },
+  {
+    img: "/news/news3.jpg",
+    alt: "Unlimited Practice Sets",
+    title: "Unlimited Practice Sets",
+    discription: "Practice without limits! Access topic-wise and difficulty-based questions from all sections of the Navodaya exam practice set.",
+    buttonText: "Explore",
+    buttonLink: "/sainik-school-smartset/unlimited-practice",
+  },
+];
+
 const SainikSchoolSmartSet = () => {
   return (
     <div>
@@ -77,7 +109,7 @@ const SainikSchoolSmartSet = () => {
         paraghraph={"Sainik School SmartSet – Train With Discipline, Learn With Purpose"}
         paraghraph1={" Give your child the right start for the Sainik School Entrance Exam with Shikso’s smart, focused, and student-friendly learning system."}
         breadcom={[{ title: "Sainik School SmartSet" }]} />
-      <div className="custom-container m-6 md:m-10">
+      {/* <div className="custom-container m-6 md:m-10">
         <p className='mb-3'>{`Every child who dreams of joining a Sainik School dreams of more than just passing an exam. They dream of discipline, they dream of courage, They dream of becoming something greater.`}</p>
         <p className='mb-3'>{`But the journey toward the Sainik School Entrance Exam (AISSEE) can feel confusing:`}</p>
         <p >{`Students don’t know where to begin…`}</p>
@@ -86,91 +118,16 @@ const SainikSchoolSmartSet = () => {
         <p >{`That is why we built Shikso’s Sainik School SmartSet — a digital study companion designed to make preparation clear, structured, and stress-free.`}</p>
         <p className='mb-3'>{` It brings discipline to learning, clarity to planning, and confidence to every attempt.`}</p>
         <p className='mb-1'>{`Because preparing for Sainik School is not just about solving questions — it’s about shaping mindset, habits, and determination.`}</p>
+      </div> */}
+       <div className="custom-container py-6 md:py-10">
+        <div className='flex gap-2 '>
+          <div className="w-[20px] h-[35px] bg-[#FFF46C] rounded-r-full"></div>
+          <h3 className="dm_sans responsiveheading2 flex gap-2 items-center  mb-4 text-[#1D1C1C]">{`Explore Sainik School SmartSet Tools`} </h3>
+        </div>
+        <p className="dm_sans text-[#484545] responsive-text mb-8">{`Enhance your preparation with our comprehensive set of smart resources.`}</p>
+        <Section2 cards={cardsData} />
       </div>
-      <ExamSection1
-        title="Sainik School SmartSet"
-        overviewText={`Many students work hard, dreaming of joining Jawahar Navodaya Vidyalaya, yet often find themselves wondering — “Am I practicing the right way?” “Why do my mistakes repeat?” “How do toppers study so well?” Parents, too, wish for the best support for their child’s success. That’s where Shikso’s navodaya exam practice SmartSet steps in — a simple, smart, and powerful way to turn preparation into confidence. Because every child deserves a fair chance, every dream deserves the right direction, and every parent deserves peace of mind.`}
-
-        examInfo={{
-          title: "SSC GD 2026 Exam Information",
-          sections: [
-            {
-              heading: "Exam Pattern",
-              items: [
-                "Total Questions: 80",
-                "Total Marks: 160",
-                "Duration: 60 minutes",
-                "Negative Marking: 0.50 marks",
-              ],
-            },
-            {
-              heading: "Syllabus",
-              items: [
-                "General Intelligence & Reasoning",
-                "General Knowledge & Awareness",
-                "Elementary Mathematics",
-                "English/Hindi",
-              ],
-            },
-          ],
-        }}
-
-        testSeriesData={[
-          {
-            id: 1,
-            img: "",
-            title: "Test Series 1",
-            totalTests: 782,
-            freeTests: 13,
-            languages: "English",
-            category: "Test Series",
-            startDate: "25/12/25",
-            endDate: "29/12/25",
-            text: "View More",
-            page: "/test-series",
-          },
-          {
-            id: 2,
-            img: "/img/banking.png",
-            title: "Test Series 2",
-            totalTests: 650,
-            freeTests: 20,
-            languages: "English",
-            category: "Test Series",
-            startDate: "25/12/25",
-            endDate: "29/12/25",
-            text: "View More",
-            page: "/",
-          },
-        ]}
-      />
-      <ExamSection3
-        title="Sainik School SmartSet – Why It Matters"
-        description="Sainik Schools prepare children for a life of leadership, responsibility, and discipline.
-           To match that vision, preparation must be just as structured."
-        pointsheading="With SmartSet – Sainik School, students get:"
-        points={[
-          "Simple topic-wise learning",
-          "Practice that builds discipline",
-          "A calm, clean digital environment",
-          "Smart study material for young learners",
-          "AI suggestions that correct mistakes instantly",
-          "Sainik School Online Coaching–style guidance at home",
-        ]}
-        line="It’s more than a study tool —"
-        line1=" it’s a preparation ecosystem built for India’s future cadets."
-        highlightText="Practice → Analyze → Improve → Repeat → Grow"
-        footerText="And SmartSet stands beside them in every step of this journey."
-        aboutUsLink="/about-us"
-      />
-      <CommonFaq faqData={faqData} />
-      <ExamSection2
-        title="Want to prepare smarter for AISSEE Exams?"
-        description="Subscribe to Shikso for a once-a-week free trail— Practice for free with Shikso. "
-        tagline="Practice | Learn | Evolve |"
-        buttonText="Get Started"
-        bgColor="#3498db"
-      />
+      <CommonFaq title="– Sainik School SmartSet" faqData={faqData} />
     </div>
   )
 }

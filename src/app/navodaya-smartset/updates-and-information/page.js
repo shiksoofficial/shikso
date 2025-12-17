@@ -11,7 +11,7 @@ export const metadata = {
     title: "Navodaya Updates & Information – Latest JNV Exam News",
     description: "Get the latest Navodaya exam updates & Information, syllabus details, blogs, smart study material for Class 6 & 9. Stay prepared and confident with Shikso.",
     keywords: ["navodaya updates", "jnv exam information", "navodaya syllabus", " class 6 navodaya updates", "class 9 navodaya updates", "shikso navodaya", "navodaya notifications", "navodaya preparation tips"],
-    alternates: { canonical: "https://www.shikso.com/updates-and-information" },
+    alternates: { canonical: "https://www.shikso.com/navodaya-smartset/updates-and-information" },
     openGraph: {
         title: "Navodaya Updates & Information – Latest JNV Exam News",
         description: "Get the latest Navodaya exam updates & Information, syllabus details, blogs, smart study material for Class 6 & 9. Stay prepared and confident with Shikso.",
@@ -33,7 +33,7 @@ const cardsData = [
         title: "Understanding the syllabus",
         discription: "Get detailed insights on the latest syllabus for Class 6 and 9.",
         buttonText: "Explore",
-        buttonLink: "/updates-and-information",
+        buttonLink: "/blogs",
     },
     {
         img: "/news/news2.jpg",
@@ -41,7 +41,7 @@ const cardsData = [
         title: "Exam Preparation Tips",
         discription: "Learn effective strategies to maximize your study time.",
         buttonText: "Explore",
-        buttonLink: "/educational-news/practice-learning",
+        buttonLink: "/blogs",
     },
     {
         img: "/news/news3.jpg",
@@ -49,7 +49,7 @@ const cardsData = [
         title: "Practice Sets",
         discription: "Access high-quality practice sets for better preparation.",
         buttonText: "Explore",
-        buttonLink: "/educational-news/expansion",
+        buttonLink: "",
     },
     {
         img: "/news/news3.jpg",
@@ -57,7 +57,7 @@ const cardsData = [
         title: "Latest Exam Announcements",
         discription: "Stay updated with the latest exam schedule and notifications.",
         buttonText: "Explore",
-        buttonLink: "/educational-news/expansion",
+        buttonLink: "/educational-news",
     },
 ];
 
