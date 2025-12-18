@@ -12,6 +12,7 @@ const Paper3 = ({
   buttonText = "Appear for the Online Test",
   cards = [],
 }) => {
+
   return (
     <div className="custom-container py-6 md:py-10">
       <div className="grid grid-cols-12 mt-2 md:mt-4 items-center">
@@ -27,7 +28,8 @@ const Paper3 = ({
             {description}
           </p>
 
-          <CustomButton className="px-9 responsive-text">
+          <CustomButton className="px-9 responsive-text"
+            onClick={() => window.location.href = "/test-series"}>
             {buttonText}
           </CustomButton>
         </div>

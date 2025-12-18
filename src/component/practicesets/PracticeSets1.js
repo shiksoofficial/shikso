@@ -3,6 +3,8 @@
 import CustomButton from "@/common-component/CustomButton/CustomButton";
 import Image from "next/image";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const classes = ["Class 6", "Class 9"];
 const subjects = ["Maths", "Mental Ability", "English", "Hindi", "General Knowledge"];
@@ -12,6 +14,17 @@ export default function PracticeSets1() {
     const [selectedClass, setSelectedClass] = useState(null);
     const [selectedSubject, setSelectedSubject] = useState(null);
     const [selectedTopic, setSelectedTopic] = useState(null);
+
+    const router = useRouter();
+    const handleStartPractice = () => {
+        // console.log("Button Clicked!"); 
+        try {
+            router.push("/test-series");
+            // console.log("Navigation triggered");
+        } catch (error) {
+            console.error("Navigation error:", error);
+        }
+    };
 
     return (
         <div >
@@ -76,8 +89,35 @@ export default function PracticeSets1() {
                             ))}
                         </div>
                     </div>
-                    <CustomButton className="mt-5 bg-[#FFF46C] px-6 py-2 rounded-md font-medium hover:bg-[#ffe447]">
+                    {/* <CustomButton className="mt-5 bg-[#FFF46C] px-6 py-2 rounded-md font-medium hover:bg-[#ffe447]"
+                      onClick={() => window.location.href = "/test-series"}>
                         {` Start Practice`}
+                    </CustomButton> */}
+
+                    {/* <button
+                        type="button"
+                        onClick={handleStartPractice}
+                        className="mt-5 bg-[#FFF46C] px-6 py-2 rounded-md font-medium hover:bg-[#ffe447] cursor-pointer transition"
+                    >
+                        Start Practice
+                    </button> */}
+
+                    {/* <Link href="/test-series">
+                        <button
+                            type="button"
+                            className="mt-5 ml-3 bg-[#FFF46C] px-6 py-2 rounded-md font-medium hover:bg-[#ffe447] cursor-pointer transition"
+                        >
+                            Start Practice (Link)
+                        </button>
+                    </Link> */}
+
+                    <CustomButton
+                        type="button"
+                        onClick={() => window.location.href = "/test-series"}
+                        className="mt-5 ml-3 bg-[#FFF46C] px-6 py-2 rounded-md font-medium hover:bg-[#ffe447] cursor-pointer transition"
+
+                    >
+                        {`Start Practice `}
                     </CustomButton>
                 </div>
                 <div className="col-span-12 md:col-span-6 flex justify-center">
