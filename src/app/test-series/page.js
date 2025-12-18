@@ -1,35 +1,12 @@
 "use client";
-import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
-import CommonTestList from '@/common-component/CommonTestList/CommonTestList';
-import Link from 'next/link';
+
+import CommonBanner1 from "@/common-component/CommonBanner1/CommonBanner1";
+import CommonTestList from "@/common-component/CommonTestList/CommonTestList";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { apiClient2 } from "@/lib/api-client";
 
-const testSeriesDetails = {
-  1: { title: "Test Series 1", totalTests: 782, freeTests: 13, languages: "English" },
-  2: { title: "Test Series 2", totalTests: 650, freeTests: 20, languages: "English" },
-  3: { title: "Test Series 3", totalTests: 480, freeTests: 10, languages: "English" },
-};
-
-const testList = [
-  { id: 1, name: "Practice Test 1", questions: 50, duration: "60 min", status: "Free", componentPath: "/mock-test", },
-  { id: 2, name: "Practice Test 2", questions: 50, duration: "60 min", status: "Free", componentPath: "/mock-test/test1", },
-  { id: 3, name: "Mock Test 1", questions: 100, duration: "120 min", status: "Premium", componentPath: "/mock-test/test1", },
-  { id: 4, name: "Mock Test 2", questions: 100, duration: "120 min", status: "Premium", componentPath: "/mock-test/test1", },
-  { id: 5, name: "Previous Year 2024", questions: 80, duration: "90 min", status: "Free", componentPath: "/mock-test/test1", },
-  { id: 6, name: "Practice Test 1", questions: 50, duration: "60 min", status: "Free", componentPath: "/mock-test", },
-  { id: 7, name: "Practice Test 2", questions: 50, duration: "60 min", status: "Free", componentPath: "/mock-test/test1", },
-  { id: 8, name: "Mock Test 1", questions: 100, duration: "120 min", status: "Premium", componentPath: "/mock-test/test1", },
-  { id: 9, name: "Mock Test 2", questions: 100, duration: "120 min", status: "Premium", componentPath: "/mock-test/test1", },
-  { id: 10, name: "Previous Year 2024", questions: 80, duration: "90 min", status: "Free", componentPath: "/mock-test/test1", },
-];
-
 const TestSeriesPage = ({ params }) => {
-  const { id } = params;
-  // const seriesData = testSeriesDetails[id] || testSeriesDetails[1];
-
-  const router = useRouter();
+  const { id } = params; // ❗ unchanged
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -41,14 +18,14 @@ const TestSeriesPage = ({ params }) => {
     const fetchExams = async () => {
       try {
         const res = await apiClient2.get("/exam/exam-list", {
-          params: { series_id: id },
+          params: { series_id: id }, // ❗ unchanged
         });
 
-        console.log("EXAM LIST RESPONSE", res.data);
+        console.log("EXAM LIST RESPONSE:", res.data);
 
-        const exams = Array.isArray(res.data?.data)
-          ? res.data.data
-          : [];
+        // ✅ FIX: API returns object OR array (NO data wrapper)
+        const rawData = res.data;
+        const exams = Array.isArray(rawData) ? rawData : [rawData];
 
         setTestList(exams);
 
@@ -64,7 +41,7 @@ const TestSeriesPage = ({ params }) => {
           });
         }
       } catch (err) {
-        console.error("API ERROR ", err);
+        console.error("API ERROR:", err);
         setError("Failed to load exams");
       } finally {
         setLoading(false);
@@ -97,13 +74,11 @@ const TestSeriesPage = ({ params }) => {
       <CommonBanner1
         imageurl="/aboutus/hero_1.jpg"
         title={seriesInfo?.title || "Test Series"}
-        paraghraph="Attempt full-length  tests"
+        paraghraph="Attempt full-length tests"
         breadcom={[
-          // { title: "Home", path: "/" },
           { title: "Test Series" },
         ]}
       />
-
 
       <CommonTestList
         title={seriesInfo?.title}
@@ -111,7 +86,7 @@ const TestSeriesPage = ({ params }) => {
         freeTests={seriesInfo?.freeTests}
         languages={seriesInfo?.languages}
         testList={testList.map((exam) => ({
-          id: exam.id,
+          // id: exam.id,
           name: exam.name || "Untitled Test",
           questions: exam.total_questions,
           duration: `${exam.duration_minutes} min`,
