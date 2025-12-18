@@ -200,7 +200,7 @@ const TestPage = () => {
     setTimeLeft(1200);
     setCurrentQuestion(0);
     setAnswers({});
-     router.push("/mock-tests");
+     router.push("/navodaya-smartset");
     
   };
 

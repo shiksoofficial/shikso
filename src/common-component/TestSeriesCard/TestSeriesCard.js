@@ -21,24 +21,25 @@ const TestSeriesCard = ({
   moreTests,
   text,
   onClick,
-  page, 
+  page,
 }) => {
   return (
     <div className="w-full max-w-sm bg-white rounded-2xl shadow-md p-5 border-gray-300 border-1">
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-semibold mt-4">{title}</h2>
       </div>
-      <div className="w-full h-20 bg-gradient-to-r from-purple-300 to-green-300 flex items-center justify-center overflow-hidden mt-1">
-        {img ? (
-          <Image src={img} alt="img" className="w-full h-full object-cover" />
-        ) : (
-          <Image src="/Shiksologo.png" alt="img" className="w-full h-full object-fit" />
-        )}
+      <div className="relative w-full h-20 bg-gradient-to-r from-purple-300 to-green-300 overflow-hidden mt-1">
+        <Image
+          src={img || "/Shiksologo.png"}
+          alt={title || "test series image"}
+          fill
+          className="object-contain"
+        />
       </div>
       <div className="grid grid-cols-2 gap-3 mt-3">
         <div className="flex flex-col items-center bg-gray-50 rounded-lg py-3">
           <p className="text-xl font-bold">{totalTests}</p>
-          <p className="text-xs text-gray-600">Total Tests</p>
+          <p className="text-xs text-gray-600">{`Total Tests`}</p>
         </div>
         <div className="flex flex-col items-center bg-green-50 border border-green-200 rounded-lg py-3">
           <p className="text-xl font-bold text-green-600">{freeTests}</p>

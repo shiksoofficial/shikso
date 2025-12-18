@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+export const revalidate = 3600;
 import CommonFaq from '@/common-component/CommonFaq/CommonFaq'
 import BlogDescription from '@/component/blog/BlogDescription'
 import HeroSection from '@/component/homepage/HeroSection'
@@ -24,7 +26,7 @@ export async function generateMetadata({ params }) {
     return {
       title: blog?.meta?.title || "News Detail",
       description: blog?.meta?.description,
-      keywords: blog?.meta?.keywords || ["blog"],
+      keywords: blog?.meta?.keywords || ["news"],
       alternates: {
         canonical: canonicalUrl
       },
@@ -33,10 +35,10 @@ export async function generateMetadata({ params }) {
         description: blog?.meta?.description,
         images: [
           {
-            url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png",
+            url: ogImage,
             width: 1200,
             height: 630,
-            alt: blog?.title || "Blog Image",
+            alt: blog?.title || "News Image",
           }
         ],
       },
@@ -52,11 +54,11 @@ export async function generateMetadata({ params }) {
 
     // Fallback metadata agar API fail ho jaye
     return {
-      title: "Blog",
-      description: "Read our latest blog post",
+      title: "News",
+      description: "Read our latest news post",
       openGraph: {
-        title: "Blog",
-        description: "Read our latest blog post",
+        title: "News",
+        description: "Read our latest news post",
         images: ["https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"],
       },
     }

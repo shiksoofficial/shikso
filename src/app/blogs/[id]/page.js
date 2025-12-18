@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
     return {
       title: blog?.meta?.title || "Blog Detail",
       description: blog?.meta?.description,
-      keywords: blog?.meta?.keywords || ["blog", "zentrail", "travel"],
+      keywords: blog?.meta?.keywords || ["blog",],
       alternates: {
         canonical: canonicalUrl
       },
@@ -34,7 +34,8 @@ export async function generateMetadata({ params }) {
         description: blog?.meta?.description,
         images: [
           {
-            url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png",
+            url: blog.featuredImage.url || blog?.image ||
+              "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png",
             width: 1200,
             height: 630,
             alt: blog?.title || "Blog Image",
