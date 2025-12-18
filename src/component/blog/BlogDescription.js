@@ -102,9 +102,9 @@ const BlogDescription = ({ blog }) => {
 
 //       `}>
     // >
-      <div className="custom-containerdescriptionContent">
+      <div className=" no-tailwind">
         <div
-          className="descriptionContent "
+          className="discriptionContent"
           dangerouslySetInnerHTML={{ __html: data }}
         ></div>
       </div>
