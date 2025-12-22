@@ -1,7 +1,7 @@
 "use client"
 import CustomButton from '@/common-component/CustomButton/CustomButton'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 
 const testCard = [
     {
@@ -21,6 +21,14 @@ const testCard = [
 ];
 
 const Practicesets3 = () => {
+
+    const FALLBACK_IMAGE = "/Shiksologo.png";
+
+    const [imgSrcMap, setImgSrcMap] = useState(() =>
+        Object.fromEntries(
+           testCard.map((item) => [item.id, item.img])
+        )
+    );
 
     const handleDownload = (fileUrl) => {
         const link = document.createElement("a");
@@ -49,10 +57,16 @@ const Practicesets3 = () => {
                                 >
                                     <div className="relative w-full h-[200px] max-h-[250px]">
                                         <Image
-                                            src={item.img}
-                                            alt={item.alt}
+                                            src={imgSrcMap[item.id] || FALLBACK_IMAGE}
+                                            alt={item.alt || "image"}
                                             fill
                                             className="object-cover rounded-xl"
+                                            onError={() => {
+                                                setImgSrcMap((prev) => ({
+                                                    ...prev,
+                                                    [item.id]: FALLBACK_IMAGE,
+                                                }));
+                                            }}
                                         />
                                     </div>
 

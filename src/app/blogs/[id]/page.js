@@ -71,12 +71,18 @@ const BlogDesc = async ({ params }) => {
     <div>
       <HeroSection image={data?.data?.blog?.featuredImage?.url}
         title={data?.data?.blog?.title}
-        title2={false}
+        title2={
+          data?.data?.blog?.createdAt
+            ? new Date(data.data.blog.createdAt)
+              .toLocaleDateString("en-GB")
+              .replace(/\//g, "-")
+            : ""
+        }
         showPrimaryBtn={false}
         showSecondaryBtn={false}
         breadcom={[
           { title: "Blogs", url: "/blogs" },
-          { title: data?.data?.blog?.uid || "Blogs Detail" },
+          { title: data?.data?.blog?.meta?.title || "Blogs Detail" },
         ]} />
       <BlogDescription blog={data?.data?.blog} />
       {Array.isArray(data?.data?.blog?.faq) && data?.data?.blog?.faq?.[0]?.question?.length > 0 && (

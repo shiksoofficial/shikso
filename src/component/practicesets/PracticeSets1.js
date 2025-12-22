@@ -11,6 +11,9 @@ const subjects = ["Maths", "Mental Ability", "English", "Hindi", "General Knowle
 const topics = ["Chapter 1", "Chapter 2", "Chapter 3"];
 
 export default function PracticeSets1() {
+    const FALLBACK_IMAGE = "/Shiksologo.png";
+    const [imgSrc, setImgSrc] = useState("/aboutus/aboutus1.webp");
+    
     const [selectedClass, setSelectedClass] = useState(null);
     const [selectedSubject, setSelectedSubject] = useState(null);
     const [selectedTopic, setSelectedTopic] = useState(null);
@@ -123,10 +126,15 @@ export default function PracticeSets1() {
                 <div className="col-span-12 md:col-span-6 flex justify-center">
                     <div className="relative w-full max-w[560px] h-[480px] max-h-[480px] shrink">
                         <Image
-                            src="/aboutus/aboutus1.webp"
+                            src={imgSrc}
                             alt="Practice Set"
                             fill
                             className="object-cover"
+                             onError={() => {
+                                if (imgSrc !== FALLBACK_IMAGE) {
+                                    setImgSrc(FALLBACK_IMAGE);
+                                }
+                            }}
                         />
                     </div>
                 </div>

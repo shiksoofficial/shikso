@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
@@ -41,6 +41,13 @@ const feedbackCard = [
 ];
 
 const Practicesets4 = () => {
+    const FALLBACK_IMAGE = "/Shiksologo.png";
+
+    const [imgSrcMap, setImgSrcMap] = useState(() =>
+        Object.fromEntries(
+            feedbackCard.map((item) => [item.id, item.img])
+        )
+    );
     return (
         <div>
             <div className="custom-container py-6 md:py-10">
@@ -79,11 +86,17 @@ const Practicesets4 = () => {
                                         <div className="flex items-start justify-between ">
                                             <div className="flex gap-4 items-center">
                                                 <Image
-                                                    src={item.img}
-                                                    alt={item.alt}
+                                                    src={imgSrcMap[item.id] || FALLBACK_IMAGE}
+                                                    alt={item.alt || "image"}
                                                     width={60}
                                                     height={60}
                                                     className="rounded-full object-cover"
+                                                    onError={() => {
+                                                        setImgSrcMap((prev) => ({
+                                                            ...prev,
+                                                            [item.id]: FALLBACK_IMAGE,
+                                                        }));
+                                                    }}
                                                 />
                                                 <p className="font-semibold responsive-text">{item.title}</p>
                                             </div>

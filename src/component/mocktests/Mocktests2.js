@@ -1,12 +1,13 @@
+"use client"
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 const classCard = [
     {
         id: 1,
         title: "Result Analytics Report",
         subtitle: "Instant insights on accuracy, speed, score, and strength areas.",
-        img: "/aboutus/aboutus1.webp",
+        img: "/aboutus/aboutus.webp",
         alt: "paper",
     },
     {
@@ -20,7 +21,7 @@ const classCard = [
         id: 3,
         title: "Download Test PDF",
         subtitle: "Save for offline revision.",
-        img: "/aboutus/aboutus1.webp",
+        img: "/aboutus/aboutus.webp",
         alt: "paper",
     },
     {
@@ -33,6 +34,13 @@ const classCard = [
 ];
 
 export const Mocktests2 = () => {
+    const FALLBACK_IMAGE = "/Shiksologo.png";
+    const [imgSrcMap, setImgSrcMap] = useState(
+        () =>
+            Object.fromEntries(
+                classCard.map((item) => [item.id, item.img])
+            )
+    );
     return (
         <div className="bg-[#E5FBFF]">
             <div className="custom-container py-6 md:py-10 justify-items-center ">
@@ -48,11 +56,17 @@ export const Mocktests2 = () => {
                             className="relative bg-[#E8FBFF] border border-[#00D6FF] rounded-xl p-4 min-h-[217px]">
                             <div className="absolute bottom-[-28px] left-4 w-20 h-20  rounded-full flex items-center justify-center">
                                 <Image
-                                    src={item.img}
+                                    src={imgSrcMap[item.id]}
                                     alt={item.alt}
                                     width={80}
                                     height={80}
                                     className="object-cover rounded-full"
+                                    onError={() => {
+                                        setImgSrcMap((prev) => ({
+                                            ...prev,
+                                            [item.id]: FALLBACK_IMAGE,
+                                        }));
+                                    }}
                                 />
                             </div>
                             <p className="text-[#484545] responsive-text font-semibold! leading-relaxed mb-3">{item.title}</p>

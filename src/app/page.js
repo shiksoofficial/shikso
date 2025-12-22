@@ -36,7 +36,7 @@ export default function Home() {
         title="Learn Smarter.</br> Shine Brighter.</br> With Shikso!"
         subtitle="Fun, focused, and personalized learning for every young achiever."
         primaryBtnText="Start Learning"
-        secondaryBtnText="View Cources"
+        secondaryBtnText="View Courses"
         secondaryBtnLink="/explore"
         image="/herobanner.webp"
       />

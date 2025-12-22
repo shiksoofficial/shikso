@@ -49,6 +49,7 @@ const Blog2 = ({ initialBlogs = [] }) => {
             fetchBlogs();
         }
     }, []);
+    
 
     return (
         <div className="bg-[#E5FBFF] py-4 md:py-10">

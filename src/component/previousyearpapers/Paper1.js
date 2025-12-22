@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 const Paper1 = ({
@@ -8,6 +8,15 @@ const Paper1 = ({
   description = "Select your preferred year to begin.",
   cards = [],
 }) => {
+
+  const FALLBACK_IMAGE = "/Shiksologo.png";
+  
+      const [imgSrcMap, setImgSrcMap] = useState(() =>
+          Object.fromEntries(
+              cards.map((item) => [item.id, item.img])
+          )
+      );
+
   return (
     <div className="custom-container py-6 md:py-10 justify-items-center">
       <div className="flex gap-2 items-center">
@@ -28,11 +37,17 @@ const Paper1 = ({
             className="flex items-start gap-4 p-5 border border-[#4845454D] shadow-sm bg-white"
           >
             <Image
-              src={item.img}
-              alt={item.year}
+               src={imgSrcMap[item.id] || FALLBACK_IMAGE} 
+                                alt={item.alt || "image"}
               width={50}
               height={50}
               className="object-contain bg-[#E5FBFF]"
+               onError={() => {                          
+                                    setImgSrcMap((prev) => ({
+                                        ...prev,
+                                        [item.id]: FALLBACK_IMAGE,
+                                    }));
+                                }}
             />
 
             <div>

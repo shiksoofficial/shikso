@@ -17,6 +17,10 @@ import LoginModal from "@/common-component/LoginModal/LoginModal";
 import SignupModal from "@/common-component/SignupModal/SignupModal";
 
 const Header = () => {
+
+  const FALLBACK_IMAGE = "/Shiksologo.png";
+  const [imgSrc, setImgSrc] = useState("/Shiksologo.png");
+
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -162,11 +166,16 @@ const Header = () => {
             <Link href="/">
               {" "}
               <Image
-                src={"/Shiksologo.png"}
+                src={imgSrc}
                 alt="Shikso Logo"
                 width={200}
                 height={25}
                 className="flex justify-items-end-safe md:px-4 lg:px-7"
+                onError={() => {
+                  if (imgSrc !== FALLBACK_IMAGE) {
+                    setImgSrc(FALLBACK_IMAGE);
+                  }
+                }}
               />
             </Link>
             <ul className="dm_sans hidden md:flex justify-items-end-safe md:gap-3 lg:gap-8 text-black font-medium  ">

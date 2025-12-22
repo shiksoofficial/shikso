@@ -2,7 +2,7 @@
 "use client"
 import CustomButton from '@/common-component/CustomButton/CustomButton'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { GiTrophyCup } from "react-icons/gi";
 import { BsGraphUpArrow } from "react-icons/bs";
 // import { useRouter } from 'next/navigation';
@@ -19,19 +19,28 @@ const testCard = [
         id: 2,
         title: "Unlimited Questions",
         subtitle: "Every topic has hundreds of practice items to reinforce learning.",
-        img: "/icons/file.png",
+        img: "/aboutus/aboutus.webp",
         alt: "paper"
     },
     {
         id: 3,
         title: "Unlimited Attempts",
         subtitle: "Practice without limits to achieve excellence.",
-        img: "/icons/file.png",
+        img: "/aboutus/aboutus1.webp",
         alt: "paper"
     },
 ];
 
 const Practicesets2 = () => {
+
+    const FALLBACK_IMAGE = "/Shiksologo.png";
+
+    const [imgSrcMap, setImgSrcMap] = useState(() =>
+        Object.fromEntries(
+            testCard.map((item) => [item.id, item.img])
+        )
+    );
+
     return (
         <div className='bg-[#E5FBFF]'>
             <div className="custom-container py-6 md:py-10 justify-items-center">
@@ -48,10 +57,16 @@ const Practicesets2 = () => {
                         >
                             <div className="relative w-full h-[200px] max-h-[250px]">
                                 <Image
-                                    src={item.img}
-                                    alt={item.alt}
+                                    src={imgSrcMap[item.id] || FALLBACK_IMAGE}
+                                    alt={item.alt || "image"}
                                     fill
                                     className="object-cover"
+                                    onError={() => {
+                                        setImgSrcMap((prev) => ({
+                                            ...prev,
+                                            [item.id]: FALLBACK_IMAGE,
+                                        }));
+                                    }}
                                 />
                             </div>
                             <p className="font-semibold responsive-text mt-2  px-2">  {item.title}</p>

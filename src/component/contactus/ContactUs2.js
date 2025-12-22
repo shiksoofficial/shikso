@@ -1,7 +1,10 @@
+"use client"
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 
 const ContactUs2 = () => {
+    const FALLBACK_IMAGE = "/Shiksologo.png";
+    const [imgSrc, setImgSrc] = useState("/aboutus/aboutus1.webp");
     return (
         <>
             <div className="custom-container py-6 md:py-10">
@@ -17,10 +20,15 @@ const ContactUs2 = () => {
                     <div className="col-span-12 sm:col-span-4 text-center">
                         <div className="flex justify-center">
                             <Image
-                                src="/aboutus/aboutus1.webp"
+                                src={imgSrc}
                                 alt="location icon"
                                 width={60}
                                 height={60}
+                                onError={() => {
+                                    if (imgSrc !== FALLBACK_IMAGE) {
+                                        setImgSrc(FALLBACK_IMAGE);
+                                    }
+                                }}
                             />
                         </div>
                         <p className="dm_sans mt-3 text-[#484545] responsive-text font-medium">  {` Address :`}</p>
@@ -29,10 +37,15 @@ const ContactUs2 = () => {
                     <div className="col-span-12 sm:col-span-4 text-center">
                         <div className="flex justify-center">
                             <Image
-                                src="/aboutus/aboutus1.webp"
+                                src={imgSrc}
                                 alt="contact icon"
                                 width={60}
                                 height={60}
+                                onError={() => {
+                                    if (imgSrc !== FALLBACK_IMAGE) {
+                                        setImgSrc(FALLBACK_IMAGE);
+                                    }
+                                }}
                             />
                         </div>
                         <p className="dm_sans mt-3 text-[#484545] responsive-text font-medium"> {` Phone: +91 7974186754`}</p>
@@ -41,10 +54,15 @@ const ContactUs2 = () => {
                     <div className="col-span-12 sm:col-span-4 text-center">
                         <div className="flex justify-center">
                             <Image
-                                src="/aboutus/aboutus1.webp"
+                                src={imgSrc}
                                 alt="working hours icon"
                                 width={60}
                                 height={60}
+                                onError={() => {
+                                    if (imgSrc !== FALLBACK_IMAGE) {
+                                        setImgSrc(FALLBACK_IMAGE);
+                                    }
+                                }}
                             />
                         </div>
                         <p className="dm_sans mt-3 text-[#484545] responsive-text font-medium">{` Working Hours:`} </p>

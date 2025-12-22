@@ -102,10 +102,10 @@ const LoginModal = ({ open, setOpen, onSwitchToSignup }) => {
           {/* Modal Content */}
           <div className="p-6 md:p-8">
             <h2 className="text-center text-2xl font-semibold text-gray-900 mb-1">
-              Welcome Back
+              {`Welcome Back`}
             </h2>
             <p className="text-center text-gray-500 text-sm mb-6">
-              Sign in to continue to your account.
+              {`Sign in to continue to your account.`}
             </p>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -149,7 +149,7 @@ const LoginModal = ({ open, setOpen, onSwitchToSignup }) => {
                   href="#"
                   className="text-sm text-blue-600 hover:underline"
                 >
-                  Forgot Password?
+                  {`Forgot Password?`}
                 </Link>
               </div>
               <CustomButton
@@ -158,16 +158,16 @@ const LoginModal = ({ open, setOpen, onSwitchToSignup }) => {
                 loading={isSubmitting}
                 disabled={isSubmitting}
               >
-                Log In
+                {`Log In`}
               </CustomButton>
               <p className="text-center text-sm text-gray-600">
-               {`Don't have an account?`}{" "}
+                {`Don't have an account?`}{" "}
                 <button
                   type="button"
                   onClick={handleSwitchToSignup}
                   className="text-blue-600 font-medium hover:underline"
                 >
-                  Sign Up
+                  {`Sign Up`}
                 </button>
               </p>
             </form>
