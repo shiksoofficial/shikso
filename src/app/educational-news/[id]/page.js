@@ -35,7 +35,8 @@ export async function generateMetadata({ params }) {
         description: blog?.meta?.description,
         images: [
           {
-            url: ogImage,
+            url: data?.data?.blog?.featuredImage?.url || blog.featuredImage.url || blog?.image ||
+              "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png",
             width: 1200,
             height: 630,
             alt: blog?.title || "News Image",
