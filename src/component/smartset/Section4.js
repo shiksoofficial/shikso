@@ -1,5 +1,6 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 const sectionData =
     [
@@ -26,6 +27,13 @@ const sectionData =
     ];
 
 const Section4 = () => {
+    const FALLBACK_IMAGE = "/Shiksologo.png";
+
+    const [imgSrcMap, setImgSrcMap] = useState(() =>
+        Object.fromEntries(
+            sectionData.map((item, index) => [index, item.img]) // 🔧 CHANGED
+        )
+    );
     return (
         <div >
             <div className="custom-container py-6 md:py-10">
@@ -43,10 +51,16 @@ const Section4 = () => {
                         <div key={index} className="col-span-12 sm:col-span-6 md:col-span-3 text-center justify-items-center" >
                             <div className="flex justify-center">
                                 <Image
-                                    src={item.img}
+                                    src={imgSrcMap[index] || FALLBACK_IMAGE}
                                     alt={item.label}
                                     width={150}
                                     height={150}
+                                    onError={() => {
+                                        setImgSrcMap((prev) => ({
+                                            ...prev,
+                                            [index]: FALLBACK_IMAGE,
+                                        }));
+                                    }}
                                 />
                             </div>
                             <div>

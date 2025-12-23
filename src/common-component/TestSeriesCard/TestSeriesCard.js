@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import CustomButton2 from "../CustomBotton2/CustomButton2";
 import { FaUsers } from "react-icons/fa";
@@ -23,6 +24,15 @@ const TestSeriesCard = ({
   onClick,
   page,
 }) => {
+
+  const FALLBACK_IMAGE = "/Shiksologo.png";
+  const [imgSrc, setImgSrc] = useState(img || FALLBACK_IMAGE);
+
+  useEffect(() => {
+    setImgSrc(img || FALLBACK_IMAGE);
+  }, [img]);
+
+
   return (
     <div className="w-full max-w-sm bg-white rounded-2xl shadow-md p-5 border-gray-300 border-1">
       <div className="flex justify-between items-center">
@@ -30,10 +40,15 @@ const TestSeriesCard = ({
       </div>
       <div className="relative w-full h-20 bg-gradient-to-r from-purple-300 to-green-300 overflow-hidden mt-1">
         <Image
-          src={img || "/Shiksologo.png"}
+          src={imgSrc}
           alt={title || "test series image"}
           fill
-          className="object-contain"
+          className="object-cover"
+          onError={() => {
+            if (imgSrc !== FALLBACK_IMAGE) {
+              setImgSrc(FALLBACK_IMAGE);
+            }
+          }}
         />
       </div>
       <div className="grid grid-cols-2 gap-3 mt-3">

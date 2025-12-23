@@ -1,17 +1,27 @@
+"use client"
 import Image from 'next/image';
-import React from 'react'
+import React, { useState } from 'react'
 
 const ContactUs1 = () => {
+
+    const FALLBACK_IMAGE = "/Shiksologo.png";
+    const [imgSrc, setImgSrc] = useState("/aboutus/aboutus1.webp");
+
     return (
         <div className='custom-container py-6 md:py-10'>
             <div className='grid grid-cols-12 gap-8 lg:gap-3 items-center justify-items-center-safe lg:justify-items-start lg:items-start'>
                 <div className='col-span-12 lg:col-span-5 items-center '>
                     <div className='' >
                         <Image
-                            src="/aboutus/aboutus1.webp"
+                            src={imgSrc}
                             alt="About us picture"
                             width={400}
                             height={330}
+                            onError={() => {
+                                if (imgSrc !== FALLBACK_IMAGE) {
+                                    setImgSrc(FALLBACK_IMAGE);
+                                }
+                            }}
                         />
                     </div>
                 </div>

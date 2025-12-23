@@ -26,6 +26,9 @@ export default function HeroSection({
     setIsModalOpen(true);
   };
 
+  const FALLBACK_IMAGE = "/Shiksologo.png";
+  const [imgSrc, setImgSrc] = useState(image);
+
   return (
     <>
       <ConnectUsModal open={isModalOpen} setOpen={setIsModalOpen} />
@@ -53,10 +56,15 @@ export default function HeroSection({
             <div className="flex justify-center">
               <div className="relative w-full max-w-[600px] aspect-[600/418]">
                 <Image
-                  src={image}
+                  src={imgSrc}
                   alt="Hero"
                   fill
                   className="object-contain"
+                  onError={() => {
+                    if (imgSrc !== FALLBACK_IMAGE) {
+                      setImgSrc(FALLBACK_IMAGE);
+                    }
+                  }}
                 />
               </div>
             </div>
@@ -64,7 +72,7 @@ export default function HeroSection({
           {breadcom?.length > 0 && (
             <div className="max-w-7xl mx-auto mt-1">
               <div className="flex items-center text-gray-700 text-sm">
-                <Link href="/" className="hover:text-[#FFF46C] ">
+                <Link href="/" className="hover:text-[#00D6FF] ">
                   {` Home`}
                 </Link>
                 {breadcom.map((item, index) => (
@@ -73,7 +81,7 @@ export default function HeroSection({
                     {item?.url ? (
                       <Link
                         href={item.url}
-                        className="hover:text-[#FFF46C] px-1"
+                        className="hover:text-[#00D6FF] px-1"
                       >
                         {item.title}
                       </Link>

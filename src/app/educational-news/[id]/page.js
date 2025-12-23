@@ -72,12 +72,18 @@ const EducationalNewsDesc = async ({ params }) => {
     <div>
       <HeroSection image={data?.data?.blog?.featuredImage?.url}
         title={data?.data?.blog?.title}
-        title2={false}
+        title2={
+          data?.data?.blog?.createdAt
+            ? new Date(data.data.blog.createdAt)
+              .toLocaleDateString("en-GB")
+              .replace(/\//g, "-")
+            : ""
+        }
         showPrimaryBtn={false}
         showSecondaryBtn={false}
         breadcom={[
           { title: "News", url: "/educational-news" },
-          { title: data?.data?.blog?.uid || "News Detail" },
+          { title: data?.data?.blog?.meta?.title || "News Detail" },
         ]} />
       <BlogDescription blog={data?.data?.blog} />
       {Array.isArray(data?.data?.blog?.faq) && data?.data?.blog?.faq?.[0]?.question?.length > 0 && (

@@ -1,11 +1,14 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Image from 'next/image';
 import { FaStar } from "react-icons/fa";
 
-const Testimonial = ({ testimonialData }) => {
+const Testimonial = ({ testimonialData, icon }) => {
+
+    const FALLBACK_IMAGE = "/Shiksologo.png";
+
     return (
         <div className="custom-container m-6 md:m-10 text-center ">
             <p className='indie_flower font-light responsiveheading6 text-[#fd4d40] mb-1 leading-1.5 '>{`Testimonials`}</p>
@@ -31,10 +34,13 @@ const Testimonial = ({ testimonialData }) => {
                             <div key={index} className="flex flex-col sm:flex-row justify-between w-full mb-6">
                                 <div className=" ">
                                     <Image
-                                        src={icon}
+                                        src={icon || FALLBACK_IMAGE}
                                         alt={title}
                                         width={80}
                                         height={80}
+                                        onError={(e) => {              // 🔧 per-image error handling
+                                            e.currentTarget.src = FALLBACK_IMAGE;
+                                        }}
                                     />
 
                                 </div>

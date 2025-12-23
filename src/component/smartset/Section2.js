@@ -1,11 +1,17 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
 const Section2 = ({ cards = [] }) => {
     const router = useRouter();
+    const FALLBACK_IMAGE = "/Shiksologo.png";
 
+    const [imgSrcMap, setImgSrcMap] = useState(() =>
+        Object.fromEntries(
+            cards.map((item) => [item.id, item.img])
+        )
+    );
     return (
         <div>
             <div className="grid grid-cols-1 sm:grid-cols-2  gap-5 lg:gap-8 ">
@@ -14,11 +20,17 @@ const Section2 = ({ cards = [] }) => {
                              hover:scale-105 hover:shadow cursor-pointer"  >
                         <div className="relative w-full h-[180px] rounded-tl-[20px] rounded-br-[20px] overflow-hidden">
                             <Image
-                                src={item.img || "/placeholder.jpg"}
+                                src={imgSrcMap[item.id] || FALLBACK_IMAGE}
                                 fill
                                 quality={90}
                                 alt={item.alt || "Card Image"}
                                 className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                onError={() => {
+                                    setImgSrcMap((prev) => ({
+                                        ...prev,
+                                        [item.id]: FALLBACK_IMAGE,
+                                    }));
+                                }}
                             />
                         </div>
                         <div className="p-3">

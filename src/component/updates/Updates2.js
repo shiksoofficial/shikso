@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import CustomButton from "../../common-component/CustomButton/CustomButton";
 import CustomInput from "@/common-component/CustomInput";
 import { useForm } from "react-hook-form";
@@ -27,6 +27,8 @@ const Updates2 = () => {
         toast.success("Form submitted successfully!");
         reset();
     };
+     const FALLBACK_IMAGE = "/Shiksologo.png";
+        const [imgSrc, setImgSrc] = useState("/updates/meeting.png");
 
     return (
         <div>
@@ -36,12 +38,17 @@ const Updates2 = () => {
                         <div className="flex justify-center bg-[#FFF68B66]">
                             <div className="w-[250px] sm:w-full max-w-[415px]">
                                 <Image
-                                    src="/updates/meeting.png"
+                                    src={imgSrc}
                                     alt="Meeting"
                                     width={415}
                                     height={350}
                                     className="w-full h-auto object-contain -mb-18"
-                                />
+                                onError={() => {
+                                if (imgSrc !== FALLBACK_IMAGE) {
+                                    setImgSrc(FALLBACK_IMAGE);
+                                }
+                            }}
+                               />
                             </div>
                         </div>
                     </div>

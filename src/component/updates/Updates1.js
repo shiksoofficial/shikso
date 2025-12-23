@@ -1,8 +1,12 @@
+"use client"
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 
 const Updates1 = () => {
+     const FALLBACK_IMAGE = "/Shiksologo.png";
+        const [imgSrc, setImgSrc] = useState("/updates/article.png");
+         const [imgSrch, setImgSrch] = useState("/updates/girl1.png");
     return (
         <div className='bg-[#E5FBFF]'>
             <div className="custom-container py-6 md:py-10">
@@ -18,10 +22,15 @@ const Updates1 = () => {
                         <div className="grid grid-cols-12 gap-2 md:gap-7 mt-2 md:mt-4 items-center">
                             <div className="col-span-12 sm:col-span-4   "><div className='' >
                                 <Image
-                                    src="/updates/article.png"
+                                    src={imgSrc}
                                     alt="About us picture"
                                     width={140}
                                     height={140}
+                                      onError={() => {
+                                if (imgSrc !== FALLBACK_IMAGE) {
+                                    setImgSrc(FALLBACK_IMAGE);
+                                }
+                            }}
                                 />
                             </div>
                             </div>
@@ -34,10 +43,15 @@ const Updates1 = () => {
                         <div className="grid grid-cols-12 gap-2 md:gap-7 mt-2 md:mt-4 items-center">
                             <div className="col-span-12 sm:col-span-4   "><div className='' >
                                 <Image
-                                    src="/updates/girl1.png"
+                                    src={imgSrch}
                                     alt="About us picture"
                                     width={140}
                                     height={140}
+                                      onError={() => {
+                                if (imgSrch !== FALLBACK_IMAGE) {
+                                    setImgSrch(FALLBACK_IMAGE);
+                                }
+                            }}
                                 />
                             </div>
                             </div>

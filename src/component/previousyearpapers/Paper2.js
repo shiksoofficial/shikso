@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import CustomButton from "@/common-component/CustomButton/CustomButton";
 
@@ -12,6 +12,15 @@ const Paper2 = ({
   cards = [],
   backgroundClass = "bg-[#E5FBFF]",
 }) => {
+
+  const FALLBACK_IMAGE = "/Shiksologo.png";
+
+  const [imgSrcMap, setImgSrcMap] = useState(() =>
+    Object.fromEntries(
+      cards.map((item) => [item.id, item.img])
+    )
+  );
+
   return (
     <div className={backgroundClass}>
       <div className="custom-container py-6 md:py-10">
@@ -44,11 +53,17 @@ const Paper2 = ({
                   className="text-center flex flex-col items-center"
                 >
                   <Image
-                    src={item.img}
-                    alt={item.alt}
+                    src={imgSrcMap[item.id] || FALLBACK_IMAGE}
+                    alt={item.alt || "image"}
                     width={100}
                     height={100}
                     className="object-contain rounded-full bg-[#0000000D]"
+                    onError={() => {
+                      setImgSrcMap((prev) => ({
+                        ...prev,
+                        [item.id]: FALLBACK_IMAGE,
+                      }));
+                    }}
                   />
                   <p className="font-semibold responsive-text mt-3">
                     {item.classes}

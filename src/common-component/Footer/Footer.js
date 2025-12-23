@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { RiTelegram2Fill } from "react-icons/ri";
@@ -9,6 +9,9 @@ import { FaLocationDot } from "react-icons/fa6";
 
 const Footer = () => {
   const pathname = usePathname();
+
+  const FALLBACK_IMAGE = "/Shiksologo.png";
+  const [imgSrc, setImgSrc] = useState("/Shiksologo.png");
 
   const footerData = {
     brand: {
@@ -27,7 +30,7 @@ const Footer = () => {
       // { label: "Gallery", url: "/gallery" },
     ],
 
-     quickLinksSet: [
+    quickLinksSet: [
       { label: "Navodaya", url: "/navodaya-smartset" },
       { label: "Sainik School", url: "/sainik-school-smartset" },
     ],
@@ -221,10 +224,15 @@ const Footer = () => {
           <div className=" ">
             <Link href="/">
               <Image
-                src={"/Shiksologo.png"}
+                src={imgSrc}
                 alt="Vyomedge Website"
                 width={200}
                 height={25}
+                onError={() => {
+                  if (imgSrc !== FALLBACK_IMAGE) {
+                    setImgSrc(FALLBACK_IMAGE);
+                  }
+                }}
               /></Link>
           </div>
           <div className=" text-[16px] flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-black">

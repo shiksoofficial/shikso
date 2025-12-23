@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 const MockTest3 = ({
@@ -8,6 +8,15 @@ const MockTest3 = ({
     description,
     cards = [],
 }) => {
+
+    const FALLBACK_IMAGE = "/Shiksologo.png";
+
+    const [imgSrcMap, setImgSrcMap] = useState(() =>
+        Object.fromEntries(
+            cards.map((item) => [item.id, item.img])
+        )
+    );
+
     return (
         <div className="custom-container py-6 md:py-10">
             <div className="flex gap-2 items-center mb-4">
@@ -31,11 +40,17 @@ const MockTest3 = ({
                             className="text-center flex flex-col items-center"
                         >
                             <Image
-                                src={item.img}
-                                alt={item.alt}
+                                src={imgSrcMap[item.id] || FALLBACK_IMAGE} 
+                                alt={item.alt || "image"}
                                 width={100}
                                 height={100}
                                 className="object-contain bg-[#0000000D]"
+                                onError={() => {                          
+                                    setImgSrcMap((prev) => ({
+                                        ...prev,
+                                        [item.id]: FALLBACK_IMAGE,
+                                    }));
+                                }}
                             />
 
                             <p className="text-[#00D6FF] responsive-heading6 mt-3">

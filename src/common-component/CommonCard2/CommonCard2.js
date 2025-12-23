@@ -1,7 +1,12 @@
+"use client"
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 const CommonCard2 = ({ icon, title, description, founder, points = [], }) => {
+
+  const FALLBACK_IMAGE = "/Shiksologo.png";
+  const [imgSrc, setImgSrc] = useState(icon || FALLBACK);
+
   return (
     <div>
       <div className="relative  max-w-xs mx-auto bg-white shadow p-7 text-center flex flex-col items-center 
@@ -10,10 +15,15 @@ const CommonCard2 = ({ icon, title, description, founder, points = [], }) => {
         <div className="absolute top-[-45px]">
           <div className=" border-3 border-amber-400 rounded-full overflow-hidden">
             <Image
-              src={icon}
+              src={imgSrc}
               alt={title}
               width={96}
               height={96}
+              onError={() => {
+                if (imgSrc !== FALLBACK_IMAGE) {
+                  setImgSrc(FALLBACK_IMAGE);
+                }
+              }}
             />
           </div>
         </div>

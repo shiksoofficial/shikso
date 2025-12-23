@@ -1,19 +1,29 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import CustomButton2 from "../CustomBotton2/CustomButton2";
 import Image from "next/image";
 import CustomLinkBtn from "../CustomLinkBtn/CustomLinBtn";
 
 const CommonCard1 = ({ icon, title, description, description1, buttonText, buttoncolor, link }) => {
+
+  const FALLBACK_IMAGE = "/Shiksologo.png";
+  const [imgSrc, setImgSrc] = useState(icon || FALLBACK);
+
   return (
     <div className="max-w-sm  bg-white rounded-2xl shadow p-7 text-center flex flex-col items-center 
     cursor-pointer  hover:bg-gray-200  focus:bg-gray-200  active:bg-gray-200  group-hover:bg-gray-200
      group-focus:bg-gray-200  group-active:bg-gray-200">
       <div className="mb-6">
         <Image
-          src={icon}
+          src={imgSrc}
           alt={title}
           width={80}
           height={80}
+          onError={() => {
+            if (imgSrc !== FALLBACK_IMAGE) {
+              setImgSrc(FALLBACK_IMAGE);
+            }
+          }}
         />
 
       </div>

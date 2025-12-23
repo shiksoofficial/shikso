@@ -1,19 +1,29 @@
+"use client"
 import CustomButton2 from '@/common-component/CustomBotton2/CustomButton2';
 import CustomLinkBtn from '@/common-component/CustomLinkBtn/CustomLinBtn';
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 
 const About1 = () => {
+
+    const FALLBACK_IMAGE = "/Shiksologo.png";
+    const [imgSrc, setImgSrc] = useState("/aboutus/aboutus1.webp");
+
     return (
         <div className="custom-container m-6 md:m-10 ">
             <div className="grid grid-cols-12 gap-4">
                 <div className="col-span-12 lg:col-span-6  items-center  justify-items-center lg:justify-items-start">
                     <div className='' >
                         <Image
-                            src="/aboutus/aboutus1.webp"
+                            src={imgSrc}
                             alt="About us picture"
                             width={540}
                             height={400}
+                            onError={() => {
+                                if (imgSrc !== FALLBACK_IMAGE) {
+                                    setImgSrc(FALLBACK_IMAGE);
+                                }
+                            }}
                         />
                     </div>
                 </div>
