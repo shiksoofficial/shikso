@@ -34,7 +34,7 @@ export async function generateMetadata({ params }) {
         description: blog?.meta?.description,
         images: [
           {
-            url: data?.data?.blog?.featuredImage?.url || blog.featuredImage.url || blog?.image ||
+            url: data?.blog?.featuredImage?.url ||
               "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png",
             width: 1200,
             height: 630,
@@ -67,6 +67,7 @@ export async function generateMetadata({ params }) {
 const BlogDesc = async ({ params }) => {
   const { id } = await params
   const data = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech`)
+  generateMetadata({ params })
   return (
     <div>
       <HeroSection image={data?.data?.blog?.featuredImage?.url}
@@ -84,7 +85,7 @@ const BlogDesc = async ({ params }) => {
           { title: "Blogs", url: "/blogs" },
           { title: data?.data?.blog?.meta?.title || "Blogs Detail" },
         ]} />
-        
+
       <BlogDescription blog={data?.data?.blog} />
       {Array.isArray(data?.data?.blog?.faq) && data?.data?.blog?.faq?.[0]?.question?.length > 0 && (
         <CommonFaq faqData={data?.data?.blog?.faq} />
