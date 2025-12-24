@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
           type="application/javascript"
           src="https://news.google.com/swg/js/v1/swg-basic.js"
         ></script>
- <Script
+ <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8972296042686710"
           crossOrigin="anonymous"
