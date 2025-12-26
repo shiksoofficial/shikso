@@ -39,6 +39,7 @@ export async function generateMetadata({ params }) {
         images: [
           {
             url: data?.blog?.featuredImage?.url ||
+            url: data?.blog?.featuredImage?.url ||
               "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png",
             width: 1200,
             height: 630,
