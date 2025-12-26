@@ -1,116 +1,221 @@
+"use client";
 
-import NoTailwindWrapper from "@/common-component/NoTailwindWrapper";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, } from "react-icons/fa";
+import { FaPinterestP, FaTumblr } from "react-icons/fa6";
+import { RiInstagramFill } from "react-icons/ri";
+import { HiMenuAlt2 } from "react-icons/hi";
+import { IoClose, IoSchoolSharp } from "react-icons/io5";
+import SideBarCategory from "@/common-component/SideBarCategory/SideBarCategory";
+
+/* SIDEBAR CATEGORY */
+export const sideBarCategory = [
+  { label: "Navodaya", icon: <IoSchoolSharp /> },
+  { label: "Sainik", icon: <IoSchoolSharp /> },
+  { label: "Cbsc", icon: <IoSchoolSharp /> },
+  {
+    label: "Other",
+    icon: <IoSchoolSharp />,
+    children: [
+      { label: "Old papers", href: "/" },
+      { label: "Exam Dates", href: "/" },
+    ],
+  },
+];
 
 const BlogDescription = ({ blog }) => {
 
-  let data = blog?.description?.replace(/(<iframe\b[^>]*?)\s*sandbox=(["']?)?[^"'\s>]*?(["']?)?([^>]*>)/gi, '$1 $4')
-  data = data.replace(/<table([^>]*)>([\s\S]*?)<\/table>/gi, '<div class="table-wrapper"><table$1>$2</table></div>'
-  );
+  const [toc, setToc] = useState([]);
+  const [html, setHtml] = useState("");
+  const [open, setOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  /* CREATE TOC */
+  useEffect(() => {
+    if (!blog?.description || typeof window === "undefined") return;
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(blog.description, "text/html");
+    const headings = Array.from(doc.querySelectorAll("h2, h3"));
+
+    const tocItems = headings.map((heading) => {
+      const text = heading.textContent || "";
+      const id = text
+        .toLowerCase()
+        .replace(/[^\w]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
+      heading.id = id;
+
+      return {
+        id,
+        text,
+        level: heading.tagName.toLowerCase(),
+      };
+    });
+
+    setToc(tocItems);
+    setHtml(doc.body.innerHTML);
+  }, [blog?.description]);
+
+  /* CLOSE SIDEBAR  */
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setSidebarOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-//     <NoTailwindWrapper
-//       styleText={`
-//         /* 👇 CSS inside Shadow DOM, Tailwind can't touch this */
-//         * {
-//           box-sizing: border-box;
-//           margin: 0;
-//           padding: 0;
-//           font-family: "DM Sans", Arial, sans-serif;
-//         }
+    <div className="custom-container my-5">
+      {/* MOBILE OVERLAY */}
+      {sidebarOpen && (
+        <div className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setSidebarOpen(false)} />
+      )}
 
-//        .custom-container {
-//   max-width: 1280px;
-//   margin-left: auto;
-//   margin-right: auto;
-//   padding-left: 1rem;
-//   padding-right: 1rem;
-//   margin:40px 0px 0px 0px
-//      padding-bottom:20px;
-//      padding-top:20px;
-// }
-//      @media (min-width: 250px) {
-//   .custom-container {
-//   margin-left: auto;
-//   margin-right: auto;
-//     padding-left: 1.5rem;
-//     padding-right: 1.5rem;
-//     padding-bottom:20px;
-//        padding-top:30px;
-//   }
-// }
+      {/*  MOBILE HEADER  */}
+      <div className="lg:hidden flex-col sm:flex-row items-center justify-between py-3 border-b mb-4 ">
+        <div className="flex items-center gap-3">
+          <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 rounded-lg bg-gray-100">
+            <HiMenuAlt2 className="text-xl" />
+          </button>
 
-// @media (min-width: 640px) {
-//   .custom-container {
-//   margin-left: auto;
-//   margin-right: auto;
-//     padding-left: 1.5rem;
-//     padding-right: 1.5rem;
-//     padding-bottom:20px;
-//        padding-top:30px;
-//   }
-// }
-// @media (min-width: 768px) {
-//   .custom-container {
-//   margin-left: auto;
-//   margin-right: auto;
-//     padding-left: 2rem;
-//     padding-right: 2rem;
-//       padding-bottom:20px;
-//          padding-top:30px;
-//   }
-// }
-// @media (min-width: 1024px) {
-//   .custom-container {
-//   margin-left: auto;
-//   margin-right: auto;
-//     padding-left: 2.5rem;
-//     padding-right: 2.5rem;
-//       padding-bottom:20px;
-//          padding-top:30px;
-//   }
-// }
+          <button onClick={() => setOpen(!open)}
+            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-50 text-sm font-semibold text-blue-700">
+            {`Table of Contents`}
+            <p className="w-5 h-5 flex items-center justify-center bg-blue-200 rounded-full">   {open ? "−" : "+"} </p>
+          </button>
+        </div>
 
-//         .descriptionContent {
-//         padding:30px;
-//         border:1px solid #37863f;
-//         border-radius:20px;
-//           line-height: 1.6;
-//           color: #333;
-//           font-size: 16px;
-//         }
-//           @media (min-width: 1024px) {
-//   .descriptionContent {
-//     font-size: 18px;
-//   }
-// }
-//           .descriptionContent ul li {
-//           padding-left:10px;
-//           }
-//              .descriptionContent ol li {
-//           padding-left:10px;
-//           }
-//            .descriptionContent img {
-//   max-width: 100%;
-//   height: auto;
-//   display: block;
-// }
-//    .descriptionContent .table-wrapper{
-//   width :100%;
-//   overflow: auto;
-//   }
+        <div className="flex gap-2 mt-4 sm:mt-0 justify-end">
+          <Link href="https://www.facebook.com/" target="_blank"><FaFacebookF /></Link>
+          <Link href="https://x.com/" target="_blank"><FaTwitter /></Link>
+          <Link href="https://linkedin.com/" target="_blank"><FaLinkedinIn /></Link>
+          <Link href="https://pinterest.com/" target="_blank"><FaPinterestP /></Link>
+          <Link href="https://tumblr.com/" target="_blank"><FaTumblr /></Link>
+          <Link href="https://instagram.com/" target="_blank"><RiInstagramFill /></Link>
+        </div>
+      </div>
 
-//       `}>
-    // >
-      <div className=" no-tailwind">
+      {/*  MOBILE TOC  */}
+      <div className={`lg:hidden transition-all ${open ? "max-h-[400px]" : "max-h-0"} overflow-hidden`}>
+        <div className="border rounded-lg bg-gray-50 max-h-[400px] overflow-y-auto">
+          <div className="p-4">
+            {toc.map((item) => (
+              <Link
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={() => setOpen(false)}
+                className={`block py-1.5 px-2 rounded hover:bg-blue-50 ${item.level === "h3" ? "pl-6 text-gray-600" : "font-medium"
+                  }`} >
+                {item.text}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+      {/*  MOBILE SIDEBAR  */}
+      <div role="dialog"
+        className={`fixed top-0 left-0 h-full w-[280px] bg-white z-50 transform transition-transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } lg:hidden`}>
+        <div className="p-4">
+          <div className="flex justify-between mb-4 border-b pb-3">
+            <h3 className="font-semibold">{`Menu`}</h3>
+            <button onClick={() => setSidebarOpen(false)}>
+              <IoClose />
+            </button>
+          </div>
+          <SideBarCategory menuItems={sideBarCategory} />
+        </div>
+      </div>
+
+      {/*  MAIN GRID  */}
+      <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr_300px] gap-6 py-4">
+        {/* LEFT SIDEBAR */}
+        <div className="hidden lg:block  gap-2">
+          <div className="flex gap-2 items-center mb-6">
+            <p className="responsive-text">{`Share`}</p>
+            <Link href="https://www.facebook.com/" target="_blank"><FaFacebookF className="text-[20px]" /></Link>
+            <Link href="https://x.com/" target="_blank"><FaTwitter className="text-[20px]" /></Link>
+            <Link href="https://linkedin.com/" target="_blank"><FaLinkedinIn className="text-[20px]" /></Link>
+            <Link href="https://pinterest.com/" target="_blank"><FaPinterestP className="text-[20px]" /></Link>
+            <Link href="https://tumblr.com/" target="_blank"><FaTumblr className="text-[20px]" /></Link>
+            <Link href="https://instagram.com/" target="_blank"><RiInstagramFill className="text-[25px]" /></Link>
+          </div>
+          <section className="border rounded-lg p-4 bg-gray-50 mb-4">
+            <h3 className="font-semibold mb-3">{`Table of Contents`}</h3>
+            {toc.map((item) => (
+              <Link key={item.id} href={`#${item.id}`}
+                className={`block py-1.5 px-2 rounded hover:bg-blue-50 ${item.level === "h3" ? "pl-6 text-gray-600" : ""}`}>
+                {item.text}
+              </Link>
+            ))}
+          </section>
+
+          <div className="bg-gray-100 p-4 rounded-lg">
+            <SideBarCategory menuItems={sideBarCategory} />
+          </div>
+        </div>
+
+        {/* MAIN CONTENT */}
+        <div className="mb-5 ">
+          {/* meta description */}
+          {blog?.meta?.description && (
+            <div className="mb-2 "> {blog.meta.description} </div>
+          )}
+          {blog?.featuredImage?.url && (
+            <div className="mb-2">
+              {/* featured img */}
+              <Image
+                src={blog.featuredImage.url}
+                alt={blog?.title || "Featured image"}
+                width={900}
+                height={450}
+                priority
+                className="w-full h-auto rounded-lg object-cover"
+              />
+            </div>
+          )}
+
+          {/* <div className=" no-tailwind">
         <div
           className="discriptionContent"
-          dangerouslySetInnerHTML={{ __html: data }}
+         dangerouslySetInnerHTML={{ __html: html }}
         ></div>
+      </div> */}
+          <div className="">
+            <div
+              className="discriptionContent"
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          </div>
+        </div>
+
+        {/* RIGHT SIDEBAR */}
+        <div className="hidden lg:block sticky top-24 space-y-6 self-start">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="border rounded-lg bg-white">
+              <p className="text-xs text-center border-b py-1">{`ADVERTISEMENT`}</p>
+              <div className="p-2 flex justify-center">
+                <Image
+                  src="/Shiksologo.png"
+                  width={300}
+                  height={250}
+                  alt="Ad"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    // {/* </NoTailwindWrapper> */}
+    </div>
   );
 };
 
 export default BlogDescription;
-

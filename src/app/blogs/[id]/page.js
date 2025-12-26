@@ -1,11 +1,17 @@
 export const dynamic = "force-static";
 export const revalidate = 3600;
+import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import CommonFaq from '@/common-component/CommonFaq/CommonFaq'
 import BlogDescription from '@/component/blog/BlogDescription'
-import HeroSection from '@/component/homepage/HeroSection'
+import LatestBlog from '@/component/blog/LatestBlog';
+import SuggestedBlogs from '@/component/blog/SuggestedBlogs';
+import CommentBox from '@/component/commentBox/CommentBox';
+import SubscribeBox from '@/component/subscribeBox/SubscribeBox';
+import { apiClient } from '@/lib/api-client'
 import { BASE_URL_API } from '@/lib/common'
 import axios from 'axios'
-import React, { useId } from 'react'
+import React from 'react'
+
 // Dynamic Metadata Function
 export async function generateMetadata({ params }) {
   try {
@@ -13,11 +19,9 @@ export async function generateMetadata({ params }) {
     const { data } = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech`)
     const blog = data?.blog
 
-    // Base URL for canonical and images
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.shikso.com"
     const canonicalUrl = `${baseUrl}/blogs/${id}`
 
-    // Default image fallback
     const ogImage = blog?.featuredImage?.url ||
       blog?.image ||
       "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"
@@ -51,8 +55,6 @@ export async function generateMetadata({ params }) {
     }
   } catch (error) {
     console.error('Error generating metadata:', error)
-
-    // Fallback metadata agar API fail ho jaye
     return {
       title: "Blog",
       description: "Read our latest blog post",
@@ -64,32 +66,60 @@ export async function generateMetadata({ params }) {
     }
   }
 }
+
+const LIMIT = 4;
+
 const BlogDesc = async ({ params }) => {
+  const page = 1;
+  const res = await apiClient.get(`${BASE_URL_API}blogs/all/ed_tech?type=blog&status=Published&page=${page}&limit=${LIMIT}`,
+    { cache: "no-store" }
+  );
+  const posts = res?.data;
+  const blogs = Array.isArray(posts?.blogs) ? posts.blogs : [];
+
+  const totalFromApi =
+    typeof posts?.totalBlogs === "number" ? posts.totalBlogs :
+      typeof posts?.total === "number" ? posts.total :
+        (posts?.pagination?.total ?? posts?.count ?? undefined);
+
   const { id } = await params
-  const data = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech`)
-  generateMetadata({ params })
+  const data = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech?type=blog&status=Published`)
+
+  // Get the current blog data
+  const currentBlog = data?.data?.blog;
+
   return (
     <div>
-      <HeroSection image={data?.data?.blog?.featuredImage?.url}
-        title={data?.data?.blog?.title}
-        title2={
-          data?.data?.blog?.createdAt
-            ? new Date(data.data.blog.createdAt)
-              .toLocaleDateString("en-GB")
-              .replace(/\//g, "-")
-            : ""
-        }
-        showPrimaryBtn={false}
-        showSecondaryBtn={false}
+      <CommonBanner1
+        title={currentBlog?.title}
+        tagline={`${currentBlog?.authorName || ""} | ${currentBlog?.createdAt
+          ? new Date(currentBlog.createdAt)
+            .toLocaleDateString("en-GB")
+            .replace(/\//g, "-")
+          : ""
+          }`}
         breadcom={[
           { title: "Blogs", url: "/blogs" },
-          { title: data?.data?.blog?.meta?.title || "Blogs Detail" },
-        ]} />
-
-      <BlogDescription blog={data?.data?.blog} />
-      {Array.isArray(data?.data?.blog?.faq) && data?.data?.blog?.faq?.[0]?.question?.length > 0 && (
-        <CommonFaq faqData={data?.data?.blog?.faq} />
-      )}
+          { title: currentBlog?.meta?.title || "Blogs Detail" },
+        ]}
+      />
+      <BlogDescription blog={currentBlog} />
+      <div className="custom-container py-4 md:py-8">
+        {Array.isArray(currentBlog?.faq) && currentBlog?.faq?.[0]?.question?.length > 0 && (
+          <CommonFaq faqData={currentBlog?.faq} />
+        )}
+        <CommentBox />
+        <SuggestedBlogs currentBlog={currentBlog} />
+        {/* Latest Blogs Section */}
+        <div className='flex gap-2 items-center'>
+          <div className="w-[20px] h-[35px] bg-[#FFF46C] rounded-r-full"></div>
+          <h2 className='responsiveheading2'>{`Latest Blogs`}</h2>
+        </div>
+        <div className="mt-10 flex items-center justify-center gap-5 mb-5 sm:mb-8 lg:mb-12">
+          <LatestBlog />
+        </div>
+        <SubscribeBox />
+      </div>
     </div>
   )
 }

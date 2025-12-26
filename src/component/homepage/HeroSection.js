@@ -18,6 +18,7 @@ export default function HeroSection({
   showSecondaryBtn = true,
   secondaryBtnText = "View Courses",
   secondaryBtnLink = "/courses",
+  hideImageOnMobile = false,
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -38,7 +39,7 @@ export default function HeroSection({
             <div className="space-y-6">
               <h1 className="responsive-heading  font-bold! leading-tight text-gray-900"
                 dangerouslySetInnerHTML={{ __html: title }} />
-              <p className="text-gray-700 text-lg max-w-md">{title2}</p>
+              <p className="text-gray-700 text-lg max-w-md flex justify-items-center items-center">{`Author : `}{title2}</p>
               <div className="flex items-center gap-4">
                 {showPrimaryBtn && (
                   <CustomButton onClick={handlePrimary}>
@@ -54,12 +55,12 @@ export default function HeroSection({
               </div>
             </div>
             <div className="flex justify-center">
-              <div className="relative w-full max-w-[600px] aspect-[600/418]">
+              <div className={`relative w-full max-w-[600px] aspect-[600/418] ${hideImageOnMobile ? "hidden sm:block" : ""}`} >
                 <Image
                   src={imgSrc}
                   alt="Hero"
                   fill
-                  className="object-contain"
+                  className="object-cover"
                   onError={() => {
                     if (imgSrc !== FALLBACK_IMAGE) {
                       setImgSrc(FALLBACK_IMAGE);
@@ -72,17 +73,13 @@ export default function HeroSection({
           {breadcom?.length > 0 && (
             <div className="max-w-7xl mx-auto mt-1">
               <div className="flex items-center text-gray-700 text-sm">
-                <Link href="/" className="hover:text-[#00D6FF] ">
-                  {` Home`}
-                </Link>
+                <Link href="/" className="hover:text-[#00D6FF] ">  {` Home`} </Link>
                 {breadcom.map((item, index) => (
                   <React.Fragment key={index}>
                     <span className="px-1">/</span>
                     {item?.url ? (
-                      <Link
-                        href={item.url}
-                        className="hover:text-[#00D6FF] px-1"
-                      >
+                      <Link href={item.url}
+                        className="hover:text-[#00D6FF] px-1" >
                         {item.title}
                       </Link>
                     ) : (
