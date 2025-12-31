@@ -27,6 +27,13 @@ export const metadata = {
     description: " Shikso is a global AI-powered smart learning platform that makes education intelligent, engaging, and measurable. Practice smarter with SmartSets like Navodaya and Sainik School — designed for students, parents, and modern schools.",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 
 export default function Home() {

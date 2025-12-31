@@ -25,6 +25,13 @@ export const metadata = {
         description: "Read Shikso’s Privacy Policy to learn how we collect, use, and protect your personal data while delivering secure, AI-powered smart learning experiences.",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
+    robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 const Page = () => {
     return (

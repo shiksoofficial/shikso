@@ -27,8 +27,7 @@ const Testimonial = ({ testimonialData, icon }) => {
 
                     }}
                     aria-label="Client Testimonials"
-                    className="w-full"
-                >
+                    className="w-full">
                     {testimonialData?.map(({ icon, title, rating, description }, index) => (
                         <SplideSlide key={index}>
                             <div key={index} className="flex flex-col sm:flex-row justify-between w-full mb-6">
@@ -38,16 +37,13 @@ const Testimonial = ({ testimonialData, icon }) => {
                                         alt={title}
                                         width={80}
                                         height={80}
-                                        onError={(e) => {              // 🔧 per-image error handling
+                                        onError={(e) => {
                                             e.currentTarget.src = FALLBACK_IMAGE;
                                         }}
                                     />
-
                                 </div>
                                 <div className="flex-1  text-left  sm:pl-6 mb-4">
-                                    <h3 className="dm_sans responsiveheading6 font-semibold mb-2 text-white">
-                                        {title}
-                                    </h3>
+                                    <h3 className="dm_sans responsiveheading6 font-semibold mb-2 text-white"> {title} </h3>
                                     <div className="flex items-center gap-1 mb-2">
                                         {[...Array(5)].map((_, i) => (
                                             <FaStar
@@ -57,9 +53,7 @@ const Testimonial = ({ testimonialData, icon }) => {
                                             />
                                         ))}
                                     </div>
-                                    <p className="dm_sans responsiveheading6 font-light text-gray-100 leading-10 pr-1 lg:pr-10 ">
-                                        {description}
-                                    </p>
+                                    <p className="dm_sans responsiveheading6 font-light text-gray-100 leading-10 pr-1 lg:pr-10 ">{description}</p>
                                 </div>
                             </div>
                         </SplideSlide>

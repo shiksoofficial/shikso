@@ -23,6 +23,13 @@ export const metadata = {
     description: " Learn about Shikso India’s first AI-powered Innovative learning ecosystem For students, parents, and teachers that helps students practice, learn, & evolve",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 const AboutPage = () => {
   return (

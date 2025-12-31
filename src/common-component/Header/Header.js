@@ -18,8 +18,8 @@ import SignupModal from "@/common-component/SignupModal/SignupModal";
 
 const Header = () => {
 
-  const FALLBACK_IMAGE = "/Shiksologo.png";
-  const [imgSrc, setImgSrc] = useState("/Shiksologo.png");
+  const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
+  const [imgSrc, setImgSrc] = useState("https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png");
 
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);

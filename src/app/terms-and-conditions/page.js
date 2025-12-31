@@ -25,6 +25,13 @@ export const metadata = {
         description: "  Explore Shikso’s official Terms & Conditions – understand your rights, responsibilities, and usage policies for our AI-powered Smart Learning Platform.",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
+    robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 const Page = () => {
     return (

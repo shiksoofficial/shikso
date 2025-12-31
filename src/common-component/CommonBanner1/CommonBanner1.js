@@ -1,17 +1,17 @@
 import React from 'react'
 import Link from "next/link";
 
-const CommonBanner1 = ({ title, breadcom = [], paraghraph, tagline, paraghraph1 }) => {
+const CommonBanner1 = ({ title, title2, breadcom = [], paraghraph, tagline }) => {
 
     return (
         <div className="bg-[#FFFDEB] ">
-            <div className="custom-container flex  h-[320px] sm:h-[290px] items-end pb-7">
+            <div className="custom-container flex  h-[380px] sm:h-[290px] items-end pb-7">
                 <div className="w-full p-2">
                     <h1 className="text-[#0A0C0C] text-center responsive-heading font-medium leading-tight">
                         {title}
                     </h1>
+                    <h2 className="text-[#484545] text-center responsiveheading2 font-medium leading-tight mt-3">{title2}</h2>
                     <p className="text-[#484545] text-center responsive-text font-medium leading-tight mt-3">{paraghraph}</p>
-                    <p className="text-[#484545] text-center responsive-text font-medium leading-tight mt-3">{paraghraph1}</p>
                     <p className="text-red-500 text-center responsive-text font-medium leading-tight mt-3">{tagline}</p>
                     {breadcom?.length > 0 && (
                         <div className="flex text-center w-fit m-auto mt-3 ">

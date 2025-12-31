@@ -23,6 +23,13 @@ export const metadata = {
     description: "Take Navodaya mock tests for Class 6 & 9 with real exam patterns, instant analytics, answer keys, and downloadable PDFs. Smart Learning Practice with Shikso",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 
 const faqData = [

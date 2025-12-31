@@ -6,12 +6,17 @@ import { usePathname } from "next/navigation";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { RiTelegram2Fill } from "react-icons/ri";
 import { FaLocationDot } from "react-icons/fa6";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const Footer = () => {
   const pathname = usePathname();
 
-  const FALLBACK_IMAGE = "/Shiksologo.png";
-  const [imgSrc, setImgSrc] = useState("/Shiksologo.png");
+  const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
+  const [imgSrc, setImgSrc] = useState("https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png");
+
+  const [isQuickLinks1Open, setIsQuickLinks1Open] = useState(false);
+  const [isQuickLinks2Open, setIsQuickLinks2Open] = useState(false);
+  const [isContactInfoOpen, setIsContactInfoOpen] = useState(false);
 
   const footerData = {
     brand: {
@@ -79,109 +84,121 @@ const Footer = () => {
       <div className="custom-container px-4 sm:px-6 lg:px-2 py-10">
         <div className="grid grid-cols-12 border-b border-gray-500 pb-8 gap-3.5  md:gap-4 lg:gap-8">
           <div className="col-span-5 sm:col-span-3  lg:col-span-3  lg:mr:28 xl:mr-32">
-            <div className="mb-1 sm:mb-5 text-[20px] dm_sans text-[#FFF46C]">
-              Quick Links
+            <div className="mb-1 sm:mb-5 text-[20px] dm_sans text-[#FFF46C] cursor-pointer flex items-center justify-between"
+              onClick={() => setIsQuickLinks1Open(!isQuickLinks1Open)}>
+              <p>{`Quick Links`}</p>
+              {isQuickLinks1Open ? <FaChevronUp size={16} /> : <FaChevronDown size={16} />}
             </div>
-            <div className="flex flex-col space-y-2">
-              {footerData.quickLinks.map((link, index) => (
-                <Link
-                  key={index}
-                  href={link.url}
-                  className={`text-sm md:text-base  text-white hover:text-[#FFF46C] transition-colors ${pathname === link.url ? "text-red-500 underline" : ""
-                    }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-
+            {isQuickLinks1Open && (
+              <div className="flex flex-col space-y-2">
+                {footerData.quickLinks.map((link, index) => (
+                  <Link
+                    key={index}
+                    href={link.url}
+                    className={`text-sm md:text-base  text-white hover:text-[#FFF46C] transition-colors ${pathname === link.url ? "text-red-500 underline" : ""
+                      }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
-          <div className="col-span-5 sm:col-span-3 lg:col-span-3">
-            <div className="mb-1 sm:mb-5 text-[20px] dm_sans text-[#FFF46C]">
-              Quick Links
+          <div className="col-span-5 sm:col-span-3  lg:col-span-3  lg:mr:28 xl:mr-32">
+            <div className="mb-1 sm:mb-5 text-[20px] dm_sans text-[#FFF46C] cursor-pointer flex items-center justify-between"
+              onClick={() => setIsQuickLinks2Open(!isQuickLinks2Open)}>
+              <p>{`Quick Links`}</p>
+              {isQuickLinks2Open ? <FaChevronUp size={16} /> : <FaChevronDown size={16} />}
             </div>
-            <div className="flex flex-col space-y-2">
-              {footerData.quickLinksSet.map((link, index) => (
-                <Link
-                  key={index}
-                  href={link.url}
-                  className={`text-sm md:text-base  text-white hover:text-[#FFF46C] transition-colors ${pathname === link.url ? "text-red-500 underline" : ""
-                    }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+            {isQuickLinks2Open && (
+              <div className="flex flex-col space-y-2">
+                {footerData.quickLinksSet.map((link, index) => (
+                  <Link
+                    key={index}
+                    href={link.url}
+                    className={`text-sm md:text-base  text-white hover:text-[#FFF46C] transition-colors ${pathname === link.url ? "text-red-500 underline" : ""
+                      }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
           <div className="col-span-12 sm:col-span-6  lg:col-span-6  text-white">
-            <div className=" mb-1  sm:mb-5 text-[20px] dm_sans  text-[#FFF46C]">{`Contact Info`}</div>
-            <div className="flex items-center gap-3.5 text-sm md:text-base">
+            <div className="mb-1 sm:mb-5 text-[20px] dm_sans text-[#FFF46C] cursor-pointer flex items-center gap-6"
+              onClick={() => setIsContactInfoOpen(!isContactInfoOpen)} >
+              <p>{`Contact Info`}</p>
+              {isContactInfoOpen ? <FaChevronUp size={16} /> : <FaChevronDown size={16} />}
+            </div>
+            {isContactInfoOpen && (
+              <>
+                <div className="flex items-center gap-3.5 text-sm md:text-base">
+                  <div className="relative">
+                    <Link
+                      href={`https://wa.me/${footerData.contactInfo.phone.replace(
+                        /\s/g,
+                        ""
+                      )} `}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="dm_sans hover:underline cursor-pointer"
+                    >
+                      <IoLogoWhatsapp size={28} />
+                    </Link>
+                  </div>
+                  <Link
+                    href={`https://wa.me/${footerData.contactInfo.phone.replace(
+                      /\s/g,
+                      ""
+                    )} `}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="dm_sans hover:underline cursor-pointer"
+                  >
+                    {footerData.contactInfo.phone}
+                  </Link>
+                </div>
+                <div className="flex items-center gap-3.5 text-sm md:text-base mt-3">
+                  <div className="relative">
+                    <Link
+                      href={`mailto:${footerData.contactInfo.email}`}
+                      className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
+                    >
+                      <RiTelegram2Fill size={28} />
+                    </Link>
+                  </div>
+                  <Link
+                    href={`mailto:${footerData.contactInfo.email}`}
+                    className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
+                  >
+                    {footerData.contactInfo.email}
+                  </Link>
+                </div>
+                <div className="flex items-center gap-3.5 text-sm md:text-base mt-3">
+                  <div className="relative">
+                    <Link
+                      href={`https://www.google.com/maps?q=${encodeURIComponent(footerData.contactInfo.address)}`}
+                      className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="address link"
+                    >
+                      <FaLocationDot size={28} />
+                    </Link>
+                  </div>
 
-              <div className="relative">
-                <Link
-                  href={`https://wa.me/${footerData.contactInfo.phone.replace(
-                    /\s/g,
-                    ""
-                  )} `}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="dm_sans hover:underline cursor-pointer"
-                >
-                  <IoLogoWhatsapp size={28} />
-                </Link>
-              </div>
-              <Link
-                href={`https://wa.me/${footerData.contactInfo.phone.replace(
-                  /\s/g,
-                  ""
-                )} `}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="dm_sans hover:underline cursor-pointer"
-              >
-                {footerData.contactInfo.phone}
-              </Link>
-            </div>
-            <div className="flex items-center gap-3.5 text-sm md:text-base mt-3">
-              <div className="relative">
-                <Link
-                  href={`mailto:${footerData.contactInfo.email}`}
-                  className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
-                >
-                  <RiTelegram2Fill size={28} />
-                </Link>
-              </div>
-              <Link
-                href={`mailto:${footerData.contactInfo.email}`}
-                className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
-              >
-                {footerData.contactInfo.email}
-              </Link>
-            </div>
-            <div className="flex items-center gap-3.5 text-sm md:text-base mt-3">
-              <div className="relative">
-                <Link
-                  href={`https://www.google.com/maps?q=${encodeURIComponent(footerData.contactInfo.address)}`}
-                  className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="address link"
-                >
-                  <FaLocationDot size={28} />
-                </Link>
-              </div>
-
-              <Link
-                href={`https://www.google.com/maps?q=${encodeURIComponent(footerData.contactInfo.address)}`}
-                className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="address link"
-              >
-                {footerData.contactInfo.address}
-              </Link>
-            </div>
-            {/* <div className="flex gap-1 sm:gap-2 mt-3.5 sm:mt-5 md:mt-6">
+                  <Link
+                    href={`https://www.google.com/maps?q=${encodeURIComponent(footerData.contactInfo.address)}`}
+                    className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="address link"
+                  >
+                    {footerData.contactInfo.address}
+                  </Link>
+                </div>
+                {/* <div className="flex gap-1 sm:gap-2 mt-3.5 sm:mt-5 md:mt-6">
               {footerData.socialMedia.map((social, index) => (
                 <Link
                   key={index}
@@ -199,6 +216,8 @@ const Footer = () => {
                 </Link>
               ))}
             </div> */}
+              </>
+            )}
           </div>
         </div>
         <div className="flex flex-wrap  justify-center sm:justify-start text-[#FFF46C] pt-4">

@@ -1,8 +1,10 @@
 export const dynamic = "force-static";
 export const revalidate = 3600;
+import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import CommonFaq from '@/common-component/CommonFaq/CommonFaq'
 import BlogDescription from '@/component/blog/BlogDescription'
-import HeroSection from '@/component/homepage/HeroSection'
+import CommentBox from '@/component/commentBox/CommentBox';
+import AllNews from '@/component/educationalnews/AllNews';
 import { BASE_URL_API } from '@/lib/common'
 import axios from 'axios'
 import React, { useId } from 'react'
@@ -50,6 +52,13 @@ export async function generateMetadata({ params }) {
         description: blog?.meta?.description,
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
       },
+      robots: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
     }
   } catch (error) {
     console.error('Error generating metadata:', error)
@@ -73,25 +82,24 @@ const EducationalNewsDesc = async ({ params }) => {
   generateMetadata({ params })
   return (
     <div>
-      <HeroSection image={data?.data?.blog?.featuredImage?.url}
+      <CommonBanner1
         title={data?.data?.blog?.title}
-        title2={
-          data?.data?.blog?.createdAt
-            ? new Date(data.data.blog.createdAt)
-              .toLocaleDateString("en-GB")
-              .replace(/\//g, "-")
-            : ""
-        }
-        showPrimaryBtn={false}
-        showSecondaryBtn={false}
+        tagline={`${data?.data?.blog?.authorName || ""} | ${data?.data?.blog?.createdAt
+          ? new Date(data.data.blog.createdAt)
+            .toLocaleDateString("en-GB")
+            .replace(/\//g, "-")
+          : ""
+          }`}
         breadcom={[
-          { title: "News", url: "/educational-news" },
-          { title: data?.data?.blog?.meta?.title || "News Detail" },
+          { title: "Blogs", url: "/blogs" },
+          { title: data?.data?.blog?.meta?.title || "Blogs Detail" },
         ]} />
       <BlogDescription blog={data?.data?.blog} />
       {Array.isArray(data?.data?.blog?.faq) && data?.data?.blog?.faq?.[0]?.question?.length > 0 && (
         <CommonFaq faqData={data?.data?.blog?.faq} />
       )}
+      <CommentBox />
+      <AllNews />
     </div>
   )
 }

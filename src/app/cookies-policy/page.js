@@ -25,6 +25,13 @@ export const metadata = {
         description: "Learn how Shikso uses cookies to personalize content, improve performance, and ensure a secure smart learning experience while you use our website & mobile app",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
+    robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 
 const Page = () => {

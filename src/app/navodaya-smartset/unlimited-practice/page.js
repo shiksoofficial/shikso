@@ -24,6 +24,13 @@ export const metadata = {
         description: "Practice unlimited Navodaya questions by topic and subject wise for Class 6 & 9. Get instant feedback, AI analytics, and PYQ downloads with Shikso’s SmartSet.",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
+    robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 
 const faqData = [

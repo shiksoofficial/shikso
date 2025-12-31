@@ -23,6 +23,13 @@ export const metadata = {
     description: "Attempt Sainik School mock tests for Class 6 & 9 with AISSEE-like patterns, instant analytics, answer keys, and downloadable PDFs. Smart learning practice with Shikso.",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 
 const faqData = [

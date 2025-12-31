@@ -1,16 +1,12 @@
 export const dynamic = "force-dynamic";
-import HeroSection from '@/component/homepage/HeroSection';
 import React from 'react'
 import { apiClient } from '@/lib/api-client'
 import { BASE_URL_API } from '@/lib/common'
-import { getCanonicalUrl } from '@/lib/seo'
 import axios from 'axios'
 import NewsListPagination from '@/common-component/Pagination/NewsListPagination';
 import CommonFaq from '@/common-component/CommonFaq/CommonFaq';
-import CustomLinkBtn from '@/common-component/CustomLinkBtn/CustomLinBtn';
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import News1 from '@/component/educationalnews/News1';
-import News2 from '@/component/educationalnews/News2';
 
 export const metadata = {
   title: "Shikso News | Latest Education Updates & Exam Alerts |",
@@ -28,6 +24,13 @@ export const metadata = {
     title: "Shikso News | Latest Education Updates & Exam Alerts |",
     description: "Get the latest education news, exam notifications, school updates, and government announcements on Shikso News. Stay informed with reliable education updates.",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
   },
 };
 
@@ -74,7 +77,7 @@ const faqData = [
   },
 ];
 
-const LIMIT = 8;
+const LIMIT = 100;
 
 const EducationalNewsPage = async () => {
   const page = 1;
@@ -83,13 +86,24 @@ const EducationalNewsPage = async () => {
   );
   const posts = res?.data;
   const blogs = Array.isArray(posts?.blogs) ? posts.blogs : [];
+  const categorySet = new Set();
+  blogs.forEach(blog => {
+    if (blog.category) {
+      if (Array.isArray(blog.category)) {
+        blog.category.forEach(cat => {
+          if (cat && cat.trim()) categorySet.add(cat.trim());
+        });
+      } else if (typeof blog.category === 'string' && blog.category.trim()) {
+        categorySet.add(blog.category.trim());
+      }
+    }
+  });
 
+  const categories = Array.from(categorySet).sort();
   const totalFromApi =
     typeof posts?.totalBlogs === "number" ? posts.totalBlogs :
       typeof posts?.total === "number" ? posts.total :
-        (posts?.pagination?.total ?? posts?.count ?? undefined);
-
-
+        (posts?.pagination?.total ?? posts?.count ?? 0);
 
   return (
     <div>
@@ -97,7 +111,9 @@ const EducationalNewsPage = async () => {
         title={"Shikso News"}
         paraghraph={"Latest Updates • School Announcements • Education Headlines"}
         breadcom={[{ title: "News" }]} />
-      <News1 />
+      <News1 allBlogs={blogs}
+        categories={categories} />
+
       <div className="custom-container p-6 md:p-10">
         <h2 className='responsiveheading2 mt-8 mb-5'>{`Educational News`}</h2>
         <div className="mt-10 flex items-center justify-center gap-5">
@@ -108,7 +124,6 @@ const EducationalNewsPage = async () => {
           />
         </div>
       </div>
-      <News2 />
       <CommonFaq title=" – Shikso News & Education Updates" faqData={faqData} />
     </div>
   )

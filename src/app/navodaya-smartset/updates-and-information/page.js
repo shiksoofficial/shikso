@@ -24,6 +24,13 @@ export const metadata = {
         description: "Get the latest Navodaya exam updates & Information, syllabus details, blogs, smart study material for Class 6 & 9. Stay prepared and confident with Shikso.",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
+    robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 
 const cardsData = [
