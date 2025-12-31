@@ -24,6 +24,13 @@ export const metadata = {
         description: " Get the latest from Shikso for Sainik School exam updates & information, AISSEE syllabus details, smart study materials, preparation insights for Class 6 & 9.",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
+    robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 
 const cardsData = [

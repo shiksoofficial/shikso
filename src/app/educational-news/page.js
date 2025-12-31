@@ -25,6 +25,13 @@ export const metadata = {
     description: "Get the latest education news, exam notifications, school updates, and government announcements on Shikso News. Stay informed with reliable education updates.",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 
 const faqData = [

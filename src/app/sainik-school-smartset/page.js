@@ -24,6 +24,13 @@ export const metadata = {
     description: " Prepare for the Sainik School Entrance Exam with Shikso SmartSet. Get mock tests, practice sets, PYQs, and a personalized resulting dashboard for students.",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 
 const faqData = [

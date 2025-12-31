@@ -23,6 +23,13 @@ export const metadata = {
         description: "Explore the Shikso Blog for stories and insights on school education, AI learning, and modern teaching trends. Stay updated with India's evolving education landscape.",
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
+    robots: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+    },
 };
 
 const faqData = [

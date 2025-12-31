@@ -24,6 +24,13 @@ export const metadata = {
     description: "Connect with Shikso — India’s modern education and AI-powered smart learning platform for schools, students, and parents. Reach us today for learning beyond.",
     images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
   },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
 };
 
 const testimonialData = [
