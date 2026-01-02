@@ -290,13 +290,16 @@ body {
   all: revert;
   box-sizing: border-box;
 }
-.discriptionContent{
-      max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    border: 1px solid #37863f;
-    border-radius: 20px;
-    margin-top: 10px;
+
+.discriptionContent {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 10px;
+  border: 1px solid #37863f;
+  border-radius: 20px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }

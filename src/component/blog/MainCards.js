@@ -3,14 +3,15 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaRegCommentDots, FaRegBookmark, FaBookmark, FaShareAlt } from "react-icons/fa";
+import { FaRegCommentDots, FaRegBookmark, FaBookmark, FaShareAlt, FaFacebookF, FaTwitter, FaWhatsapp, FaEnvelope, FaLink } from "react-icons/fa";
 
 const MainCards = ({ blogs = [] }) => {
     const [saved, setSaved] = useState({});
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        const stored = JSON.parse(localStorage.getItem("savedBlogs") || "{}");
-        setSaved(stored);
+        setMounted(true);
+        setSaved(JSON.parse(localStorage.getItem("savedBlogs") || "{}"));
     }, []);
 
     const toggleSave = (id) => {
@@ -19,138 +20,203 @@ const MainCards = ({ blogs = [] }) => {
         localStorage.setItem("savedBlogs", JSON.stringify(updated));
     };
 
-    //  Helper function to get the correct URL based on type
     const getItemUrl = (item) => {
         const id = item?.uid || item?._id;
-        const type = item?.type?.toLowerCase();
-
-        if (type === "news") {
-            return `/educational-news/${id}`;
-        }
-        // Default to blogs
-        return `/blogs/${id}`;
+        return item?.type?.toLowerCase() === "news" ? `/educational-news/${id}` : `/blogs/${id}`;
     };
 
-    const handleShare = async (blog) => {
-        const url = `${window.location.origin}${getItemUrl(blog)}`;
-        if (navigator.share) {
-            await navigator.share({
-                title: blog?.title,
-                url,
-            });
-        } else {
-            navigator.clipboard.writeText(url);
-            alert("Link copied");
-        }
+    const getCategoryName = (category) =>
+        category?.name || (typeof category === "string" ? category : "Blog");
+
+    const getTypeLabel = (item) =>
+        item?.type?.toLowerCase() === "news" ? "News" : "Blog";
+
+    const getTypeColor = (item) =>
+        item?.type?.toLowerCase() === "news" ? "text-green-600" : "text-red-600";
+
+    const ActionIcons = ({ blog }) => {
+        const [showShare, setShowShare] = useState(false);
+        const [copied, setCopied] = useState(false);
+        const url = mounted ? `${window.location.origin}${getItemUrl(blog)}` : '';
+        const text = `Check out this: "${blog?.title}"`;
+
+        const share = (e, link) => {
+            e.preventDefault();
+            e.stopPropagation();
+            window.open(link, '_blank', 'noopener,noreferrer');
+            // Don't close the menu
+        };
+
+        const email = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const link = document.createElement('a');
+            link.href = `mailto:?subject=${encodeURIComponent(blog?.title || '')}&body=${encodeURIComponent(`${text}\n\n${url}`)}`;
+            link.click();
+            // Don't close the menu
+        };
+
+        const copy = async (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            try {
+                await navigator.clipboard.writeText(url);
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+                // Don't close the menu
+            } catch {
+                alert("Failed to copy");
+            }
+        };
+
+        const shareLinks = [
+            { icon: FaWhatsapp, label: "WhatsApp", color: "hover:text-green-500", url: `https://wa.me/?text=${encodeURIComponent(text + " " + url)}` },
+            { icon: FaTwitter, label: "Twitter", color: "hover:text-blue-400", url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}` },
+            { icon: FaFacebookF, label: "Facebook", color: "hover:text-blue-600", url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` }
+        ];
+
+        return (
+            <div className="relative" onClick={(e) => e.stopPropagation()}>
+                <div className="flex items-center gap-6 text-gray-500 text-sm mt-3">
+                    <p className="flex items-center gap-1 m-0"> <FaRegCommentDots /> {blog?.commentsCount ?? "02"} </p>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            toggleSave(blog._id);
+                        }}
+                        className="hover:text-gray-700"
+                    >
+                        {saved[blog._id] ? <FaBookmark className="text-blue-600" /> : <FaRegBookmark />}
+                    </button>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setShowShare(!showShare);
+                        }}
+                        className="hover:text-gray-700"
+                    >
+                        <FaShareAlt />
+                    </button>
+                </div>
+
+                {showShare && (
+                    <>
+                        {/* Backdrop to close menu */}
+                        <div
+                            className="fixed inset-0 z-10"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setShowShare(false);
+                            }}
+                        />
+                        <div
+                            className="absolute z-20 mt-2 bg-white border rounded-lg shadow-xl p-2 flex flex-col gap-1 min-w-[180px] left-0"
+                            onClick={(e) => e.stopPropagation()}>
+                            {shareLinks.map(({ icon: Icon, label, color, url }) => (
+                                <button
+                                    key={label}
+                                    onClick={(e) => share(e, url)}
+                                    className={`flex items-center gap-3 ${color} px-3 py-2 rounded hover:bg-gray-50 text-gray-700 text-left w-full transition`}>
+                                    <Icon size={18} /> {label}
+                                </button>
+                            ))}
+                            <button
+                                onClick={email}
+                                className="flex items-center gap-3 hover:text-red-400 px-3 py-2 rounded hover:bg-gray-50 text-gray-700 text-left w-full transition">
+                                <FaEnvelope size={18} /> Email
+                            </button>
+                            <hr className="my-1 border-gray-200" />
+                            <button
+                                onClick={copy}
+                                className="flex items-center gap-3 hover:text-gray-900 px-3 py-2 rounded hover:bg-gray-50 text-left w-full transition">
+                                <FaLink size={18} className={copied ? "text-green-500" : ""} />
+                                <span className={copied ? "text-green-500 font-semibold" : ""}>
+                                    {copied ? "✓ Copied!" : "Copy Link"}
+                                </span>
+                            </button>
+                        </div>
+                    </>
+                )}
+            </div>
+        );
     };
 
     if (!blogs.length) return null;
 
     const [latest, ...others] = blogs;
-
-    const getCategoryName = (category) => {
-        if (!category) return "Blog";
-        if (typeof category === "string") return category;
-        if (typeof category === "object" && category.name) return category.name;
-        return "Blog";
-    };
-
-    //  Helper function to get type label
-    const getTypeLabel = (item) => {
-        const type = item?.type?.toLowerCase();
-        if (type === "news") return "News";
-        return "Blog";
-    };
-
-    //  Helper function to get type color
-    const getTypeColor = (item) => {
-        const type = item?.type?.toLowerCase();
-        if (type === "news") return "text-green-600";
-        return "text-red-600";
-    };
-
-    /* ICON BAR */
-    const ActionIcons = ({ blog }) => (
-        <div className="flex items-center gap-6 text-gray-500 text-sm mt-3">
-            <p className="flex items-center gap-1 m-0"><FaRegCommentDots />{blog?.commentsCount ?? "02"} </p>
-            <button
-                onClick={(e) => {
-                    e.preventDefault();
-                    toggleSave(blog._id);
-                }}>
-                {saved[blog._id] ? <FaBookmark /> : <FaRegBookmark />}
-            </button>
-
-            <button
-                onClick={(e) => {
-                    e.preventDefault();
-                    handleShare(blog);
-                }}>
-                <FaShareAlt />
-            </button>
-        </div>
-    );
+    const badgeClass = (item) => item?.type?.toLowerCase() === "news" ? "bg-green-500" : "bg-red-500";
 
     return (
         <div className="grid grid-cols-1 gap-6">
             {/* FEATURED BLOG/NEWS */}
             {latest && (
-                <Link href={getItemUrl(latest)}
-                    className="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition">
-                    <div className="relative h-[320px]">
-                        <Image
-                            src={latest?.featuredImage?.url || "/placeholder.jpg"}
-                            alt={latest?.title}
-                            fill
-                            priority
-                            className="object-cover"
-                        />
-                        {/* Type Badge */}
-                        <div className="absolute top-3 left-3">
-                            <p className={`px-2 py-1 text-xs font-bold rounded m-0 ${latest?.type?.toLowerCase() === "news"
-                                ? "bg-green-500 text-white"
-                                : "bg-red-500 text-white"
-                                }`}>
-                                {getTypeLabel(latest)}
-                            </p>
+                <div className="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition">
+                    <Link href={getItemUrl(latest)} className="block">
+                        <div className="relative h-[320px]">
+                            <Image
+                                src={latest?.featuredImage?.url || "/placeholder.jpg"}
+                                alt={latest?.title || ""}
+                                fill
+                                priority
+                                className="object-cover"
+                            />
+                            <div className="absolute top-3 left-3">
+                                <p className={`px-2 py-1 text-xs font-bold rounded m-0 ${badgeClass(latest)} text-white`}>
+                                    {getTypeLabel(latest)}
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                     <div className="p-4">
-                        <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(latest)}`}>{getCategoryName(latest?.category)} </p>
-                        <h2 className="text-xl font-bold mt-2 leading-snug">{latest?.title} </h2>
-                        <p className="text-gray-600 text-sm mt-2 line-clamp-2 m-0">{latest?.meta?.description}  </p>
+                        <Link href={getItemUrl(latest)}>
+                            <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(latest)}`}>
+                                {getCategoryName(latest?.category)}
+                            </p>
+                            <h2 className="text-xl font-bold mt-2 leading-snug text-gray-900">
+                                {latest?.title}
+                            </h2>
+                            <p className="text-gray-600 text-sm mt-2 line-clamp-2 m-0">
+                                {latest?.meta?.description}
+                            </p>
+                        </Link>
                         <ActionIcons blog={latest} />
                     </div>
-                </Link>
+                </div>
             )}
 
             {/* SMALL BLOGS/NEWS */}
             {others.slice(0, 5).map((blog) => (
-                <Link key={blog?._id} href={getItemUrl(blog)}
-                    className="flex gap-3 bg-white p-3 rounded-lg shadow hover:shadow-md transition">
-                    <div className="relative w-28 h-20 rounded overflow-hidden">
+                <div
+                    key={blog?._id}
+                    className="flex gap-3 bg-white p-3 rounded-lg shadow hover:shadow-md transition cursor-pointer"
+                    onClick={() => window.location.href = getItemUrl(blog)}
+                >
+                    <div className="relative w-28 h-20 rounded overflow-hidden flex-shrink-0">
                         <Image
                             src={blog?.featuredImage?.url || "/placeholder.jpg"}
-                            alt={blog?.title}
+                            alt={blog?.title || ""}
                             fill
-                            className="object-cover" />
-                        {/* Small Type Badge */}
+                            className="object-cover"
+                        />
                         <div className="absolute top-1 left-1">
-                            <p className={`px-1 py-0.5 text-[10px] font-bold rounded m-0 ${blog?.type?.toLowerCase() === "news"
-                                ? "bg-green-500 text-white"
-                                : "bg-red-500 text-white"
-                                }`}>
+                            <p className={`px-1 py-0.5 text-[10px] font-bold rounded m-0 ${badgeClass(blog)} text-white`}>
                                 {getTypeLabel(blog)}
                             </p>
                         </div>
                     </div>
-
                     <div className="flex-1 min-w-0">
-                        <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(blog)}`}>{getCategoryName(blog?.category)} </p>
-                        <h3 className="text-sm font-semibold leading-snug mt-1 line-clamp-2">{blog?.title} </h3>
+                        <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(blog)}`}>
+                            {getCategoryName(blog?.category)}
+                        </p>
+                        <h3 className="text-sm font-semibold leading-snug mt-1 line-clamp-2 text-gray-900">
+                            {blog?.title}
+                        </h3>
                         <ActionIcons blog={blog} />
                     </div>
-                </Link>
+                </div>
             ))}
         </div>
     );

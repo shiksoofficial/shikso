@@ -1,11 +1,11 @@
 export const dynamic = "force-static";
 export const revalidate = 3600;
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
-import CommonFaq from '@/common-component/CommonFaq/CommonFaq'
+// import CommonFaq from '@/common-component/CommonFaq/CommonFaq'
 import BlogDescription from '@/component/blog/BlogDescription'
 import LatestBlog from '@/component/blog/LatestBlog';
 import SuggestedBlogs from '@/component/blog/SuggestedBlogs';
-import CommentBox from '@/component/commentBox/CommentBox';
+// import CommentBox from '@/component/commentBox/CommentBox';
 import SubscribeBox from '@/component/subscribeBox/SubscribeBox';
 import { apiClient } from '@/lib/api-client'
 import { BASE_URL_API } from '@/lib/common'
@@ -111,21 +111,16 @@ const BlogDesc = async ({ params }) => {
         ]}
       />
       <BlogDescription blog={currentBlog} />
-      <div className="custom-container py-4 md:py-8">
+      {/* <div className="custom-container py-4 md:py-8">
         {Array.isArray(currentBlog?.faq) && currentBlog?.faq?.[0]?.question?.length > 0 && (
           <CommonFaq faqData={currentBlog?.faq} />
         )}
         <CommentBox />
-        <SuggestedBlogs currentBlog={currentBlog} />
-        {/* Latest Blogs Section */}
-        <div className='flex gap-2 items-center'>
-          <div className="w-[20px] h-[35px] bg-[#FFF46C] rounded-r-full"></div>
-          <h2 className='responsiveheading2'>{`Latest Blogs`}</h2>
-        </div>
-        <div className="mt-10 flex items-center justify-center gap-5 mb-5 sm:mb-8 lg:mb-12">
-          <LatestBlog />
-        </div>
-        <SubscribeBox />
+      </div> */}
+      <SuggestedBlogs currentBlog={currentBlog} />
+      <LatestBlog />
+      <div className="custom-container py-4 md:py-8">
+      <SubscribeBox />
       </div>
     </div>
   )

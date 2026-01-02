@@ -8,7 +8,10 @@ import { FaPinterestP, FaTumblr } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { IoClose, IoSchoolSharp } from "react-icons/io5";
+import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 import SideBarCategory from "@/common-component/SideBarCategory/SideBarCategory";
+import CommentBox from "../commentBox/CommentBox";
+import CommonFaq1 from "@/common-component/CommonFaq1/CommonFaq1";
 
 /* SIDEBAR CATEGORY */
 export const sideBarCategory = [
@@ -31,6 +34,7 @@ const BlogDescription = ({ blog }) => {
   const [html, setHtml] = useState("");
   const [open, setOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [desktopTocOpen, setDesktopTocOpen] = useState(false);
 
   /* CREATE TOC */
   useEffect(() => {
@@ -104,8 +108,8 @@ const BlogDescription = ({ blog }) => {
       </div>
 
       {/*  MOBILE TOC  */}
-      <div className={`lg:hidden transition-all ${open ? "max-h-[400px]" : "max-h-0"} overflow-hidden`}>
-        <div className="border rounded-lg bg-gray-50 max-h-[400px] overflow-y-auto">
+      <div className={`lg:hidden transition-all overflow-y-auto  ${open ? "max-h-[250px]" : "max-h-0"} overflow-hidden `}>
+        <div className="border rounded-lg bg-gray-50 ">
           <div className="p-4">
             {toc.map((item) => (
               <Link
@@ -127,9 +131,7 @@ const BlogDescription = ({ blog }) => {
         <div className="p-4">
           <div className="flex justify-between mb-4 border-b pb-3">
             <h3 className="font-semibold">{`Menu`}</h3>
-            <button onClick={() => setSidebarOpen(false)}>
-              <IoClose />
-            </button>
+            <button onClick={() => setSidebarOpen(false)}> <IoClose /></button>
           </div>
           <SideBarCategory menuItems={sideBarCategory} />
         </div>
@@ -139,27 +141,37 @@ const BlogDescription = ({ blog }) => {
       <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr_300px] gap-6 py-4">
         {/* LEFT SIDEBAR */}
         <div className="hidden lg:block  gap-2">
-          <div className="flex gap-2 items-center mb-6">
-            <p className="responsive-text">{`Share`}</p>
-            <Link href="https://www.facebook.com/" target="_blank"><FaFacebookF className="text-[20px]" /></Link>
-            <Link href="https://x.com/" target="_blank"><FaTwitter className="text-[20px]" /></Link>
-            <Link href="https://linkedin.com/" target="_blank"><FaLinkedinIn className="text-[20px]" /></Link>
-            <Link href="https://pinterest.com/" target="_blank"><FaPinterestP className="text-[20px]" /></Link>
-            <Link href="https://tumblr.com/" target="_blank"><FaTumblr className="text-[20px]" /></Link>
-            <Link href="https://instagram.com/" target="_blank"><RiInstagramFill className="text-[25px]" /></Link>
-          </div>
-          <section className="border rounded-lg p-4 bg-gray-50 mb-4">
-            <h3 className="font-semibold mb-3">{`Table of Contents`}</h3>
-            {toc.map((item) => (
-              <Link key={item.id} href={`#${item.id}`}
-                className={`block py-1.5 px-2 rounded hover:bg-blue-50 ${item.level === "h3" ? "pl-6 text-gray-600" : ""}`}>
-                {item.text}
-              </Link>
-            ))}
-          </section>
+          <div className="sticky top-10 z-10 space-y-4">
+            <div className="flex gap-2 items-center mb-6">
+              <p className="responsive-text">{`Share`}</p>
+              <Link href="https://www.facebook.com/" target="_blank"><FaFacebookF className="text-[20px]" /></Link>
+              <Link href="https://x.com/" target="_blank"><FaTwitter className="text-[20px]" /></Link>
+              <Link href="https://linkedin.com/" target="_blank"><FaLinkedinIn className="text-[20px]" /></Link>
+              <Link href="https://pinterest.com/" target="_blank"><FaPinterestP className="text-[20px]" /></Link>
+              <Link href="https://tumblr.com/" target="_blank"><FaTumblr className="text-[20px]" /></Link>
+              <Link href="https://instagram.com/" target="_blank"><RiInstagramFill className="text-[25px]" /></Link>
+            </div>
+            <section className="border rounded-lg bg-gray-50 mb-4 shadow-sm">
+              <button onClick={() => setDesktopTocOpen(!desktopTocOpen)}
+                className="w-full flex items-center justify-between p-4 hover:bg-gray-100 transition-colors rounded-t-lg">
+                <h3 className="font-semibold">{`Table of Contents`}</h3>
+                {desktopTocOpen ? <IoChevronUp className="text-lg" /> : <IoChevronDown className="text-lg" />}
+              </button>
+              <div className={`transition-all duration-300 ease-in-out ${desktopTocOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"} overflow-hidden`}>
+                <div className="max-h-[450px] overflow-y-auto px-4 pb-4">
+                  {toc.map((item) => (
+                    <Link key={item.id} href={`#${item.id}`}
+                      className={`block py-1.5 px-2 rounded hover:bg-blue-50 transition-colors ${item.level === "h3" ? "pl-6 text-gray-600" : ""}`}>
+                      {item.text}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </section>
 
-          <div className="bg-gray-100 p-4 rounded-lg">
-            <SideBarCategory menuItems={sideBarCategory} />
+            <div className="bg-gray-100 p-4 rounded-lg">
+              <SideBarCategory menuItems={sideBarCategory} />
+            </div>
           </div>
         </div>
 
@@ -183,25 +195,25 @@ const BlogDescription = ({ blog }) => {
             </div>
           )}
 
-          {/* <div className=" no-tailwind">
-        <div
-          className="discriptionContent"
-         dangerouslySetInnerHTML={{ __html: html }}
-        ></div>
-      </div> */}
-          <div className="">
-            <div
-              className="discriptionContent"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
+          <div className="py-3 no-tailwind">
+            <div className="discriptionContent "
+              dangerouslySetInnerHTML={{ __html: html }} />
           </div>
+          {Array.isArray(blog?.faq) &&
+            blog?.faq?.length > 0 &&
+            blog?.faq?.[0]?.question?.length > 0 && (
+              <div className="mt-8">
+                <CommonFaq1 faqData={blog?.faq} />
+              </div>
+            )}
+          <CommentBox />
         </div>
 
         {/* RIGHT SIDEBAR */}
         <div className="hidden lg:block sticky top-24 space-y-6 self-start">
           {[1, 2, 3].map((i) => (
             <div key={i} className="border rounded-lg bg-white">
-              <p className="text-xs text-center border-b py-1">{`ADVERTISEMENT`}</p>
+              <p className="responsive-test dm text-center border-b py-1">{`ADVERTISEMENT`}</p>
               <div className="p-2 flex justify-center">
                 <Image
                   src="/Shiksologo.png"

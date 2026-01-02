@@ -95,10 +95,10 @@ const EducationalNewsDesc = async ({ params }) => {
           { title: data?.data?.blog?.meta?.title || "Blogs Detail" },
         ]} />
       <BlogDescription blog={data?.data?.blog} />
-      {Array.isArray(data?.data?.blog?.faq) && data?.data?.blog?.faq?.[0]?.question?.length > 0 && (
+      {/* {Array.isArray(data?.data?.blog?.faq) && data?.data?.blog?.faq?.[0]?.question?.length > 0 && (
         <CommonFaq faqData={data?.data?.blog?.faq} />
       )}
-      <CommentBox />
+      <CommentBox /> */}
       <AllNews />
     </div>
   )

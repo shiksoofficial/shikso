@@ -148,21 +148,23 @@ const Blog1 = ({ allBlogs = [], categories = [] }) => {
             <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr_300px] gap-6 py-4">
                 {/* LEFT SIDEBAR */}
                 <div className="hidden lg:block">
-                    <div className="flex gap-2 items-center mb-6 flex-wrap">
-                        <p className="responsive-text font-semibold">{`Share : `}</p>
-                        <Link href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><FaFacebookF className="hover:text-blue-600 transition-colors cursor-pointer" /> </Link>
-                        <Link href="https://x.com/" target="_blank" aria-label="Twitter"><FaTwitter className="hover:text-blue-400 transition-colors cursor-pointer" /> </Link>
-                        <Link href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><FaLinkedinIn className="hover:text-blue-700 transition-colors cursor-pointer" /> </Link>
-                        <Link href="https://pinterest.com/" target="_blank" aria-label="Pinterest"><FaPinterestP className="hover:text-red-600 transition-colors cursor-pointer" /></Link>
-                        <Link href="https://tumblr.com/" target="_blank" aria-label="Tumblr"><FaTumblr className="hover:text-blue-900 transition-colors cursor-pointer" /> </Link>
-                        <Link href="https://instagram.com/" target="_blank" aria-label="Instagram"> <RiInstagramFill className="hover:text-pink-600 transition-colors cursor-pointer" /></Link>
-                    </div>
-                    <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-lg sticky top-24 border border-gray-200">
-                        <SideBarCategory
-                            menuItems={sideBarCategory}
-                            onCategoryClick={handleCategoryClick}
-                            selectedCategory={selectedCategory}
-                        />
+                    <div className="sticky top-20 z-10 space-y-4">
+                        <div className="flex gap-2 items-center mb-6 flex-wrap">
+                            <p className="responsive-text font-semibold">{`Share : `}</p>
+                            <Link href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><FaFacebookF className="hover:text-blue-600 transition-colors cursor-pointer" /> </Link>
+                            <Link href="https://x.com/" target="_blank" aria-label="Twitter"><FaTwitter className="hover:text-blue-400 transition-colors cursor-pointer" /> </Link>
+                            <Link href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><FaLinkedinIn className="hover:text-blue-700 transition-colors cursor-pointer" /> </Link>
+                            <Link href="https://pinterest.com/" target="_blank" aria-label="Pinterest"><FaPinterestP className="hover:text-red-600 transition-colors cursor-pointer" /></Link>
+                            <Link href="https://tumblr.com/" target="_blank" aria-label="Tumblr"><FaTumblr className="hover:text-blue-900 transition-colors cursor-pointer" /> </Link>
+                            <Link href="https://instagram.com/" target="_blank" aria-label="Instagram"> <RiInstagramFill className="hover:text-pink-600 transition-colors cursor-pointer" /></Link>
+                        </div>
+                        <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-lg sticky top-24 border border-gray-200">
+                            <SideBarCategory
+                                menuItems={sideBarCategory}
+                                onCategoryClick={handleCategoryClick}
+                                selectedCategory={selectedCategory}
+                            />
+                        </div>
                     </div>
                 </div>
 

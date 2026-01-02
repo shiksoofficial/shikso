@@ -63,29 +63,27 @@ export default function LoginPage() {
               </Link>
             </div>
           </div>
-          <h2 className="text-center text-2xl font-semibold text-gray-900">
-            {` Welcome Back`}
-          </h2>
-          <p className="text-center text-gray-500 text-sm mt-1">
-            {`Sign in to continue to your account.`}
-          </p>
+          <h2 className="dm_sans text-center responsiveheading2 font-semibold text-gray-900">{`Welcome Back`} </h2>
+          <p className="dm_sans text-center text-gray-500 responsive-text mt-1">{`Sign in to continue to your account.`}  </p>
           <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
+            <label className="dm_sans responsive-text text-gray-500">{`Email`}</label>
             <CustomInput
-              label="Email"
               name="email"
               placeholder="Enter your email"
               register={register}
               errors={errors}
               validateRules={{ required: "Email is required" }}
+              className="border-1 border-gray-500 "
             />
+            <label className="dm_sans responsive-text text-gray-500">{`Password`}</label>
             <CustomInput
-              label="Password"
               name="password"
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               register={register}
               errors={errors}
               validateRules={{ required: "Password is required" }}
+              className="border-1 border-gray-500 "
               endIcon={
                 <span
                   onClick={() => setShowPassword(!showPassword)}
@@ -96,9 +94,7 @@ export default function LoginPage() {
               }
             />
             <div className="flex justify-end -mt-3">
-              <Link href="#" className="text-sm text-blue-600 hover:underline">
-                {`Forgot Password?`}
-              </Link>
+              <Link href="#" className="responsive-text dm_sans text-blue-600 hover:underline">{`Forgot Password?`} </Link>
             </div>
             <CustomButton
               type="submit"
@@ -108,11 +104,9 @@ export default function LoginPage() {
             >
               {`Log In`}
             </CustomButton>
-            <p className="text-center text-sm text-gray-600">
+            <p className="dm_sans text-center responsive-text text-gray-600">
               {`Don’t have an account?`}{" "}
-              <Link href="/signup" className="text-blue-600 font-medium hover:underline">
-                {`Sign Up`}
-              </Link>
+              <Link href="/signup" className="text-blue-600 font-medium hover:underline"> {`Sign Up`} </Link>
             </p>
           </form>
         </div>

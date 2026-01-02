@@ -26,12 +26,12 @@ export const metadata = {
         images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
     },
     robots: {
-    index: true,
-    follow: true,
-    "max-image-preview": "large",
-    "max-snippet": -1,
-    "max-video-preview": -1,
-  },
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+    },
 };
 
 const Page = () => {
@@ -39,8 +39,8 @@ const Page = () => {
         <>
             <CommonBanner1 title={"Cookies Policy"} breadcom={[{ title: "Cookies Policy" }]} />
             <div className="custom-container bg-white">
-                <p className="responsive-text text-[#1A2E33] mt-4 mb-7">
-                    <strong className="font-bold">{`Published Date : `}</strong> {` October 30, 2025`}{" "}
+                <p className="responsive-text text-[#1A2E33] mt-4 mb-7 dm_sans">
+                    <strong className="font-bold ">{`Published Date : `}</strong> {` October 30, 2025`}{" "}
                     | <strong className="font-bold">{` Last Updated : `}</strong>{" "}
                     {new Date().toLocaleDateString("en-US", {
                         year: "numeric",
@@ -58,61 +58,61 @@ const Page = () => {
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium mb-5 sm:mb-7 ">{` Please read this policy along with our [`}
                     <Link href="/privacy-policy" >{`Privacy Policy]`}</Link> {`and`}  <Link href="/terms-and-conditions" >{`[Terms & Conditions].`}</Link>
                 </p>
-                <h2 className="dm_sans dm_sans responsiveheading2 text-[#1A2E33] font-medium  mb-2">{`1. What Are Cookies?`}</h2>
+                <h2 className="dm_sans  responsiveheading2 text-[#1A2E33] font-medium  mb-2">{`1. What Are Cookies?`}</h2>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium ">{`Cookies are`} <strong className='font-bold'>{`small text files `}</strong>{` stored on your device (computer, tablet, or smartphone) when you visit a website.`}</p>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2   ">{` They help us recognize your device, remember preferences, and improve functionality by :`} </p>
-                <ul className="dm_san responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-3 ">
+                <ul className="dm_sans responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-3 ">
                     <li>{`Keeping you signed in`}</li>
                     <li>{` Saving your preferences (like language or theme)`}</li>
                     <li>{`Understanding how you use our site, and`}</li>
                     <li>{` Enhancing learning recommendations.`}</li>
                 </ul>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7">{`Cookies cannot access or read files from your computer and are safe to use.`}</p>
-                <h2 className="dm_sans dm_sans responsiveheading2 text-[#1A2E33] font-medium  mb-2">{`2. How We Use Cookies`}</h2>
+                <h2 className="dm_sans  responsiveheading2 text-[#1A2E33] font-medium  mb-2">{`2. How We Use Cookies`}</h2>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2   ">{`At`} <strong className='font-bold'>{`Shikso, `}</strong>{` cookies help us create a smoother and more personalized experience. We use them to :`}</p>
-                <ul className="dm_san responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
+                <ul className="dm_sans responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
                     <li>{`  Ensure the website functions properly and loads quickly`}</li>
                     <li>{` Personalize content and course recommendations`}</li>
                     <li>{` Analyze user activity to improve our Smart Learning tools`}</li>
                     <li>{`  Secure your login sessions and protect your account`}</li>
                     <li>{` Show relevant promotions or offers (where applicable)`}</li>
                 </ul>
-                <h2 className="dm_sans dm_sans responsiveheading2 text-[#1A2E33] font-medium  mb-2">{`3. Types of Cookies We Use`}</h2>
+                <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium  mb-2">{`3. Types of Cookies We Use`}</h2>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2   "><strong className='font-bold'>{`a. Essential Cookies `}</strong></p>
-                <ul className="dm_san responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
+                <ul className="dm_sans responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
                     <li>{`Required for website performance and basic functionality.`}</li>
                     <li>{`Enable secure login, navigation, and data submission.`}</li>
                     <li>{`Cannot be disabled through site settings.`}</li>
                 </ul>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2   "><strong className='font-bold'>{`b. Analytical & Performance Cookies `}</strong></p>
-                <ul className="dm_san responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
+                <ul className="dm_sans responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
                     <li>{`Help us understand how users interact with the platform.`}</li>
                     <li>{`Collect anonymous information about traffic, most-used features, and errors.`}</li>
                     <li>{`Used to improve overall learning experience.`}</li>
                 </ul>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2   "><strong className='font-bold'>{`c. Functional Cookies `}</strong></p>
-                <ul className="dm_san responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
+                <ul className="dm_sans responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
                     <li>{`Store user preferences such as language, region, and interface layout.`}</li>
                     <li>{`Make your next visit faster and more personalized.`}</li>
                 </ul>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2   "><strong className='font-bold'>{`d. Advertising & Targeting Cookies`}</strong></p>
-                <ul className="dm_san responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
+                <ul className="dm_sans responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
                     <li>{`Used (with your consent) to show relevant ads and offers based on browsing behavior.`}</li>
                     <li>{`Help us measure and improve our marketing efforts.`}</li>
                 </ul>
-                <h2 className="dm_sans dm_sans responsiveheading2 text-[#1A2E33] font-medium  mb-2">{`4. Third-Party Cookies`}</h2>
+                <h2 className="dm_sans  responsiveheading2 text-[#1A2E33] font-medium  mb-2">{`4. Third-Party Cookies`}</h2>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1">{`We may use trusted third-party tools that set their own cookies to provide analytics and functionality.`}</p>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2">{` These include :`} </p>
-                <ul className="dm_san responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
+                <ul className="dm_sans responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
                     <li><strong className='font-bold'>{`Google Analytics `}</strong>{` – to analyze site performance and visitor trends.`}</li>
                     <li><strong className='font-bold'>{`Meta (Facebook) Pixel  `}</strong>{` – for personalized ad campaigns.`}</li>
                     <li><strong className='font-bold'>{`YouTube / Vimeo `}</strong>{` – for embedded educational videos.`}</li>
                     <li><strong className='font-bold'>{`Payment Gateways `}</strong>{`  – such as Razorpay or Stripe, to process secure transactions`}</li>
                 </ul>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2"><strong className='font-bold'>{`Note : `}</strong>{`Shikso does not control third-party cookies. We recommend checking their respective privacy and cookies policies for more details.`}</p>
-                <h2 className="dm_sans dm_sans responsiveheading2 text-[#1A2E33] font-medium  mb-2">{`5. Data Collected by Cookies`}</h2>
+                <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium  mb-2">{`5. Data Collected by Cookies`}</h2>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2   ">{`Cookies may collect non-personal information like :`} </p>
-                <ul className="dm_san responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
+                <ul className="dm_sans responsive-text list-disc px-6 font-medium text-[#1A2E33] mb-5 sm:mb-7 ">
                     <li>{`Browser type and version`}</li>
                     <li>{`Device details (desktop or mobile)`}</li>
                     <li>{`IP address (for location-based settings)`}</li>
@@ -120,20 +120,20 @@ const Page = () => {
                     <li>{`Clicks, scrolls, or navigation paths.`}</li>
                 </ul>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-2   ">{`We do not use cookies to collect personal information such as names, email addresses, or passwords unless you provide them voluntarily (e.g., during signup).`}</p>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2   ">{`6. How Long We Keep Cookies`}</h2>
+                <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2   ">{`6. How Long We Keep Cookies`}</h2>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`Some cookies are `}<strong className='font-bold'>{` session-based `}</strong>{` (deleted when you close your browser), while others are `}<strong className='font-bold'>{` persistent `}</strong>{` (saved for a specific time).`}</p>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1 ">{` Persistent cookies help us remember your preferences for future visits.`}</p>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">{`  You can delete them anytime from your browser.`}</p>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2   ">{`7.  Data Security`}</h2>
+                <p className=" dm_sans responsive-text text-[#1A2E33]  font-medium  mb-1 ">{` Persistent cookies help us remember your preferences for future visits.`}</p>
+                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">{`  You can delete them anytime from your browser.`}</p>
+                <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2   ">{`7.  Data Security`}</h2>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1   ">{`We take user privacy seriously. All data collected through cookies is handled securely and in compliance with data protection regulations.`}</p>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1 ">{`  We never sell or trade cookie data with any third party.`}</p>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2   ">{`8. Updates to This Policy`}</h2>
+                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium  mb-1 ">{`  We never sell or trade cookie data with any third party.`}</p>
+                <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2   ">{`8. Updates to This Policy`}</h2>
                 <p className="dm_sans  responsive-text text-[#1A2E33]  font-medium  mb-1">{`We may update this `}<strong className='font-bold'>{` Cookies Policy `}</strong>{` to reflect changes in technology, law, or our services.`}</p>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-1 ">{`The latest version will always be available on this page with a new “Last Updated” date.`}</p>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">{`Please check periodically to stay informed.`}</p>
-                <h2 className="responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`9. Contact Us`}</h2>
-                <p className="responsive-text text-[#1A2E33]  font-medium  mb-2  ">{`If you have questions about how cookies are used on`}<strong className='font-bold'>{` Shikso `}</strong>{`, reach out to us at :`}</p>
-                <p className="responsive-text text-[#1A2E33]  font-medium mb-2  "><strong className='font-bold'>{`Shikso`}</strong></p>
+                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium  mb-1 ">{`The latest version will always be available on this page with a new “Last Updated” date.`}</p>
+                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium  mb-5 sm:mb-7 ">{`Please check periodically to stay informed.`}</p>
+                <h2 className="dm_sans responsiveheading2 text-[#1A2E33] font-medium mb-2  ">{`9. Contact Us`}</h2>
+                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium  mb-2  ">{`If you have questions about how cookies are used on`}<strong className='font-bold'>{` Shikso `}</strong>{`, reach out to us at :`}</p>
+                <p className="dm_sans responsive-text text-[#1A2E33]  font-medium mb-2  "><strong className='font-bold'>{`Shikso`}</strong></p>
                 <p className="dm_sans responsive-text text-[#1A2E33] font-medium mb-2 cursor-pointer items-center flex gap-1.5"><FaMapPin className='text-blue-500' />  <strong className='font-bold text-[#1A2E33]'>{`Address :`}</strong>{`SRP Co-Working Space, 48, E-5, Arera Colony, Bhopal, Madhya Pradesh, India – 462016`}</p>
                 <Link href="mailto:info@shikso.com">
                     <p className="dm_sans responsive-text text-blue-500 font-medium mb-2 cursor-pointer items-center flex gap-1.5">

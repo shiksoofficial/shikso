@@ -126,7 +126,7 @@ const BlogPage = async () => {
         console.error("Error fetching blogs:", error);
         return (
             <div className="custom-container py-10 text-center">
-                <p className="text-red-500">{`Failed to load blogs. Please try again later.`}</p>
+                <p className="text-red-500 dm_sans">{`Failed to load blogs. Please try again later.`}</p>
             </div>
         );
     }
