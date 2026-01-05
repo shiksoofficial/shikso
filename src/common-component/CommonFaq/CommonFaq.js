@@ -15,9 +15,7 @@ const CommonFaq = ({ faqData, title }) => {
       {/* Title */}
       <div className="flex gap-2 w-fit mb-5">
         <div className="w-[20px] h-[35px] bg-[#FFF46C] rounded-r-full"></div>
-        <h2 className="responsiveheading2 flex items-center">
-          FAQs {title}
-        </h2>
+        <h2 className="dm_sans responsiveheading2 flex items-center">{` FAQs`}{""} {title}</h2>
       </div>
 
       {/* FAQ LIST */}
@@ -27,8 +25,7 @@ const CommonFaq = ({ faqData, title }) => {
             onClick={() => handleChange(index)}
             className={`px-[15px] sm:px-[33px] md:px-[38px] py-[14px] sm:py-[15px] md:py-[17px] cursor-pointer transition-all
               ${expanded === index ? "text-[#484545]" : "text-[#1A2E33]"}
-            `}
-          >
+            `}>
             {/* Question */}
             <div className="flex gap-3 items-start">
               {expanded === index ? (
@@ -36,18 +33,13 @@ const CommonFaq = ({ faqData, title }) => {
               ) : (
                 <IoMdAdd className="w-8 h-8 shrink-0 bg-[#00D6FF] rounded-full p-1 text-[#FFF46C]" />
               )}
-
-              <h3 className="responsiveheading6 dm_sans font-medium">
-                {item.question}
-              </h3>
+              <h3 className="responsiveheading6 dm_sans font-medium">{item.question}</h3>
             </div>
 
             {/* Answer */}
             {expanded === index && (
               <div className="mt-2 md:mt-3 pl-11">
-                <p className="responsive-text dm_sans">
-                  {item.answer}
-                </p>
+                <p className="responsive-text dm_sans">{item.answer}</p>
               </div>
             )}
           </div>

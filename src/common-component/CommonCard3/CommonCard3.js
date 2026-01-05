@@ -13,7 +13,6 @@ const CommonCard3 = ({ icon, title, description, description1, buttonText, butto
         <div className="max-w-sm  bg-white rounded-2xl shadow p-4 text-center items-center 
     cursor-pointer  hover:bg-gray-200  focus:bg-gray-200  active:bg-gray-200  group-hover:bg-gray-200
      group-focus:bg-gray-200  group-active:bg-gray-200 ">
-
             <div className=" flex flex-nowrap mb-6 items-center gap-1.5">
                 <Image
                     src={imgSrc}
@@ -35,8 +34,7 @@ const CommonCard3 = ({ icon, title, description, description1, buttonText, butto
             </div>
             <CustomLinkBtn
                 href={link}
-                color={buttoncolor}
-            >
+                color={buttoncolor}>
                 {buttonText}
             </CustomLinkBtn>
         </div>

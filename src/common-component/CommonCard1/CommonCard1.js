@@ -34,8 +34,7 @@ const CommonCard1 = ({ icon, title, description, description1, buttonText, butto
       </div>
       <CustomLinkBtn
         href={link}
-        color={buttoncolor}
-      >
+        color={buttoncolor}>
         {buttonText}
       </CustomLinkBtn>
     </div>

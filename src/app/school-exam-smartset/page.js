@@ -42,10 +42,10 @@ const SchoolExamSmartSet = () => {
               <span className="text-2xl">🚀</span>
             </div>
           </div>
-          <h1 className="dm_sans text-2xl md:text-3xl font-bold text-[#1D1C1C] mb-3">{`Coming Soon`}</h1>
-          <p className="dm_sans text-[#484545] text-sm md:text-base mb-6">{` We’re working hard to bring you something amazing.Stay tuned!`}</p>
+          <h2 className="dm_sans responsiveheading2 font-bold text-[#1D1C1C] mb-3">{`Coming Soon`}</h2>
+          <p className="dm_sans responsive-text text-[#484545]  mb-6">{` We’re working hard to bring you something amazing.Stay tuned!`}</p>
           <div className="w-20 h-[3px] bg-[#00D6FF] mx-auto rounded-full mb-6" />
-          <p className="text-[#00D6FF] font-medium text-sm">{`Launching shortly 🚧`} </p>
+          <p className="text-[#00D6FF] font-medium dm_sans responsive-text">{`Launching shortly 🚧`} </p>
           
         </div>
       </div>

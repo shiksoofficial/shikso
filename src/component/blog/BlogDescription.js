@@ -83,13 +83,13 @@ const BlogDescription = ({ blog }) => {
   }, []);
 
   const SocialLinks = () => (
-    <div className="flex gap-2 sm:gap-3 items-center">
-      <Link href="https://www.facebook.com/" target="_blank" className="hover:text-blue-600"><FaFacebookF className="text-base sm:text-lg md:text-xl" /></Link>
-      <Link href="https://x.com/" target="_blank" className="hover:text-blue-400"><FaTwitter className="text-base sm:text-lg md:text-xl" /></Link>
-      <Link href="https://linkedin.com/" target="_blank" className="hover:text-blue-700"><FaLinkedinIn className="text-base sm:text-lg md:text-xl" /></Link>
-      <Link href="https://pinterest.com/" target="_blank" className="hover:text-red-600"><FaPinterestP className="text-base sm:text-lg md:text-xl" /></Link>
-      <Link href="https://tumblr.com/" target="_blank" className="hover:text-blue-500"><FaTumblr className="text-base sm:text-lg md:text-xl" /></Link>
-      <Link href="https://instagram.com/" target="_blank" className="hover:text-pink-600"><RiInstagramFill className="text-lg sm:text-xl md:text-2xl" /></Link>
+    <div className="flex gap-2 sm:gap-3 justify-items-end">
+      <Link href="https://www.facebook.com/" target="_blank" className="hover:text-blue-600"><FaFacebookF className="text-base sm:text-lg " /></Link>
+      <Link href="https://x.com/" target="_blank" className="hover:text-blue-400"><FaTwitter className="text-base sm:text-lg " /></Link>
+      <Link href="https://linkedin.com/" target="_blank" className="hover:text-blue-700"><FaLinkedinIn className="text-base sm:text-lg " /></Link>
+      <Link href="https://pinterest.com/" target="_blank" className="hover:text-red-600"><FaPinterestP className="text-base sm:text-lg " /></Link>
+      <Link href="https://tumblr.com/" target="_blank" className="hover:text-blue-500"><FaTumblr className="text-base sm:text-lg " /></Link>
+      <Link href="https://instagram.com/" target="_blank" className="hover:text-pink-600"><RiInstagramFill className="text-lg sm:text-xl " /></Link>
     </div>
   );
 
@@ -97,7 +97,7 @@ const BlogDescription = ({ blog }) => {
     <>
       {[1, 2, 3].map((i) => (
         <div key={i} className="border rounded-lg bg-white shadow-sm overflow-hidden">
-          <p className="text-xs sm:text-sm font-semibold text-center border-b py-2 bg-gray-50">ADVERTISEMENT</p>
+          <p className="text-xs sm:text-sm font-semibold text-center border-b py-2 bg-gray-50">{`ADVERTISEMENT`}</p>
           <div className="p-3 flex justify-center">
             <Image src="/Shiksologo.png" width={300} height={250} alt={`Advertisement ${i}`} className="w-full h-auto max-w-[300px]" />
           </div>
@@ -110,7 +110,7 @@ const BlogDescription = ({ blog }) => {
   const TocList = ({ onItemClick }) => (
     <div className="max-h-[300px] lg:max-h-[450px] overflow-y-auto px-3 pb-3">
       {toc.length === 0 ? (
-        <p className="text-sm text-gray-500 py-2">No headings found</p>
+        <p className="text-sm text-gray-500 py-2">{`No headings found`}</p>
       ) : (
         toc.map((item) => (
           <a
@@ -141,9 +141,8 @@ const BlogDescription = ({ blog }) => {
           </button>
           <button
             onClick={() => setOpen(!open)}
-            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-sm font-semibold text-blue-700"
-          >
-            Table of Contents
+            className="flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-sm font-semibold text-blue-700">
+            {` Table of Contents`}
             <span className="w-5 h-5 flex items-center justify-center bg-blue-200 rounded-full text-xs">
               {open ? "−" : "+"}
             </span>
@@ -176,7 +175,7 @@ const BlogDescription = ({ blog }) => {
         <aside className="hidden lg:block" aria-label="Sidebar">
           <div className="sticky top-10 space-y-4">
             <div className="flex gap-2 items-center p-3 bg-gray-50 rounded-lg">
-              <p className="font-semibold text-sm mr-1">Share:</p>
+              <p className="font-semibold text-sm mr-1">{`Share : `}</p>
               <SocialLinks />
             </div>
             {/* Desktop TOC */}
@@ -185,7 +184,7 @@ const BlogDescription = ({ blog }) => {
                 onClick={() => setDesktopTocOpen(!desktopTocOpen)}
                 className="w-full flex items-center justify-between p-3 hover:bg-gray-100 rounded-t-lg"
               >
-                <h3 className="font-semibold text-sm">Table of Contents</h3>
+                <h3 className="font-semibold text-sm">{`Table of Contents`}</h3>
                 {desktopTocOpen ? <IoChevronUp /> : <IoChevronDown />}
               </button>
               {desktopTocOpen && <TocList />}
@@ -198,7 +197,7 @@ const BlogDescription = ({ blog }) => {
         {/* Main Content */}
         <main className="min-w-0 overflow-hidden">
           {blog?.meta?.description && (
-            <p className="mb-4 p-4 bg-blue-50 rounded-lg text-sm text-gray-700">
+            <p className="mb-4 p-4 bg-blue-50 rounded-lg dm_sans responsive-text text-gray-700">
               {blog.meta.description}
             </p>
           )}

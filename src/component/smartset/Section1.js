@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import TestSeriesCard from '@/common-component/TestSeriesCard/TestSeriesCard';
 import { apiClient2 } from "@/lib/api-client";
+import axios from 'axios'
 
 const SmallLoader = () => {
   return (

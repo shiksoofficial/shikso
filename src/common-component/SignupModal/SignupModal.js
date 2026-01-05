@@ -104,10 +104,10 @@ const SignupModal = ({ open, setOpen, onSwitchToLogin }) => {
           {/* Modal Content */}
           <div className="p-6 md:p-8">
             
-            <h2 className="text-center text-3xl font-semibold text-gray-900 mb-1">
+            <h2 className="text-center dm_sans responsiveheading2 font-semibold text-gray-900 mb-1">
               {`Create Account`}
             </h2>
-            <p className="text-center text-gray-500 text-sm mb-6">
+            <p className="text-center text-gray-500 dm_sans responsive-text mb-6">
               Already have an account?{" "}
               <button
                 type="button"
@@ -164,7 +164,7 @@ const SignupModal = ({ open, setOpen, onSwitchToLogin }) => {
                 }
               />
               <div>
-                <label className="text-sm font-medium text-gray-700">
+                <label className="dm_sans responsive-text font-medium text-gray-700">
                   Mobile Number
                 </label>
                 <div className="flex gap-2 mt-1">
@@ -172,7 +172,7 @@ const SignupModal = ({ open, setOpen, onSwitchToLogin }) => {
                     type="text"
                     value="+91"
                     readOnly
-                    className="w-16 p-3 rounded-lg border border-gray-300 bg-gray-100 text-center text-sm"
+                    className="w-16 p-3 rounded-lg border border-gray-300 bg-gray-100 text-center dm_sans responsive-text"
                   />
                   <CustomInput
                     name="mobile"
@@ -199,7 +199,7 @@ const SignupModal = ({ open, setOpen, onSwitchToLogin }) => {
                 Sign Up
               </CustomButton>
             </form>
-            <p className="text-center text-xs text-gray-500 mt-4">
+            <p className="dm_sans text-center text-xs text-gray-500 mt-4">
               By signing up, you agree to our{" "}
               <Link
                 href="/terms-and-conditions"

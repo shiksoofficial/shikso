@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Advertisement = ({
-  ads = [],               // ✅ array of ads
-  topOffset = "top-24",   // sticky offset
+  ads = [],               
+  topOffset = "top-24",   
 }) => {
   if (!ads.length) return null;
 

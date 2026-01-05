@@ -95,7 +95,7 @@ const Footer = () => {
                   <Link
                     key={index}
                     href={link.url}
-                    className={`text-sm md:text-base  text-white hover:text-[#FFF46C] transition-colors ${pathname === link.url ? "text-red-500 underline" : ""
+                    className={`dm_sans responsive-text text-white hover:text-[#FFF46C] transition-colors ${pathname === link.url ? "text-red-500 underline" : ""
                       }`}
                   >
                     {link.label}
@@ -116,7 +116,7 @@ const Footer = () => {
                   <Link
                     key={index}
                     href={link.url}
-                    className={`text-sm md:text-base  text-white hover:text-[#FFF46C] transition-colors ${pathname === link.url ? "text-red-500 underline" : ""
+                    className={`dm_sans responsive-text  text-white hover:text-[#FFF46C] transition-colors ${pathname === link.url ? "text-red-500 underline" : ""
                       }`}
                   >
                     {link.label}
@@ -133,7 +133,7 @@ const Footer = () => {
             </div>
             {isContactInfoOpen && (
               <>
-                <div className="flex items-center gap-3.5 text-sm md:text-base">
+                <div className="flex items-center gap-3.5 dm_sans responsive-text">
                   <div className="relative">
                     <Link
                       href={`https://wa.me/${footerData.contactInfo.phone.replace(
@@ -159,27 +159,27 @@ const Footer = () => {
                     {footerData.contactInfo.phone}
                   </Link>
                 </div>
-                <div className="flex items-center gap-3.5 text-sm md:text-base mt-3">
+                <div className="flex items-center gap-3.5 dm_sans responsive-text mt-3">
                   <div className="relative">
                     <Link
                       href={`mailto:${footerData.contactInfo.email}`}
-                      className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
+                      className=" hover:underline cursor-pointer dm_sans responsive-text"
                     >
                       <RiTelegram2Fill size={28} />
                     </Link>
                   </div>
                   <Link
                     href={`mailto:${footerData.contactInfo.email}`}
-                    className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
+                    className=" hover:underline cursor-pointer dm_sans responsive-text"
                   >
                     {footerData.contactInfo.email}
                   </Link>
                 </div>
-                <div className="flex items-center gap-3.5 text-sm md:text-base mt-3">
+                <div className="flex items-center gap-3.5 dm_sans responsive-text mt-3">
                   <div className="relative">
                     <Link
                       href={`https://www.google.com/maps?q=${encodeURIComponent(footerData.contactInfo.address)}`}
-                      className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
+                      className=" hover:underline cursor-pointer dm_sans responsive-text"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="address link"
@@ -190,7 +190,7 @@ const Footer = () => {
 
                   <Link
                     href={`https://www.google.com/maps?q=${encodeURIComponent(footerData.contactInfo.address)}`}
-                    className="dm_sans hover:underline cursor-pointer text-sm md:text-sm lg:text-base"
+                    className=" hover:underline cursor-pointer dm_sans responsive-text"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="address link"
@@ -239,7 +239,7 @@ const Footer = () => {
 
       </div>
       <div className="bg-white">
-        <div className=" custom-container flex flex-col md:flex-col lg:flex-row   justify-between items-center text-sm md:text-base py-6  space-y-2 md:space-y-2 lg:space-y-0">
+        <div className=" custom-container flex flex-col md:flex-col lg:flex-row   justify-between items-center dm_sans responsive-text py-6  space-y-2 md:space-y-2 lg:space-y-0">
           <div className=" ">
             <Link href="/">
               <Image

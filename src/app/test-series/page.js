@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { apiClient2 } from "@/lib/api-client";
 
 const TestSeriesPage = ({ params }) => {
-  const { id } = params; // ❗ unchanged
+  const { id } = params; 
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -18,12 +18,12 @@ const TestSeriesPage = ({ params }) => {
     const fetchExams = async () => {
       try {
         const res = await apiClient2.get("/exam/exam-list", {
-          params: { series_id: id }, // ❗ unchanged
+          params: { series_id: id },
         });
 
         console.log("EXAM LIST RESPONSE:", res.data);
 
-        // ✅ FIX: API returns object OR array (NO data wrapper)
+        //  API returns object OR array (NO data wrapper)
         const rawData = res.data;
         const exams = Array.isArray(rawData) ? rawData : [rawData];
 

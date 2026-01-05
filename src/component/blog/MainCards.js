@@ -155,7 +155,7 @@ const MainCards = ({ blogs = [] }) => {
                     <Link href={getItemUrl(latest)} className="block">
                         <div className="relative h-[320px]">
                             <Image
-                                src={val?.featuredImage?.url || " https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"}
+                                src={latest?.featuredImage?.url || "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"}
                                 alt={latest?.title || ""}
                                 fill
                                 priority
@@ -184,7 +184,7 @@ const MainCards = ({ blogs = [] }) => {
                     onClick={() => window.location.href = getItemUrl(blog)} >
                     <div className="relative w-28 h-20 rounded overflow-hidden flex-shrink-0">
                         <Image
-                            src={val?.featuredImage?.url || " https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"}
+                            src={blog?.featuredImage?.url || "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"}
                             alt={blog?.title || ""}
                             fill
                             className="object-cover"
