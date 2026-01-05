@@ -27,7 +27,7 @@ export default function HeroSection({
     setIsModalOpen(true);
   };
 
-  const FALLBACK_IMAGE = "/Shiksologo.png";
+  const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
   const [imgSrc, setImgSrc] = useState(image);
 
   return (

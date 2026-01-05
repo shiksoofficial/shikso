@@ -11,9 +11,9 @@ const subjects = ["Maths", "Mental Ability", "English", "Hindi", "General Knowle
 const topics = ["Chapter 1", "Chapter 2", "Chapter 3"];
 
 export default function PracticeSets1() {
-    const FALLBACK_IMAGE = "/Shiksologo.png";
+    const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
     const [imgSrc, setImgSrc] = useState("/aboutus/aboutus1.webp");
-    
+
     const [selectedClass, setSelectedClass] = useState(null);
     const [selectedSubject, setSelectedSubject] = useState(null);
     const [selectedTopic, setSelectedTopic] = useState(null);
@@ -130,7 +130,7 @@ export default function PracticeSets1() {
                             alt="Practice Set"
                             fill
                             className="object-cover"
-                             onError={() => {
+                            onError={() => {
                                 if (imgSrc !== FALLBACK_IMAGE) {
                                     setImgSrc(FALLBACK_IMAGE);
                                 }

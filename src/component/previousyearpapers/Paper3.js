@@ -13,13 +13,13 @@ const Paper3 = ({
   cards = [],
 }) => {
 
-   const FALLBACK_IMAGE = "/Shiksologo.png";
-  
-      const [imgSrcMap, setImgSrcMap] = useState(() =>
-          Object.fromEntries(
-              cards.map((item) => [item.id, item.img])
-          )
-      );
+  const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
+
+  const [imgSrcMap, setImgSrcMap] = useState(() =>
+    Object.fromEntries(
+      cards.map((item) => [item.id, item.img])
+    )
+  );
 
   return (
     <div className="custom-container py-6 md:py-10">
@@ -51,16 +51,16 @@ const Paper3 = ({
               >
                 <div className="relative w-full h-[200px] max-h-[250px]">
                   <Image
-                   src={imgSrcMap[item.id] || FALLBACK_IMAGE} 
-                                alt={item.alt || "image"}
+                    src={imgSrcMap[item.id] || FALLBACK_IMAGE}
+                    alt={item.alt || "image"}
                     fill
                     className="object-cover"
-                      onError={() => {                          
-                                    setImgSrcMap((prev) => ({
-                                        ...prev,
-                                        [item.id]: FALLBACK_IMAGE,
-                                    }));
-                                }}
+                    onError={() => {
+                      setImgSrcMap((prev) => ({
+                        ...prev,
+                        [item.id]: FALLBACK_IMAGE,
+                      }));
+                    }}
                   />
                 </div>
 

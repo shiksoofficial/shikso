@@ -1,6 +1,7 @@
 export const dynamic = "force-static";
 export const revalidate = 3600;
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
+import BlogCard from '@/component/blog/BlogCard';
 // import CommonFaq from '@/common-component/CommonFaq/CommonFaq'
 import BlogDescription from '@/component/blog/BlogDescription'
 import LatestBlog from '@/component/blog/LatestBlog';
@@ -76,7 +77,7 @@ export async function generateMetadata({ params }) {
 
 const LIMIT = 4;
 
-const BlogDesc = async ({ params }) => {
+const BlogDesc = async ({ params, initialBlogs }) => {
   const page = 1;
   const res = await apiClient.get(`${BASE_URL_API}blogs/all/ed_tech?type=blog&status=Published&page=${page}&limit=${LIMIT}`,
     { cache: "no-store" }
@@ -94,7 +95,14 @@ const BlogDesc = async ({ params }) => {
 
   // Get the current blog data
   const currentBlog = data?.data?.blog;
-
+  const subtitle = (
+    <span className="flex gap-2">
+      {`More from`}{" "}
+      <span className="font-semibold text-blue-600 capitalize">
+        {currentBlog?.category?.name || currentBlog?.category}
+      </span>
+    </span>
+  );
   return (
     <div>
       <CommonBanner1
@@ -117,10 +125,31 @@ const BlogDesc = async ({ params }) => {
         )}
         <CommentBox />
       </div> */}
+      {/* <BlogCard
+        title="Suggested Blogs"              // Custom title
+        subtitle={subtitle}                  // Custom subtitle with category
+        currentBlogId={currentBlog?._id}     // Exclude current blog
+        filterByCategory={currentBlog?.category} // Filter by same category
+        limit={4}                            // Show 4 blogs
+        showCategory={true}                  // Show category badge
+        fetchOnMount={true}                  // Fetch data on mount
+        showActions={true}
+      /> */}
       <SuggestedBlogs currentBlog={currentBlog} />
+      {/* <BlogCard
+        title="Latest Blogs"           // Custom title
+        subtitle={null}                // No subtitle
+        currentBlogId={null}           // Don't exclude any blog
+        filterByCategory={null}        // Don't filter by category
+        limit={4}                      // Show 4 blogs
+        showCategory={false}           // Don't show category badge
+        initialBlogs={initialBlogs}    // Use server-side data if available
+        fetchOnMount={true}            // Fetch fresh data on mount
+        showActions={true}
+      /> */}
       <LatestBlog />
       <div className="custom-container py-4 md:py-8">
-      <SubscribeBox />
+        <SubscribeBox />
       </div>
     </div>
   )

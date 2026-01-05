@@ -70,7 +70,7 @@ function SuggestedBlogs({ currentBlog }) {
                             className="rounded-[10px] overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg cursor-pointer flex">
                             <div className="relative w-[100px] h-[110px] overflow-hidden m-2 shrink-0">
                                 <Image
-                                    src={val?.featuredImage?.url || "/placeholder.jpg"}
+                                    src={val?.featuredImage?.url || " https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"}
                                     fill
                                     quality={90}
                                     alt={val?.featuredImage?.alt || "Blog Image"}

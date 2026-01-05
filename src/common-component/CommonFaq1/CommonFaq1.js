@@ -10,7 +10,7 @@ const CommonFaq1 = ({ faqData, title }) => {
         setExpanded(expanded === index ? null : index);
     };
     return (
-        <div className="custom-container py-7 ">
+        <div className=" py-7 ">
             <div className='flex gap-2 w-fit m-auto'>
                 <div className="w-[20px] h-[35px] bg-[#FFF46C] rounded-r-full"></div>
                 <h2 className="responsiveheading3 mb-5 flex w-fit m-auto items-center gap-2">{`FAQs `}{""}{title}</h2>

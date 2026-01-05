@@ -48,7 +48,7 @@ const Section1 = () => {
   };
 
   useEffect(() => {
-    const fetchCategory = async () => {
+    const fetchCategory = async (data) => {
       try {
         const res = await apiClient2.get("/examcategory/exam-category");
         const categories = res.data?.data;

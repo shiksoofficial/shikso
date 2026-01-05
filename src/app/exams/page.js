@@ -5,7 +5,7 @@ import React from 'react';
 const cardsData = [
   {
     id: 1,
-    icon: "/aboutus/about-3-1.svg",
+    icon: "https://res.cloudinary.com/djxgpbncu/image/upload/v1767607858/about-3-1_ypjgks.svg",
     title: "Navodaya SmartSet",
     description: "Prepare smarter for the Jawahar Navodaya Vidyalaya Entrance Exam (JNVST) with Shikso’s advanced SmartSet.",
     // description1: " Includes previous papers, topic-wise practice, AI analytics, and gamified tests to make preparation easy, engaging, and result-oriented.",
@@ -16,7 +16,7 @@ const cardsData = [
   },
   {
     id: 2,
-    icon: "/aboutus/about-3-2.svg",
+    icon: "https://res.cloudinary.com/djxgpbncu/image/upload/v1767607859/about-3-2_pqp7nt.svg",
     title: "Sainik School SmartSet",
     description: "Get exam-ready for AISSEE 2026 using interactive tests, live performance tracking, and daily practice.",
     // description1: " Perfect for Class 6 & 9 aspirants — designed to make disciplined learning exciting and measurable.",
@@ -26,7 +26,7 @@ const cardsData = [
   },
   {
     id: 3,
-    icon: "/aboutus/about-3-3.svg",
+    icon: "https://res.cloudinary.com/djxgpbncu/image/upload/v1767607859/about-3-3_ztpcsv.svg",
     title: " School Exam SmartSet",
     description: "Shikso goes beyond entrance exams — our School Exam SmartSet helps CBSE & ICSE students master subjects through personalized question banks, concept quizzes, and analytics-driven improvement.",
     // description1: "“Better learning. Better scores. Better future.”",
@@ -39,7 +39,8 @@ const cardsData = [
 const About3 = () => {
   return (
     <>
-      <HeroSection imageurl="/aboutus/hero_1.jpg"
+      <HeroSection
+        image="https://res.cloudinary.com/djxgpbncu/image/upload/v1767608471/herobanner_qvlvdh.webp"
         title=" Welcome to Shikso – Your Child’s Smart Learning Companion"
         title2=" AI-Powered Education for Modern Students"
         paragraph=" Shikso is a next-generation smart learning platform that transforms traditional education into an interactive, data-driven experience. Designed for today’s students, parents, and schools, Shikso blends AI-based personalization, gamified practice, and performance analytics to create a learning journey that’s fun, effective, and future-ready."

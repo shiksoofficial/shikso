@@ -8,32 +8,32 @@ import "@splidejs/react-splide/css";
 const feedbackCard = [
     {
         id: 1,
-        title: "Aarav",
-        description: "The unlimited questions helped me build my confidence!",
+        title: " Radhika Sharma – Parent, Indore",
+        description: " “Shikso has completely changed the way my son studies. The gamified quizzes and progress reports make learning enjoyable and effective!”",
         img: "/aboutus/aboutus1.webp",
         alt: "paper",
         rating: 5,
     },
     {
         id: 2,
-        title: "Sana",
-        description: "Easy to use and very effective for my exam preparations.",
+        title: "Aman Verma – Class 8 Student, Lucknow",
+        description: " “I used Shikso SmartSet to prepare for my Navodaya exam. The AI-based practice system helped me understand my weak areas easily.”",
         img: "/icons/file.png",
         alt: "paper",
-        rating: 4,
+        rating: 5,
     },
     {
         id: 3,
-        title: "Kabir",
-        description: "I improved so much with regular practice!",
+        title: " Principal Meenakshi Rao – Green Valley School, Bhopal",
+        description: " “As an educator, I find Shikso’s platform revolutionary. It bridges the gap between classroom teaching and digital learning perfectly.”",
         img: "/aboutus/aboutus1.webp",
         alt: "paper",
-        rating: 3,
+        rating: 5,
     },
     {
         id: 4,
-        title: "Anaya",
-        description: "Very helpful and student-friendly interface!",
+        title: " Priya Gupta – Parent, Delhi",
+        description: " “The Shikso Smart Learning App is intuitive, interactive, and aligned with modern education standards. Highly recommended for all parents.”",
         img: "/aboutus/aboutus1.webp",
         alt: "paper",
         rating: 5,
@@ -41,7 +41,7 @@ const feedbackCard = [
 ];
 
 const Practicesets4 = () => {
-    const FALLBACK_IMAGE = "/Shiksologo.png";
+    const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
 
     const [imgSrcMap, setImgSrcMap] = useState(() =>
         Object.fromEntries(
@@ -78,35 +78,32 @@ const Practicesets4 = () => {
                                 },
                             }}
                             aria-label="Client Testimonials"
-                            className="w-full"
-                        >
+                            className="w-full">
                             {feedbackCard.map((item) => (
                                 <SplideSlide key={item.id}>
-                                    <div className="p-5 bg-[#EFEFEF] rounded-lg shadow-sm w-full max-w-[380px] mx-auto mb-9 ">
-                                        <div className="flex items-start justify-between ">
-                                            <div className="flex gap-4 items-center">
-                                                <Image
-                                                    src={imgSrcMap[item.id] || FALLBACK_IMAGE}
-                                                    alt={item.alt || "image"}
-                                                    width={60}
-                                                    height={60}
-                                                    className="rounded-full object-cover"
-                                                    onError={() => {
-                                                        setImgSrcMap((prev) => ({
-                                                            ...prev,
-                                                            [item.id]: FALLBACK_IMAGE,
-                                                        }));
-                                                    }}
-                                                />
-                                                <p className="font-semibold responsive-text">{item.title}</p>
-                                            </div>
+                                    <div className="bg-white rounded-xl shadow-md w-full max-w-[380px] mx-auto mb-9 h-[280px] p-5 flex flex-col">
+                                        <div className="flex items-center justify-between">
+                                            <Image
+                                                src={imgSrcMap[item.id] || FALLBACK_IMAGE}
+                                                alt={item.alt || "image"}
+                                                width={60}
+                                                height={70}
+                                                className="rounded-full object-cover ring-2 ring-[#00D6FF]"
+                                                onError={() => {
+                                                    setImgSrcMap((prev) => ({
+                                                        ...prev,
+                                                        [item.id]: FALLBACK_IMAGE,
+                                                    }));
+                                                }}
+                                            />
                                             <div className="flex gap-[2px] text-yellow-400">
                                                 {[...Array(item.rating)].map((_, i) => (
                                                     <FaStar key={i} size={14} />
                                                 ))}
                                             </div>
                                         </div>
-                                        <p className="text-[#1D1C1C] text-[16px] mt-2">{item.description}</p>
+                                        <p className="mt-3 font-semibold dm_sans text-[#1D1C1C] responsive-text">{item.title}</p>
+                                        <p className="mt-2 text-[#484545] text-[15px] leading-relaxed flex-grow">{item.description}</p>
                                     </div>
                                 </SplideSlide>
                             ))}

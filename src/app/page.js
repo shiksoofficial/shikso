@@ -45,7 +45,7 @@ export default function Home() {
         primaryBtnText="Start Learning"
         secondaryBtnText="View Courses"
         secondaryBtnLink="/explore"
-        image="/herobanner.webp"
+        image="https://res.cloudinary.com/djxgpbncu/image/upload/v1767608471/herobanner_qvlvdh.webp"
       />
       <Homepage1 />
       <About1 />

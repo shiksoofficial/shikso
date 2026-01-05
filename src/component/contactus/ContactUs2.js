@@ -3,8 +3,8 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 
 const ContactUs2 = () => {
-    const FALLBACK_IMAGE = "/Shiksologo.png";
-    const [imgSrc, setImgSrc] = useState("/aboutus/aboutus1.webp");
+    const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
+    const [imgSrc, setImgSrc] = useState("https://res.cloudinary.com/djxgpbncu/image/upload/v1767607861/aboutus1_xnwkdc.webp");
     return (
         <>
             <div className="custom-container py-6 md:py-10">
@@ -79,13 +79,25 @@ const ContactUs2 = () => {
                         <h3 className="dm_sans responsiveheading2 flex gap-2 items-center  mb-2">{`Get In Touch With Shikso`} </h3>
                     </div>
 
-                    <div className="grid grid-cols-12 gap-4 mt-2">
-                        <div className="col-span-12 sm:col-span-6 ">
+                    <div className="grid grid-cols-12 gap-4 mt-2 justify-between items-center">
+                        <div className="col-span-12 sm:col-span-7 ">
                             <p className="dm_sans text-[#484545] responsive-text mb-3">{`At Shikso, we’re reimagining education for the future — blending technology, creativity, and compassion.`}</p>
                             <p className="dm_sans text-[#484545] responsive-text">{` If you have questions, ideas, or just want to explore how Shikso can fit into your learning journey — we’re only a message away.`}</p>
                             <p className="dm_sans text-[#484545] responsive-text"><strong className='font-bold'>{`Fill out the form`}</strong>{` , and our team will get back to you faster than your next quiz streak! `}</p>
                         </div>
-                        <div className="col-span-12 sm:col-span-6 text-center"></div>
+                        <div className="col-span-12 sm:col-span-5 ">
+                            <Image
+                                src={imgSrc}
+                                alt="About us picture"
+                                width={250}
+                                height={330}
+                                onError={() => {
+                                    if (imgSrc !== FALLBACK_IMAGE) {
+                                        setImgSrc(FALLBACK_IMAGE);
+                                    }
+                                }}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

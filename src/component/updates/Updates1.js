@@ -4,9 +4,9 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 
 const Updates1 = () => {
-     const FALLBACK_IMAGE = "/Shiksologo.png";
-        const [imgSrc, setImgSrc] = useState("/updates/article.png");
-         const [imgSrch, setImgSrch] = useState("/updates/girl1.png");
+    const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
+    const [imgSrc, setImgSrc] = useState("https://res.cloudinary.com/djxgpbncu/image/upload/v1767607781/article_kb6sfq.png");
+    const [imgSrch, setImgSrch] = useState("https://res.cloudinary.com/djxgpbncu/image/upload/v1767607781/girl1_thfbql.png");
     return (
         <div className='bg-[#E5FBFF]'>
             <div className="custom-container py-6 md:py-10">
@@ -26,11 +26,11 @@ const Updates1 = () => {
                                     alt="About us picture"
                                     width={140}
                                     height={140}
-                                      onError={() => {
-                                if (imgSrc !== FALLBACK_IMAGE) {
-                                    setImgSrc(FALLBACK_IMAGE);
-                                }
-                            }}
+                                    onError={() => {
+                                        if (imgSrc !== FALLBACK_IMAGE) {
+                                            setImgSrc(FALLBACK_IMAGE);
+                                        }
+                                    }}
                                 />
                             </div>
                             </div>
@@ -41,19 +41,20 @@ const Updates1 = () => {
                         </div>
                         <hr className=" text-[#484545]" />
                         <div className="grid grid-cols-12 gap-2 md:gap-7 mt-2 md:mt-4 items-center">
-                            <div className="col-span-12 sm:col-span-4   "><div className='' >
-                                <Image
-                                    src={imgSrch}
-                                    alt="About us picture"
-                                    width={140}
-                                    height={140}
-                                      onError={() => {
-                                if (imgSrch !== FALLBACK_IMAGE) {
-                                    setImgSrch(FALLBACK_IMAGE);
-                                }
-                            }}
-                                />
-                            </div>
+                            <div className="col-span-12 sm:col-span-4 ">
+                                <div className=''>
+                                    <Image
+                                        src={imgSrch}
+                                        alt="About us picture"
+                                        width={140}
+                                        height={140}
+                                        onError={() => {
+                                            if (imgSrch !== FALLBACK_IMAGE) {
+                                                setImgSrch(FALLBACK_IMAGE);
+                                            }
+                                        }}
+                                    />
+                                </div>
                             </div>
                             <div className="col-span-12 sm:col-span-3 text-[#00D6FF] responsive-text  "><Link href="/educational-news" >{`Read News`}</Link></div>
                             <div className="col-span-12 sm:col-span-5 text-right">

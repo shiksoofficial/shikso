@@ -22,11 +22,11 @@ const testCard = [
 
 const Practicesets3 = () => {
 
-    const FALLBACK_IMAGE = "/Shiksologo.png";
+    const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
 
     const [imgSrcMap, setImgSrcMap] = useState(() =>
         Object.fromEntries(
-           testCard.map((item) => [item.id, item.img])
+            testCard.map((item) => [item.id, item.img])
         )
     );
 

@@ -85,8 +85,7 @@ const MainCards = ({ blogs = [] }) => {
                             e.stopPropagation();
                             toggleSave(blog._id);
                         }}
-                        className="hover:text-gray-700"
-                    >
+                        className="hover:text-gray-700">
                         {saved[blog._id] ? <FaBookmark className="text-blue-600" /> : <FaRegBookmark />}
                     </button>
                     <button
@@ -95,8 +94,7 @@ const MainCards = ({ blogs = [] }) => {
                             e.stopPropagation();
                             setShowShare(!showShare);
                         }}
-                        className="hover:text-gray-700"
-                    >
+                        className="hover:text-gray-700">
                         <FaShareAlt />
                     </button>
                 </div>
@@ -157,30 +155,22 @@ const MainCards = ({ blogs = [] }) => {
                     <Link href={getItemUrl(latest)} className="block">
                         <div className="relative h-[320px]">
                             <Image
-                                src={latest?.featuredImage?.url || "/placeholder.jpg"}
+                                src={val?.featuredImage?.url || " https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"}
                                 alt={latest?.title || ""}
                                 fill
                                 priority
                                 className="object-cover"
                             />
                             <div className="absolute top-3 left-3">
-                                <p className={`px-2 py-1 text-xs font-bold rounded m-0 ${badgeClass(latest)} text-white`}>
-                                    {getTypeLabel(latest)}
-                                </p>
+                                <p className={`px-2 py-1 text-xs font-bold rounded m-0 ${badgeClass(latest)} text-white`}>{getTypeLabel(latest)}</p>
                             </div>
                         </div>
                     </Link>
                     <div className="p-4">
                         <Link href={getItemUrl(latest)}>
-                            <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(latest)}`}>
-                                {getCategoryName(latest?.category)}
-                            </p>
-                            <h2 className="text-xl font-bold mt-2 leading-snug text-gray-900">
-                                {latest?.title}
-                            </h2>
-                            <p className="text-gray-600 text-sm mt-2 line-clamp-2 m-0">
-                                {latest?.meta?.description}
-                            </p>
+                            <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(latest)}`}> {getCategoryName(latest?.category)} </p>
+                            <h2 className="text-xl font-bold mt-2 leading-snug text-gray-900"> {latest?.title} </h2>
+                            <p className="text-gray-600 text-sm mt-2 line-clamp-2 m-0">{latest?.meta?.description}</p>
                         </Link>
                         <ActionIcons blog={latest} />
                     </div>
@@ -189,31 +179,23 @@ const MainCards = ({ blogs = [] }) => {
 
             {/* SMALL BLOGS/NEWS */}
             {others.slice(0, 5).map((blog) => (
-                <div
-                    key={blog?._id}
+                <div key={blog?._id}
                     className="flex gap-3 bg-white p-3 rounded-lg shadow hover:shadow-md transition cursor-pointer"
-                    onClick={() => window.location.href = getItemUrl(blog)}
-                >
+                    onClick={() => window.location.href = getItemUrl(blog)} >
                     <div className="relative w-28 h-20 rounded overflow-hidden flex-shrink-0">
                         <Image
-                            src={blog?.featuredImage?.url || "/placeholder.jpg"}
+                            src={val?.featuredImage?.url || " https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"}
                             alt={blog?.title || ""}
                             fill
                             className="object-cover"
                         />
                         <div className="absolute top-1 left-1">
-                            <p className={`px-1 py-0.5 text-[10px] font-bold rounded m-0 ${badgeClass(blog)} text-white`}>
-                                {getTypeLabel(blog)}
-                            </p>
+                            <p className={`px-1 py-0.5 text-[10px] font-bold rounded m-0 ${badgeClass(blog)} text-white`}>{getTypeLabel(blog)}</p>
                         </div>
                     </div>
                     <div className="flex-1 min-w-0">
-                        <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(blog)}`}>
-                            {getCategoryName(blog?.category)}
-                        </p>
-                        <h3 className="text-sm font-semibold leading-snug mt-1 line-clamp-2 text-gray-900">
-                            {blog?.title}
-                        </h3>
+                        <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(blog)}`}>{getCategoryName(blog?.category)}</p>
+                        <h3 className="text-sm font-semibold leading-snug mt-1 line-clamp-2 text-gray-900">{blog?.title}</h3>
                         <ActionIcons blog={blog} />
                     </div>
                 </div>

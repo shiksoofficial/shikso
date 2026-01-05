@@ -5,29 +5,29 @@ import React, { useState } from "react";
 const sectionData =
     [
         {
-            img: "/smartset/man.png",
+            img: "https://res.cloudinary.com/djxgpbncu/image/upload/v1767607837/man_mzbpds.png",
             label: "Interactive Learning",
             value: "Topic-wise learning easy.",
         },
         {
-            img: "/smartset/rocket.png",
+            img: "https://res.cloudinary.com/djxgpbncu/image/upload/v1767607837/rocket_tltw4f.png",
             label: "Gamified Rewards",
             value: "Building daily motivation.",
         },
         {
-            img: "/smartset/girl.png",
+            img: "https://res.cloudinary.com/djxgpbncu/image/upload/v1767607837/girl_w4cho6.png",
             label: "AI Suggestions",
             value: "Fixing mistakes effectively.",
         },
         {
-            img: "/smartset/man.png",
+            img: "https://res.cloudinary.com/djxgpbncu/image/upload/v1767607837/man_mzbpds.png",
             label: "Daily Progress Tracking",
             value: "Stay on top of your studies.",
         },
     ];
 
 const Section4 = () => {
-    const FALLBACK_IMAGE = "/Shiksologo.png";
+    const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
 
     const [imgSrcMap, setImgSrcMap] = useState(() =>
         Object.fromEntries(

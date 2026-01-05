@@ -18,26 +18,16 @@ const MockTests1 = ({
         <div className="col-span-12 md:col-span-6">
           <div className="flex gap-2 items-center mb-4">
             <div className="w-[20px] h-[35px] bg-[#FFF46C] rounded-r-full" />
-            <h2 className="dm_sans responsiveheading2 text-[#1D1C1C]">
-              {title}
-            </h2>
+            <h2 className="dm_sans responsiveheading2 text-[#1D1C1C]">{title}</h2>
           </div>
-
-          <p className="dm_sans text-[#484545] responsive-text whitespace-normal">
-            {description}
-          </p>
+          <p className="dm_sans text-[#484545] responsive-text whitespace-normal">{description}</p>
         </div>
-
         <div className="col-span-12 md:col-span-6 flex justify-center">
           <div>
-            <p className="text-[16px] font-bold mb-2 text-[#1d1c1c]">
-              {label}
-            </p>
-
+            <p className="text-[16px] font-bold mb-2 text-[#1d1c1c]">{label}</p>
             <div className="flex gap-3 flex-wrap">
               {options.map((item) => (
-                <button
-                  key={item}
+                <button key={item}
                   onClick={() => setSelectedOption(item)}
                   className={`px-6 py-2 rounded-sm transition
                     ${selectedOption === item
@@ -53,8 +43,7 @@ const MockTests1 = ({
             <CustomButton
               className="mt-5 bg-[#FFF46C] px-6 py-2 font-medium hover:bg-[#ffe447]"
               disabled={!selectedOption}
-              onClick={() => window.location.href = "/test-series"}
-            >
+              onClick={() => window.location.href = "/test-series"} >
               {buttonText}
             </CustomButton>
           </div>
