@@ -88,7 +88,7 @@ const Blog2 = ({ initialBlogs = [] }) => {
                                     >
                                         <div className="relative w-full h-56 rounded-xl overflow-hidden">
                                             <Image
-                                                src={val?.featuredImage?.url || "/images/blog1.png"}
+                                                src={val?.featuredImage?.url || "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"}
                                                 fill
                                                 quality={90}
                                                 alt={val?.featuredImage?.alt || "Blog Image"}

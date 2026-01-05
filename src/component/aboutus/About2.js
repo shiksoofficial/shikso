@@ -4,7 +4,7 @@ import React from 'react'
 const cardsData = [
   {
     id: 1,
-    icon: "/aboutus/about-3-1.svg",
+    icon: "https://res.cloudinary.com/djxgpbncu/image/upload/v1767607858/about-3-1_ypjgks.svg",
     founder: "Founder",
     title: "1- Gamified Learning Platform",
     points: [
@@ -15,7 +15,7 @@ const cardsData = [
   },
   {
     id: 2,
-    icon: "/aboutus/about-3-1.svg",
+    icon: "https://res.cloudinary.com/djxgpbncu/image/upload/v1767607858/about-3-1_ypjgks.svg",
     founder: "Founder",
     title: "2- AI Powered Education Platform",
     points: [
@@ -26,7 +26,7 @@ const cardsData = [
   },
   {
     id: 3,
-    icon: "/aboutus/about-3-1.svg",
+    icon: "https://res.cloudinary.com/djxgpbncu/image/upload/v1767607858/about-3-1_ypjgks.svg",
     founder: "Founder",
     title: "3- Adaptive Learning Platform",
     points: [

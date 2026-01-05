@@ -72,9 +72,9 @@ const SideBarCategory = ({ width = "240px", onCategorySelect, selectedCategory }
     };
 
     return (
-        <div className="h-screen overflow-y-auto  bg-[#f4f7f8] mt-4">
+        <div className="h-screen overflow-y-auto   mt-4">
             <div className="px-3 py-2 mb-2 border-b border-gray-200">
-                <h3 className="text-lg font-bold text-gray-800">{`Categories`}</h3>
+                <h3 className="dm_sans responsiveheading5 font-bold text-gray-800">{`Categories`}</h3>
             </div>
             {loading && (
                 <div className="flex justify-center py-4">
@@ -88,15 +88,15 @@ const SideBarCategory = ({ width = "240px", onCategorySelect, selectedCategory }
                         : "hover:bg-white"
                         }`}>
                     <div className="flex items-center gap-3">
-                        <p className={`w-8 h-8 flex items-center shrink-0 justify-center rounded-full shadow text-lg m-0 ${selectedCategory === null
+                        <p className={`dm_sans w-8 h-8 flex items-center shrink-0 justify-center rounded-full shadow responsiveheading6 m-0 ${selectedCategory === null
                             ? "bg-white text-blue-500"
                             : "bg-white text-gray-600"
                             }`}>
                             <MdCategory />
                         </p>
-                        <p className="text-sm font-medium m-0">{`All`}</p>
+                        <p className="dm_sans responsive-text font-medium m-0">{`All`}</p>
                     </div>
-                    <p className={`shrink-0 px-2 py-1 text-xs rounded-full m-0 ${selectedCategory === null
+                    <p className={`dm_sans shrink-0 px-2 py-1 text-xs rounded-full m-0 ${selectedCategory === null
                         ? "bg-white text-blue-500"
                         : "bg-gray-200"
                         }`}>
@@ -118,17 +118,17 @@ const SideBarCategory = ({ width = "240px", onCategorySelect, selectedCategory }
                                     : "hover:bg-white"
                                     }`}>
                                 <div className="flex items-center gap-3 text-left">
-                                    <p className={`w-8 h-8 shrink-0 flex items-center justify-center rounded-full shadow text-lg m-0 ${isSelected
+                                    <p className={`dm_sans responsiveheading6 w-8 h-8 shrink-0 flex items-center justify-center rounded-full shadow m-0 ${isSelected
                                         ? "bg-white text-blue-500"
                                         : "bg-white text-gray-600"
                                         }`} >
                                         <MdCategory />
                                     </p>
-                                    <p className="text-sm font-medium m-0">{capitalizeFirst(category.name)}</p>
+                                    <p className="dm_sans text-[16px] font-medium m-0">{capitalizeFirst(category.name)}</p>
                                 </div>
                                 <div className="flex items-center gap-2 ">
                                     {/* Blog Count */}
-                                    <p className={`px-2 py-1 text-xs rounded-full m-0 ${isSelected
+                                    <p className={`dm_sans px-2 py-1 text-xs rounded-full m-0 ${isSelected
                                         ? "bg-white text-blue-500"
                                         : "bg-gray-200"
                                         }`} >
@@ -148,9 +148,9 @@ const SideBarCategory = ({ width = "240px", onCategorySelect, selectedCategory }
                                 <div className="ml-6 mt-1 space-y-1 border-l-2 border-blue-200 pl-4 py-2">
                                     {category.blogs.map((blog) => (
                                         <Link key={blog._id} href={`/blogs/${blog.uid || blog._id}`}
-                                            className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-2 py-1.5 rounded-md transition-colors group" >
+                                            className="flex items-center gap-2 dm_sans text-[16px] text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-2 py-1.5 rounded-md transition-colors group" >
                                             <IoDocumentTextOutline className="text-gray-400 group-hover:text-blue-500 flex-shrink-0" />
-                                            <p className="line-clamp-1 m-0">{blog.title}</p>
+                                            <p className="dm_sans line-clamp-1 m-0">{blog.title}</p>
                                         </Link>
                                     ))}
                                 </div>
@@ -160,7 +160,7 @@ const SideBarCategory = ({ width = "240px", onCategorySelect, selectedCategory }
                 })}
             {/* No Categories */}
             {!loading && categoriesWithBlogs.length === 0 && (
-                <p className="text-center text-gray-500 text-sm py-4 m-0"> {` No categories found`} </p>
+                <p className="text-center text-gray-500 dm_sans responsive-text py-4 m-0"> {` No categories found`} </p>
             )}
         </div>
     );

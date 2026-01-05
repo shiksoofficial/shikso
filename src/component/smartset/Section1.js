@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import TestSeriesCard from '@/common-component/TestSeriesCard/TestSeriesCard';
 import { apiClient2 } from "@/lib/api-client";
+import axios from 'axios'
 
 const SmallLoader = () => {
   return (
@@ -48,7 +49,7 @@ const Section1 = () => {
   };
 
   useEffect(() => {
-    const fetchCategory = async () => {
+    const fetchCategory = async (data) => {
       try {
         const res = await apiClient2.get("/examcategory/exam-category");
         const categories = res.data?.data;

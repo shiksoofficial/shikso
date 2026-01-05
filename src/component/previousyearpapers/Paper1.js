@@ -9,13 +9,13 @@ const Paper1 = ({
   cards = [],
 }) => {
 
-  const FALLBACK_IMAGE = "/Shiksologo.png";
-  
-      const [imgSrcMap, setImgSrcMap] = useState(() =>
-          Object.fromEntries(
-              cards.map((item) => [item.id, item.img])
-          )
-      );
+  const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
+
+  const [imgSrcMap, setImgSrcMap] = useState(() =>
+    Object.fromEntries(
+      cards.map((item) => [item.id, item.img])
+    )
+  );
 
   return (
     <div className="custom-container py-6 md:py-10 justify-items-center">
@@ -37,17 +37,17 @@ const Paper1 = ({
             className="flex items-start gap-4 p-5 border border-[#4845454D] shadow-sm bg-white"
           >
             <Image
-               src={imgSrcMap[item.id] || FALLBACK_IMAGE} 
-                                alt={item.alt || "image"}
+              src={imgSrcMap[item.id] || FALLBACK_IMAGE}
+              alt={item.alt || "image"}
               width={50}
               height={50}
               className="object-contain bg-[#E5FBFF]"
-               onError={() => {                          
-                                    setImgSrcMap((prev) => ({
-                                        ...prev,
-                                        [item.id]: FALLBACK_IMAGE,
-                                    }));
-                                }}
+              onError={() => {
+                setImgSrcMap((prev) => ({
+                  ...prev,
+                  [item.id]: FALLBACK_IMAGE,
+                }));
+              }}
             />
 
             <div>

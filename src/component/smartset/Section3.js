@@ -5,19 +5,19 @@ import React, { useState } from "react";
 const sectionData =
     [
         {
-            img: "/smartset/man.png",
+            img: "https://res.cloudinary.com/djxgpbncu/image/upload/v1767607837/man_mzbpds.png",
             label: "Accuracy",
             value: "85%",
             increment: "+5%",
         },
         {
-            img: "/smartset/rocket.png",
+            img: "https://res.cloudinary.com/djxgpbncu/image/upload/v1767607837/rocket_tltw4f.png",
             label: "Speed",
             value: "15 Q/hour",
             increment: "+2 Q/hour",
         },
         {
-            img: "/smartset/girl.png",
+            img: "https://res.cloudinary.com/djxgpbncu/image/upload/v1767607837/girl_w4cho6.png",
             label: "Progress",
             value: "70%",
             increment: "+10%",
@@ -26,11 +26,11 @@ const sectionData =
 
 const Section3 = () => {
 
-    const FALLBACK_IMAGE = "/Shiksologo.png";
+    const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
 
     const [imgSrcMap, setImgSrcMap] = useState(() =>
         Object.fromEntries(
-            sectionData.map((item, index) => [index, item.img]) // 🔧 CHANGED
+            sectionData.map((item, index) => [index, item.img]) 
         )
     );
 

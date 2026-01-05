@@ -82,10 +82,8 @@ const LoginModal = ({ open, setOpen, onSwitchToSignup }) => {
   return (
     <div className="fixed inset-0 z-[500] flex items-center justify-center">
       {/* Backdrop/Overlay */}
-      <div
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
-        onClick={handleClose}
-      />
+      <div className="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"
+        onClick={handleClose} />
 
       {/* Modal Container */}
       <div className="relative z-50 w-full max-w-lg mx-4 max-h-[90vh] overflow-y-auto">
@@ -94,19 +92,14 @@ const LoginModal = ({ open, setOpen, onSwitchToSignup }) => {
           <button
             onClick={handleClose}
             className="absolute top-4 right-3 sm:right-4 text-gray-600 hover:text-gray-900 transition-colors hover:bg-gray-100 rounded-full p-1 z-10"
-            aria-label="Close modal"
-          >
+            aria-label="Close modal" >
             <IoClose size={24} />
           </button>
 
           {/* Modal Content */}
           <div className="p-6 md:p-8">
-            <h2 className="text-center text-2xl font-semibold text-gray-900 mb-1">
-              {`Welcome Back`}
-            </h2>
-            <p className="text-center text-gray-500 text-sm mb-6">
-              {`Sign in to continue to your account.`}
-            </p>
+            <h2 className="text-center dm_sans responsiveheading2 font-semibold text-gray-900 mb-1"> {`Welcome Back`} </h2>
+            <p className="text-center text-gray-500 dm_sans responsive-text  mb-6">{`Sign in to continue to your account.`}</p>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <CustomInput
@@ -145,10 +138,8 @@ const LoginModal = ({ open, setOpen, onSwitchToSignup }) => {
                 }
               />
               <div className="flex justify-end -mt-3">
-                <Link
-                  href="#"
-                  className="text-sm text-blue-600 hover:underline"
-                >
+                <Link href="#"
+                  className="dm_sans responsive-text  text-blue-600 hover:underline">
                   {`Forgot Password?`}
                 </Link>
               </div>
@@ -156,17 +147,13 @@ const LoginModal = ({ open, setOpen, onSwitchToSignup }) => {
                 type="submit"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md font-medium transition"
                 loading={isSubmitting}
-                disabled={isSubmitting}
-              >
+                disabled={isSubmitting}>
                 {`Log In`}
               </CustomButton>
-              <p className="text-center text-sm text-gray-600">
-                {`Don't have an account?`}{" "}
-                <button
-                  type="button"
+              <p className="text-center dm_sans responsive-text  text-gray-600">{`Don't have an account?`}{" "}
+                <button type="button"
                   onClick={handleSwitchToSignup}
-                  className="text-blue-600 font-medium hover:underline"
-                >
+                  className="text-blue-600 font-medium hover:underline">
                   {`Sign Up`}
                 </button>
               </p>

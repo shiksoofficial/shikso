@@ -285,18 +285,56 @@ body {
 
 
 
-.no-tailwind,
+/* .no-tailwind,
 .no-tailwind * {
   all: revert;
   box-sizing: border-box;
+} */
+
+.discriptionContent {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border: 1px solid #37863f;
+  border-radius: 20px;
+  margin-top: 15px;
+  padding-bottom: 10px;
+  display: block !important;
 }
-.discriptionContent{
-      max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    border: 1px solid #37863f;
-    border-radius: 20px;
-    margin-top: 10px;
+/* Responsive images - overrides inline styles */
+.discriptionContent img {
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  display: block;
+}
+
+/* Neutralize wrapper spans without removing them */
+.discriptionContent span[style*="overflow"],
+.discriptionContent span[style*="width"],
+.discriptionContent span[style*="height"] {
+  display: contents !important;
+}
+
+/* Responsive figures */
+.discriptionContent figure {
+  max-width: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 1rem 0;
+}
+
+/* Responsive tables */
+.discriptionContent table {
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* Responsive iframes */
+.discriptionContent iframe {
+  max-width: 100% !important;
+  height: auto;
 }

@@ -144,6 +144,7 @@ const News1 = ({ allBlogs = [], categories = [] }) => {
             <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr_300px] gap-6 py-4">
                 {/* LEFT SIDEBAR */}
                 <div className="hidden lg:block">
+                     <div className="sticky top-20 z-10 space-y-4">
                     <div className="flex gap-2 items-center mb-6 flex-wrap">
                         <p className="responsive-text font-semibold">{`Share : `}</p>
                         <Link href="https://www.facebook.com/" target="_blank" aria-label="Facebook"> <FaFacebookF className="hover:text-blue-600 transition-colors cursor-pointer" /></Link>
@@ -160,6 +161,7 @@ const News1 = ({ allBlogs = [], categories = [] }) => {
                             selectedCategory={selectedCategory}
                         />
                     </div>
+                </div>
                 </div>
 
                 {/* MAIN CONTENT */}

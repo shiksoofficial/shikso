@@ -178,7 +178,7 @@ const Header = () => {
                 }}
               />
             </Link>
-            <ul className="dm_sans hidden md:flex justify-items-end-safe md:gap-3 lg:gap-8 text-black font-medium  ">
+            <ul className="dm_sans responsive-text hidden md:flex justify-items-end-safe md:gap-3 lg:gap-8 text-black font-medium  ">
               {menuItems.map((item, i) => (
                 <li
                   key={i}
@@ -322,13 +322,13 @@ const Header = () => {
             }`}
         >
           <div className="flex justify-between items-center mb-6">
-            <p className="text-2xl font-semibold"></p>
+            <p className="responsiveheading2 dm_sans font-semibold"></p>
             <button aria-label="close-btn" onClick={() => setIsOpen(false)}>
               <MdClose size={28} />
             </button>
           </div>
 
-          <ul className="flex flex-col gap-3 text-lg text-gray-800">
+          <ul className="dm_sans flex flex-col gap-3 text-lg text-gray-800">
             {menuItems.map((item, i) => (
               <li key={i}>
                 <Link

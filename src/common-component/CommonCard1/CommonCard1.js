@@ -6,7 +6,7 @@ import CustomLinkBtn from "../CustomLinkBtn/CustomLinBtn";
 
 const CommonCard1 = ({ icon, title, description, description1, buttonText, buttoncolor, link }) => {
 
-  const FALLBACK_IMAGE = "/Shiksologo.png";
+  const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
   const [imgSrc, setImgSrc] = useState(icon || FALLBACK);
 
   return (
@@ -34,8 +34,7 @@ const CommonCard1 = ({ icon, title, description, description1, buttonText, butto
       </div>
       <CustomLinkBtn
         href={link}
-        color={buttoncolor}
-      >
+        color={buttoncolor}>
         {buttonText}
       </CustomLinkBtn>
     </div>

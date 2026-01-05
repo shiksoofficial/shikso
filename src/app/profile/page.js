@@ -145,11 +145,10 @@ export default function ProfilePage() {
         />
         <div className="bg-[#f5f7fb] flex items-center justify-center p-4 min-h-[400px]">
           <div className="text-center">
-            <p className="text-gray-600 mb-4">No profile data found</p>
+            <p className="text-gray-600 mb-4">{`No profile data found`}</p>
             <CustomButton
               onClick={() => router.push("/login")}
-              color="#dc3545"
-            >
+              color="#dc3545">
               Go to Login
             </CustomButton>
           </div>

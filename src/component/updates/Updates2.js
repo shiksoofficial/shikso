@@ -27,8 +27,8 @@ const Updates2 = () => {
         toast.success("Form submitted successfully!");
         reset();
     };
-     const FALLBACK_IMAGE = "/Shiksologo.png";
-        const [imgSrc, setImgSrc] = useState("/updates/meeting.png");
+   const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
+    const [imgSrc, setImgSrc] = useState("https://res.cloudinary.com/djxgpbncu/image/upload/v1767607781/meeting_bbspvq.png");
 
     return (
         <div>
@@ -43,12 +43,12 @@ const Updates2 = () => {
                                     width={415}
                                     height={350}
                                     className="w-full h-auto object-contain -mb-18"
-                                onError={() => {
-                                if (imgSrc !== FALLBACK_IMAGE) {
-                                    setImgSrc(FALLBACK_IMAGE);
-                                }
-                            }}
-                               />
+                                    onError={() => {
+                                        if (imgSrc !== FALLBACK_IMAGE) {
+                                            setImgSrc(FALLBACK_IMAGE);
+                                        }
+                                    }}
+                                />
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ const Updates2 = () => {
                                             message: "Please enter a valid email address",
                                         },
                                     }}
-                                    className="border border-gray-300 rounded-md mt-2"
+                                    className="border border-gray-300 rounded-md mt-2 overflow-auto"
                                 />
                             </div>
                             <div className="mb-3 mt-5">
@@ -91,7 +91,7 @@ const Updates2 = () => {
                                             message: "Enter a valid 16-digit card number",
                                         },
                                     }}
-                                    className="border border-gray-300 rounded-md mt-2"
+                                    className="border border-gray-300 rounded-md mt-2 overflow-auto"
                                 />
                             </div>
 

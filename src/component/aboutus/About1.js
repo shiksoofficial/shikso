@@ -6,8 +6,8 @@ import React, { useState } from 'react'
 
 const About1 = () => {
 
-    const FALLBACK_IMAGE = "/Shiksologo.png";
-    const [imgSrc, setImgSrc] = useState("/aboutus/aboutus1.webp");
+    const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
+    const [imgSrc, setImgSrc] = useState("https://res.cloudinary.com/djxgpbncu/image/upload/v1767607861/aboutus1_xnwkdc.webp");
 
     return (
         <div className="custom-container m-6 md:m-10 ">

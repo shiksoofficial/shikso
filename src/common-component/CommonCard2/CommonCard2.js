@@ -4,7 +4,7 @@ import React, { useState } from "react";
 
 const CommonCard2 = ({ icon, title, description, founder, points = [], }) => {
 
-  const FALLBACK_IMAGE = "/Shiksologo.png";
+  const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
   const [imgSrc, setImgSrc] = useState(icon || FALLBACK);
 
   return (
@@ -27,18 +27,15 @@ const CommonCard2 = ({ icon, title, description, founder, points = [], }) => {
             />
           </div>
         </div>
-        {/* <p className="text-gray-400 text-sm mb-1 mt-8">{founder}</p> */}
         <h3 className="dm_sans mt-10 responsiveheading6 resp font-semibold mb-2">{title}</h3>
         {points?.length > 0 && (
-          <ul className="w-fit responsive-text list-disc px-4 text-[#1A2E33] mb-3 text-left">
+          <ul className="dm_sans w-fit responsive-text list-disc px-4 text-[#1A2E33] mb-3 text-left">
             {points.map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}
           </ul>
         )}
-        <p className="dm_sans responsive-text font-light text-[#6c757d] mb-2   leading-6 lg:leading-8">
-          {description}
-        </p>
+        <p className="dm_sans responsive-text font-light text-[#6c757d] mb-2   leading-6 lg:leading-8">{description}</p>
       </div>
     </div>
   );

@@ -72,7 +72,7 @@ const cardsData = [
     buttonLink: "/navodaya-smartset/mock-test",
   },
   {
-    img: "/news/news3.jpg",
+    img: "/news/news3.jpp",
     alt: "Unlimited Practice Sets",
     title: "Unlimited Practice Sets",
     discription: "Practice without limits! Access topic-wise and difficulty-based questions from all sections of the Navodaya exam practice set.",

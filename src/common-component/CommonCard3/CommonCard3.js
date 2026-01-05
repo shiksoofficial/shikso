@@ -6,14 +6,13 @@ import CustomLinkBtn from "../CustomLinkBtn/CustomLinBtn";
 
 const CommonCard3 = ({ icon, title, description, description1, buttonText, buttoncolor, link }) => {
 
-    const FALLBACK_IMAGE = "/Shiksologo.png";
+    const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
     const [imgSrc, setImgSrc] = useState(icon || FALLBACK);
 
     return (
         <div className="max-w-sm  bg-white rounded-2xl shadow p-4 text-center items-center 
     cursor-pointer  hover:bg-gray-200  focus:bg-gray-200  active:bg-gray-200  group-hover:bg-gray-200
      group-focus:bg-gray-200  group-active:bg-gray-200 ">
-
             <div className=" flex flex-nowrap mb-6 items-center gap-1.5">
                 <Image
                     src={imgSrc}
@@ -35,8 +34,7 @@ const CommonCard3 = ({ icon, title, description, description1, buttonText, butto
             </div>
             <CustomLinkBtn
                 href={link}
-                color={buttoncolor}
-            >
+                color={buttoncolor}>
                 {buttonText}
             </CustomLinkBtn>
         </div>

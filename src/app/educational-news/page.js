@@ -3,10 +3,10 @@ import React from 'react'
 import { apiClient } from '@/lib/api-client'
 import { BASE_URL_API } from '@/lib/common'
 import axios from 'axios'
-import NewsListPagination from '@/common-component/Pagination/NewsListPagination';
 import CommonFaq from '@/common-component/CommonFaq/CommonFaq';
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import News1 from '@/component/educationalnews/News1';
+import AllNews from '@/component/educationalnews/AllNews';
 
 export const metadata = {
   title: "Shikso News | Latest Education Updates & Exam Alerts |",
@@ -113,18 +113,8 @@ const EducationalNewsPage = async () => {
         breadcom={[{ title: "News" }]} />
       <News1 allBlogs={blogs}
         categories={categories} />
-
-      <div className="custom-container p-6 md:p-10">
-        <h2 className='responsiveheading2 mt-8 mb-5'>{`Educational News`}</h2>
-        <div className="mt-10 flex items-center justify-center gap-5">
-          <NewsListPagination
-            initialBlogs={blogs}
-            totalBlogs={posts.totalpages}
-            limit={LIMIT}
-          />
-        </div>
-      </div>
       <CommonFaq title=" – Shikso News & Education Updates" faqData={faqData} />
+      <AllNews />
     </div>
   )
 }

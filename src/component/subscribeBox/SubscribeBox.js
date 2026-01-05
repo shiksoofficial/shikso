@@ -22,7 +22,7 @@ const SubscribeBox = () => {
     return (
         <div className="w-full rounded-2xl bg-[#E5FBFF] px-6 py-8 md:px-10 md:py-10 my-3">
             <div className="flex flex-col gap-6 sm:flex-row items-center md:justify-between">
-                <h2 className="responsiveheading2 font-bold"> {`Subscribe Shikso to get more updates`}</h2>
+                <h2 className="dm_sans responsiveheading2 font-bold"> {`Subscribe Shikso to get more updates`}</h2>
                 <div className="">
                     <form className="flex flex-col lg:flex-row gap-3"
                         onSubmit={handleSubmit(onSubmit)} >
@@ -45,7 +45,7 @@ const SubscribeBox = () => {
                         </div>
                         <CustomButton type="submit" className="responsive-text">{`Subscribe`}</CustomButton>
                     </form>
-                    <p className="mt-3 text-xs text-gray-600 leading-relaxed">
+                    <p className="mt-3 dm_sans text-xs text-gray-600 leading-relaxed">
                         {`By clicking “Subscribe” you agree to Shikso`}{" "}
                         <Link href="/privacy-policy" className="text-blue-600 font-medium hover:underline" >
                             {` Privacy Policy`}

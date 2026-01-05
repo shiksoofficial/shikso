@@ -64,42 +64,42 @@ export default function CreateAccount() {
       />
       <div className=" bg-[#f5f7fb] flex items-center justify-center p-4">
         <div className="w-full max-w-lg bg-white rounded-2xl shadow-md p-8 border border-gray-200">
-          <h2 className="text-3xl font-semibold text-center">{`Create Account`}</h2>
-          <p className="text-center text-gray-500 mt-1 text-sm">
+          <h2 className="dm_sans responsiveheading2  font-semibold! text-center">{`Create Account`}</h2>
+          <p className="text-center text-gray-500 mt-1 responsive-text dm_sans">
             {` Already have an account?`}{" "}
             <Link
               href="/login"
-              className="text-blue-600 font-medium hover:underline"
-            >
-              {`Login`}
-            </Link>
+              className="text-blue-600 font-medium hover:underline">{`Login`} </Link>
           </p>
           <form className="mt-6 space-y-4" onSubmit={handleSubmit(onSubmit)}>
+            <label className="dm_sans responsive-text text-gray-500">{`Full Name`}</label>
             <CustomInput
-              label="Full Name"
               name="fullName"
               placeholder="Enter your full name"
               register={register}
               errors={errors}
               validateRules={{ required: "Full Name is required" }}
+              className="border-1 border-gray-500 "
             />
+            <label className="dm_sans responsive-text text-gray-500">{`Email Address`}</label>
             <CustomInput
-              label="Email Address"
               name="email"
               type="email"
               placeholder="Enter your email address"
               register={register}
               errors={errors}
               validateRules={{ required: "Email is required" }}
+              className="border-1 border-gray-500 "
             />
+            <label className="dm_sans responsive-text text-gray-500">{`Password`}</label>
             <CustomInput
-              label="Password"
               name="password"
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
               register={register}
               errors={errors}
               validateRules={{ required: "Password is required" }}
+              className="border-1 border-gray-500 "
               endIcon={
                 <span
                   onClick={() => setShowPassword(!showPassword)}
@@ -110,7 +110,7 @@ export default function CreateAccount() {
               }
             />
             <div>
-              <label className="text-sm font-medium">{`Mobile Number`}</label>
+              <label className="dm_sans responsive-text text-gray-500">{`Mobile Number`}</label>
               <div className="flex gap-2 mt-1">
                 <input
                   type="text"
@@ -119,14 +119,14 @@ export default function CreateAccount() {
                   className="w-16 p-3 rounded-lg border border-gray-300 bg-gray-100 text-center"
                 />
                 <CustomInput
-                  name="mobile"
+                  name="mobileNumber"
                   placeholder="Enter your mobile number"
                   register={register}
                   errors={errors}
                   validateRules={{
                     required: "Mobile number is required",
                   }}
-                  className="flex-1"
+                  className="border-1 border-gray-500 flex-1"
                 />
               </div>
             </div>
@@ -165,8 +165,7 @@ export default function CreateAccount() {
               type="submit"
               className="w-full  transition font-medium"
               loading={isSubmitting}
-              disabled={isSubmitting}
-            >
+              disabled={isSubmitting}>
               {`Sign Up`}
             </CustomButton>
           </form>
@@ -174,17 +173,12 @@ export default function CreateAccount() {
             {`By signing up, you agree to our`}{" "}
             <Link
               href="/terms-and-conditions"
-              className="text-blue-600 font-medium hover:underline"
-            >
-              {`Terms of Service`}{" "}
-            </Link>
+              className="text-blue-600 font-medium hover:underline">
+              {`Terms of Service`}{" "}</Link>
             {` and`}{" "}
             <Link
               href="/privacy-policy"
-              className="text-blue-600 font-medium hover:underline"
-            >
-              {` Privacy Policy`}
-            </Link>
+              className="text-blue-600 font-medium hover:underline">{`Privacy Policy`}</Link>
           </p>
         </div>
       </div>

@@ -34,7 +34,7 @@ const classCard = [
 ];
 
 export const Mocktests2 = () => {
-    const FALLBACK_IMAGE = "/Shiksologo.png";
+    const FALLBACK_IMAGE = "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
     const [imgSrcMap, setImgSrcMap] = useState(
         () =>
             Object.fromEntries(
@@ -51,8 +51,7 @@ export const Mocktests2 = () => {
                 <p className="dm_sans text-[#484545] responsive-text whitespace-normal mb-6">{`Upon starting your test, you will enjoy a calm and clean screen.`}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-10 px-4 py-6">
                     {classCard.map((item) => (
-                        <div
-                            key={item.id}
+                        <div key={item.id}
                             className="relative bg-[#E8FBFF] border border-[#00D6FF] rounded-xl p-4 min-h-[217px]">
                             <div className="absolute bottom-[-28px] left-4 w-20 h-20  rounded-full flex items-center justify-center">
                                 <Image
