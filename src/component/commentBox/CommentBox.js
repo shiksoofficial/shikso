@@ -4,7 +4,15 @@ import { useState } from "react";
 import Image from "next/image";
 import { FaHeart } from "react-icons/fa";
 
-/* INITIAL COMMENTS (NESTED) */
+//VALIDATION block any website / link
+const linkRegex = /(https?:\/\/|www\.|\.(com|net|org|in|io|co))/i;
+
+//VALIDATION count words
+const getWordCount = (text) =>
+    text.trim().split(/\s+/).filter(Boolean).length;
+
+//INITIAL COMMENTS
+
 const initialComments = [
     {
         id: 1,
@@ -23,25 +31,13 @@ const initialComments = [
                 likes: 12,
                 liked: false,
                 time: "1 year ago",
-                replies: [
-                    {
-                        id: 111,
-                        user: "rahul_dev",
-                        avatar: "/user-default.png",
-                        text: "Same here 🔥",
-                        likes: 2,
-                        liked: false,
-                        time: "3 days ago",
-                        replies: [],
-                    },
-                ],
+                replies: [],
             },
         ],
     },
 ];
 
-
-//  Count comments recursively
+// Count comments recursively
 const countAllComments = (list) =>
     list.reduce(
         (sum, item) => sum + 1 + countAllComments(item.replies),
@@ -63,7 +59,7 @@ const toggleLikeRecursive = (list, id) =>
             }
     );
 
-//  Add reply recursively
+// Add reply recursively
 const addReplyRecursive = (list, parentId, reply) =>
     list.map((item) =>
         item.id === parentId
@@ -71,7 +67,7 @@ const addReplyRecursive = (list, parentId, reply) =>
             : { ...item, replies: addReplyRecursive(item.replies, parentId, reply) }
     );
 
-
+// COMMENT ITEM 
 function CommentItem({
     comment,
     level = 0,
@@ -81,6 +77,7 @@ function CommentItem({
     replyText,
     setReplyText,
     submitReply,
+    replyError,
 }) {
     return (
         <div style={{ marginLeft: level * 24 }} className="mt-6">
@@ -90,11 +87,12 @@ function CommentItem({
                     alt={comment.user}
                     width={36}
                     height={36}
-                    className="rounded-full" />
+                    className="rounded-full"
+                />
                 <div className="flex-1">
                     <div className="bg-gray-50 rounded-xl p-4">
                         <p className="text-sm font-semibold"> @{comment.user}
-                            <span className="text-xs text-gray-500 ml-2">  {comment.time} </span>
+                            <span className="text-xs text-gray-500 ml-2">{comment.time}</span>
                         </p>
                         <p className="text-sm mt-1">{comment.text}</p>
                     </div>
@@ -103,34 +101,46 @@ function CommentItem({
                     <div className="flex gap-5 mt-2 text-sm">
                         <button
                             onClick={() => onLike(comment.id)}
-                            className={` flex items-center gap-2 ${comment.liked ? "text-blue-600 font-medium" : "text-gray-600"}`}>
+                            className={`flex items-center gap-2 ${comment.liked
+                                    ? "text-blue-600 font-medium"
+                                    : "text-gray-600"
+                                }`}>
                             <FaHeart /> {comment.likes}
                         </button>
-
-                        <button onClick={() => onReply(comment.id)}
-                            className="text-gray-600 hover:text-blue-600" >
-                            {` Reply`}
+                        <button
+                            onClick={() => onReply(comment.id)}
+                            className="text-gray-600 hover:text-blue-600">
+                            {`Reply`}
                         </button>
                     </div>
 
                     {/* REPLY INPUT */}
                     {activeReplyId === comment.id && (
-                        <div className="flex gap-2 mt-3">
-                            <input
-                                value={replyText}
-                                onChange={(e) => setReplyText(e.target.value)}
-                                placeholder="Write a reply..."
-                                className="flex-1 border-b outline-none text-sm"
-                            />
-                            <button
-                                onClick={() => submitReply(comment.id)}
-                                className="text-blue-600 text-sm" >
-                                {` Reply`}
-                            </button>
+                        <div className="mt-3">
+                            <div className="flex gap-2">
+                                <input
+                                    value={replyText}
+                                    onChange={(e) =>
+                                        setReplyText(e.target.value)
+                                    }
+                                    placeholder="Write a reply..."
+                                    className="flex-1 border-b outline-none text-sm"
+                                />
+                                <button
+                                    onClick={() => submitReply(comment.id)}
+                                    className="text-blue-600 text-sm" >
+                                    {`Reply`}
+                                </button>
+                            </div>
+
+                            {/*reply error */}
+                            {replyError && (
+                                <p className="text-red-500 text-xs mt-1"> {replyError}</p>
+                            )}
                         </div>
                     )}
 
-                    {/* RECURSIVE REPLIES */}
+                    {/* NESTED REPLIES */}
                     {comment.replies.map((reply) => (
                         <CommentItem
                             key={reply.id}
@@ -142,6 +152,7 @@ function CommentItem({
                             replyText={replyText}
                             setReplyText={setReplyText}
                             submitReply={submitReply}
+                            replyError={replyError}
                         />
                     ))}
                 </div>
@@ -150,19 +161,39 @@ function CommentItem({
     );
 }
 
-/*  MAIN COMPONENT */
+/* ================= MAIN COMPONENT ================= */
+
 export default function CommentBox() {
     const [comments, setComments] = useState(initialComments);
     const [newComment, setNewComment] = useState("");
     const [replyTo, setReplyTo] = useState(null);
     const [replyText, setReplyText] = useState("");
 
+    const [commentError, setCommentError] = useState("");
+    const [replyError, setReplyError] = useState("");
+
     const totalComments = countAllComments(comments);
 
-    /*  ADD COMMENT */
+    /* ADD COMMENT */
     const addComment = () => {
-        if (!newComment.trim()) return;
+        const words = getWordCount(newComment);
 
+        if (!newComment.trim()) {
+            setCommentError("Comment cannot be empty");
+            return;
+        }
+
+        if (linkRegex.test(newComment)) {
+            setCommentError("Links are not allowed");
+            return;
+        }
+
+        if (words > 120) {
+            setCommentError("Maximum 120 words allowed");
+            return;
+        }
+
+        setCommentError("");
         setComments([
             {
                 id: Date.now(),
@@ -176,19 +207,33 @@ export default function CommentBox() {
             },
             ...comments,
         ]);
-
         setNewComment("");
     };
 
-    /*  LIKE */
+    /* LIKE */
     const handleLike = (id) => {
         setComments((prev) => toggleLikeRecursive(prev, id));
     };
 
-    /*  ADD REPLY */
+    /* ADD REPLY */
     const submitReply = (parentId) => {
-        if (!replyText.trim()) return;
+        const words = getWordCount(replyText);
 
+        if (!replyText.trim()) {
+            setReplyError("Reply cannot be empty");
+            return;
+        }
+
+        if (linkRegex.test(replyText)) {
+            setReplyError("Links are not allowed");
+            return;
+        }
+
+        if (words > 60) {
+            setReplyError("Maximum 60 words allowed");
+            return;
+        }
+        setReplyError("");
         const reply = {
             id: Date.now(),
             user: "You",
@@ -199,20 +244,16 @@ export default function CommentBox() {
             time: "Just now",
             replies: [],
         };
-
         setComments((prev) =>
             addReplyRecursive(prev, parentId, reply)
         );
-
         setReplyText("");
         setReplyTo(null);
     };
 
     return (
         <div className="max-w-4xl mx-auto mt-10 bg-white rounded-2xl shadow-lg p-6 mb-12">
-            <h2 className="font-semibold text-xl mb-6">
-                {totalComments} {` Comments`}
-            </h2>
+            <h2 className="font-semibold text-xl mb-6">{totalComments} {` Comments`} </h2>
 
             {/* ADD COMMENT */}
             <div className="flex gap-4 mb-8">
@@ -223,6 +264,7 @@ export default function CommentBox() {
                     height={44}
                     className="rounded-full"
                 />
+
                 <div className="flex-1">
                     <input
                         value={newComment}
@@ -230,18 +272,21 @@ export default function CommentBox() {
                         placeholder="Add a public comment..."
                         className="w-full border-b outline-none pb-2"
                     />
+
+                    {/*comment error */}
+                    {commentError && (
+                        <p className="text-red-500 text-xs mt-1">{commentError}</p>
+                    )}
+
                     <div className="flex justify-end mt-2">
-                        <button
-                            onClick={addComment}
-                            className="px-4 py-1.5 rounded-full bg-blue-600 text-white text-sm"
-                        >
+                        <button onClick={addComment} className="px-4 py-1.5 rounded-full bg-blue-600 text-white text-sm">
                             {` Comment`}
                         </button>
                     </div>
                 </div>
             </div>
 
-            {/* COMMENTS */}
+            {/* COMMENTS LIST */}
             <div className="max-h-[520px] overflow-y-auto">
                 {comments.map((comment) => (
                     <CommentItem
@@ -253,6 +298,7 @@ export default function CommentBox() {
                         replyText={replyText}
                         setReplyText={setReplyText}
                         submitReply={submitReply}
+                        replyError={replyError}
                     />
                 ))}
             </div>

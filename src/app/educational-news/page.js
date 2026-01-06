@@ -113,7 +113,7 @@ const EducationalNewsPage = async () => {
         breadcom={[{ title: "News" }]} />
       <News1 allBlogs={blogs}
         categories={categories} />
-      <CommonFaq title=" – Shikso News & Education Updates" faqData={faqData} />
+      {/* <CommonFaq title=" – Shikso News & Education Updates" faqData={faqData} /> */}
       <AllNews />
     </div>
   )

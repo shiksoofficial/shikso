@@ -51,18 +51,18 @@ const generateSidebarCategories = (categories) => {
 
 const adsData = [
     {
-        image: "/Shiksologo.png",
-        href: "https://shikso.com",
+        image: "/tirthanvalley.png",
+        href: "https://www.zentrail.in/trail/tirthan-valley-tour",
         width: 300,
         height: 250,
     },
-    {
-        image: "/Shiksologo.png",
-        href: "https://example.com",
-    },
-    {
-        image: "/Shiksologo.png",
-    },
+    // {
+    //     image: "/Shiksologo.png",
+    //     href: "https://example.com",
+    // },
+    // {
+    //     image: "/Shiksologo.png",
+    // },
 ];
 
 const Blog1 = ({ allBlogs = [], categories = [] }) => {

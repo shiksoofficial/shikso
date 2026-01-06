@@ -4,10 +4,14 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BASE_URL_API } from "@/lib/common";
+import { usePathname } from "next/navigation";
 
 function LatestBlog({ initialBlogs }) {
     const [blogs, setBlogs] = useState(initialBlogs || []);
     const [loading, setLoading] = useState(false);
+
+    const pathname = usePathname(); // current route path
+    const currentBlogUid = pathname?.split("/").pop(); //extract opened blog uid
 
     useEffect(() => {
         const fetchAllBlogs = async () => {
@@ -19,8 +23,14 @@ function LatestBlog({ initialBlogs }) {
                 );
                 const data = await res.json();
                 const allBlogs = Array.isArray(data?.blogs) ? data.blogs : [];
-                // Limit to 4 blogs
-                setBlogs(allBlogs.slice(0, 4));
+
+                // remove currently opened blog
+                const filteredBlogs = allBlogs.filter(
+                    (blog) => blog?.uid !== currentBlogUid
+                );
+
+                // limit after filtering
+                setBlogs(filteredBlogs.slice(0, 4));
             } catch (error) {
                 console.error("Failed to load blogs:", error);
             } finally {
@@ -29,10 +39,10 @@ function LatestBlog({ initialBlogs }) {
         };
 
         fetchAllBlogs();
-    }, []);
+    }, [currentBlogUid]);
 
     return (
-        <div className="custom-container  mt-10 mb-10" aria-busy={loading}>
+        <div className="custom-container mt-10 mb-10" aria-busy={loading}>
             <div className="mb-6">
                 <div className="flex gap-2 items-center">
                     <div className="w-[20px] h-[35px] bg-[#FFF46C] rounded-r-full"></div>
@@ -47,11 +57,15 @@ function LatestBlog({ initialBlogs }) {
             <div className={loading ? "pointer-events-none select-none" : ""}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     {blogs.map((val) => (
-                        <Link key={val?._id} href={`/blogs/${val?.uid}`}
-                            className="rounded-[10px] overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg cursor-pointer flex">
+                        <Link key={val?._id}
+                            href={`/blogs/${val?.uid}`}
+                            className="rounded-[10px] overflow-hidden shadow-md transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg cursor-pointer flex" >
                             <div className="relative w-[100px] h-[110px] overflow-hidden m-2 shrink-0">
                                 <Image
-                                    src={val?.featuredImage?.url || " https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"}
+                                    src={
+                                        val?.featuredImage?.url ||
+                                        "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"
+                                    }
                                     fill
                                     quality={90}
                                     alt={val?.featuredImage?.alt || "Blog Image"}
@@ -59,8 +73,8 @@ function LatestBlog({ initialBlogs }) {
                                 />
                             </div>
                             <div className="p-3">
-                                <p className="text-slate-500 text-[13px]">{val?.createdAt?.split("T")[0]}</p>
-                                <h3 className="line-clamp-2 mt-3 mb-1 font-semibold text-gray-800">{val.title} </h3>
+                                <p className="text-slate-500 text-[13px]"> {val?.createdAt?.split("T")[0]} </p>
+                                <h3 className="line-clamp-2 mt-3 mb-1 font-semibold text-gray-800"> {val.title}</h3>
                             </div>
                         </Link>
                     ))}

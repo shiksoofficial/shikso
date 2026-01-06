@@ -118,8 +118,7 @@ const BlogPage = async () => {
                     allBlogs={blogs}
                     categories={categories}
                 />
-
-                <CommonFaq title=" - Shikso Blog & Education Insights" faqData={faqData} />
+                {/* <CommonFaq title=" - Shikso Blog & Education Insights" faqData={faqData} /> */}
             </div>
         );
     } catch (error) {
