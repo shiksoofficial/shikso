@@ -10,6 +10,7 @@ import { IoClose, IoSchoolSharp, IoChevronDown, IoChevronUp } from "react-icons/
 import SideBarCategory from "@/common-component/SideBarCategory/SideBarCategory";
 import CommentBox from "../commentBox/CommentBox";
 import CommonFaq1 from "@/common-component/CommonFaq1/CommonFaq1";
+import Advertisement from "@/common-component/Advertisement/Advertisement";
 
 export const sideBarCategory = [
   { label: "Navodaya", icon: <IoSchoolSharp /> },
@@ -17,12 +18,26 @@ export const sideBarCategory = [
   { label: "Cbsc", icon: <IoSchoolSharp /> },
   { label: "Other", icon: <IoSchoolSharp />, children: [{ label: "Old papers", href: "/" }, { label: "Exam Dates", href: "/" }] },
 ];
-
+const adsData = [
+    {
+        image: "/tirthanvalley.png",
+        href: "https://www.zentrail.in/trail/tirthan-valley-tour",
+        width: 300,
+        height: 250,
+    },
+    // {
+    //     image: "/Shiksologo.png",
+    //     href: "https://example.com",
+    // },
+    // {
+    //     image: "/Shiksologo.png",
+    // },
+];
 const BlogDescription = ({ blog }) => {
   const [toc, setToc] = useState([]);
   const [open, setOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [desktopTocOpen, setDesktopTocOpen] = useState(true); // Changed to true by default
+  const [desktopTocOpen, setDesktopTocOpen] = useState(false); // Changed to true by default
   const contentRef = useRef(null);
 
   // Parse TOC from blog description
@@ -93,22 +108,11 @@ const BlogDescription = ({ blog }) => {
     </div>
   );
 
-  const AdvertisementBlock = () => (
-    <>
-      {[1, 2, 3].map((i) => (
-        <div key={i} className="border rounded-lg bg-white shadow-sm overflow-hidden">
-          <p className="text-xs sm:text-sm font-semibold text-center border-b py-2 bg-gray-50">{`ADVERTISEMENT`}</p>
-          <div className="p-3 flex justify-center">
-            <Image src="/Shiksologo.png" width={300} height={250} alt={`Advertisement ${i}`} className="w-full h-auto max-w-[300px]" />
-          </div>
-        </div>
-      ))}
-    </>
-  );
+
 
   // Fixed TocList component with proper click handler
   const TocList = ({ onItemClick }) => (
-    <div className="max-h-[300px] lg:max-h-[450px] overflow-y-auto px-3 pb-3">
+    <div className="max-h-[300px] lg:max-h-[450px] overflow-y-auto px-3 pb-3 overflow-hidden">
       {toc.length === 0 ? (
         <p className="text-sm text-gray-500 py-2">{`No headings found`}</p>
       ) : (
@@ -179,7 +183,7 @@ const BlogDescription = ({ blog }) => {
               <SocialLinks />
             </div>
             {/* Desktop TOC */}
-            <nav className="border rounded-lg bg-gray-50 shadow-sm" aria-label="Table of contents">
+            <nav className="border rounded-lg bg-gray-50 shadow-sm overflow-hidden" aria-label="Table of contents">
               <button
                 onClick={() => setDesktopTocOpen(!desktopTocOpen)}
                 className="w-full flex items-center justify-between p-3 hover:bg-gray-100 rounded-t-lg"
@@ -222,13 +226,13 @@ const BlogDescription = ({ blog }) => {
             />
           </article>
           <aside className="lg:hidden mt-6 space-y-4">
-            <AdvertisementBlock />
+             <Advertisement ads={adsData} />
           </aside>
-          {blog?.faq?.length > 0 && blog?.faq?.[0]?.question?.length > 0 && (
+          {/* {blog?.faq?.length > 0 && blog?.faq?.[0]?.question?.length > 0 && (
             <section className="mt-6" aria-label="FAQ">
               <CommonFaq1 faqData={blog.faq} />
             </section>
-          )}
+          )} */}
           <section className="mt-6" aria-label="Comments">
             <CommentBox />
           </section>
@@ -236,7 +240,7 @@ const BlogDescription = ({ blog }) => {
         {/* Right Sidebar */}
         <aside className="hidden lg:block" aria-label="Advertisements">
           <div className="sticky top-10 space-y-4">
-            <AdvertisementBlock />
+            <Advertisement ads={adsData} />
           </div>
         </aside>
       </div>

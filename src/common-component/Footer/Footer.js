@@ -256,9 +256,7 @@ const Footer = () => {
           </div>
           <div className=" text-[16px] flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-black">
             © {new Date().getFullYear()}
-            <Link href="/" className="hover:underline">
-              {footerData.copyright}
-            </Link>
+          
             <span className="hidden md:inline text-[#37863F]">|</span>
             <div className="flex items-center gap-2">
               <span>
