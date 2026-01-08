@@ -34,7 +34,8 @@ const MainCards = ({ blogs = [] }) => {
     const getTypeColor = (item) =>
         item?.type?.toLowerCase() === "news" ? "text-green-600" : "text-red-600";
 
-    const ActionIcons = ({ blog }) => {
+    // isBigCard prop to control dropdown position
+    const ActionIcons = ({ blog, isBigCard = false }) => {
         const [showShare, setShowShare] = useState(false);
         const [copied, setCopied] = useState(false);
         const url = mounted ? `${window.location.origin}${getItemUrl(blog)}` : '';
@@ -44,7 +45,6 @@ const MainCards = ({ blogs = [] }) => {
             e.preventDefault();
             e.stopPropagation();
             window.open(link, '_blank', 'noopener,noreferrer');
-            // Don't close the menu
         };
 
         const email = (e) => {
@@ -53,7 +53,6 @@ const MainCards = ({ blogs = [] }) => {
             const link = document.createElement('a');
             link.href = `mailto:?subject=${encodeURIComponent(blog?.title || '')}&body=${encodeURIComponent(`${text}\n\n${url}`)}`;
             link.click();
-            // Don't close the menu
         };
 
         const copy = async (e) => {
@@ -63,7 +62,6 @@ const MainCards = ({ blogs = [] }) => {
                 await navigator.clipboard.writeText(url);
                 setCopied(true);
                 setTimeout(() => setCopied(false), 2000);
-                // Don't close the menu
             } catch {
                 alert("Failed to copy");
             }
@@ -110,8 +108,12 @@ const MainCards = ({ blogs = [] }) => {
                                 setShowShare(false);
                             }}
                         />
+                        {/* opens above for big card, below for small cards */}
                         <div
-                            className="absolute z-20 mt-2 bg-white border rounded-lg shadow-xl p-2 flex flex-col gap-1 min-w-[180px] left-0"
+                            className={`absolute z-20 bg-white border rounded-lg shadow-xl p-2 flex flex-col gap-1 min-w-[180px] left-0 ${isBigCard
+                                    ? "bottom-full mb-2" // Opens ABOVE the icons for big card
+                                    : "top-full mt-2"    // Opens below for small cards (default behavior)
+                                }`}
                             onClick={(e) => e.stopPropagation()}>
                             {shareLinks.map(({ icon: Icon, label, color, url }) => (
                                 <button
@@ -172,7 +174,7 @@ const MainCards = ({ blogs = [] }) => {
                             <h2 className="text-xl font-bold mt-2 leading-snug text-gray-900"> {latest?.title} </h2>
                             <p className="text-gray-600 text-sm mt-2 line-clamp-2 m-0">{latest?.meta?.description}</p>
                         </Link>
-                        <ActionIcons blog={latest} />
+                        <ActionIcons blog={latest} isBigCard={true} />
                     </div>
                 </div>
             )}
@@ -196,7 +198,7 @@ const MainCards = ({ blogs = [] }) => {
                     <div className="flex-1 min-w-0">
                         <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(blog)}`}>{getCategoryName(blog?.category)}</p>
                         <h3 className="text-sm font-semibold leading-snug mt-1 line-clamp-2 text-gray-900">{blog?.title}</h3>
-                        <ActionIcons blog={blog} />
+                        <ActionIcons blog={blog} isBigCard={false} />
                     </div>
                 </div>
             ))}
