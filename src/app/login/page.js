@@ -10,7 +10,6 @@ import { apiClient2 } from "@/lib/api-client";
 import { toast } from "react-toastify";
 import { setToken, setUser } from "@/lib/auth";
 import { useRouter } from "next/navigation";
-import CommonBanner1 from "@/common-component/CommonBanner1/CommonBanner1";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -49,7 +48,12 @@ export default function LoginPage() {
 
   return (
     <>
-      <CommonBanner1 title={"Login"} breadcom={[{ title: "Login" }]} />
+      <HeroSection imageurl="/aboutus/hero_1.jpg"
+        title=" Welcome to Shikso – Your Child’s Smart Learning Companion"
+        title2=" AI-Powered Education for Modern Students"
+        paragraph=" Shikso is a next-generation smart learning platform that transforms traditional education into an interactive, data-driven experience. Designed for today’s students, parents, and schools, Shikso blends AI-based personalization, gamified practice, and performance analytics to create a learning journey that’s fun, effective, and future-ready."
+        // button={true}
+        breadcom={[{ title: "Login" }]} />
       <div className=" bg-[#f5f7fb] flex items-center justify-center p-4">
         <div className="w-full max-w-lg bg-white rounded-2xl shadow-md p-8 border border-gray-200">
           <div className="flex justify-center mb-3">
