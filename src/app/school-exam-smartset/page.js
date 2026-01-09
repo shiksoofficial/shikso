@@ -34,7 +34,7 @@ const SchoolExamSmartSet = () => {
       <HeroSection imageurl="/aboutus/hero_1.jpg"
         title="Welcome To Our Website"
         title2="Get In Touch"
-        button={false} breadcom={[{ title: "School ExamSmart Set" }]} />
+        button={false} breadcom={[{ title: "School exam smart set" }]} />
       <div className="custom-container min-h-[60vh] flex items-center justify-center m-6 md:m-10">
         <div className="text-center bg-[#E8FBFF] border border-[#00D6FF] rounded-2xl px-8 py-10 max-w-md w-full shadow-sm">
           <div className="flex justify-center mb-4">

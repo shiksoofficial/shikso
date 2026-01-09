@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { setToken, setUser } from "@/lib/auth";
 import { useRouter } from "next/navigation";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import CommonBanner1 from "@/common-component/CommonBanner1/CommonBanner1";
 
 export default function CreateAccount() {
   const [showPassword, setShowPassword] = useState(false);
@@ -54,14 +55,7 @@ export default function CreateAccount() {
 
   return (
     <>
-      <HeroSection
-        imageurl="/aboutus/hero_1.jpg"
-        title=" Welcome to Shikso – Your Child’s Smart Learning Companion"
-        title2=" AI-Powered Education for Modern Students"
-        paragraph=" Shikso is a next-generation smart learning platform that transforms traditional education into an interactive, data-driven experience. Designed for today’s students, parents, and schools, Shikso blends AI-based personalization, gamified practice, and performance analytics to create a learning journey that’s fun, effective, and future-ready."
-        // button={true}
-        breadcom={[{ title: "Sign up" }]}
-      />
+      <CommonBanner1 title={"Signup"} breadcom={[{ title: "Signup" }]} />
       <div className=" bg-[#f5f7fb] flex items-center justify-center p-4">
         <div className="w-full max-w-lg bg-white rounded-2xl shadow-md p-8 border border-gray-200">
           <h2 className="dm_sans responsiveheading2  font-semibold! text-center">{`Create Account`}</h2>

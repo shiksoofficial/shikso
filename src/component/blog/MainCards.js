@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { getToken } from "@/lib/auth";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { FaRegCommentDots, FaRegBookmark, FaBookmark, FaShareAlt, FaFacebookF, FaTwitter, FaWhatsapp, FaEnvelope, FaLink } from "react-icons/fa";
@@ -14,7 +16,8 @@ const MainCards = ({ blogs = [] }) => {
         setSaved(JSON.parse(localStorage.getItem("savedBlogs") || "{}"));
     }, []);
 
-    const toggleSave = (id) => {
+    const toggleSave = (blog) => {
+        const id = blog._id;
         const updated = { ...saved, [id]: !saved[id] };
         setSaved(updated);
         localStorage.setItem("savedBlogs", JSON.stringify(updated));
@@ -34,8 +37,11 @@ const MainCards = ({ blogs = [] }) => {
     const getTypeColor = (item) =>
         item?.type?.toLowerCase() === "news" ? "text-green-600" : "text-red-600";
 
+    // Toast state for bookmark prompt
+    // const [toast, setToast] = useState("");
     // isBigCard prop to control dropdown position
     const ActionIcons = ({ blog, isBigCard = false }) => {
+        const router = useRouter();
         const [showShare, setShowShare] = useState(false);
         const [copied, setCopied] = useState(false);
         const url = mounted ? `${window.location.origin}${getItemUrl(blog)}` : '';
@@ -47,13 +53,11 @@ const MainCards = ({ blogs = [] }) => {
             window.open(link, '_blank', 'noopener,noreferrer');
         };
 
-        const email = (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            const link = document.createElement('a');
-            link.href = `mailto:?subject=${encodeURIComponent(blog?.title || '')}&body=${encodeURIComponent(`${text}\n\n${url}`)}`;
-            link.click();
-        };
+        // const email = (e) => {
+        //     e.preventDefault();
+        //     e.stopPropagation();
+        //     window.location.href = `mailto:?subject=${encodeURIComponent(blog?.title || '')}&body=${encodeURIComponent(`${text}\n\n${url}`)}`;
+        // };
 
         const copy = async (e) => {
             e.preventDefault();
@@ -81,9 +85,14 @@ const MainCards = ({ blogs = [] }) => {
                         onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
-                            toggleSave(blog._id);
+                            if (!getToken()) {
+                                router.push("/login");
+                                return;
+                            }
+                            toggleSave(blog);
                         }}
-                        className="hover:text-gray-700">
+                        className="hover:text-gray-700"
+                        title="Save to bookmarks">
                         {saved[blog._id] ? <FaBookmark className="text-blue-600" /> : <FaRegBookmark />}
                     </button>
                     <button
@@ -123,11 +132,11 @@ const MainCards = ({ blogs = [] }) => {
                                     <Icon size={18} /> {label}
                                 </button>
                             ))}
-                            <button
+                            {/* <button
                                 onClick={email}
                                 className="flex items-center gap-3 hover:text-red-400 px-3 py-2 rounded hover:bg-gray-50 text-gray-700 text-left w-full transition">
                                 <FaEnvelope size={18} /> Email
-                            </button>
+                            </button> */}
                             <hr className="my-1 border-gray-200" />
                             <button
                                 onClick={copy}
@@ -150,7 +159,9 @@ const MainCards = ({ blogs = [] }) => {
     const badgeClass = (item) => item?.type?.toLowerCase() === "news" ? "bg-green-500" : "bg-red-500";
 
     return (
-        <div className="grid grid-cols-1 gap-6">
+        <>
+
+            <div className="grid grid-cols-1 gap-6">
             {/* FEATURED BLOG/NEWS */}
             {latest && (
                 <div className="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition">
@@ -182,27 +193,29 @@ const MainCards = ({ blogs = [] }) => {
             {/* SMALL BLOGS/NEWS */}
             {others.slice(0, 5).map((blog) => (
                 <div key={blog?._id}
-                    className="flex gap-3 bg-white p-3 rounded-lg shadow hover:shadow-md transition cursor-pointer"
-                    onClick={() => window.location.href = getItemUrl(blog)} >
-                    <div className="relative w-28 h-20 rounded overflow-hidden flex-shrink-0">
+                    className="flex gap-3 bg-white p-3 rounded-lg shadow hover:shadow-md transition">
+                    <Link href={getItemUrl(blog)} className="relative w-28 h-20 rounded overflow-hidden flex-shrink-0 block group">
                         <Image
                             src={blog?.featuredImage?.url || "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"}
                             alt={blog?.title || ""}
                             fill
-                            className="object-cover"
+                            className="object-cover group-hover:opacity-90 transition"
                         />
                         <div className="absolute top-1 left-1">
                             <p className={`px-1 py-0.5 text-[10px] font-bold rounded m-0 ${badgeClass(blog)} text-white`}>{getTypeLabel(blog)}</p>
                         </div>
-                    </div>
+                    </Link>
                     <div className="flex-1 min-w-0">
-                        <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(blog)}`}>{getCategoryName(blog?.category)}</p>
-                        <h3 className="text-sm font-semibold leading-snug mt-1 line-clamp-2 text-gray-900">{blog?.title}</h3>
+                        <Link href={getItemUrl(blog)}>
+                            <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(blog)}`}>{getCategoryName(blog?.category)}</p>
+                            <h3 className="text-sm font-semibold leading-snug mt-1 line-clamp-2 text-gray-900">{blog?.title}</h3>
+                        </Link>
                         <ActionIcons blog={blog} isBigCard={false} />
                     </div>
                 </div>
             ))}
         </div>
+        </>
     );
 };
 
