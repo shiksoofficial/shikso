@@ -5,7 +5,7 @@ import { getToken } from "@/lib/auth";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { FaRegCommentDots, FaRegBookmark, FaBookmark, FaShareAlt, FaFacebookF, FaTwitter, FaWhatsapp, FaEnvelope, FaLink } from "react-icons/fa";
+import { FaRegCommentDots, FaRegBookmark, FaBookmark, FaShareAlt, FaFacebookF, FaTwitter, FaWhatsapp, FaLink, } from "react-icons/fa";
 
 const MainCards = ({ blogs = [] }) => {
     const [saved, setSaved] = useState({});
@@ -16,6 +16,13 @@ const MainCards = ({ blogs = [] }) => {
         setSaved(JSON.parse(localStorage.getItem("savedBlogs") || "{}"));
     }, []);
 
+    // Sort blogs by lastUpdatedAt descending, fallback to createdAt
+    const sortedBlogs = [...blogs].sort((a, b) => {
+        const dateA = new Date(a.lastUpdatedAt || a.createdAt);
+        const dateB = new Date(b.lastUpdatedAt || b.createdAt);
+        return dateB - dateA;
+    });
+
     const toggleSave = (blog) => {
         const id = blog._id;
         const updated = { ...saved, [id]: !saved[id] };
@@ -25,7 +32,9 @@ const MainCards = ({ blogs = [] }) => {
 
     const getItemUrl = (item) => {
         const id = item?.uid || item?._id;
-        return item?.type?.toLowerCase() === "news" ? `/educational-news/${id}` : `/blogs/${id}`;
+        return item?.type?.toLowerCase() === "news"
+            ? `/educational-news/${id}`
+            : `/blogs/${id}`;
     };
 
     const getCategoryName = (category) =>
@@ -37,27 +46,20 @@ const MainCards = ({ blogs = [] }) => {
     const getTypeColor = (item) =>
         item?.type?.toLowerCase() === "news" ? "text-green-600" : "text-red-600";
 
-    // Toast state for bookmark prompt
-    // const [toast, setToast] = useState("");
-    // isBigCard prop to control dropdown position
+    // Action icons component
     const ActionIcons = ({ blog, isBigCard = false }) => {
         const router = useRouter();
         const [showShare, setShowShare] = useState(false);
         const [copied, setCopied] = useState(false);
-        const url = mounted ? `${window.location.origin}${getItemUrl(blog)}` : '';
+
+        const url = mounted ? `${window.location.origin}${getItemUrl(blog)}` : "";
         const text = `Check out this: "${blog?.title}"`;
 
         const share = (e, link) => {
             e.preventDefault();
             e.stopPropagation();
-            window.open(link, '_blank', 'noopener,noreferrer');
+            window.open(link, "_blank", "noopener,noreferrer");
         };
-
-        // const email = (e) => {
-        //     e.preventDefault();
-        //     e.stopPropagation();
-        //     window.location.href = `mailto:?subject=${encodeURIComponent(blog?.title || '')}&body=${encodeURIComponent(`${text}\n\n${url}`)}`;
-        // };
 
         const copy = async (e) => {
             e.preventDefault();
@@ -72,15 +74,34 @@ const MainCards = ({ blogs = [] }) => {
         };
 
         const shareLinks = [
-            { icon: FaWhatsapp, label: "WhatsApp", color: "hover:text-green-500", url: `https://wa.me/?text=${encodeURIComponent(text + " " + url)}` },
-            { icon: FaTwitter, label: "Twitter", color: "hover:text-blue-400", url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}` },
-            { icon: FaFacebookF, label: "Facebook", color: "hover:text-blue-600", url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` }
+            {
+                icon: FaWhatsapp,
+                label: "WhatsApp",
+                color: "hover:text-green-500",
+                url: `https://wa.me/?text=${encodeURIComponent(text + " " + url)}`,
+            },
+            {
+                icon: FaTwitter,
+                label: "Twitter",
+                color: "hover:text-blue-400",
+                url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                    text
+                )}&url=${encodeURIComponent(url)}`,
+            },
+            {
+                icon: FaFacebookF,
+                label: "Facebook",
+                color: "hover:text-blue-600",
+                url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+                    url
+                )}`,
+            },
         ];
 
         return (
-            <div className="relative" onClick={(e) => e.stopPropagation()}>
-                <div className="flex items-center gap-6 text-gray-500 text-sm mt-3">
-                    <p className="flex items-center gap-1 m-0"> <FaRegCommentDots /> {blog?.commentsCount ?? "02"} </p>
+            <div className="relative mt-2" onClick={(e) => e.stopPropagation()}>
+                <div className="flex items-center gap-4 text-gray-500 text-sm">
+                    <p className="flex items-center gap-1 m-0"><FaRegCommentDots /> {blog?.commentsCount ?? "0"}</p>
                     <button
                         onClick={(e) => {
                             e.preventDefault();
@@ -92,9 +113,14 @@ const MainCards = ({ blogs = [] }) => {
                             toggleSave(blog);
                         }}
                         className="hover:text-gray-700"
-                        title="Save to bookmarks">
-                        {saved[blog._id] ? <FaBookmark className="text-blue-600" /> : <FaRegBookmark />}
+                        title="Save to bookmarks" >
+                        {saved[blog._id] ? (
+                            <FaBookmark className="text-blue-600" />
+                        ) : (
+                            <FaRegBookmark />
+                        )}
                     </button>
+
                     <button
                         onClick={(e) => {
                             e.preventDefault();
@@ -108,7 +134,6 @@ const MainCards = ({ blogs = [] }) => {
 
                 {showShare && (
                     <>
-                        {/* Backdrop to close menu */}
                         <div
                             className="fixed inset-0 z-10"
                             onClick={(e) => {
@@ -117,30 +142,19 @@ const MainCards = ({ blogs = [] }) => {
                                 setShowShare(false);
                             }}
                         />
-                        {/* opens above for big card, below for small cards */}
-                        <div
-                            className={`absolute z-20 bg-white border rounded-lg shadow-xl p-2 flex flex-col gap-1 min-w-[180px] left-0 ${isBigCard
-                                    ? "bottom-full mb-2" // Opens ABOVE the icons for big card
-                                    : "top-full mt-2"    // Opens below for small cards (default behavior)
-                                }`}
+
+                        <div className={`absolute z-20 bg-white border rounded-lg shadow-xl p-2 flex flex-col gap-1 min-w-[180px] left-0 ${isBigCard ? "bottom-full mb-2" : "top-full mt-2"}`}
                             onClick={(e) => e.stopPropagation()}>
                             {shareLinks.map(({ icon: Icon, label, color, url }) => (
-                                <button
-                                    key={label}
+                                <button key={label}
                                     onClick={(e) => share(e, url)}
-                                    className={`flex items-center gap-3 ${color} px-3 py-2 rounded hover:bg-gray-50 text-gray-700 text-left w-full transition`}>
+                                    className={`flex items-center gap-3 ${color} px-3 py-2 rounded hover:bg-gray-50 text-gray-700 text-left w-full transition`} >
                                     <Icon size={18} /> {label}
                                 </button>
                             ))}
-                            {/* <button
-                                onClick={email}
-                                className="flex items-center gap-3 hover:text-red-400 px-3 py-2 rounded hover:bg-gray-50 text-gray-700 text-left w-full transition">
-                                <FaEnvelope size={18} /> Email
-                            </button> */}
                             <hr className="my-1 border-gray-200" />
-                            <button
-                                onClick={copy}
-                                className="flex items-center gap-3 hover:text-gray-900 px-3 py-2 rounded hover:bg-gray-50 text-left w-full transition">
+                            <button onClick={copy}
+                                className="flex items-center gap-3 hover:text-gray-900 px-3 py-2 rounded hover:bg-gray-50 text-left w-full transition" >
                                 <FaLink size={18} className={copied ? "text-green-500" : ""} />
                                 <span className={copied ? "text-green-500 font-semibold" : ""}>
                                     {copied ? "✓ Copied!" : "Copy Link"}
@@ -153,37 +167,51 @@ const MainCards = ({ blogs = [] }) => {
         );
     };
 
-    if (!blogs.length) return null;
+    if (!sortedBlogs.length) return null;
 
-    const [latest, ...others] = blogs;
-    const badgeClass = (item) => item?.type?.toLowerCase() === "news" ? "bg-green-500" : "bg-red-500";
+    const [latest, ...others] = sortedBlogs;
+    const badgeClass = (item) =>
+        item?.type?.toLowerCase() === "news" ? "bg-green-500" : "bg-red-500";
 
     return (
-        <>
-
-            <div className="grid grid-cols-1 gap-6">
+        <div className="grid grid-cols-1 gap-6">
             {/* FEATURED BLOG/NEWS */}
             {latest && (
                 <div className="bg-white rounded-lg overflow-hidden shadow hover:shadow-lg transition">
                     <Link href={getItemUrl(latest)} className="block">
                         <div className="relative h-[320px]">
                             <Image
-                                src={latest?.featuredImage?.url || "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"}
+                                src={
+                                    latest?.featuredImage?.url ||
+                                    "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"
+                                }
                                 alt={latest?.title || ""}
                                 fill
                                 priority
                                 className="object-cover"
                             />
                             <div className="absolute top-3 left-3">
-                                <p className={`px-2 py-1 text-xs font-bold rounded m-0 ${badgeClass(latest)} text-white`}>{getTypeLabel(latest)}</p>
+                                <p
+                                    className={`px-2 py-1 text-xs font-bold rounded m-0 ${badgeClass(
+                                        latest
+                                    )} text-white`}
+                                >
+                                    {getTypeLabel(latest)}
+                                </p>
                             </div>
                         </div>
                     </Link>
                     <div className="p-4">
                         <Link href={getItemUrl(latest)}>
-                            <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(latest)}`}> {getCategoryName(latest?.category)} </p>
-                            <h2 className="text-xl font-bold mt-2 leading-snug text-gray-900"> {latest?.title} </h2>
-                            <p className="text-gray-600 text-sm mt-2 line-clamp-2 m-0">{latest?.meta?.description}</p>
+                            <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(latest)}`}>
+                                {getCategoryName(latest?.category)}
+                            </p>
+                            <h2 className="text-xl font-bold mt-2 leading-snug text-gray-900">
+                                {latest?.title}
+                            </h2>
+                            <p className="text-gray-600 text-sm mt-2 line-clamp-2 m-0">
+                                {latest?.meta?.description}
+                            </p>
                         </Link>
                         <ActionIcons blog={latest} isBigCard={true} />
                     </div>
@@ -192,35 +220,39 @@ const MainCards = ({ blogs = [] }) => {
 
             {/* SMALL BLOGS/NEWS */}
             {others.slice(0, 5).map((blog) => (
-                <div key={blog?._id}
-                    className="flex gap-3 bg-white p-3 rounded-lg shadow hover:shadow-md transition">
-                    <Link href={getItemUrl(blog)} className="relative w-28 h-20 rounded overflow-hidden flex-shrink-0 block group">
+                <div key={blog?._id} className="flex gap-3 bg-white p-3 rounded-lg shadow hover:shadow-md transition" >
+                    <Link href={getItemUrl(blog)}
+                        className="relative w-28 h-20 rounded overflow-hidden flex-shrink-0 block group" >
                         <Image
-                            src={blog?.featuredImage?.url || "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"}
+                            src={
+                                blog?.featuredImage?.url ||
+                                "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"
+                            }
                             alt={blog?.title || ""}
                             fill
                             className="object-cover group-hover:opacity-90 transition"
                         />
                         <div className="absolute top-1 left-1">
-                            <p className={`px-1 py-0.5 text-[10px] font-bold rounded m-0 ${badgeClass(blog)} text-white`}>{getTypeLabel(blog)}</p>
+                            <p className={`px-1 py-0.5 text-[10px] font-bold rounded m-0 ${badgeClass(blog)} text-white`} >
+                                {getTypeLabel(blog)}
+                            </p>
                         </div>
                     </Link>
                     <div className="flex-1 min-w-0">
                         <Link href={getItemUrl(blog)}>
-                            <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(blog)}`}>{getCategoryName(blog?.category)}</p>
-                            <h3 className="text-sm font-semibold leading-snug mt-1 line-clamp-2 text-gray-900">{blog?.title}</h3>
+                            <p className={`text-xs font-semibold uppercase m-0 ${getTypeColor(blog)}`} >
+                                {getCategoryName(blog?.category)}
+                            </p>
+                            <h3 className="text-sm font-semibold leading-snug mt-1 line-clamp-2 text-gray-900">
+                                {blog?.title}
+                            </h3>
                         </Link>
                         <ActionIcons blog={blog} isBigCard={false} />
                     </div>
                 </div>
             ))}
         </div>
-        </>
     );
 };
 
 export default MainCards;
-
-{/* <MainCards blogs={filteredBlogs} type="blog" />
-<MainCards blogs={filteredNews} type="news" />
-<MainCards blogs={mixedContent} /> */}
