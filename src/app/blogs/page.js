@@ -5,6 +5,7 @@ import React from 'react'
 import CommonFaq from '@/common-component/CommonFaq/CommonFaq';
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
 import Blog1 from '@/component/blog/Blog1';
+import AllBlogs from '@/component/blog/AllBlogs';
 
 export const metadata = {
     title: "Explore Shikso Blog for Smart and AI driven Learning Insight",
@@ -119,6 +120,7 @@ const BlogPage = async () => {
                     categories={categories}
                 />
                 {/* <CommonFaq title=" - Shikso Blog & Education Insights" faqData={faqData} /> */}
+                <AllBlogs />
             </div>
         );
     } catch (error) {

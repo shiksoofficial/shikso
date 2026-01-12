@@ -1,6 +1,7 @@
 export const dynamic = "force-static";
 export const revalidate = 3600;
 import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
+import AllBlogs from '@/component/blog/AllBlogs';
 import BlogDescription from '@/component/blog/BlogDescription'
 import LatestBlog from '@/component/blog/LatestBlog';
 import SuggestedBlogs from '@/component/blog/SuggestedBlogs';
@@ -125,6 +126,7 @@ const BlogDesc = async ({ params, initialBlogs }) => {
       </div> */}
       <SuggestedBlogs currentBlog={currentBlog} />
       <LatestBlog />
+      <AllBlogs />
       <div className="custom-container py-4 md:py-8">
         <SubscribeBox />
       </div>
