@@ -1,56 +1,64 @@
 export const dynamic = "force-static";
 export const revalidate = 3600;
-import CommonBanner1 from '@/common-component/CommonBanner1/CommonBanner1';
-import AllBlogs from '@/component/blog/AllBlogs';
-import BlogDescription from '@/component/blog/BlogDescription'
-import LatestBlog from '@/component/blog/LatestBlog';
-import SuggestedBlogs from '@/component/blog/SuggestedBlogs';
+import CommonBanner1 from "@/common-component/CommonBanner1/CommonBanner1";
+import CommonFaq from "@/common-component/CommonFaq/CommonFaq";
+import AllBlogs from "@/component/blog/AllBlogs";
+import BlogDescription from "@/component/blog/BlogDescription";
+import LatestBlog from "@/component/blog/LatestBlog";
+import SuggestedBlogs from "@/component/blog/SuggestedBlogs";
 // import CommentBox from '@/component/commentBox/CommentBox';
-import SubscribeBox from '@/component/subscribeBox/SubscribeBox';
-import { apiClient } from '@/lib/api-client'
-import { BASE_URL_API } from '@/lib/common'
-import axios from 'axios'
-import React from 'react'
+import SubscribeBox from "@/component/subscribeBox/SubscribeBox";
+import { apiClient } from "@/lib/api-client";
+import { BASE_URL_API } from "@/lib/common";
+import axios from "axios";
+import React from "react";
 
 // Dynamic Metadata Function
 export async function generateMetadata({ params }) {
   try {
-    const { id } = await params
-    const { data } = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech`)
-    const blog = data?.blog
+    const { id } = await params;
+    const { data } = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech`);
+    const blog = data?.blog;
 
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.shikso.com"
-    const canonicalUrl = `${baseUrl}/blogs/${id}`
+    const baseUrl =
+      process.env.NEXT_PUBLIC_SITE_URL || "https://www.shikso.com";
+    const canonicalUrl = `${baseUrl}/blogs/${id}`;
 
-    const ogImage = blog?.featuredImage?.url ||
+    const ogImage =
+      blog?.featuredImage?.url ||
       blog?.image ||
-      "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"
+      "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
 
     return {
       title: blog?.meta?.title || "Blog Detail",
       description: blog?.meta?.description,
-      keywords: blog?.meta?.keywords || ["blog",],
+      keywords: blog?.meta?.keywords || ["blog"],
       alternates: {
-        canonical: canonicalUrl
+        canonical: canonicalUrl,
       },
       openGraph: {
         title: blog?.meta?.title || "Blog Detail",
         description: blog?.meta?.description,
         images: [
           {
-            url: data?.blog?.featuredImage?.url ||
+            url:
+              data?.blog?.featuredImage?.url ||
               "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png",
             width: 1200,
             height: 630,
             alt: blog?.title || "Blog Image",
-          }
+          },
         ],
       },
       twitter: {
-        card: 'summary_large_image',
+        card: "summary_large_image",
         title: blog?.meta?.title,
         description: blog?.meta?.description,
-        images: [{ url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png" }],
+        images: [
+          {
+            url: "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png",
+          },
+        ],
       },
       robots: {
         index: true,
@@ -59,38 +67,47 @@ export async function generateMetadata({ params }) {
         "max-snippet": -1,
         "max-video-preview": -1,
       },
-    }
+    };
   } catch (error) {
-    console.error('Error generating metadata:', error)
+    console.error("Error generating metadata:", error);
     return {
       title: "Blog",
       description: "Read our latest blog post",
       openGraph: {
         title: "Blog",
         description: "Read our latest blog post",
-        images: ["https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"],
+        images: [
+          "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png",
+        ],
       },
-    }
+    };
   }
 }
 
 const LIMIT = 4;
 
-const BlogDesc = async ({ params, initialBlogs }) => {
+const BlogDesc = async ({ params }) => {
   const page = 1;
-  const res = await apiClient.get(`${BASE_URL_API}blogs/all/ed_tech?type=blog&status=Published&page=${page}&limit=${LIMIT}`,
-    { cache: "no-store" }
+  const res = await apiClient.get(
+    `${BASE_URL_API}blogs/all/ed_tech?type=blog&status=Published&page=${page}&limit=${LIMIT}`,
+    { cache: "no-store" },
   );
   const posts = res?.data;
   const blogs = Array.isArray(posts?.blogs) ? posts.blogs : [];
 
   const totalFromApi =
-    typeof posts?.totalBlogs === "number" ? posts.totalBlogs :
-      typeof posts?.total === "number" ? posts.total :
-        (posts?.pagination?.total ?? posts?.count ?? undefined);
+    typeof posts?.totalBlogs === "number"
+      ? posts.totalBlogs
+      : typeof posts?.total === "number"
+        ? posts.total
+        : (posts?.pagination?.total ?? posts?.count ?? undefined);
 
-  const { id } = await params
-  const data = await axios.get(`${BASE_URL_API}blogs/${id}/ed_tech?type=blog&status=Published`)
+  const { id } = await params;
+  const data = await axios.get(
+    `${BASE_URL_API}blogs/${id}/ed_tech?type=blog&status=Published`,
+  );
+
+  console.log("Fetched Blog Data:", data?.data?.blog);
 
   // Get the current blog data
   const currentBlog = data?.data?.blog;
@@ -106,12 +123,13 @@ const BlogDesc = async ({ params, initialBlogs }) => {
     <div>
       <CommonBanner1
         title={currentBlog?.title}
-        tagline={`${currentBlog?.authorName || ""} | ${currentBlog?.createdAt
-          ? new Date(currentBlog.createdAt)
-            .toLocaleDateString("en-GB")
-            .replace(/\//g, "-")
-          : ""
-          }`}
+        tagline={`${currentBlog?.authorName || ""} | ${
+          currentBlog?.createdAt
+            ? new Date(currentBlog.createdAt)
+                .toLocaleDateString("en-GB")
+                .replace(/\//g, "-")
+            : ""
+        }`}
         breadcom={[
           { title: "Blogs", url: "/blogs" },
           { title: currentBlog?.meta?.title || "Blogs Detail" },
@@ -125,13 +143,14 @@ const BlogDesc = async ({ params, initialBlogs }) => {
         <CommentBox />
       </div> */}
       <SuggestedBlogs currentBlog={currentBlog} />
+      <CommonFaq faqData={currentBlog?.faq || []} />
       <LatestBlog />
       <AllBlogs />
       <div className="custom-container py-4 md:py-8">
         <SubscribeBox />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BlogDesc
+export default BlogDesc;
