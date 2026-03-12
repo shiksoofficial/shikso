@@ -66,9 +66,9 @@ stages:
         environment: Production
         displayName: "Deploy to Vercel - Prod"
         variables:
-          VERCEL_PROJECT_ID: "prj_loGwl6UQAU2l4SC1XobmyzKYx0LY"
-          VERCEL_ORG_ID: "OxLeE5fU9CijZi3EU6BizxAp"
-          VERCEL_TOKEN: "vcp_1BKjftpXPVz993wuxDelmK2AsZXumM6Lw2bXx2UwfMkbtzPIkj0cOqAw"
+          VERCEL_PROJECT_ID: "prj_MuXcIUzpCV9bDkNJDu2QIxWP9O3d"
+          VERCEL_ORG_ID: "gPLVlvJxaFI0eeU4D9A2btu2"
+          VERCEL_TOKEN: "vcp_7rgSZd2Big5XzmFk4ElhPq9cfPE1WTC11nhUxlFBDaH6lxHFdB3Jmd9e"
 
         strategy:
           runOnce:
