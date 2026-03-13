@@ -1,21 +1,189 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { MdMenu, MdClose } from "react-icons/md";
 import Image from "next/image";
-import { getToken } from "@/lib/auth";
 import LoginModal from "@/common-component/LoginModal/LoginModal";
 import SignupModal from "@/common-component/SignupModal/SignupModal";
 
+// ── Language list ──────────────────────────────────────────
+const LANGUAGES = [
+  { code: "en", label: "English" },
+  { code: "hi", label: "Hindi" },
+  { code: "bn", label: "Bengali" },
+  { code: "te", label: "Telugu" },
+  { code: "mr", label: "Marathi" },
+  { code: "ta", label: "Tamil" },
+  { code: "gu", label: "Gujarati" },
+  { code: "kn", label: "Kannada" },
+  { code: "ml", label: "Malayalam" },
+  { code: "pa", label: "Punjabi" },
+  { code: "ur", label: "Urdu" },
+  { code: "de", label: "German" },
+  { code: "fr", label: "French" },
+  { code: "it", label: "Italian" },
+  { code: "ja", label: "Japanese" },
+  { code: "zh-CN", label: "Chinese (Simplified)" },
+  { code: "zh-TW", label: "Chinese (Traditional)" },
+];
+
+function setGoogleTranslateLang(langCode) {
+  if (langCode === "en") {
+    document.cookie =
+      "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname}`;
+    window.location.reload();
+    return;
+  }
+  const value = `/en/${langCode}`;
+  document.cookie = `googtrans=${value}; path=/`;
+  document.cookie = `googtrans=${value}; path=/; domain=${window.location.hostname}`;
+  window.location.reload();
+}
+
+// ── Custom Language Switcher ───────────────────────────────
+function LanguageSwitcher({ mobile = false }) {
+  const [open, setOpen] = useState(false);
+  const [current, setCurrent] = useState("en");
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const match = document.cookie.match(/googtrans=\/en\/([^;]+)/);
+    if (match) setCurrent(match[1]);
+  }, []);
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const currentLabel =
+    LANGUAGES.find((l) => l.code === current)?.label ?? "Language";
+
+  return (
+    <div
+      ref={ref}
+      className="notranslate"
+      translate="no"
+      style={{
+        position: "relative",
+        display: "inline-block",
+        width: mobile ? "100%" : "auto",
+      }}
+    >
+      {/* Trigger */}
+      <button
+        onClick={() => setOpen((v) => !v)}
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "6px",
+          padding: "6px 14px",
+          background: "#f8fafc",
+          border: "1.5px solid #e2e8f0",
+          borderRadius: "20px",
+          fontSize: "13px",
+          fontWeight: 600,
+          color: "#334155",
+          cursor: "pointer",
+          whiteSpace: "nowrap",
+          outline: "none",
+          width: mobile ? "100%" : "auto",
+          justifyContent: "space-between",
+          transition: "border-color 0.2s",
+        }}
+      >
+        <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+          <span>🌐</span>
+          <span>{currentLabel}</span>
+        </span>
+        <span
+          style={{
+            display: "inline-block",
+            width: 0,
+            height: 0,
+            borderLeft: "4px solid transparent",
+            borderRight: "4px solid transparent",
+            borderTop: "5px solid #94a3b8",
+            transition: "transform 0.2s",
+            transform: open ? "rotate(180deg)" : "rotate(0deg)",
+          }}
+        />
+      </button>
+
+      {/* Dropdown */}
+      {open && (
+        <div
+          style={{
+            position: mobile ? "static" : "absolute",
+            marginTop: "8px",
+            right: mobile ? "auto" : 0,
+            background: "#fff",
+            border: "1px solid #e2e8f0",
+            borderRadius: "14px",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+            padding: "8px",
+            zIndex: 9999,
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "2px",
+            width: mobile ? "100%" : "260px",
+            maxHeight: "300px",
+            overflowY: "auto",
+          }}
+        >
+          {LANGUAGES.map((lang) => (
+            <button
+              key={lang.code}
+              onClick={() => {
+                setCurrent(lang.code);
+                setOpen(false);
+                setGoogleTranslateLang(lang.code);
+              }}
+              style={{
+                padding: "9px 12px",
+                background: current === lang.code ? "#fff7ed" : "transparent",
+                color: current === lang.code ? "#f97316" : "#334155",
+                fontWeight: current === lang.code ? 700 : 500,
+                fontSize: "13px",
+                border: "none",
+                borderRadius: "8px",
+                cursor: "pointer",
+                textAlign: "left",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+              onMouseEnter={(e) => {
+                if (current !== lang.code)
+                  e.currentTarget.style.background = "#f1f5f9";
+              }}
+              onMouseLeave={(e) => {
+                if (current !== lang.code)
+                  e.currentTarget.style.background = "transparent";
+              }}
+            >
+              {lang.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Main Header ───────────────────────────────────────────────
 const Header = () => {
   const FALLBACK_IMAGE =
     "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png";
   const [imgSrc, setImgSrc] = useState(
-    "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png"
+    "https://res.cloudinary.com/dtidgvjlt/image/upload/v1763040883/Shiksho_logo_png_plsk6o.png",
   );
-
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -23,45 +191,18 @@ const Header = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  // GOOGLE TRANSLATE INTEGRATION (Desktop + Mobile)
+  // Load Google Translate script silently (hidden element, drives translation via cookie)
   useEffect(() => {
-    const initGoogleTranslate = () => {
-      if (!window.google || !window.google.translate) return;
-
-      // Desktop language selector
-      const desktopEl = document.getElementById("google_translate_element");
-      if (desktopEl && !desktopEl.hasChildNodes()) {
+    window.googleTranslateElementInit = () => {
+      if (!window.google?.translate) return;
+      const el = document.getElementById("google_translate_element_hidden");
+      if (el && !el.hasChildNodes()) {
         new window.google.translate.TranslateElement(
-          {
-            pageLanguage: "en",
-            includedLanguages:
-              "en,de,fr,it,hi,bn,te,mr,ta,gu,kn,ml,pa,ur,ja,zh-CN,zh-TW",
-            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false,
-          },
-          "google_translate_element"
-        );
-      }
-
-      // Mobile language selector
-      const mobileEl = document.getElementById("google_translate_element_mobile");
-      if (mobileEl && !mobileEl.hasChildNodes()) {
-        new window.google.translate.TranslateElement(
-          {
-            pageLanguage: "en",
-            includedLanguages:
-              "en,de,fr,it,hi,bn,te,mr,ta,gu,kn,ml,pa,ur,ja,zh-CN,zh-TW",
-            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false,
-          },
-          "google_translate_element_mobile"
+          { pageLanguage: "en", autoDisplay: false },
+          "google_translate_element_hidden",
         );
       }
     };
-
-    // Global callback for Google script
-    window.googleTranslateElementInit = initGoogleTranslate;
-
     const scriptId = "google-translate-script";
     if (!document.getElementById(scriptId)) {
       const script = document.createElement("script");
@@ -71,27 +212,14 @@ const Header = () => {
       script.async = true;
       document.body.appendChild(script);
     } else {
-      // If script already loaded (e.g., on route change)
-      initGoogleTranslate();
+      window.googleTranslateElementInit();
     }
   }, []);
-  // ---------------------------------------------------------
-
-  const handleProfileClick = (e) => {
-    e.preventDefault();
-    const token = getToken();
-    if (token) {
-      router.push("/profile");
-    } else {
-      setIsLoginModalOpen(true);
-    }
-  };
 
   const handleSwitchToSignup = () => {
     setIsLoginModalOpen(false);
     setIsSignupModalOpen(true);
   };
-
   const handleSwitchToLogin = () => {
     setIsSignupModalOpen(false);
     setIsLoginModalOpen(true);
@@ -107,116 +235,74 @@ const Header = () => {
       title: "Navodaya",
       href: "/navodaya-smartset",
       subtitles: [
-        {
-          title: "Syllabus",
-          href: "/navodaya-smartset/updates-and-information",
-        },
-        {
-          title: "Old Paper",
-          href: "/navodaya-smartset/previous-year-papers",
-        },
-        { title: "Mock Tests", href: "/navodaya-smartset/mock-test" },
-        {
-          title: "Unlimited Practice",
-          href: "/navodaya-smartset/unlimited-practice",
-        },
+        { title: "class 6", href: "/navodaya-smartset/class-6" },
+        { title: "class 9", href: "/navodaya-smartset/class-9" },
+        // { title: "Old Paper", href: "/navodaya-smartset/previous-year-papers" },
+        // { title: "Mock Tests", href: "/navodaya-smartset/mock-test" },
+        // {
+        //   title: "Unlimited Practice",
+        //   href: "/navodaya-smartset/unlimited-practice",
+        // },
       ],
     },
     {
       title: "Sainik School",
       href: "/sainik-school-smartset",
       subtitles: [
-        {
-          title: "Syllabus",
-          href: "/sainik-school-smartset/updates-and-information",
-        },
-        {
-          title: "Old Paper",
-          href: "/sainik-school-smartset/previous-year-papers",
-        },
-        { title: "Mock Tests", href: "/sainik-school-smartset/mock-test" },
-        {
-          title: "Unlimited Practice",
-          href: "/sainik-school-smartset/unlimited-practice",
-        },
+        { title: "class 6", href: "/sainik-school-smartset/class-6" },
+        { title: "class 9", href: "/sainik-school-smartset/class-9" },
+        // {
+        //   title: "Syllabus",
+        //   href: "/sainik-school-smartset/updates-and-information",
+        // },
+        // {
+        //   title: "Old Paper",
+        //   href: "/sainik-school-smartset/previous-year-papers",
+        // },
+        // { title: "Mock Tests", href: "/sainik-school-smartset/mock-test" },
+        // {
+        //   title: "Unlimited Practice",
+        //   href: "/sainik-school-smartset/unlimited-practice",
+        // },
       ],
     },
   ];
 
-  const isActive = (item) => {
-    return (
-      pathname === item.href ||
-      (item.subtitles && item.subtitles.some((sub) => pathname === sub.href))
-    );
-  };
-
-  const isSubtitleActive = (subHref) => {
-    return pathname === subHref;
-  };
+  const isActive = (item) =>
+    pathname === item.href ||
+    (item.subtitles && item.subtitles.some((sub) => pathname === sub.href));
+  const isSubtitleActive = (subHref) => pathname === subHref;
 
   return (
     <>
       <style jsx global>{`
-        /* Google branding / logo completely hide */
-        .goog-logo-link,
-        .goog-te-gadget-icon,
-        .goog-te-gadget img,
-        .goog-te-menu2 img {
+        /* Hide all native Google Translate UI */
+        #google_translate_element_hidden {
           display: none !important;
         }
-
-        /* Upar ka banner/frame hide */
+        .goog-te-gadget,
+        .goog-logo-link {
+          display: none !important;
+        }
+        .goog-te-banner-frame.skiptranslate,
+        .skiptranslate > iframe {
+          display: none !important;
+        }
         body {
-          top: 0px !important;
+          top: 0 !important;
         }
-        .skiptranslate > iframe,
-        .goog-te-banner-frame.skiptranslate {
-          display: none !important;
-        }
-
-        /* Tooltip/popup hide */
         #goog-gt-tt,
         .goog-te-balloon-frame {
           display: none !important;
         }
         .goog-text-highlight {
-          background-color: transparent !important;
+          background: transparent !important;
           border: none !important;
           box-shadow: none !important;
         }
-
-        /* Simple wrapper */
-        .language-dropdown-wrapper {
-          display: inline-block;
-        }
-
-        /* LIST KO ONE LINE ME (Horizontal scrollable) */
-        .goog-te-menu2 {
-          display: flex !important;
-          flex-direction: row !important;
-          flex-wrap: nowrap !important;
-          overflow-x: auto !important;
-          max-width: 90vw !important;
-          max-height: 50px !important;
-          border-radius: 12px !important;
-          border: 1px solid #e5e7eb !important;
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
-          padding: 8px !important;
-          background: #fff !important;
-        }
-        .goog-te-menu2-item {
-          flex: 0 0 auto !important;
-          white-space: nowrap !important;
-          min-width: auto !important;
-        }
-        .goog-te-menu2-item div {
-          padding: 8px 12px !important;
-          font-size: 13px !important;
-        }
-        .goog-te-menu2-item:hover div {
-          background: #f3f4f6 !important;
-        }
       `}</style>
+
+      <div id="google_translate_element_hidden" />
 
       <LoginModal
         open={isLoginModalOpen}
@@ -229,7 +315,7 @@ const Header = () => {
         onSwitchToLogin={handleSwitchToLogin}
       />
 
-      <header className="absolute w-full z-[1000]">
+      <header className="absolute w-full z-[1000] bg-white/98 py-3">
         <div className="custom-container">
           <div className="flex justify-between items-center py-2 lg:py-1">
             {/* LEFT MENU (Desktop) */}
@@ -291,9 +377,7 @@ const Header = () => {
                 height={25}
                 className="flex justify-items-end-safe md:px-4 lg:px-7"
                 onError={() => {
-                  if (imgSrc !== FALLBACK_IMAGE) {
-                    setImgSrc(FALLBACK_IMAGE);
-                  }
+                  if (imgSrc !== FALLBACK_IMAGE) setImgSrc(FALLBACK_IMAGE);
                 }}
               />
             </Link>
@@ -301,14 +385,7 @@ const Header = () => {
             {/* RIGHT MENU (Desktop) */}
             <ul className="dm_sans responsive-text hidden md:flex justify-items-end-safe md:gap-3 lg:gap-8 text-black font-medium items-center">
               {menuItems.map((item, i) => (
-                <li
-                  key={i}
-                  className="relative group"
-                  onMouseEnter={() =>
-                    item.subtitles && setDropdownOpen(item.title)
-                  }
-                  onMouseLeave={() => setDropdownOpen(null)}
-                >
+                <li key={i} className="relative group">
                   <Link
                     aria-label="menu"
                     href={item.href}
@@ -322,17 +399,14 @@ const Header = () => {
                   </Link>
                 </li>
               ))}
-
-              {/* TRANSLATE DROPDOWN (Desktop) */}
-              <li className="relative">
-                <div className="language-dropdown-wrapper">
-                  <div id="google_translate_element"></div>
-                </div>
+              {/* Custom language switcher */}
+              <li>
+                <LanguageSwitcher />
               </li>
             </ul>
 
             {/* MOBILE TOGGLE */}
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-5 md:hidden">
               <button
                 aria-label="menu-btn"
                 onClick={() => setIsOpen(true)}
@@ -346,26 +420,21 @@ const Header = () => {
 
         {/* Overlay */}
         <div
-          className={`fixed inset-0 bg-black/50 z-[99] transition-opacity duration-300 ${
-            isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
+          className={`fixed inset-0 bg-black/50 z-[99] transition-opacity duration-300 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
           onClick={() => setIsOpen(false)}
-        ></div>
+        />
 
         {/* Sidebar (Mobile) */}
         <div
-          className={`fixed top-0 right-0 h-full w-64 bg-white z-[100] p-6 shadow-lg transform transition-transform duration-300 ${
-            isOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed top-0 right-0 h-full w-64 bg-white z-[100] p-6 shadow-lg transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         >
           <div className="flex justify-between items-center mb-6">
-            <p className="responsiveheading2 dm_sans font-semibold"></p>
+            <p className="responsiveheading2 dm_sans font-semibold" />
             <button aria-label="close-btn" onClick={() => setIsOpen(false)}>
               <MdClose size={28} />
             </button>
           </div>
 
-          {/* Mobile Menu Items */}
           <ul className="dm_sans flex flex-col gap-3 text-lg text-gray-800">
             {menuItems.map((item, i) => (
               <li key={i}>
@@ -404,13 +473,11 @@ const Header = () => {
             ))}
           </ul>
 
-          {/* Mobile Language Selector */}
-          {/* <div className="mt-6 pt-4 border-t border-gray-200">
+          {/* Mobile language switcher */}
+          <div className="mt-6 pt-4 border-t border-gray-200">
             <p className="text-sm text-gray-500 mb-2 font-medium">Language</p>
-            <div className="language-dropdown-wrapper">
-              <div id="google_translate_element_mobile"></div>
-            </div>
-          </div> */}
+            <LanguageSwitcher mobile />
+          </div>
         </div>
       </header>
     </>
