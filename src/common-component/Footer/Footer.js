@@ -38,7 +38,10 @@ const Footer = () => {
     quickLinksSet: [
       { label: "Navodaya", url: "/navodaya-smartset" },
       { label: "Sainik School", url: "/sainik-school-smartset" },
-      { label: "RMS", url: "/rms-smartset" }, // ── RMS SmartSet added
+      { label: "RMS", url: "/rms-smartset" },
+      { label: "NMMS", url: "/smartset-nmms" },   // ── NMMS added
+      { label: "NTSE", url: "/smartset-ntse" },   // ── NTSE added
+      { label: "RIMC", url: "/smartset-rimc" },   // ── RIMC added
     ],
     contactInfo: {
       phone: "+91 7974186754",
@@ -87,13 +90,11 @@ const Footer = () => {
         <div className="grid grid-cols-12 border-b border-gray-500 pb-8 gap-3.5 md:gap-4 lg:gap-8">
           {/* Quick Links 1 */}
           <div className="col-span-5 sm:col-span-3 lg:col-span-3 lg:mr:28 xl:mr-32">
-            {/* Header — chevron only on mobile */}
             <div
               className="mb-1 sm:mb-5 text-[20px] dm_sans text-[#FFF46C] flex items-center justify-between sm:cursor-default cursor-pointer"
               onClick={() => setIsQuickLinks1Open(!isQuickLinks1Open)}
             >
               <p>Quick Links</p>
-              {/* Chevron icon — mobile only */}
               <span className="sm:hidden">
                 {isQuickLinks1Open ? (
                   <FaChevronUp size={16} />
@@ -103,7 +104,6 @@ const Footer = () => {
               </span>
             </div>
 
-            {/* Links — always visible on sm+, toggle on mobile */}
             <div
               className={`flex-col space-y-2 ${isQuickLinks1Open ? "flex" : "hidden"} sm:flex`}
             >
