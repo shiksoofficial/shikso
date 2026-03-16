@@ -20,7 +20,9 @@ export default function ComingSoonPage({
         <div className="container">
           <nav className="breadcrumb">
             <Link href="/">Home</Link> ›{" "}
-            <Link href="/sainik-school-smartset">Sainik School SmartSet==</Link>{" "}
+            <Link href="/sainik-school-entrance-exam">
+              Sainik School SmartSet==
+            </Link>{" "}
             › <Link href={sainikHref(cls)}>{label}</Link> ›{" "}
             <span>{sectionMeta?.label}</span>
           </nav>

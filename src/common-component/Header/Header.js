@@ -233,18 +233,18 @@ const Header = () => {
   const menuItems1 = [
     {
       title: "Navodaya",
-      href: "/navodaya-smartset",
+      href: "/navodaya-entrance-exam",
       subtitles: [
-        { title: "class 6", href: "/navodaya-smartset/class-6" },
-        { title: "class 9", href: "/navodaya-smartset/class-9" },
+        { title: "class 6", href: "/navodaya-entrance-exam/class-6" },
+        { title: "class 9", href: "/navodaya-entrance-exam/class-9" },
       ],
     },
     {
       title: "Sainik School",
-      href: "/sainik-school-smartset",
+      href: "/sainik-school-entrance-exam",
       subtitles: [
-        { title: "class 6", href: "/sainik-school-smartset/class-6" },
-        { title: "class 9", href: "/sainik-school-smartset/class-9" },
+        { title: "class 6", href: "/sainik-school-entrance-exam/class-6" },
+        { title: "class 9", href: "/sainik-school-entrance-exam/class-9" },
       ],
     },
     // ── RMS SmartSet ──────────────────────────────────────────

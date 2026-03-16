@@ -44,6 +44,6 @@ export const SAINIK_SECTIONS = [
 
 // Build full href for any class + section combo
 export function sainikHref(cls, sectionSlug) {
-  const base = `/sainik-school-smartset/${cls}`;
+  const base = `/sainik-school-entrance-exam/${cls}`;
   return sectionSlug ? `${base}/${sectionSlug}` : base;
 }

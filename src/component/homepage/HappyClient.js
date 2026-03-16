@@ -2,17 +2,65 @@ import React from "react";
 import Link from "next/link";
 
 const papers = [
-  { exam: "Navodaya", label: "Navodaya", title: "Navodaya 2023 Solved Paper", tagBg: "#dbeafe", tagColor: "#1d4ed8", href: "/navodaya-smartset" },
-  { exam: "Sainik", label: "Sainik", title: "Sainik School Entrance 2022", tagBg: "#dcfce7", tagColor: "#15803d", href: "/sainik-school-smartset" },
-  { exam: "RMS", label: "RMS", title: "RMS Military Academy 2023", tagBg: "#f3e8ff", tagColor: "#6d28d9", href: "/rms-smartset" },
-  { exam: "NMMS", label: "NMMS", title: "NMMS State Scholarship 2021", tagBg: "#ffedd5", tagColor: "#c2410c", href: "/exam-list" },
+  {
+    exam: "Navodaya",
+    label: "Navodaya",
+    title: "Navodaya 2023 Solved Paper",
+    tagBg: "#dbeafe",
+    tagColor: "#1d4ed8",
+    href: "/navodaya-entrance-exam",
+  },
+  {
+    exam: "Sainik",
+    label: "Sainik",
+    title: "Sainik School Entrance 2022",
+    tagBg: "#dcfce7",
+    tagColor: "#15803d",
+    href: "/sainik-school-entrance-exam",
+  },
+  {
+    exam: "RMS",
+    label: "RMS",
+    title: "RMS Military Academy 2023",
+    tagBg: "#f3e8ff",
+    tagColor: "#6d28d9",
+    href: "/rms-smartset",
+  },
+  {
+    exam: "NMMS",
+    label: "NMMS",
+    title: "NMMS State Scholarship 2021",
+    tagBg: "#ffedd5",
+    tagColor: "#c2410c",
+    href: "/exam-list",
+  },
 ];
 
 const benefits = [
-  { icon: "✅", title: "Clear Syllabus", desc: "Simplified topics easy for kids.", accent: "#4ED7F2" },
-  { icon: "📋", title: "Solved Papers", desc: "Step-by-step video solutions.", accent: "#F97316" },
-  { icon: "🧠", title: "Smart Practice", desc: "Daily micro-learning sessions.", accent: "#4ED7F2" },
-  { icon: "📣", title: "Exam Updates", desc: "Instant alerts for new notices.", accent: "#F97316" },
+  {
+    icon: "✅",
+    title: "Clear Syllabus",
+    desc: "Simplified topics easy for kids.",
+    accent: "#4ED7F2",
+  },
+  {
+    icon: "📋",
+    title: "Solved Papers",
+    desc: "Step-by-step video solutions.",
+    accent: "#F97316",
+  },
+  {
+    icon: "🧠",
+    title: "Smart Practice",
+    desc: "Daily micro-learning sessions.",
+    accent: "#4ED7F2",
+  },
+  {
+    icon: "📣",
+    title: "Exam Updates",
+    desc: "Instant alerts for new notices.",
+    accent: "#F97316",
+  },
 ];
 
 const HappyClient = () => {
@@ -50,7 +98,9 @@ const HappyClient = () => {
                   >
                     {p.label}
                   </span>
-                  <p className="font-semibold text-gray-800 text-sm">{p.title}</p>
+                  <p className="font-semibold text-gray-800 text-sm">
+                    {p.title}
+                  </p>
                 </div>
                 <Link
                   href={p.href}

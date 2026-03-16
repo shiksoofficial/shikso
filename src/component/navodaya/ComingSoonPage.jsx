@@ -8,7 +8,7 @@ export default function ComingSoonPage({
   title,
   description,
   icon,
-  basePath = "/navodaya-smartset",
+  basePath = "/navodaya-entrance-exam",
 }) {
   const label = CLASS_LABELS[cls];
   const sectionMeta = NAVODAYA_SECTIONS.find((s) => s.slug === sectionSlug);

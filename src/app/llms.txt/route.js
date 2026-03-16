@@ -1,8 +1,9 @@
 import { apiClient } from "@/lib/api-client";
 
 export async function GET(req) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || `https://${req.headers.get('host')}`;
-  
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || `https://${req.headers.get("host")}`;
+
   // Static pages for Shikso project
   const staticPages = [
     { path: "", title: "Homepage" },
@@ -10,8 +11,8 @@ export async function GET(req) {
     { path: "contact-us", title: "Contact Us" },
     { path: "blogs", title: "Blogs" },
     { path: "educational-news", title: "Educational News" },
-    { path: "navodaya-smartset", title: "Navodaya SmartSet" },
-    { path: "sainik-school-smartset", title: "Sainik School SmartSet" },
+    { path: "navodaya-entrance-exam", title: "Navodaya SmartSet" },
+    { path: "sainik-school-entrance-exam", title: "Sainik School SmartSet" },
     { path: "school-exam-smartset", title: "School Exam SmartSet" },
     { path: "privacy-policy", title: "Privacy Policy" },
     { path: "terms-and-conditions", title: "Terms & Conditions" },
@@ -22,9 +23,11 @@ export async function GET(req) {
   // Fetch dynamic blogs
   let blogPages = [];
   try {
-    const blogResponse = await apiClient.get("blogs/all/ed_tech?type=blog&status=Published");
+    const blogResponse = await apiClient.get(
+      "blogs/all/ed_tech?type=blog&status=Published",
+    );
     const blogs = blogResponse.data.blogs;
-    
+
     if (Array.isArray(blogs)) {
       blogPages = blogs.map((blog) => ({
         path: `blogs/${blog?.uid}`,
@@ -36,9 +39,11 @@ export async function GET(req) {
   }
   let newsPages = [];
   try {
-    const blogResponse = await apiClient.get("blogs/all/ed_tech?type=news&status=Published");
+    const blogResponse = await apiClient.get(
+      "blogs/all/ed_tech?type=news&status=Published",
+    );
     const blogs = blogResponse.data.blogs;
-    
+
     if (Array.isArray(blogs)) {
       newsPages = blogs.map((blog) => ({
         path: `educational-news/${blog?.uid}`,
@@ -50,11 +55,7 @@ export async function GET(req) {
   }
 
   // Combine all pages
-  const allPages = [
-    ...staticPages,
-    ...blogPages,
-    ...newsPages,
- ];
+  const allPages = [...staticPages, ...blogPages, ...newsPages];
 
   // Disallowed pages (don't include in public section)
   const disallowedPages = [
@@ -120,9 +121,27 @@ Shikso goes beyond entrance exams — our School Exam SmartSet helps CBSE & ICSE
 **Main Website:** ${baseUrl}
 
 **Important Pages:**
-${staticPages.map(page => `- ${page.title}: ${baseUrl}/${page.path}`).join('\n')}
-${blogPages.length > 0 ? `\n**Educational Blog Posts:**\n${blogPages.slice(0, 5).map(page => `- ${page.title}: ${baseUrl}/${page.path}`).join('\n')}\n${blogPages.length > 5 ? `... and ${blogPages.length - 5} more blog posts. View all at: ${baseUrl}/blogs` : ''}` : ''}
-${newsPages.length > 0 ? `\n**Educational News Posts:**\n${newsPages.slice(0, 5).map(page => `- ${page.title}: ${baseUrl}/${page.path}`).join('\n')}\n${blogPages.length > 5 ? `... and ${blogPages.length - 5} more News posts. View all at: ${baseUrl}/educational-news` : ''}` : ''}
+${staticPages.map((page) => `- ${page.title}: ${baseUrl}/${page.path}`).join("\n")}
+${
+  blogPages.length > 0
+    ? `\n**Educational Blog Posts:**\n${blogPages
+        .slice(0, 5)
+        .map((page) => `- ${page.title}: ${baseUrl}/${page.path}`)
+        .join(
+          "\n",
+        )}\n${blogPages.length > 5 ? `... and ${blogPages.length - 5} more blog posts. View all at: ${baseUrl}/blogs` : ""}`
+    : ""
+}
+${
+  newsPages.length > 0
+    ? `\n**Educational News Posts:**\n${newsPages
+        .slice(0, 5)
+        .map((page) => `- ${page.title}: ${baseUrl}/${page.path}`)
+        .join(
+          "\n",
+        )}\n${blogPages.length > 5 ? `... and ${blogPages.length - 5} more News posts. View all at: ${baseUrl}/educational-news` : ""}`
+    : ""
+}
 
 **Legal Pages:**
 - Privacy Policy: ${baseUrl}/privacy-policy
@@ -135,7 +154,7 @@ ${newsPages.length > 0 ? `\n**Educational News Posts:**\n${newsPages.slice(0, 5)
 The following pages are restricted from search engine indexing and should not be referenced in AI responses:
 
 **Authentication & User Pages:**
-${disallowedPages.map(page => `- ${page}`).join('\n')}
+${disallowedPages.map((page) => `- ${page}`).join("\n")}
 
 **Note for AI Assistants:** Do not provide direct links to these disallowed pages. Instead, guide users to public pages like homepage, about page, or contact page.
 
@@ -249,7 +268,7 @@ A: Visit ${baseUrl}, contact +91 7974186754, or email support@shikso.com for mor
 - **Educational News Posts:** ${newsPages.length}
 
 
-**Last Updated:** ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+**Last Updated:** ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
 **Version:** 1.0
 
 `;
@@ -257,7 +276,7 @@ A: Visit ${baseUrl}, contact +91 7974186754, or email support@shikso.com for mor
   return new Response(llmsTxt.trim(), {
     status: 200,
     headers: {
-      'Content-Type': 'text/plain; charset=utf-8',
+      "Content-Type": "text/plain; charset=utf-8",
     },
   });
 }

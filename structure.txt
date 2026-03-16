@@ -12524,7 +12524,7 @@
 │   │   │   │   └── page.js
 │   │   │   └── updates-and-information
 │   │   │       └── page.js
-│   │   ├── navodaya-smartset
+│   │   ├── navodaya-entrance-exam
 │   │   │   ├── [cls]
 │   │   │   │   ├── layout.jsx
 │   │   │   │   ├── mock-tests
@@ -12562,7 +12562,7 @@
 │   │   │   │   └── page.js
 │   │   │   └── updates-and-information
 │   │   │       └── page.js
-│   │   ├── sainik-school-smartset
+│   │   ├── sainik-school-entrance-exam
 │   │   │   ├── [cls]
 │   │   │   │   ├── layout.jsx
 │   │   │   │   ├── mock-tests
