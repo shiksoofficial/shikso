@@ -18,7 +18,7 @@ stages:
         variables:
           VERCEL_PROJECT_ID: "prj_voN6H0tuzIvCrCvbgfE4Rf5xLgxr"
           VERCEL_ORG_ID: "OxLeE5fU9CijZi3EU6BizxAp"
-          VERCEL_TOKEN: "vcp_1BKjftpXPVz993wuxDelmK2AsZXumM6Lw2bXx2UwfMkbtzPIkj0cOqAw"
+          VERCEL_TOKEN: "vcp_2mp8WcRbFSTr51WRCDyVfv6UUJkVge6379Irz6lwIoEw9cyPyr0qA19k"
 
         steps:
           # Install Vercel CLI

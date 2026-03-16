@@ -3,7 +3,7 @@
 // app/sainik-school-smartset/[cls]/layout.jsx
 
 import Link from "next/link";
-import { use } from "react";
+import { use, useEffect } from "react";
 import { notFound } from "next/navigation";
 import { usePathname } from "next/navigation";
 import {
@@ -23,6 +23,23 @@ export default function ClassLayout({ children, params }) {
 
   const label = CLASS_LABELS[cls];
   const otherClass = SAINIK_CLASSES.find((c) => c !== cls);
+
+  useEffect(() => {
+    const sentinel = document.getElementById("sainik-tabs-sentinel");
+    const bar = document.getElementById("sainik-tabs-bar");
+    if (!sentinel || !bar) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        bar.classList.toggle("is-sticky", !entries[0].isIntersecting);
+      },
+      { threshold: 0 },
+    );
+
+    observer.observe(sentinel);
+
+    return () => observer.disconnect();
+  }, [cls]);
 
   return (
     <>
@@ -128,22 +145,6 @@ export default function ClassLayout({ children, params }) {
         }
         .switch-class-pill:hover { background: var(--primaryColor); }
       `}</style>
-
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              var sentinel = document.getElementById('sainik-tabs-sentinel');
-              var bar = document.getElementById('sainik-tabs-bar');
-              if (!sentinel || !bar) return;
-              var observer = new IntersectionObserver(function(entries) {
-                bar.classList.toggle('is-sticky', !entries[0].isIntersecting);
-              }, { threshold: 0 });
-              observer.observe(sentinel);
-            })();
-          `,
-        }}
-      />
     </>
   );
 }
