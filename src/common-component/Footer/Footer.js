@@ -36,12 +36,12 @@ const Footer = () => {
       { label: "Exams", url: "/exams" },
     ],
     quickLinksSet: [
-      { label: "Navodaya", url: "/navodaya-smartset" },
-      { label: "Sainik School", url: "/sainik-school-smartset" },
+      { label: "Navodaya", url: "/navodaya-entrance-exam" },
+      { label: "Sainik School", url: "/sainik-school-entrance-exam" },
       { label: "RMS", url: "/rms-smartset" },
-      { label: "NMMS", url: "/smartset-nmms" },   // ── NMMS added
-      { label: "NTSE", url: "/smartset-ntse" },   // ── NTSE added
-      { label: "RIMC", url: "/smartset-rimc" },   // ── RIMC added
+      { label: "NMMS", url: "/smartset-nmms" }, // ── NMMS added
+      { label: "NTSE", url: "/smartset-ntse" }, // ── NTSE added
+      { label: "RIMC", url: "/smartset-rimc" }, // ── RIMC added
     ],
     contactInfo: {
       phone: "+91 7974186754",

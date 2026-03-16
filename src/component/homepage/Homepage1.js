@@ -8,7 +8,7 @@ const exams = [
     icon: "🏫",
     color: "#dbeafe",
     iconColor: "#2563eb",
-    href: "/navodaya-smartset",
+    href: "/navodaya-entrance-exam",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const exams = [
     icon: "🎖️",
     color: "#dcfce7",
     iconColor: "#16a34a",
-    href: "/sainik-school-smartset",
+    href: "/sainik-school-entrance-exam",
   },
   {
     id: 3,
@@ -132,7 +132,10 @@ const Homepage1 = () => {
                 >
                   {step.icon}
                 </div>
-                <h4 className="font-bold text-lg leading-tight" style={{ color: "#0a1629" }}>
+                <h4
+                  className="font-bold text-lg leading-tight"
+                  style={{ color: "#0a1629" }}
+                >
                   {step.title}
                 </h4>
                 <p className="text-sm" style={{ color: "#64748b" }}>

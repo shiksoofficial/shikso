@@ -1,46 +1,60 @@
 "use client";
-// app/rms-smartset/[cls]/layout.jsx
-// Sticky section tab bar — exact same pattern as navodaya-entrance-exam/[cls]/layout.jsx
+
+// app/sainik-school-entrance-exam/[cls]/layout.jsx
 
 import Link from "next/link";
+import { use, useEffect } from "react";
 import { notFound } from "next/navigation";
 import { usePathname } from "next/navigation";
 import {
-  RMS_SECTIONS,
-  RMS_CLASS_LABELS,
-  RMS_CLASSES,
-  rmsHref,
-  isRMSClass,
-  normalizeRMSClass,
-} from "@/component/rms/rmsNav";
-import { use } from "react";
+  SAINIK_CLASSES,
+  SAINIK_SECTIONS,
+  CLASS_LABELS,
+  sainikHref,
+} from "@/component/sainik/sainikNav";
 
 const NAVBAR_HEIGHT = 70;
 
-export default function RMSClassLayout({ children, params }) {
-  const { cls: rawCls } = use(params);
-  const cls = normalizeRMSClass(rawCls);
+export default function ClassLayout({ children, params }) {
+  const { cls } = use(params);
   const pathname = usePathname();
 
-  if (!isRMSClass(cls)) notFound();
+  if (!SAINIK_CLASSES.includes(cls)) notFound();
 
-  const otherClass = RMS_CLASSES.find((c) => c !== cls) || RMS_CLASSES[0];
+  const label = CLASS_LABELS[cls];
+  const otherClass = SAINIK_CLASSES.find((c) => c !== cls);
+
+  useEffect(() => {
+    const sentinel = document.getElementById("sainik-tabs-sentinel");
+    const bar = document.getElementById("sainik-tabs-bar");
+    if (!sentinel || !bar) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        bar.classList.toggle("is-sticky", !entries[0].isIntersecting);
+      },
+      { threshold: 0 },
+    );
+
+    observer.observe(sentinel);
+
+    return () => observer.disconnect();
+  }, [cls]);
 
   return (
     <>
       <div
-        id="rms-tabs-sentinel"
+        id="sainik-tabs-sentinel"
         style={{ height: "1px", paddingTop: `${NAVBAR_HEIGHT}px` }}
       />
 
-      <div id="rms-tabs-bar" className="section-tabs-bar">
+      <div id="sainik-tabs-bar" className="section-tabs-bar">
         <div className="tabs-container">
           <div className="tabs-left">
-            <span className="tabs-prefix">
-              🏫 {RMS_CLASS_LABELS[cls]} &rsaquo;
-            </span>
-            {RMS_SECTIONS.map((sec) => {
-              const href = rmsHref(cls, sec.slug);
+            <span className="tabs-prefix">🎖️ {label} &rsaquo;</span>
+
+            {SAINIK_SECTIONS.map((sec) => {
+              const href = sainikHref(cls, sec.slug);
               const isActive = pathname === href;
               return (
                 <Link
@@ -48,16 +62,14 @@ export default function RMSClassLayout({ children, params }) {
                   href={href}
                   className={`tab-link dm_sans${isActive ? " tab-link-active" : ""}`}
                 >
-                  {sec.icon} {sec.shortLabel}
-                  {sec.status === "coming-soon" && (
-                    <span className="tab-soon">Soon</span>
-                  )}
+                  {sec.icon} {sec.label}
                 </Link>
               );
             })}
           </div>
-          <Link href={rmsHref(otherClass)} className="switch-pill dm_sans">
-            Switch to {RMS_CLASS_LABELS[otherClass]}
+
+          <Link href={sainikHref(otherClass)} className="switch-class-pill">
+            Switch to {CLASS_LABELS[otherClass]}
           </Link>
         </div>
       </div>
@@ -88,7 +100,7 @@ export default function RMSClassLayout({ children, params }) {
           scrollbar-width: none;
         }
         .tabs-container::-webkit-scrollbar { display: none; }
-        .tabs-left { display: flex; align-items: center; gap: 2px; }
+        .tabs-left { display: flex; align-items: center; gap: 4px; }
         .tabs-prefix {
           font-size: 12px;
           font-weight: 700;
@@ -102,7 +114,7 @@ export default function RMSClassLayout({ children, params }) {
           display: inline-flex;
           align-items: center;
           gap: 5px;
-          padding: 14px 12px;
+          padding: 14px 14px;
           font-size: 13px;
           font-weight: 600;
           color: #475569;
@@ -111,19 +123,15 @@ export default function RMSClassLayout({ children, params }) {
           white-space: nowrap;
           transition: color .15s, border-color .15s;
         }
-        .tab-link:hover { color: #0a1628; border-bottom-color: #e2e8f0; }
-        .tab-link-active { color: #0a1628 !important; border-bottom-color: #0a1628 !important; }
-        .tab-soon {
-          font-size: 9px;
-          font-weight: 700;
-          background: #fef3c7;
-          color: #d97706;
-          padding: 2px 5px;
-          border-radius: 8px;
-          text-transform: uppercase;
-          letter-spacing: .04em;
+        .tab-link:hover {
+          color: #0a1628;
+          border-bottom-color: #e2e8f0;
         }
-        .switch-pill {
+        .tab-link-active {
+          color: #0a1628 !important;
+          border-bottom-color: #0a1628 !important;
+        }
+        .switch-class-pill {
           flex-shrink: 0;
           padding: 6px 14px;
           background: #0a1628;
@@ -135,24 +143,8 @@ export default function RMSClassLayout({ children, params }) {
           white-space: nowrap;
           transition: background .2s;
         }
-        .switch-pill:hover { background: var(--primaryColor, #F97316); }
+        .switch-class-pill:hover { background: var(--primaryColor); }
       `}</style>
-
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              var sentinel = document.getElementById('rms-tabs-sentinel');
-              var bar = document.getElementById('rms-tabs-bar');
-              if (!sentinel || !bar) return;
-              var observer = new IntersectionObserver(function(entries) {
-                bar.classList.toggle('is-sticky', !entries[0].isIntersecting);
-              }, { threshold: 0 });
-              observer.observe(sentinel);
-            })();
-          `,
-        }}
-      />
     </>
   );
 }

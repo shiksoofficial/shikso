@@ -1,146 +1,146 @@
-'use client'
-import CommonTestList from '@/common-component/CommonTestList/CommonTestList'
-import CustomButton2 from '@/common-component/CustomBotton2/CustomButton2'
-import CustomButton from '@/common-component/CustomButton/CustomButton'
-import Link from 'next/link'
-import React, { useState, useEffect } from 'react'
+"use client";
+import CommonTestList from "@/common-component/CommonTestList/CommonTestList";
+import CustomButton2 from "@/common-component/CustomBotton2/CustomButton2";
+import CustomButton from "@/common-component/CustomButton/CustomButton";
+import Link from "next/link";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-
 const TestPage = () => {
-  const [testStarted, setTestStarted] = useState(false)
-  const [showResults, setShowResults] = useState(false)
-  const [timeLeft, setTimeLeft] = useState(1200) // 20 minutes in seconds
-  const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [answers, setAnswers] = useState({})
+  const [testStarted, setTestStarted] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(1200); // 20 minutes in seconds
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [answers, setAnswers] = useState({});
   const [showTestList, setShowTestList] = useState(true);
   const router = useRouter();
-
 
   const mockQuestions = [
     {
       id: 1,
-      subject: 'Mathematics',
-      question: 'If 15% of a number is 45, what is the number?',
-      options: ['250', '300', '350', '400'],
-      correct: 1
+      subject: "Mathematics",
+      question: "If 15% of a number is 45, what is the number?",
+      options: ["250", "300", "350", "400"],
+      correct: 1,
     },
     {
       id: 2,
-      subject: 'Science',
-      question: 'Which gas is most abundant in Earth\'s atmosphere?',
-      options: ['Oxygen', 'Nitrogen', 'Carbon Dioxide', 'Hydrogen'],
-      correct: 1
+      subject: "Science",
+      question: "Which gas is most abundant in Earth's atmosphere?",
+      options: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+      correct: 1,
     },
     {
       id: 3,
-      subject: 'Mental Ability',
-      question: 'Complete the series: 2, 6, 12, 20, 30, ?',
-      options: ['38', '40', '42', '44'],
-      correct: 2
+      subject: "Mental Ability",
+      question: "Complete the series: 2, 6, 12, 20, 30, ?",
+      options: ["38", "40", "42", "44"],
+      correct: 2,
     },
     {
       id: 4,
-      subject: 'Language',
-      question: 'Choose the correctly spelled word:',
-      options: ['Accomodation', 'Accommodation', 'Acommodation', 'Acomodation'],
-      correct: 1
+      subject: "Language",
+      question: "Choose the correctly spelled word:",
+      options: ["Accomodation", "Accommodation", "Acommodation", "Acomodation"],
+      correct: 1,
     },
     {
       id: 5,
-      subject: 'Mathematics',
-      question: 'The average of 5 consecutive numbers is 18. What is the largest number?',
-      options: ['18', '19', '20', '21'],
-      correct: 2
+      subject: "Mathematics",
+      question:
+        "The average of 5 consecutive numbers is 18. What is the largest number?",
+      options: ["18", "19", "20", "21"],
+      correct: 2,
     },
     {
       id: 6,
-      subject: 'Mathematics',
-      question: 'What is the square root of 144?',
-      options: ['10', '11', '12', '13'],
-      correct: 2
+      subject: "Mathematics",
+      question: "What is the square root of 144?",
+      options: ["10", "11", "12", "13"],
+      correct: 2,
     },
     {
       id: 7,
-      subject: 'Science',
-      question: 'What is the chemical symbol for Gold?',
-      options: ['Go', 'Gd', 'Au', 'Ag'],
-      correct: 2
+      subject: "Science",
+      question: "What is the chemical symbol for Gold?",
+      options: ["Go", "Gd", "Au", "Ag"],
+      correct: 2,
     },
     {
       id: 8,
-      subject: 'Mental Ability',
-      question: 'What comes next: A, C, E, G, ?',
-      options: ['H', 'I', 'J', 'K'],
-      correct: 1
+      subject: "Mental Ability",
+      question: "What comes next: A, C, E, G, ?",
+      options: ["H", "I", "J", "K"],
+      correct: 1,
     },
     {
       id: 9,
-      subject: 'Language',
-      question: 'What is the plural of \'child\'?',
-      options: ['Childs', 'Children', 'Childes', 'Child'],
-      correct: 1
+      subject: "Language",
+      question: "What is the plural of 'child'?",
+      options: ["Childs", "Children", "Childes", "Child"],
+      correct: 1,
     },
     {
       id: 10,
-      subject: 'Mathematics',
-      question: 'What is 25% of 200?',
-      options: ['40', '50', '60', '70'],
-      correct: 1
+      subject: "Mathematics",
+      question: "What is 25% of 200?",
+      options: ["40", "50", "60", "70"],
+      correct: 1,
     },
     {
       id: 11,
-      subject: 'Science',
-      question: 'Which planet is closest to the Sun?',
-      options: ['Venus', 'Mercury', 'Earth', 'Mars'],
-      correct: 1
+      subject: "Science",
+      question: "Which planet is closest to the Sun?",
+      options: ["Venus", "Mercury", "Earth", "Mars"],
+      correct: 1,
     },
     {
       id: 12,
-      subject: 'Mental Ability',
-      question: 'If a train travels 60 km in 1 hour, how far will it travel in 3 hours?',
-      options: ['120 km', '150 km', '180 km', '200 km'],
-      correct: 2
+      subject: "Mental Ability",
+      question:
+        "If a train travels 60 km in 1 hour, how far will it travel in 3 hours?",
+      options: ["120 km", "150 km", "180 km", "200 km"],
+      correct: 2,
     },
     {
       id: 13,
-      subject: 'Language',
-      question: 'What is the past tense of \'go\'?',
-      options: ['Goed', 'Went', 'Gone', 'Going'],
-      correct: 1
+      subject: "Language",
+      question: "What is the past tense of 'go'?",
+      options: ["Goed", "Went", "Gone", "Going"],
+      correct: 1,
     },
     {
       id: 14,
-      subject: 'Mathematics',
-      question: 'What is the value of π (pi) to 2 decimal places?',
-      options: ['3.14', '3.15', '3.16', '3.17'],
-      correct: 0
+      subject: "Mathematics",
+      question: "What is the value of π (pi) to 2 decimal places?",
+      options: ["3.14", "3.15", "3.16", "3.17"],
+      correct: 0,
     },
     {
       id: 15,
-      subject: 'Science',
-      question: 'What is the hardest natural substance on Earth?',
-      options: ['Gold', 'Iron', 'Diamond', 'Platinum'],
-      correct: 2
-    }
+      subject: "Science",
+      question: "What is the hardest natural substance on Earth?",
+      options: ["Gold", "Iron", "Diamond", "Platinum"],
+      correct: 2,
+    },
   ];
 
   useEffect(() => {
     // Hide the body scroll to prevent scrolling behind the fullscreen component
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
     // Hide header and footer elements if they exist
-    const header = document.querySelector('header');
-    const footer = document.querySelector('footer');
-    const nav = document.querySelector('nav');
+    const header = document.querySelector("header");
+    const footer = document.querySelector("footer");
+    const nav = document.querySelector("nav");
 
-    if (header) header.style.display = 'none';
-    if (footer) footer.style.display = 'none';
-    if (nav) nav.style.display = 'none';
+    if (header) header.style.display = "none";
+    if (footer) footer.style.display = "none";
+    if (nav) nav.style.display = "none";
     return () => {
-      document.body.style.overflow = 'auto';
-      if (header) header.style.display = '';
-      if (footer) footer.style.display = '';
-      if (nav) nav.style.display = '';
+      document.body.style.overflow = "auto";
+      if (header) header.style.display = "";
+      if (footer) footer.style.display = "";
+      if (nav) nav.style.display = "";
     };
   }, []);
 
@@ -148,7 +148,7 @@ const TestPage = () => {
     let timer;
     if (testStarted && !showResults && timeLeft > 0) {
       timer = setInterval(() => {
-        setTimeLeft(prev => {
+        setTimeLeft((prev) => {
           if (prev <= 1) {
             handleSubmitTest();
             return 0;
@@ -164,7 +164,7 @@ const TestPage = () => {
     const hrs = Math.floor(seconds / 3600);
     const mins = Math.floor((seconds % 3600) / 60);
     const secs = seconds % 60;
-    return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    return `${hrs.toString().padStart(2, "0")}:${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
 
   const handleAnswerSelect = (questionId, optionIndex) => {
@@ -178,7 +178,7 @@ const TestPage = () => {
 
   const calculateScore = () => {
     let score = 0;
-    mockQuestions.forEach(question => {
+    mockQuestions.forEach((question) => {
       if (answers[question.id] === question.correct) {
         score++;
       }
@@ -200,8 +200,7 @@ const TestPage = () => {
     setTimeLeft(1200);
     setCurrentQuestion(0);
     setAnswers({});
-     router.push("/navodaya-smartset");
-    
+    router.push("/navodaya-entrance-exam");
   };
 
   // Instructions page
@@ -228,17 +227,15 @@ const TestPage = () => {
             </p>
           </div>
           <div className="flex justify-around space-x-4">
-          
-              <CustomButton2
-                onClick={handleBackToList}
-                color='gray'
-                className=" ">
-                Cancel
-              </CustomButton2>
-            
-            <CustomButton
-              onClick={handleStartTest}
-              className="py-0!">
+            <CustomButton2
+              onClick={handleBackToList}
+              color="gray"
+              className=" "
+            >
+              Cancel
+            </CustomButton2>
+
+            <CustomButton onClick={handleStartTest} className="py-0!">
               Start Test
             </CustomButton>
           </div>
@@ -257,10 +254,18 @@ const TestPage = () => {
         <div className="bg-white rounded-xl shadow-2xl p-12  w-full items-center">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">{`Test Results`}</h2>
-            <div className="text-6xl font-bold text-indigo-600 mb-2">{score}/{mockQuestions.length}</div>
-            <div className="text-2xl text-gray-600 mb-4">{percentage.toFixed(1)}%</div>
-            <div className={`text-lg font-semibold ${percentage >= 60 ? 'text-green-600' : 'text-red-600'}`}>
-              {percentage >= 60 ? 'Congratulations! You Passed!' : 'Better luck next time!'}
+            <div className="text-6xl font-bold text-indigo-600 mb-2">
+              {score}/{mockQuestions.length}
+            </div>
+            <div className="text-2xl text-gray-600 mb-4">
+              {percentage.toFixed(1)}%
+            </div>
+            <div
+              className={`text-lg font-semibold ${percentage >= 60 ? "text-green-600" : "text-red-600"}`}
+            >
+              {percentage >= 60
+                ? "Congratulations! You Passed!"
+                : "Better luck next time!"}
             </div>
           </div>
 
@@ -272,30 +277,47 @@ const TestPage = () => {
                   const userAnswer = answers[question.id];
                   const isCorrect = userAnswer === question.correct;
                   const correctAnswer = question.options[question.correct];
-                  const userAnswerText = userAnswer !== undefined ? question.options[userAnswer] : 'Not answered';
+                  const userAnswerText =
+                    userAnswer !== undefined
+                      ? question.options[userAnswer]
+                      : "Not answered";
 
                   return (
-                    <div key={question.id} className="p-4 bg-white rounded-lg border">
+                    <div
+                      key={question.id}
+                      className="p-4 bg-white rounded-lg border"
+                    >
                       <div className="flex flex-col mb-2">
                         <div className="flex items-center justify-between mb-2">
-                          <span className={`text-sm font-semibold ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
-                            {isCorrect ? '✓ Correct' : '✗ Wrong'}
+                          <span
+                            className={`text-sm font-semibold ${isCorrect ? "text-green-600" : "text-red-600"}`}
+                          >
+                            {isCorrect ? "✓ Correct" : "✗ Wrong"}
                           </span>
                         </div>
-                        <div className='flex gap-2'>
-                          <span className="text-sm font-semibold">Q{idx + 1}</span>
-                          <p className="text-sm text-gray-800 font-medium">{question.question}</p> </div>
+                        <div className="flex gap-2">
+                          <span className="text-sm font-semibold">
+                            Q{idx + 1}
+                          </span>
+                          <p className="text-sm text-gray-800 font-medium">
+                            {question.question}
+                          </p>{" "}
+                        </div>
                       </div>
                       <div className="text-xs text-gray-600 space-y-1">
                         <div>
                           <span className="font-medium">{`Your Answer:`}</span>
-                          <span className={`ml-1 ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
+                          <span
+                            className={`ml-1 ${isCorrect ? "text-green-600" : "text-red-600"}`}
+                          >
                             {userAnswerText}
                           </span>
                         </div>
                         <div>
                           <span className="font-medium">{`Correct Answer:`}</span>
-                          <span className="ml-1 text-green-600">{correctAnswer}</span>
+                          <span className="ml-1 text-green-600">
+                            {correctAnswer}
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -317,11 +339,15 @@ const TestPage = () => {
                 </div>
                 <div className="flex justify-between">
                   <span>{`Wrong Answers:`}</span>
-                  <span className="font-semibold text-red-600">{mockQuestions.length - score}</span>
+                  <span className="font-semibold text-red-600">
+                    {mockQuestions.length - score}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span>{`Percentage:`}</span>
-                  <span className="font-semibold">{percentage.toFixed(1)}%</span>
+                  <span className="font-semibold">
+                    {percentage.toFixed(1)}%
+                  </span>
                 </div>
               </div>
             </div>
@@ -330,12 +356,14 @@ const TestPage = () => {
           <div className="flex space-x-4">
             <button
               onClick={handleBackToList}
-              className="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
+              className="flex-1 bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition"
+            >
               {`  Back to Tests`}
             </button>
             <button
               onClick={handleStartTest}
-              className="flex-1 bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
+              className="flex-1 bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
+            >
               {` Retake Test`}
             </button>
           </div>
@@ -357,7 +385,9 @@ const TestPage = () => {
               </div>
               <div className="flex items-center space-x-6">
                 <div className="flex items-center space-x-2 bg-indigo-100 px-4 py-2 rounded-lg">
-                  <span className="font-bold text-indigo-600">{formatTime(timeLeft)}</span>
+                  <span className="font-bold text-indigo-600">
+                    {formatTime(timeLeft)}
+                  </span>
                 </div>
                 <div className="text-gray-600">
                   {` Question`} {currentQuestion + 1} of {mockQuestions.length}
@@ -384,14 +414,15 @@ const TestPage = () => {
               <button
                 key={idx}
                 onClick={() => handleAnswerSelect(question.id, idx)}
-                className={`w-full text-left p-4 rounded-lg border-2 transition ${answers[question.id] === idx
-                  ? 'border-indigo-600 bg-indigo-50'
-                  : 'border-gray-200 hover:border-indigo-300'
-                  }`}
+                className={`w-full text-left p-4 rounded-lg border-2 transition ${
+                  answers[question.id] === idx
+                    ? "border-indigo-600 bg-indigo-50"
+                    : "border-gray-200 hover:border-indigo-300"
+                }`}
               >
                 <span className="font-semibold text-gray-700">
                   {String.fromCharCode(65 + idx)}.
-                </span>{' '}
+                </span>{" "}
                 {option}
               </button>
             ))}
@@ -401,7 +432,9 @@ const TestPage = () => {
             {/* Navigation Buttons */}
             <div className="flex justify-between items-center">
               <button
-                onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))}
+                onClick={() =>
+                  setCurrentQuestion(Math.max(0, currentQuestion - 1))
+                }
                 disabled={currentQuestion === 0}
                 className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-semibold disabled:opacity-50 hover:bg-gray-300 transition text-sm"
               >
@@ -429,7 +462,10 @@ const TestPage = () => {
             <div className="w-full">
               <div className="text-center mb-3">
                 <span className="text-sm text-gray-600">
-                  {`  Jump to Question: `}<span className="font-semibold">{currentQuestion + 1} of {mockQuestions.length}</span>
+                  {`  Jump to Question: `}
+                  <span className="font-semibold">
+                    {currentQuestion + 1} of {mockQuestions.length}
+                  </span>
                 </span>
               </div>
               <div className="flex flex-wrap justify-center gap-1 max-h-32 overflow-y-auto">
@@ -437,12 +473,13 @@ const TestPage = () => {
                   <button
                     key={idx}
                     onClick={() => setCurrentQuestion(idx)}
-                    className={`w-7 h-7 text-xs rounded-md font-semibold transition ${idx === currentQuestion
-                      ? 'bg-indigo-600 text-white'
-                      : answers[mockQuestions[idx].id] !== undefined
-                        ? 'bg-green-500 text-white'
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                      }`}
+                    className={`w-7 h-7 text-xs rounded-md font-semibold transition ${
+                      idx === currentQuestion
+                        ? "bg-indigo-600 text-white"
+                        : answers[mockQuestions[idx].id] !== undefined
+                          ? "bg-green-500 text-white"
+                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                    }`}
                   >
                     {idx + 1}
                   </button>
@@ -460,7 +497,8 @@ const TestPage = () => {
                 <span className="text-sm text-gray-600">
                   <span className="font-semibold text-indigo-600">
                     {Object.keys(answers).length} / {mockQuestions.length}
-                  </span> {`answered`}
+                  </span>{" "}
+                  {`answered`}
                 </span>
               </div>
             </div>
@@ -486,6 +524,6 @@ const TestPage = () => {
       </div>
     </div>
   );
-}
+};
 
-export default TestPage
+export default TestPage;

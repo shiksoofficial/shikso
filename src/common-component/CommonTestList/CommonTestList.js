@@ -26,26 +26,31 @@ const CommonTestList = ({
   return (
     <div className="custom-container m-6 md:m-10">
       <div className="mx-auto bg-white p-6 md:p-10 rounded-xl shadow">
-        <Link href="/navodaya-smartset"
-          className="mb-4 inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors">
+        <Link
+          href="/navodaya-entrance-exam"
+          className="mb-4 inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
             viewBox="0 0 20 20"
-            fill="currentColor" >
+            fill="currentColor"
+          >
             <path
               fillRule="evenodd"
               d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
               clipRule="evenodd"
             />
           </svg>
-         {` Back to Test Series`}
+          {` Back to Test Series`}
         </Link>
 
         <div className="border-gray-300 border-1 rounded-xl p-6 bg-white mt-4">
           <div className="flex justify-between items-center mb-6">
             <div>
-              <h2 className="dm_sans responsiveheading2 font-semibold text-gray-700">{title}</h2>
+              <h2 className="dm_sans responsiveheading2 font-semibold text-gray-700">
+                {title}
+              </h2>
               <p className="dm_sans responsive-test  text-gray-500 mt-1">
                 {totalTests} Total Tests • {freeTests} Free Tests
               </p>
@@ -70,9 +75,7 @@ const CommonTestList = ({
                   </div>
 
                   <div>
-                    <h3 className="font-medium text-gray-800">
-                      {test.name}
-                    </h3>
+                    <h3 className="font-medium text-gray-800">{test.name}</h3>
                     <p className="dm_sans responsive-test  text-gray-500">
                       {test.questions} Questions • {test.duration}
                     </p>
@@ -104,7 +107,7 @@ const CommonTestList = ({
             </p>
 
             <button className="text-blue-600 hover:text-blue-800 font-medium dm_sans responsive-test ">
-             {` Load More Tests →`}
+              {` Load More Tests →`}
             </button>
           </div>
         </div>

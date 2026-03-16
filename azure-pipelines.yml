@@ -68,7 +68,7 @@ stages:
         variables:
           VERCEL_PROJECT_ID: "prj_MuXcIUzpCV9bDkNJDu2QIxWP9O3d"
           VERCEL_ORG_ID: "gPLVlvJxaFI0eeU4D9A2btu2"
-          VERCEL_TOKEN: "vcp_7rgSZd2Big5XzmFk4ElhPq9cfPE1WTC11nhUxlFBDaH6lxHFdB3Jmd9e"
+          VERCEL_TOKEN: "vcp_4hu0Xj5IQ9cTc0Z8Eg5dIYopy2VWGvqN8HzxSZHwpFMwotGQQT0kkqSv"
 
         strategy:
           runOnce:
