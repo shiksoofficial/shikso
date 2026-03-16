@@ -24,7 +24,7 @@ const exams = [
     icon: "🛡️",
     color: "#f3e8ff",
     iconColor: "#7c3aed",
-    href: "/rms-smartset",
+    href: "/rms-entrance-exam",
   },
   {
     id: 4,

@@ -1,4 +1,4 @@
-// app/smartset-rimc/page.jsx
+// app/rashtriya-indian-military-college-entrance-exam/page.jsx
 // RIMC — Rashtriya Indian Military College, Dehradun
 // Static info page — Updates + Syllabus only. No coming soon sections.
 
@@ -21,132 +21,487 @@ const EXAM_INFO = {
   conductedBy: "Ministry of Defence, Govt. of India",
   officialSite: "rimc.gov.in / rimc.edu.in",
   targetClass: "Admission to Class 8 — Boys & Girls aged 11½–13 years",
-  examFrequency: "Twice a year — June (for January session) & December (for July session)",
+  examFrequency:
+    "Twice a year — June (for January session) & December (for July session)",
   examMode: "Written exam (pen-paper) + Viva Voce + Medical",
   negativeMarking: "None",
   minQualifying: "50% in each subject (English, Maths, GK) separately",
   totalSeats: "~25 students per session — highly competitive",
-  established: "1922 — one of India's oldest and most prestigious military schools",
+  established:
+    "1922 — one of India's oldest and most prestigious military schools",
 };
 
 const DATES_JUNE = [
-  { event: "Application Form Available", detail: "Obtain from RIMC Dehradun via Speed Post or online payment", date: "February–March 2026", status: "upcoming" },
-  { event: "Last Date to Apply", detail: "Submit to respective State Government (NOT to RIMC directly)", date: "April 2026", status: "upcoming" },
-  { event: "Written Exam — June Session", detail: "English + Maths + GK (written, pen-paper)", date: "June 4, 2026", status: "upcoming" },
-  { event: "Viva Voce (Interview)", detail: "Called for shortlisted candidates — 50 marks", date: "August–September 2026", status: "upcoming" },
-  { event: "Medical Examination", detail: "At designated Army hospital — final stage", date: "After interview", status: "upcoming" },
-  { event: "Merit List & Admission", detail: "State-wise merit list published", date: "October–November 2026", status: "upcoming" },
-  { event: "Session Starts", detail: "January 2027 session", date: "January 2027", status: "upcoming" },
+  {
+    event: "Application Form Available",
+    detail: "Obtain from RIMC Dehradun via Speed Post or online payment",
+    date: "February–March 2026",
+    status: "upcoming",
+  },
+  {
+    event: "Last Date to Apply",
+    detail: "Submit to respective State Government (NOT to RIMC directly)",
+    date: "April 2026",
+    status: "upcoming",
+  },
+  {
+    event: "Written Exam — June Session",
+    detail: "English + Maths + GK (written, pen-paper)",
+    date: "June 4, 2026",
+    status: "upcoming",
+  },
+  {
+    event: "Viva Voce (Interview)",
+    detail: "Called for shortlisted candidates — 50 marks",
+    date: "August–September 2026",
+    status: "upcoming",
+  },
+  {
+    event: "Medical Examination",
+    detail: "At designated Army hospital — final stage",
+    date: "After interview",
+    status: "upcoming",
+  },
+  {
+    event: "Merit List & Admission",
+    detail: "State-wise merit list published",
+    date: "October–November 2026",
+    status: "upcoming",
+  },
+  {
+    event: "Session Starts",
+    detail: "January 2027 session",
+    date: "January 2027",
+    status: "upcoming",
+  },
 ];
 
 const DATES_DEC = [
-  { event: "Application Form Available", detail: "Obtain from RIMC Dehradun via Speed Post or online payment", date: "August–September 2026", status: "upcoming" },
-  { event: "Last Date to Apply", detail: "Submit to respective State Government", date: "October 2026", status: "upcoming" },
-  { event: "Written Exam — December Session", detail: "English + Maths + GK (written, pen-paper)", date: "December 2026", status: "upcoming" },
-  { event: "Viva Voce (Interview)", detail: "Called for shortlisted candidates — 50 marks", date: "February–March 2027", status: "upcoming" },
-  { event: "Medical Examination", detail: "At designated Army hospital", date: "After interview", status: "upcoming" },
-  { event: "Merit List & Admission", detail: "State-wise merit list", date: "April–May 2027", status: "upcoming" },
-  { event: "Session Starts", detail: "July 2027 session", date: "July 2027", status: "upcoming" },
+  {
+    event: "Application Form Available",
+    detail: "Obtain from RIMC Dehradun via Speed Post or online payment",
+    date: "August–September 2026",
+    status: "upcoming",
+  },
+  {
+    event: "Last Date to Apply",
+    detail: "Submit to respective State Government",
+    date: "October 2026",
+    status: "upcoming",
+  },
+  {
+    event: "Written Exam — December Session",
+    detail: "English + Maths + GK (written, pen-paper)",
+    date: "December 2026",
+    status: "upcoming",
+  },
+  {
+    event: "Viva Voce (Interview)",
+    detail: "Called for shortlisted candidates — 50 marks",
+    date: "February–March 2027",
+    status: "upcoming",
+  },
+  {
+    event: "Medical Examination",
+    detail: "At designated Army hospital",
+    date: "After interview",
+    status: "upcoming",
+  },
+  {
+    event: "Merit List & Admission",
+    detail: "State-wise merit list",
+    date: "April–May 2027",
+    status: "upcoming",
+  },
+  {
+    event: "Session Starts",
+    detail: "July 2027 session",
+    date: "July 2027",
+    status: "upcoming",
+  },
 ];
 
 const STATUS_STYLES = {
-  completed: { bg: "#dcfce7", color: "#15803d", dot: "#16a34a", label: "Completed" },
-  upcoming:  { bg: "#fef3c7", color: "#b45309", dot: "#d97706", label: "Upcoming"  },
-  tba:       { bg: "#f1f5f9", color: "#475569", dot: "#94a3b8", label: "Expected"  },
+  completed: {
+    bg: "#dcfce7",
+    color: "#15803d",
+    dot: "#16a34a",
+    label: "Completed",
+  },
+  upcoming: {
+    bg: "#fef3c7",
+    color: "#b45309",
+    dot: "#d97706",
+    label: "Upcoming",
+  },
+  tba: { bg: "#f1f5f9", color: "#475569", dot: "#94a3b8", label: "Expected" },
 };
 
 const ELIGIBILITY = [
   { label: "Gender", value: "Boys and Girls both eligible" },
-  { label: "Age (Jan Session)", value: "Born between 02 Jan 2013 – 01 Jul 2014 (for Jan 2026 session)" },
-  { label: "Age (Jul Session)", value: "Born between 02 Jul 2013 – 01 Jan 2015 (for Jul 2026 session)" },
-  { label: "Age in simple terms", value: "Must be between 11½ and 13 years on the first day of the session" },
-  { label: "Qualification", value: "Studying in Class 7 or must have passed Class 7 from any recognised school" },
-  { label: "School Type", value: "Any recognised school — government or private" },
+  {
+    label: "Age (Jan Session)",
+    value: "Born between 02 Jan 2013 – 01 Jul 2014 (for Jan 2026 session)",
+  },
+  {
+    label: "Age (Jul Session)",
+    value: "Born between 02 Jul 2013 – 01 Jan 2015 (for Jul 2026 session)",
+  },
+  {
+    label: "Age in simple terms",
+    value: "Must be between 11½ and 13 years on the first day of the session",
+  },
+  {
+    label: "Qualification",
+    value:
+      "Studying in Class 7 or must have passed Class 7 from any recognised school",
+  },
+  {
+    label: "School Type",
+    value: "Any recognised school — government or private",
+  },
   { label: "Nationality", value: "Indian nationals only" },
-  { label: "Medical", value: "Must be physically fit — medical exam at Army hospital (final stage only)" },
-  { label: "State", value: "Applications submitted to own State Government. State-wise merit lists prepared." },
-  { label: "Application to", value: "State Government (NOT directly to RIMC Dehradun)" },
+  {
+    label: "Medical",
+    value:
+      "Must be physically fit — medical exam at Army hospital (final stage only)",
+  },
+  {
+    label: "State",
+    value:
+      "Applications submitted to own State Government. State-wise merit lists prepared.",
+  },
+  {
+    label: "Application to",
+    value: "State Government (NOT directly to RIMC Dehradun)",
+  },
 ];
 
 const EXAM_PATTERN = [
-  { subject: "Mathematics", marks: 200, type: "Written — descriptive + objective", medium: "Hindi or English", minScore: "100 (50%)", note: "Highest weightage — most important subject" },
-  { subject: "English", marks: 125, type: "Written — descriptive + objective", medium: "English only", minScore: "62.5 (50%)", note: "Grammar, comprehension, essay, letter writing" },
-  { subject: "General Knowledge", marks: 75, type: "Written — descriptive + objective", medium: "Hindi or English", minScore: "37.5 (50%)", note: "History, geography, science, current affairs, defence" },
-  { subject: "Viva Voce (Interview)", marks: 50, type: "Oral — personality, confidence, awareness", medium: "Hindi or English", minScore: "—", note: "Only for candidates who clear the written exam" },
+  {
+    subject: "Mathematics",
+    marks: 200,
+    type: "Written — descriptive + objective",
+    medium: "Hindi or English",
+    minScore: "100 (50%)",
+    note: "Highest weightage — most important subject",
+  },
+  {
+    subject: "English",
+    marks: 125,
+    type: "Written — descriptive + objective",
+    medium: "English only",
+    minScore: "62.5 (50%)",
+    note: "Grammar, comprehension, essay, letter writing",
+  },
+  {
+    subject: "General Knowledge",
+    marks: 75,
+    type: "Written — descriptive + objective",
+    medium: "Hindi or English",
+    minScore: "37.5 (50%)",
+    note: "History, geography, science, current affairs, defence",
+  },
+  {
+    subject: "Viva Voce (Interview)",
+    marks: 50,
+    type: "Oral — personality, confidence, awareness",
+    medium: "Hindi or English",
+    minScore: "—",
+    note: "Only for candidates who clear the written exam",
+  },
 ];
 
 const ENGLISH_SYLLABUS = [
-  { name: "Grammar — Parts of Speech", details: "Nouns, pronouns, verbs, adjectives, adverbs, prepositions, conjunctions, interjections" },
-  { name: "Tenses", details: "All 12 tenses — present, past, future (simple, continuous, perfect, perfect continuous)" },
-  { name: "Active & Passive Voice", details: "Converting active to passive and vice versa across all tenses" },
-  { name: "Direct & Indirect Speech", details: "Narration changes — statements, questions, commands, exclamations" },
-  { name: "Comprehension Passages", details: "Read an unseen passage and answer questions based on it" },
-  { name: "Essay Writing", details: "Structured essay on topics related to nature, society, defence, school life" },
-  { name: "Letter Writing", details: "Formal and informal letters — application, complaint, invitation" },
-  { name: "Precis Writing", details: "Summarise a given passage in one-third of the original length" },
-  { name: "Synonyms & Antonyms", details: "Commonly tested vocabulary pairs — Class 7-8 level" },
-  { name: "Sentence Correction", details: "Identify and correct grammatical errors in sentences" },
-  { name: "Fill in the Blanks", details: "Articles, prepositions, tenses, subject-verb agreement" },
-  { name: "One-Word Substitution", details: "Replace a phrase with the correct single word" },
-  { name: "Idioms & Phrases", details: "Meaning and usage of common English idioms" },
-  { name: "Ordering of Words/Sentences", details: "Arrange jumbled words into meaningful sentences" },
-  { name: "Spelling", details: "Identify correctly spelled words from options" },
+  {
+    name: "Grammar — Parts of Speech",
+    details:
+      "Nouns, pronouns, verbs, adjectives, adverbs, prepositions, conjunctions, interjections",
+  },
+  {
+    name: "Tenses",
+    details:
+      "All 12 tenses — present, past, future (simple, continuous, perfect, perfect continuous)",
+  },
+  {
+    name: "Active & Passive Voice",
+    details: "Converting active to passive and vice versa across all tenses",
+  },
+  {
+    name: "Direct & Indirect Speech",
+    details:
+      "Narration changes — statements, questions, commands, exclamations",
+  },
+  {
+    name: "Comprehension Passages",
+    details: "Read an unseen passage and answer questions based on it",
+  },
+  {
+    name: "Essay Writing",
+    details:
+      "Structured essay on topics related to nature, society, defence, school life",
+  },
+  {
+    name: "Letter Writing",
+    details: "Formal and informal letters — application, complaint, invitation",
+  },
+  {
+    name: "Precis Writing",
+    details: "Summarise a given passage in one-third of the original length",
+  },
+  {
+    name: "Synonyms & Antonyms",
+    details: "Commonly tested vocabulary pairs — Class 7-8 level",
+  },
+  {
+    name: "Sentence Correction",
+    details: "Identify and correct grammatical errors in sentences",
+  },
+  {
+    name: "Fill in the Blanks",
+    details: "Articles, prepositions, tenses, subject-verb agreement",
+  },
+  {
+    name: "One-Word Substitution",
+    details: "Replace a phrase with the correct single word",
+  },
+  {
+    name: "Idioms & Phrases",
+    details: "Meaning and usage of common English idioms",
+  },
+  {
+    name: "Ordering of Words/Sentences",
+    details: "Arrange jumbled words into meaningful sentences",
+  },
+  {
+    name: "Spelling",
+    details: "Identify correctly spelled words from options",
+  },
 ];
 
 const MATHS_SYLLABUS = [
-  { name: "Number System", details: "Natural numbers, whole numbers, integers, rational numbers — operations and properties, LCM, HCF" },
-  { name: "Fractions and Decimals", details: "Operations on fractions and decimals, comparison, conversion between them" },
-  { name: "Percentage", details: "Finding percentage, percentage increase/decrease, comparison using percentage" },
-  { name: "Profit and Loss", details: "Cost price, selling price, profit%, loss%, discount, marked price" },
-  { name: "Simple Interest", details: "SI formula — finding principal, rate, time given other variables" },
-  { name: "Ratio and Proportion", details: "Simplifying ratios, direct proportion, inverse proportion, unitary method" },
-  { name: "Exponents and Powers", details: "Laws of exponents, scientific notation, standard form" },
-  { name: "Algebraic Expressions", details: "Addition, subtraction, multiplication of expressions; standard identities" },
-  { name: "Linear Equations", details: "Solving single-variable linear equations; word problems" },
-  { name: "Lines and Angles", details: "Types of angles, pairs of angles, transversal and parallel lines" },
-  { name: "Triangles", details: "Types, properties, congruence criteria (SAS, ASA, SSS, RHS)" },
-  { name: "Quadrilaterals", details: "Types of quadrilaterals — parallelogram, rhombus, rectangle, square, trapezium — properties" },
-  { name: "Circles", details: "Parts of a circle, chord, arc, sector, segment — basic properties" },
-  { name: "Perimeter and Area", details: "Rectangle, square, triangle, parallelogram, circle — formulas and applications" },
-  { name: "Surface Area and Volume", details: "Cube, cuboid — TSA, LSA, volume; cylinder basics" },
-  { name: "Data Handling", details: "Bar graphs, pie charts, pictographs, histogram, mean, median, mode" },
-  { name: "Mensuration", details: "Area of irregular figures, combination shapes" },
-  { name: "Symmetry", details: "Lines of symmetry, rotational symmetry, reflection" },
-  { name: "Visualising Solid Shapes", details: "2D and 3D shapes, nets, views of 3D objects" },
-  { name: "Word Problems", details: "Mixed word problems applying arithmetic and basic algebra — Class 6, 7, 8 level" },
+  {
+    name: "Number System",
+    details:
+      "Natural numbers, whole numbers, integers, rational numbers — operations and properties, LCM, HCF",
+  },
+  {
+    name: "Fractions and Decimals",
+    details:
+      "Operations on fractions and decimals, comparison, conversion between them",
+  },
+  {
+    name: "Percentage",
+    details:
+      "Finding percentage, percentage increase/decrease, comparison using percentage",
+  },
+  {
+    name: "Profit and Loss",
+    details:
+      "Cost price, selling price, profit%, loss%, discount, marked price",
+  },
+  {
+    name: "Simple Interest",
+    details: "SI formula — finding principal, rate, time given other variables",
+  },
+  {
+    name: "Ratio and Proportion",
+    details:
+      "Simplifying ratios, direct proportion, inverse proportion, unitary method",
+  },
+  {
+    name: "Exponents and Powers",
+    details: "Laws of exponents, scientific notation, standard form",
+  },
+  {
+    name: "Algebraic Expressions",
+    details:
+      "Addition, subtraction, multiplication of expressions; standard identities",
+  },
+  {
+    name: "Linear Equations",
+    details: "Solving single-variable linear equations; word problems",
+  },
+  {
+    name: "Lines and Angles",
+    details: "Types of angles, pairs of angles, transversal and parallel lines",
+  },
+  {
+    name: "Triangles",
+    details: "Types, properties, congruence criteria (SAS, ASA, SSS, RHS)",
+  },
+  {
+    name: "Quadrilaterals",
+    details:
+      "Types of quadrilaterals — parallelogram, rhombus, rectangle, square, trapezium — properties",
+  },
+  {
+    name: "Circles",
+    details:
+      "Parts of a circle, chord, arc, sector, segment — basic properties",
+  },
+  {
+    name: "Perimeter and Area",
+    details:
+      "Rectangle, square, triangle, parallelogram, circle — formulas and applications",
+  },
+  {
+    name: "Surface Area and Volume",
+    details: "Cube, cuboid — TSA, LSA, volume; cylinder basics",
+  },
+  {
+    name: "Data Handling",
+    details:
+      "Bar graphs, pie charts, pictographs, histogram, mean, median, mode",
+  },
+  {
+    name: "Mensuration",
+    details: "Area of irregular figures, combination shapes",
+  },
+  {
+    name: "Symmetry",
+    details: "Lines of symmetry, rotational symmetry, reflection",
+  },
+  {
+    name: "Visualising Solid Shapes",
+    details: "2D and 3D shapes, nets, views of 3D objects",
+  },
+  {
+    name: "Word Problems",
+    details:
+      "Mixed word problems applying arithmetic and basic algebra — Class 6, 7, 8 level",
+  },
 ];
 
 const GK_SYLLABUS = [
-  { name: "Indian Defence Forces", details: "Indian Army, Navy, Air Force — ranks, structure, famous operations, chiefs, NDA, RIMC, Military schools" },
-  { name: "Indian History — Ancient", details: "Indus Valley Civilisation, Vedic period, Maurya, Gupta empires, important rulers" },
-  { name: "Indian History — Medieval", details: "Delhi Sultanate, Mughal Empire, Vijayanagara, Maratha Empire" },
-  { name: "Indian History — Modern", details: "British rule, Freedom struggle, Gandhi, Nehru, Partition, Independence — August 15, 1947" },
-  { name: "Indian Geography", details: "Rivers, mountains, states and capitals, Himalayas, Deccan Plateau, climate zones, national parks" },
-  { name: "World Geography", details: "Continents, countries, capitals, major rivers and mountain ranges, oceans" },
-  { name: "Indian Polity & Constitution", details: "Preamble, Fundamental Rights, Directive Principles, Parliament structure, President, PM, Judiciary" },
-  { name: "General Science", details: "Basic physics (motion, light, electricity), chemistry (atoms, elements), biology (cells, plants, animals)" },
-  { name: "Current Affairs", details: "National and international events of past 12 months — appointments, summits, schemes, discoveries" },
-  { name: "Sports", details: "Olympics, Asian Games, Commonwealth Games — Indian medals; national sports events; famous Indian athletes" },
-  { name: "Awards & Honours", details: "Bharat Ratna, Padma awards, Gallantry awards (PVC, MVC, AC), Nobel Prize winners (esp. Indian)" },
-  { name: "Science & Technology", details: "ISRO missions, DRDO, important inventions, Nobel Prize science, famous scientists" },
-  { name: "Books & Authors", details: "Famous Indian books and their authors; Booker Prize, Sahitya Akademi winners" },
-  { name: "International Organisations", details: "UN, UNESCO, WHO, NATO, SAARC, G20, Commonwealth — headquarters, purpose, founding" },
-  { name: "Countries, Capitals, Currencies", details: "Major world countries with their capitals and currencies" },
-  { name: "Important Days & Events", details: "Republic Day, Independence Day, Defence Day, National holidays, Army Day, Teachers Day" },
-  { name: "Environment & Ecology", details: "Climate change, global warming, endangered species, biosphere reserves, national parks" },
-  { name: "Indian Culture", details: "Classical dances, folk arts, UNESCO heritage sites in India, famous temples, festivals" },
-  { name: "Defence News & Achievements", details: "Recent inductions in Indian forces — new weapons, aircraft, warships, missile tests" },
+  {
+    name: "Indian Defence Forces",
+    details:
+      "Indian Army, Navy, Air Force — ranks, structure, famous operations, chiefs, NDA, RIMC, Military schools",
+  },
+  {
+    name: "Indian History — Ancient",
+    details:
+      "Indus Valley Civilisation, Vedic period, Maurya, Gupta empires, important rulers",
+  },
+  {
+    name: "Indian History — Medieval",
+    details: "Delhi Sultanate, Mughal Empire, Vijayanagara, Maratha Empire",
+  },
+  {
+    name: "Indian History — Modern",
+    details:
+      "British rule, Freedom struggle, Gandhi, Nehru, Partition, Independence — August 15, 1947",
+  },
+  {
+    name: "Indian Geography",
+    details:
+      "Rivers, mountains, states and capitals, Himalayas, Deccan Plateau, climate zones, national parks",
+  },
+  {
+    name: "World Geography",
+    details:
+      "Continents, countries, capitals, major rivers and mountain ranges, oceans",
+  },
+  {
+    name: "Indian Polity & Constitution",
+    details:
+      "Preamble, Fundamental Rights, Directive Principles, Parliament structure, President, PM, Judiciary",
+  },
+  {
+    name: "General Science",
+    details:
+      "Basic physics (motion, light, electricity), chemistry (atoms, elements), biology (cells, plants, animals)",
+  },
+  {
+    name: "Current Affairs",
+    details:
+      "National and international events of past 12 months — appointments, summits, schemes, discoveries",
+  },
+  {
+    name: "Sports",
+    details:
+      "Olympics, Asian Games, Commonwealth Games — Indian medals; national sports events; famous Indian athletes",
+  },
+  {
+    name: "Awards & Honours",
+    details:
+      "Bharat Ratna, Padma awards, Gallantry awards (PVC, MVC, AC), Nobel Prize winners (esp. Indian)",
+  },
+  {
+    name: "Science & Technology",
+    details:
+      "ISRO missions, DRDO, important inventions, Nobel Prize science, famous scientists",
+  },
+  {
+    name: "Books & Authors",
+    details:
+      "Famous Indian books and their authors; Booker Prize, Sahitya Akademi winners",
+  },
+  {
+    name: "International Organisations",
+    details:
+      "UN, UNESCO, WHO, NATO, SAARC, G20, Commonwealth — headquarters, purpose, founding",
+  },
+  {
+    name: "Countries, Capitals, Currencies",
+    details: "Major world countries with their capitals and currencies",
+  },
+  {
+    name: "Important Days & Events",
+    details:
+      "Republic Day, Independence Day, Defence Day, National holidays, Army Day, Teachers Day",
+  },
+  {
+    name: "Environment & Ecology",
+    details:
+      "Climate change, global warming, endangered species, biosphere reserves, national parks",
+  },
+  {
+    name: "Indian Culture",
+    details:
+      "Classical dances, folk arts, UNESCO heritage sites in India, famous temples, festivals",
+  },
+  {
+    name: "Defence News & Achievements",
+    details:
+      "Recent inductions in Indian forces — new weapons, aircraft, warships, missile tests",
+  },
 ];
 
 const FAQS = [
-  { q: "What is RIMC and why is it prestigious?", a: "RIMC (Rashtriya Indian Military College) in Dehradun was established in 1922. It is a Category 'A' institution under the Ministry of Defence. It provides a blend of quality public school education and military training to students from Class 8 to 12. RIMC is a direct feeder to the National Defence Academy (NDA) and has produced many chiefs of the Indian Armed Forces." },
-  { q: "How many times is the RIMC exam held per year?", a: "Twice a year — June exam for January session admission, and December exam for July session admission. Students can attempt both in different years until the age limit is crossed." },
-  { q: "Are girls eligible for RIMC?", a: "Yes. Both boys and girls are eligible for RIMC entrance exam. Girls have been eligible since recent years." },
-  { q: "What is the age limit for RIMC?", a: "Candidates must be between 11½ and 13 years of age on the first day of the session (January 1 or July 1). For the January 2027 session, candidates must be born between July 2, 2013 and January 1, 2015." },
-  { q: "What is the exam pattern for RIMC?", a: "The written exam has 3 papers: English (125 marks), Mathematics (200 marks), and General Knowledge (75 marks) — total 400 marks. Minimum 50% in each subject is required. Shortlisted candidates then face a Viva Voce (50 marks interview). Final selection = Written + Interview marks." },
-  { q: "Where do I apply for RIMC?", a: "You do NOT apply to RIMC directly. Applications are submitted to your respective State Government. The prospectus-cum-application form must be obtained from RIMC Dehradun (via Speed Post or online payment at rimc.gov.in) and then submitted to your State Government." },
-  { q: "What is the application fee for RIMC?", a: "₹600 for General category candidates; ₹555 for SC/ST candidates. Payment is made via Demand Draft in favour of 'THE COMMANDANT RIMC FUND' payable at HDFC Bank, Ballupur Chowk, Dehradun (Bank Code: 1399)." },
-  { q: "What is the syllabus for RIMC exam?", a: "Mathematics and English are based on CBSE Class 6 and 7 curriculum with deeper understanding required. GK covers Indian history, geography, constitution, defence, current affairs, sports, and science. The exam has both descriptive (essay-type) and objective components — unlike most school entrance exams which are MCQ only." },
+  {
+    q: "What is RIMC and why is it prestigious?",
+    a: "RIMC (Rashtriya Indian Military College) in Dehradun was established in 1922. It is a Category 'A' institution under the Ministry of Defence. It provides a blend of quality public school education and military training to students from Class 8 to 12. RIMC is a direct feeder to the National Defence Academy (NDA) and has produced many chiefs of the Indian Armed Forces.",
+  },
+  {
+    q: "How many times is the RIMC exam held per year?",
+    a: "Twice a year — June exam for January session admission, and December exam for July session admission. Students can attempt both in different years until the age limit is crossed.",
+  },
+  {
+    q: "Are girls eligible for RIMC?",
+    a: "Yes. Both boys and girls are eligible for RIMC entrance exam. Girls have been eligible since recent years.",
+  },
+  {
+    q: "What is the age limit for RIMC?",
+    a: "Candidates must be between 11½ and 13 years of age on the first day of the session (January 1 or July 1). For the January 2027 session, candidates must be born between July 2, 2013 and January 1, 2015.",
+  },
+  {
+    q: "What is the exam pattern for RIMC?",
+    a: "The written exam has 3 papers: English (125 marks), Mathematics (200 marks), and General Knowledge (75 marks) — total 400 marks. Minimum 50% in each subject is required. Shortlisted candidates then face a Viva Voce (50 marks interview). Final selection = Written + Interview marks.",
+  },
+  {
+    q: "Where do I apply for RIMC?",
+    a: "You do NOT apply to RIMC directly. Applications are submitted to your respective State Government. The prospectus-cum-application form must be obtained from RIMC Dehradun (via Speed Post or online payment at rimc.gov.in) and then submitted to your State Government.",
+  },
+  {
+    q: "What is the application fee for RIMC?",
+    a: "₹600 for General category candidates; ₹555 for SC/ST candidates. Payment is made via Demand Draft in favour of 'THE COMMANDANT RIMC FUND' payable at HDFC Bank, Ballupur Chowk, Dehradun (Bank Code: 1399).",
+  },
+  {
+    q: "What is the syllabus for RIMC exam?",
+    a: "Mathematics and English are based on CBSE Class 6 and 7 curriculum with deeper understanding required. GK covers Indian history, geography, constitution, defence, current affairs, sports, and science. The exam has both descriptive (essay-type) and objective components — unlike most school entrance exams which are MCQ only.",
+  },
 ];
 
 export default function RIMCPage() {
@@ -158,15 +513,19 @@ export default function RIMCPage() {
           <p className="breadcrumb-text">
             <Link href="/">Home</Link> &rsaquo; RIMC SmartSet
           </p>
-          <span className="hero-badge">🎖️ Military School — Class 8 Admission</span>
+          <span className="hero-badge">
+            🎖️ Military School — Class 8 Admission
+          </span>
           <h1>
-            RIMC — <span className="accent">Rashtriya Indian Military College</span>
+            RIMC —{" "}
+            <span className="accent">Rashtriya Indian Military College</span>
             <br />
             Entrance Exam 2026
           </h1>
           <p className="hero-sub">
-            Est. 1922 · Dehradun · Ministry of Defence. One of India&apos;s most prestigious
-            military schools — feeder to NDA and Indian Armed Forces.
+            Est. 1922 · Dehradun · Ministry of Defence. One of India&apos;s most
+            prestigious military schools — feeder to NDA and Indian Armed
+            Forces.
           </p>
           <div className="stat-row">
             {[
@@ -188,11 +547,12 @@ export default function RIMCPage() {
 
       <div className="page-body container dm_sans">
         <div className="main-col">
-
           {/* About */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#dbeafe" }}>ℹ️</span>
+              <span className="bl-icon" style={{ background: "#dbeafe" }}>
+                ℹ️
+              </span>
               <div>
                 <h2>About RIMC</h2>
                 <p>Key facts about the institution and exam</p>
@@ -215,7 +575,10 @@ export default function RIMCPage() {
                       ["Min. Score Required", EXAM_INFO.minQualifying],
                       ["Official Site", EXAM_INFO.officialSite],
                     ].map(([k, v], i) => (
-                      <tr key={k} style={{ background: i % 2 === 0 ? "#fff" : "#f8fafc" }}>
+                      <tr
+                        key={k}
+                        style={{ background: i % 2 === 0 ? "#fff" : "#f8fafc" }}
+                      >
                         <td className="td-bold">{k}</td>
                         <td className="td-muted">{v}</td>
                       </tr>
@@ -229,7 +592,9 @@ export default function RIMCPage() {
           {/* June Session Dates */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#dcfce7" }}>📅</span>
+              <span className="bl-icon" style={{ background: "#dcfce7" }}>
+                📅
+              </span>
               <div>
                 <h2>June 2026 Exam — January 2027 Session</h2>
                 <p>For students seeking admission in January 2027</p>
@@ -259,8 +624,14 @@ export default function RIMCPage() {
                           <td className="td-muted">{d.detail}</td>
                           <td className="td-bold td-nowrap">{d.date}</td>
                           <td>
-                            <span className="status-pill" style={{ background: st.bg, color: st.color }}>
-                              <span className="dot" style={{ background: st.dot }} />
+                            <span
+                              className="status-pill"
+                              style={{ background: st.bg, color: st.color }}
+                            >
+                              <span
+                                className="dot"
+                                style={{ background: st.dot }}
+                              />
                               {st.label}
                             </span>
                           </td>
@@ -276,7 +647,9 @@ export default function RIMCPage() {
           {/* December Session Dates */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#fff3cd" }}>📅</span>
+              <span className="bl-icon" style={{ background: "#fff3cd" }}>
+                📅
+              </span>
               <div>
                 <h2>December 2026 Exam — July 2027 Session</h2>
                 <p>For students seeking admission in July 2027</p>
@@ -306,8 +679,14 @@ export default function RIMCPage() {
                           <td className="td-muted">{d.detail}</td>
                           <td className="td-bold td-nowrap">{d.date}</td>
                           <td>
-                            <span className="status-pill" style={{ background: st.bg, color: st.color }}>
-                              <span className="dot" style={{ background: st.dot }} />
+                            <span
+                              className="status-pill"
+                              style={{ background: st.bg, color: st.color }}
+                            >
+                              <span
+                                className="dot"
+                                style={{ background: st.dot }}
+                              />
                               {st.label}
                             </span>
                           </td>
@@ -323,7 +702,9 @@ export default function RIMCPage() {
           {/* Eligibility */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#dcfce7" }}>✅</span>
+              <span className="bl-icon" style={{ background: "#dcfce7" }}>
+                ✅
+              </span>
               <div>
                 <h2>Eligibility Criteria</h2>
                 <p>Who can apply for RIMC 2026</p>
@@ -334,8 +715,13 @@ export default function RIMCPage() {
                 <table className="data-table">
                   <tbody>
                     {ELIGIBILITY.map(({ label, value }, i) => (
-                      <tr key={label} style={{ background: i % 2 === 0 ? "#fff" : "#f8fafc" }}>
-                        <td className="td-bold" style={{ width: "35%" }}>{label}</td>
+                      <tr
+                        key={label}
+                        style={{ background: i % 2 === 0 ? "#fff" : "#f8fafc" }}
+                      >
+                        <td className="td-bold" style={{ width: "35%" }}>
+                          {label}
+                        </td>
                         <td className="td-muted">{value}</td>
                       </tr>
                     ))}
@@ -348,10 +734,14 @@ export default function RIMCPage() {
           {/* Exam Pattern */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#dbeafe" }}>📋</span>
+              <span className="bl-icon" style={{ background: "#dbeafe" }}>
+                📋
+              </span>
               <div>
                 <h2>Exam Pattern</h2>
-                <p>Written exam + Interview + Medical — 3 stages of selection</p>
+                <p>
+                  Written exam + Interview + Medical — 3 stages of selection
+                </p>
               </div>
             </div>
             <div className="table-card">
@@ -372,9 +762,14 @@ export default function RIMCPage() {
                   </thead>
                   <tbody>
                     {EXAM_PATTERN.map((p, i) => (
-                      <tr key={p.subject} style={{ background: i % 2 === 0 ? "#fff" : "#f8fafc" }}>
+                      <tr
+                        key={p.subject}
+                        style={{ background: i % 2 === 0 ? "#fff" : "#f8fafc" }}
+                      >
                         <td className="td-bold">{p.subject}</td>
-                        <td><span className="marks-pill">{p.marks}M</span></td>
+                        <td>
+                          <span className="marks-pill">{p.marks}M</span>
+                        </td>
                         <td className="td-muted">{p.type}</td>
                         <td className="td-muted">{p.medium}</td>
                         <td className="td-muted">{p.minScore}</td>
@@ -384,8 +779,17 @@ export default function RIMCPage() {
                   <tfoot>
                     <tr>
                       <td className="td-bold">TOTAL</td>
-                      <td><span className="marks-pill" style={{ background: "#0a1628" }}>450M</span></td>
-                      <td className="td-muted" colSpan={3}>Written (400M) + Interview (50M)</td>
+                      <td>
+                        <span
+                          className="marks-pill"
+                          style={{ background: "#0a1628" }}
+                        >
+                          450M
+                        </span>
+                      </td>
+                      <td className="td-muted" colSpan={3}>
+                        Written (400M) + Interview (50M)
+                      </td>
                     </tr>
                   </tfoot>
                 </table>
@@ -394,11 +798,19 @@ export default function RIMCPage() {
             <div className="imp-note">
               <strong>⚠️ Key Points</strong>
               <p>
-                • Minimum 50% marks required in each of English, Maths, and GK separately to qualify for interview.<br />
-                • Exam is descriptive + objective (NOT purely MCQ like other school entrance exams).<br />
-                • Maths and GK papers can be answered in Hindi or English; English paper is in English only.<br />
-                • Final merit list is prepared state-wise — about 25 students per session across all states.<br />
-                • Applications must be submitted to STATE GOVERNMENT — NOT directly to RIMC.
+                • Minimum 50% marks required in each of English, Maths, and GK
+                separately to qualify for interview.
+                <br />
+                • Exam is descriptive + objective (NOT purely MCQ like other
+                school entrance exams).
+                <br />
+                • Maths and GK papers can be answered in Hindi or English;
+                English paper is in English only.
+                <br />
+                • Final merit list is prepared state-wise — about 25 students
+                per session across all states.
+                <br />• Applications must be submitted to STATE GOVERNMENT — NOT
+                directly to RIMC.
               </p>
             </div>
 
@@ -406,11 +818,26 @@ export default function RIMCPage() {
             <h3 className="sub-heading">Selection Process</h3>
             <div className="steps-list">
               {[
-                { num: 1, step: "Apply to State Government — obtain form from RIMC, fill and submit to your state" },
-                { num: 2, step: "Written Exam — English (125M) + Mathematics (200M) + GK (75M)" },
-                { num: 3, step: "Viva Voce (Interview) — 50 marks — personality, confidence, general awareness" },
-                { num: 4, step: "Medical Fitness Exam — Army hospital — final stage" },
-                { num: 5, step: "State-wise Merit List — based on Written + Interview marks" },
+                {
+                  num: 1,
+                  step: "Apply to State Government — obtain form from RIMC, fill and submit to your state",
+                },
+                {
+                  num: 2,
+                  step: "Written Exam — English (125M) + Mathematics (200M) + GK (75M)",
+                },
+                {
+                  num: 3,
+                  step: "Viva Voce (Interview) — 50 marks — personality, confidence, general awareness",
+                },
+                {
+                  num: 4,
+                  step: "Medical Fitness Exam — Army hospital — final stage",
+                },
+                {
+                  num: 5,
+                  step: "State-wise Merit List — based on Written + Interview marks",
+                },
               ].map((s) => (
                 <div key={s.num} className="step-item">
                   <div className="step-num">{s.num}</div>
@@ -423,10 +850,14 @@ export default function RIMCPage() {
           {/* Syllabus — English */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#EFF6FF" }}>📖</span>
+              <span className="bl-icon" style={{ background: "#EFF6FF" }}>
+                📖
+              </span>
               <div>
                 <h2>Syllabus — English (125 Marks)</h2>
-                <p>Based on Class 6 & 7 CBSE — includes descriptive components</p>
+                <p>
+                  Based on Class 6 & 7 CBSE — includes descriptive components
+                </p>
               </div>
             </div>
             <div className="topics-grid">
@@ -442,10 +873,14 @@ export default function RIMCPage() {
           {/* Syllabus — Mathematics */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#F0FDF4" }}>➗</span>
+              <span className="bl-icon" style={{ background: "#F0FDF4" }}>
+                ➗
+              </span>
               <div>
                 <h2>Syllabus — Mathematics (200 Marks)</h2>
-                <p>Based on Class 6, 7 & 8 CBSE — highest weightage in the exam</p>
+                <p>
+                  Based on Class 6, 7 & 8 CBSE — highest weightage in the exam
+                </p>
               </div>
             </div>
             <div className="topics-grid">
@@ -461,10 +896,14 @@ export default function RIMCPage() {
           {/* Syllabus — GK */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#FFF7ED" }}>🌐</span>
+              <span className="bl-icon" style={{ background: "#FFF7ED" }}>
+                🌐
+              </span>
               <div>
                 <h2>Syllabus — General Knowledge (75 Marks)</h2>
-                <p>History, geography, defence, current affairs, sports, science</p>
+                <p>
+                  History, geography, defence, current affairs, sports, science
+                </p>
               </div>
             </div>
             <div className="topics-grid">
@@ -480,7 +919,9 @@ export default function RIMCPage() {
           {/* FAQs */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#f0fdf4" }}>❓</span>
+              <span className="bl-icon" style={{ background: "#f0fdf4" }}>
+                ❓
+              </span>
               <div>
                 <h2>Frequently Asked Questions</h2>
                 <p>Common questions about RIMC entrance exam</p>
@@ -498,7 +939,6 @@ export default function RIMCPage() {
               ))}
             </div>
           </section>
-
         </div>
 
         {/* Sidebar */}
@@ -507,11 +947,26 @@ export default function RIMCPage() {
             <div className="widget-head">🔗 Official Links</div>
             <div className="widget-body">
               {[
-                { label: "🌐 RIMC Official Site", href: "https://rimc.gov.in", ext: true },
-                { label: "🏫 RIMC Edu Site", href: "https://rimc.edu.in", ext: true },
+                {
+                  label: "🌐 RIMC Official Site",
+                  href: "https://rimc.gov.in",
+                  ext: true,
+                },
+                {
+                  label: "🏫 RIMC Edu Site",
+                  href: "https://rimc.edu.in",
+                  ext: true,
+                },
               ].map((l) => (
-                <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="quick-link">
-                  {l.label}<span>›</span>
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="quick-link"
+                >
+                  {l.label}
+                  <span>›</span>
                 </a>
               ))}
             </div>
@@ -531,9 +986,22 @@ export default function RIMCPage() {
                 { k: "Neg. Marking", v: "None" },
                 { k: "Exam Frequency", v: "Twice/year" },
               ].map((item) => (
-                <div key={item.k} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid #f1f5f9", fontSize: 13 }}>
-                  <span style={{ color: "#94a3b8", fontWeight: 600 }}>{item.k}</span>
-                  <span style={{ fontWeight: 700, color: "#0a1628" }}>{item.v}</span>
+                <div
+                  key={item.k}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    padding: "8px 0",
+                    borderBottom: "1px solid #f1f5f9",
+                    fontSize: 13,
+                  }}
+                >
+                  <span style={{ color: "#94a3b8", fontWeight: 600 }}>
+                    {item.k}
+                  </span>
+                  <span style={{ fontWeight: 700, color: "#0a1628" }}>
+                    {item.v}
+                  </span>
                 </div>
               ))}
             </div>
@@ -543,14 +1011,52 @@ export default function RIMCPage() {
             <div className="widget-head">💰 Application Fee</div>
             <div className="widget-body">
               <div style={{ marginBottom: 10 }}>
-                <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 700, marginBottom: 2 }}>GENERAL</div>
-                <div style={{ fontWeight: 800, fontSize: 22, color: "#0a1628", fontFamily: "Nunito, sans-serif" }}>₹600</div>
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: "#94a3b8",
+                    fontWeight: 700,
+                    marginBottom: 2,
+                  }}
+                >
+                  GENERAL
+                </div>
+                <div
+                  style={{
+                    fontWeight: 800,
+                    fontSize: 22,
+                    color: "#0a1628",
+                    fontFamily: "Nunito, sans-serif",
+                  }}
+                >
+                  ₹600
+                </div>
               </div>
               <div>
-                <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 700, marginBottom: 2 }}>SC / ST</div>
-                <div style={{ fontWeight: 800, fontSize: 22, color: "#0a1628", fontFamily: "Nunito, sans-serif" }}>₹555</div>
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: "#94a3b8",
+                    fontWeight: 700,
+                    marginBottom: 2,
+                  }}
+                >
+                  SC / ST
+                </div>
+                <div
+                  style={{
+                    fontWeight: 800,
+                    fontSize: 22,
+                    color: "#0a1628",
+                    fontFamily: "Nunito, sans-serif",
+                  }}
+                >
+                  ₹555
+                </div>
               </div>
-              <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 8 }}>DD in favour of "THE COMMANDANT RIMC FUND" — HDFC Bank, Dehradun</div>
+              <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 8 }}>
+                DD in favour of "THE COMMANDANT RIMC FUND" — HDFC Bank, Dehradun
+              </div>
             </div>
           </div>
 
@@ -564,9 +1070,22 @@ export default function RIMCPage() {
                 { k: "Class admitted", v: "Class 8" },
                 { k: "Classes offered", v: "Class 8 to 12" },
               ].map((item) => (
-                <div key={item.k} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid #f1f5f9", fontSize: 13 }}>
-                  <span style={{ color: "#94a3b8", fontWeight: 600 }}>{item.k}</span>
-                  <span style={{ fontWeight: 700, color: "#0a1628" }}>{item.v}</span>
+                <div
+                  key={item.k}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    padding: "8px 0",
+                    borderBottom: "1px solid #f1f5f9",
+                    fontSize: 13,
+                  }}
+                >
+                  <span style={{ color: "#94a3b8", fontWeight: 600 }}>
+                    {item.k}
+                  </span>
+                  <span style={{ fontWeight: 700, color: "#0a1628" }}>
+                    {item.v}
+                  </span>
                 </div>
               ))}
             </div>
@@ -574,7 +1093,10 @@ export default function RIMCPage() {
 
           <div className="warn-note">
             <strong>⚠️ Critical</strong>
-            <p>Submit application to your STATE GOVERNMENT — NOT directly to RIMC Dehradun. Check rimc.gov.in for exact state-wise instructions.</p>
+            <p>
+              Submit application to your STATE GOVERNMENT — NOT directly to RIMC
+              Dehradun. Check rimc.gov.in for exact state-wise instructions.
+            </p>
           </div>
         </aside>
       </div>

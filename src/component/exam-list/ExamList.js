@@ -76,7 +76,7 @@ const exams = [
     bgColor: "#faf5ff",
     borderColor: "#e9d5ff",
     emoji: "🛡️",
-    href: "/rms-smartset",
+    href: "/rms-entrance-exam",
     tag: "Defence Track",
     tagBg: "#7c3aed",
   },

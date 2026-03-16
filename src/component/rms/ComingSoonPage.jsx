@@ -2,7 +2,13 @@
 import Link from "next/link";
 import { rmsHref, RMS_SECTIONS, RMS_CLASS_LABELS } from "./rmsNav";
 
-export default function ComingSoonPage({ cls, sectionSlug, title, description, icon }) {
+export default function ComingSoonPage({
+  cls,
+  sectionSlug,
+  title,
+  description,
+  icon,
+}) {
   const label = RMS_CLASS_LABELS[cls];
   const sectionMeta = RMS_SECTIONS.find((s) => s.slug === sectionSlug);
   if (!sectionMeta) return null;
@@ -13,9 +19,9 @@ export default function ComingSoonPage({ cls, sectionSlug, title, description, i
         <div className="container">
           <nav className="breadcrumb" aria-label="breadcrumb">
             <Link href="/">Home</Link> &rsaquo;{" "}
-            <Link href="/rms-smartset">RMS SmartSet</Link> &rsaquo;{" "}
-            <Link href={rmsHref(cls)}>{label}</Link>{" "}
-            &rsaquo; <span>{sectionMeta.label}</span>
+            <Link href="/rms-entrance-exam">RMS SmartSet</Link> &rsaquo;{" "}
+            <Link href={rmsHref(cls)}>{label}</Link> &rsaquo;{" "}
+            <span>{sectionMeta.label}</span>
           </nav>
           <span className="cs-badge">
             {icon} {label}

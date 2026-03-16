@@ -250,10 +250,10 @@ const Header = () => {
     // ── RMS SmartSet ──────────────────────────────────────────
     {
       title: "RMS",
-      href: "/rms-smartset",
+      href: "/rms-entrance-exam",
       subtitles: [
-        { title: "class 6", href: "/rms-smartset/class-6" },
-        { title: "class 9", href: "/rms-smartset/class-9" },
+        { title: "class 6", href: "/rms-entrance-exam/class-6" },
+        { title: "class 9", href: "/rms-entrance-exam/class-9" },
       ],
     },
   ];

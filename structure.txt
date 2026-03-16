@@ -12540,7 +12540,7 @@
 │   │   │   └── page.js
 │   │   ├── profile
 │   │   │   └── page.js
-│   │   ├── rms-smartset
+│   │   ├── rms-entrance-exam
 │   │   │   ├── [cls]
 │   │   │   │   ├── layout.jsx
 │   │   │   │   ├── mock-tests
@@ -12580,9 +12580,9 @@
 │   │   │   └── route.js
 │   │   ├── nmms-scholarship-exam
 │   │   │   └── page.jsx
-│   │   ├── smartset-ntse
+│   │   ├── national-talent-search-exam
 │   │   │   └── page.jsx
-│   │   ├── smartset-rimc
+│   │   ├── rashtriya-indian-military-college-entrance-exam
 │   │   │   └── page.jsx
 │   │   ├── terms-and-conditions
 │   │   │   └── page.js

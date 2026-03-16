@@ -33,15 +33,18 @@ const Footer = () => {
       { label: "Contact us", url: "/contact-us" },
       { label: "Blogs", url: "/blogs" },
       { label: "News", url: "/educational-news" },
-      { label: "Exams", url: "/exams" },
+      { label: "Exams", url: "/exam-list" },
     ],
     quickLinksSet: [
       { label: "Navodaya", url: "/navodaya-entrance-exam" },
       { label: "Sainik School", url: "/sainik-school-entrance-exam" },
-      { label: "RMS", url: "/rms-smartset" },
+      { label: "RMS", url: "/rms-entrance-exam" },
       { label: "NMMS", url: "/nmms-scholarship-exam" }, // ── NMMS added
-      { label: "NTSE", url: "/smartset-ntse" }, // ── NTSE added
-      { label: "RIMC", url: "/smartset-rimc" }, // ── RIMC added
+      { label: "NTSE", url: "/national-talent-search-exam" }, // ── NTSE added
+      {
+        label: "RIMC",
+        url: "/rashtriya-indian-military-college-entrance-exam",
+      }, // ── RIMC added
     ],
     contactInfo: {
       phone: "+91 7974186754",

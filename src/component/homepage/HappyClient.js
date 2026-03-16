@@ -24,7 +24,7 @@ const papers = [
     title: "RMS Military Academy 2023",
     tagBg: "#f3e8ff",
     tagColor: "#6d28d9",
-    href: "/rms-smartset",
+    href: "/rms-entrance-exam",
   },
   {
     exam: "NMMS",
