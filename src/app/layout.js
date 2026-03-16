@@ -7,6 +7,7 @@ import { Provider } from "jotai";
 import ClientWrapper from "@/common-component/ConnectUsModal/ClientWrapper";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ScrollProgressBar from "@/common-component/Scroll-Progress-bar/Scrollprogressbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +44,7 @@ export default function RootLayout({ children }) {
           type="application/javascript"
           src="https://news.google.com/swg/js/v1/swg-basic.js"
         ></script>
- <script
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8972296042686710"
           crossOrigin="anonymous"
@@ -68,6 +69,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable}  ${indieFlower.variable} ${dmSans.variable} antialiased`}
       >
         <ProgressBar />
+        <ScrollProgressBar />
         <Provider>
           <ClientWrapper>
             <Header />
