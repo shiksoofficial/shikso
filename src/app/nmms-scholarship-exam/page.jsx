@@ -1,4 +1,4 @@
-// app/smartset-nmms/page.jsx
+// app/nmms-scholarship-exam/page.jsx
 // NMMS — National Means-cum-Merit Scholarship
 // Static info page — Updates + Syllabus only. No coming soon sections.
 
@@ -29,19 +29,64 @@ const EXAM_INFO = {
 };
 
 const DATES = [
-  { event: "Application Form Opens", detail: "State-wise — check your state SCERT website", date: "August–September 2026", status: "upcoming" },
-  { event: "Last Date to Apply", detail: "Submit via school principal", date: "September–October 2026", status: "upcoming" },
-  { event: "Admit Card Release", detail: "Download from state SCERT portal", date: "October–November 2026", status: "upcoming" },
-  { event: "NMMS Exam Date", detail: "State-wise — typically 2nd/3rd Sunday", date: "November 2026 – February 2027", status: "upcoming" },
-  { event: "Answer Key Release", detail: "Published on state SCERT website", date: "Within 1 week of exam", status: "upcoming" },
-  { event: "Result Declaration", detail: "State-wise merit list published", date: "February–April 2027", status: "upcoming" },
-  { event: "Scholarship Disbursement", detail: "Via Direct Benefit Transfer (DBT)", date: "From Class 9 onwards", status: "upcoming" },
+  {
+    event: "Application Form Opens",
+    detail: "State-wise — check your state SCERT website",
+    date: "August–September 2026",
+    status: "upcoming",
+  },
+  {
+    event: "Last Date to Apply",
+    detail: "Submit via school principal",
+    date: "September–October 2026",
+    status: "upcoming",
+  },
+  {
+    event: "Admit Card Release",
+    detail: "Download from state SCERT portal",
+    date: "October–November 2026",
+    status: "upcoming",
+  },
+  {
+    event: "NMMS Exam Date",
+    detail: "State-wise — typically 2nd/3rd Sunday",
+    date: "November 2026 – February 2027",
+    status: "upcoming",
+  },
+  {
+    event: "Answer Key Release",
+    detail: "Published on state SCERT website",
+    date: "Within 1 week of exam",
+    status: "upcoming",
+  },
+  {
+    event: "Result Declaration",
+    detail: "State-wise merit list published",
+    date: "February–April 2027",
+    status: "upcoming",
+  },
+  {
+    event: "Scholarship Disbursement",
+    detail: "Via Direct Benefit Transfer (DBT)",
+    date: "From Class 9 onwards",
+    status: "upcoming",
+  },
 ];
 
 const STATUS_STYLES = {
-  completed: { bg: "#dcfce7", color: "#15803d", dot: "#16a34a", label: "Completed" },
-  upcoming:  { bg: "#fef3c7", color: "#b45309", dot: "#d97706", label: "Upcoming"  },
-  tba:       { bg: "#f1f5f9", color: "#475569", dot: "#94a3b8", label: "Expected"  },
+  completed: {
+    bg: "#dcfce7",
+    color: "#15803d",
+    dot: "#16a34a",
+    label: "Completed",
+  },
+  upcoming: {
+    bg: "#fef3c7",
+    color: "#b45309",
+    dot: "#d97706",
+    label: "Upcoming",
+  },
+  tba: { bg: "#f1f5f9", color: "#475569", dot: "#94a3b8", label: "Expected" },
 };
 
 const STATE_DATES = [
@@ -57,110 +102,383 @@ const STATE_DATES = [
 
 const ELIGIBILITY = [
   { label: "Class", value: "Currently studying in Class 8" },
-  { label: "School Type", value: "Government, Government-aided, or Local body schools only" },
+  {
+    label: "School Type",
+    value: "Government, Government-aided, or Local body schools only",
+  },
   { label: "Previous Marks", value: "Minimum 55% in Class 7 (50% for SC/ST)" },
-  { label: "Family Income", value: "Annual family income must not exceed ₹3,50,000" },
+  {
+    label: "Family Income",
+    value: "Annual family income must not exceed ₹3,50,000",
+  },
   { label: "Nationality", value: "Indian nationals only" },
-  { label: "NOT Eligible", value: "Students in KVS, NVS, Sainik Schools, fully residential Govt schools" },
+  {
+    label: "NOT Eligible",
+    value:
+      "Students in KVS, NVS, Sainik Schools, fully residential Govt schools",
+  },
   { label: "Gender", value: "Boys and Girls both eligible" },
-  { label: "State", value: "Must appear in the state where the school is located" },
+  {
+    label: "State",
+    value: "Must appear in the state where the school is located",
+  },
 ];
 
 const MAT_SYLLABUS = [
-  { name: "Analogy", details: "Word, number, and figure analogies — identify the relationship and find the missing pair" },
-  { name: "Classification (Odd One Out)", details: "Group objects/words by common property and identify the one that doesn't belong" },
-  { name: "Numerical Series", details: "Find the next number in a sequence — arithmetic, geometric, and mixed patterns" },
-  { name: "Pattern Perception", details: "Identify and complete visual patterns — similar to Navodaya MAT section" },
-  { name: "Hidden Figures", details: "Identify a simple figure hidden within a complex figure" },
-  { name: "Coding & Decoding", details: "Decode word or number codes based on given pattern" },
-  { name: "Problem Solving", details: "Logical reasoning puzzles — blood relations, direction sense, ranking" },
-  { name: "Perceptual Ability", details: "Mirror images, water images, paper folding, paper cutting" },
-  { name: "Spatial Reasoning", details: "Mental rotation of figures, cube-based problems" },
-  { name: "Letter Series", details: "Find the next letter or missing letter in alphabetical pattern sequences" },
-  { name: "Venn Diagrams", details: "Identify relationships between groups using Venn diagrams" },
-  { name: "Non-Verbal Reasoning", details: "Figure matrices, figure series completion — without any language dependency" },
+  {
+    name: "Analogy",
+    details:
+      "Word, number, and figure analogies — identify the relationship and find the missing pair",
+  },
+  {
+    name: "Classification (Odd One Out)",
+    details:
+      "Group objects/words by common property and identify the one that doesn't belong",
+  },
+  {
+    name: "Numerical Series",
+    details:
+      "Find the next number in a sequence — arithmetic, geometric, and mixed patterns",
+  },
+  {
+    name: "Pattern Perception",
+    details:
+      "Identify and complete visual patterns — similar to Navodaya MAT section",
+  },
+  {
+    name: "Hidden Figures",
+    details: "Identify a simple figure hidden within a complex figure",
+  },
+  {
+    name: "Coding & Decoding",
+    details: "Decode word or number codes based on given pattern",
+  },
+  {
+    name: "Problem Solving",
+    details:
+      "Logical reasoning puzzles — blood relations, direction sense, ranking",
+  },
+  {
+    name: "Perceptual Ability",
+    details: "Mirror images, water images, paper folding, paper cutting",
+  },
+  {
+    name: "Spatial Reasoning",
+    details: "Mental rotation of figures, cube-based problems",
+  },
+  {
+    name: "Letter Series",
+    details:
+      "Find the next letter or missing letter in alphabetical pattern sequences",
+  },
+  {
+    name: "Venn Diagrams",
+    details: "Identify relationships between groups using Venn diagrams",
+  },
+  {
+    name: "Non-Verbal Reasoning",
+    details:
+      "Figure matrices, figure series completion — without any language dependency",
+  },
 ];
 
 const SAT_SCIENCE = [
-  { name: "Food — Where Does It Come From?", details: "Plant parts, animal products, food components" },
-  { name: "Components of Food", details: "Nutrients, deficiency diseases, balanced diet" },
-  { name: "Fibre to Fabric", details: "Natural and synthetic fibres, their properties" },
-  { name: "Sorting Materials into Groups", details: "Properties of materials: hardness, solubility, transparency" },
-  { name: "Separation of Substances", details: "Methods: filtration, evaporation, distillation, magnetic separation" },
-  { name: "Changes Around Us", details: "Reversible vs irreversible changes, physical and chemical changes" },
-  { name: "Living Organisms and Their Surroundings", details: "Adaptation, habitat — aquatic, terrestrial, aerial" },
-  { name: "Motion and Measurement of Distances", details: "Types of motion, units of measurement, standard units" },
-  { name: "Light, Shadows and Reflections", details: "Transparent/opaque objects, shadows, reflection basics" },
-  { name: "Electricity and Circuits", details: "Electric circuit, conductors and insulators, switches" },
-  { name: "Heat", details: "Temperature, thermometer, conduction, convection, radiation" },
-  { name: "Acids, Bases and Salts", details: "Properties of acids and bases, indicators, neutralisation" },
-  { name: "Physical and Chemical Changes", details: "Rusting, burning, crystallisation — differences" },
-  { name: "Weather, Climate and Adaptations", details: "Climate zones, animal adaptations to climate" },
-  { name: "Winds, Storms and Cyclones", details: "Air pressure, cyclones, tornado, lightning" },
-  { name: "Soil", details: "Soil types, soil profile, erosion, importance of soil" },
-  { name: "Respiration in Organisms", details: "Types of respiration, breathing mechanism, aerobic vs anaerobic" },
-  { name: "Transportation in Animals and Plants", details: "Blood, heart, transpiration, xylem and phloem" },
-  { name: "Reproduction in Plants", details: "Vegetative, sexual and asexual reproduction in plants" },
-  { name: "Motion and Time", details: "Speed, distance, time, graphs of motion" },
-  { name: "Electric Current and Its Effects", details: "Heating effect, magnetic effect, fuse, MCB" },
-  { name: "Light", details: "Reflection, plane mirror, concave, convex mirrors" },
-  { name: "Water — A Precious Resource", details: "Water cycle, groundwater, water conservation" },
-  { name: "Forests — Our Lifeline", details: "Importance of forests, deforestation, conservation" },
-  { name: "Wastewater Story", details: "Sewage treatment, safe drinking water" },
+  {
+    name: "Food — Where Does It Come From?",
+    details: "Plant parts, animal products, food components",
+  },
+  {
+    name: "Components of Food",
+    details: "Nutrients, deficiency diseases, balanced diet",
+  },
+  {
+    name: "Fibre to Fabric",
+    details: "Natural and synthetic fibres, their properties",
+  },
+  {
+    name: "Sorting Materials into Groups",
+    details: "Properties of materials: hardness, solubility, transparency",
+  },
+  {
+    name: "Separation of Substances",
+    details:
+      "Methods: filtration, evaporation, distillation, magnetic separation",
+  },
+  {
+    name: "Changes Around Us",
+    details:
+      "Reversible vs irreversible changes, physical and chemical changes",
+  },
+  {
+    name: "Living Organisms and Their Surroundings",
+    details: "Adaptation, habitat — aquatic, terrestrial, aerial",
+  },
+  {
+    name: "Motion and Measurement of Distances",
+    details: "Types of motion, units of measurement, standard units",
+  },
+  {
+    name: "Light, Shadows and Reflections",
+    details: "Transparent/opaque objects, shadows, reflection basics",
+  },
+  {
+    name: "Electricity and Circuits",
+    details: "Electric circuit, conductors and insulators, switches",
+  },
+  {
+    name: "Heat",
+    details: "Temperature, thermometer, conduction, convection, radiation",
+  },
+  {
+    name: "Acids, Bases and Salts",
+    details: "Properties of acids and bases, indicators, neutralisation",
+  },
+  {
+    name: "Physical and Chemical Changes",
+    details: "Rusting, burning, crystallisation — differences",
+  },
+  {
+    name: "Weather, Climate and Adaptations",
+    details: "Climate zones, animal adaptations to climate",
+  },
+  {
+    name: "Winds, Storms and Cyclones",
+    details: "Air pressure, cyclones, tornado, lightning",
+  },
+  {
+    name: "Soil",
+    details: "Soil types, soil profile, erosion, importance of soil",
+  },
+  {
+    name: "Respiration in Organisms",
+    details: "Types of respiration, breathing mechanism, aerobic vs anaerobic",
+  },
+  {
+    name: "Transportation in Animals and Plants",
+    details: "Blood, heart, transpiration, xylem and phloem",
+  },
+  {
+    name: "Reproduction in Plants",
+    details: "Vegetative, sexual and asexual reproduction in plants",
+  },
+  {
+    name: "Motion and Time",
+    details: "Speed, distance, time, graphs of motion",
+  },
+  {
+    name: "Electric Current and Its Effects",
+    details: "Heating effect, magnetic effect, fuse, MCB",
+  },
+  {
+    name: "Light",
+    details: "Reflection, plane mirror, concave, convex mirrors",
+  },
+  {
+    name: "Water — A Precious Resource",
+    details: "Water cycle, groundwater, water conservation",
+  },
+  {
+    name: "Forests — Our Lifeline",
+    details: "Importance of forests, deforestation, conservation",
+  },
+  {
+    name: "Wastewater Story",
+    details: "Sewage treatment, safe drinking water",
+  },
 ];
 
 const SAT_MATHS = [
-  { name: "Rational Numbers", details: "Properties, operations, representation on number line" },
-  { name: "Linear Equations in One Variable", details: "Solving equations, word problems, applications" },
-  { name: "Understanding Quadrilaterals", details: "Types of quadrilaterals, properties, angle sum property" },
-  { name: "Practical Geometry", details: "Construction of quadrilaterals, triangles" },
-  { name: "Data Handling", details: "Bar graph, pie chart, probability basics, average" },
-  { name: "Squares and Square Roots", details: "Perfect squares, finding square roots — prime factorisation and long division" },
-  { name: "Cubes and Cube Roots", details: "Perfect cubes, finding cube roots by prime factorisation" },
-  { name: "Comparing Quantities", details: "Percentage, profit and loss, simple and compound interest, VAT" },
-  { name: "Algebraic Expressions and Identities", details: "Addition, subtraction, multiplication of expressions; standard identities" },
-  { name: "Mensuration", details: "Area of trapezium, rhombus, polygons; surface area and volume of cuboid, cube, cylinder" },
-  { name: "Exponents and Powers", details: "Laws of exponents, scientific notation" },
-  { name: "Direct and Inverse Proportions", details: "Word problems — direct and inverse variation" },
-  { name: "Factorisation", details: "Common factor method, regrouping, using identities" },
-  { name: "Introduction to Graphs", details: "Bar graphs, pie charts, line graphs, reading and interpreting data" },
-  { name: "Playing with Numbers", details: "Divisibility rules, puzzles with numbers, general form of numbers" },
+  {
+    name: "Rational Numbers",
+    details: "Properties, operations, representation on number line",
+  },
+  {
+    name: "Linear Equations in One Variable",
+    details: "Solving equations, word problems, applications",
+  },
+  {
+    name: "Understanding Quadrilaterals",
+    details: "Types of quadrilaterals, properties, angle sum property",
+  },
+  {
+    name: "Practical Geometry",
+    details: "Construction of quadrilaterals, triangles",
+  },
+  {
+    name: "Data Handling",
+    details: "Bar graph, pie chart, probability basics, average",
+  },
+  {
+    name: "Squares and Square Roots",
+    details:
+      "Perfect squares, finding square roots — prime factorisation and long division",
+  },
+  {
+    name: "Cubes and Cube Roots",
+    details: "Perfect cubes, finding cube roots by prime factorisation",
+  },
+  {
+    name: "Comparing Quantities",
+    details: "Percentage, profit and loss, simple and compound interest, VAT",
+  },
+  {
+    name: "Algebraic Expressions and Identities",
+    details:
+      "Addition, subtraction, multiplication of expressions; standard identities",
+  },
+  {
+    name: "Mensuration",
+    details:
+      "Area of trapezium, rhombus, polygons; surface area and volume of cuboid, cube, cylinder",
+  },
+  {
+    name: "Exponents and Powers",
+    details: "Laws of exponents, scientific notation",
+  },
+  {
+    name: "Direct and Inverse Proportions",
+    details: "Word problems — direct and inverse variation",
+  },
+  {
+    name: "Factorisation",
+    details: "Common factor method, regrouping, using identities",
+  },
+  {
+    name: "Introduction to Graphs",
+    details:
+      "Bar graphs, pie charts, line graphs, reading and interpreting data",
+  },
+  {
+    name: "Playing with Numbers",
+    details:
+      "Divisibility rules, puzzles with numbers, general form of numbers",
+  },
 ];
 
 const SAT_SOCIAL_SCIENCE = [
-  { name: "How, When and Where", details: "History: how it is studied, official records, British rule" },
-  { name: "From Trade to Territory", details: "East India Company, battles of Plassey and Buxar" },
-  { name: "Ruling the Countryside", details: "Revenue settlements, indigo revolt, peasant movements" },
-  { name: "Tribals, Dikus and the Vision of a Golden Age", details: "Tribal communities, Birsa Munda movement" },
-  { name: "When People Rebel", details: "1857 revolt — causes, course, impact" },
-  { name: "Colonialism and the City", details: "Growth of Bombay, Delhi, Calcutta during colonial rule" },
-  { name: "Weavers, Iron Smelters and Factory Owners", details: "Indian textile industry and impact of British rule" },
-  { name: "Civilising the Native, Educating the Nation", details: "British education policy, Macaulay's minute" },
-  { name: "Women, Caste and Reform", details: "Social reform movements, role of women" },
-  { name: "The Changing World of Visual Arts", details: "Indian art, Company painting, Raja Ravi Varma" },
-  { name: "The Making of the National Movement", details: "Congress, partition of Bengal, freedom movement" },
-  { name: "India After Independence", details: "Constitution, challenges, reorganisation of states" },
-  { name: "Resources — Land, Soil, Water, Forests", details: "Types, distribution, conservation of natural resources" },
-  { name: "Agriculture", details: "Types of farming, crops, cropping patterns, green revolution" },
-  { name: "Industries", details: "Types of industries, cotton and iron & steel industry" },
-  { name: "Human Resources", details: "Population distribution, density, growth" },
-  { name: "The Indian Constitution", details: "Key features, preamble, fundamental rights" },
-  { name: "Understanding Secularism", details: "Meaning, importance in Indian context" },
-  { name: "Why Do We Need a Parliament?", details: "Role of Parliament, Lok Sabha, Rajya Sabha" },
-  { name: "Judiciary", details: "Court system, role of judiciary, independence of judiciary" },
-  { name: "Social Justice and the Marginalised", details: "Scheduled castes, tribes, rights protection" },
-  { name: "Economic Presence of the Government", details: "Public sector, market, government role in economy" },
+  {
+    name: "How, When and Where",
+    details: "History: how it is studied, official records, British rule",
+  },
+  {
+    name: "From Trade to Territory",
+    details: "East India Company, battles of Plassey and Buxar",
+  },
+  {
+    name: "Ruling the Countryside",
+    details: "Revenue settlements, indigo revolt, peasant movements",
+  },
+  {
+    name: "Tribals, Dikus and the Vision of a Golden Age",
+    details: "Tribal communities, Birsa Munda movement",
+  },
+  {
+    name: "When People Rebel",
+    details: "1857 revolt — causes, course, impact",
+  },
+  {
+    name: "Colonialism and the City",
+    details: "Growth of Bombay, Delhi, Calcutta during colonial rule",
+  },
+  {
+    name: "Weavers, Iron Smelters and Factory Owners",
+    details: "Indian textile industry and impact of British rule",
+  },
+  {
+    name: "Civilising the Native, Educating the Nation",
+    details: "British education policy, Macaulay's minute",
+  },
+  {
+    name: "Women, Caste and Reform",
+    details: "Social reform movements, role of women",
+  },
+  {
+    name: "The Changing World of Visual Arts",
+    details: "Indian art, Company painting, Raja Ravi Varma",
+  },
+  {
+    name: "The Making of the National Movement",
+    details: "Congress, partition of Bengal, freedom movement",
+  },
+  {
+    name: "India After Independence",
+    details: "Constitution, challenges, reorganisation of states",
+  },
+  {
+    name: "Resources — Land, Soil, Water, Forests",
+    details: "Types, distribution, conservation of natural resources",
+  },
+  {
+    name: "Agriculture",
+    details: "Types of farming, crops, cropping patterns, green revolution",
+  },
+  {
+    name: "Industries",
+    details: "Types of industries, cotton and iron & steel industry",
+  },
+  {
+    name: "Human Resources",
+    details: "Population distribution, density, growth",
+  },
+  {
+    name: "The Indian Constitution",
+    details: "Key features, preamble, fundamental rights",
+  },
+  {
+    name: "Understanding Secularism",
+    details: "Meaning, importance in Indian context",
+  },
+  {
+    name: "Why Do We Need a Parliament?",
+    details: "Role of Parliament, Lok Sabha, Rajya Sabha",
+  },
+  {
+    name: "Judiciary",
+    details: "Court system, role of judiciary, independence of judiciary",
+  },
+  {
+    name: "Social Justice and the Marginalised",
+    details: "Scheduled castes, tribes, rights protection",
+  },
+  {
+    name: "Economic Presence of the Government",
+    details: "Public sector, market, government role in economy",
+  },
 ];
 
 const FAQS = [
-  { q: "What is NMMS scholarship?", a: "NMMS stands for National Means-cum-Merit Scholarship. It is a centrally sponsored scholarship scheme by the Ministry of Education, Govt. of India, to award ₹12,000 per year (₹1,000/month) to meritorious students from economically weaker backgrounds studying in government schools from Class 9 to Class 12." },
-  { q: "Who is eligible for NMMS 2026?", a: "Students currently studying in Class 8 in a government, government-aided, or local body school, with at least 55% marks (50% for SC/ST) in Class 7, and whose annual family income does not exceed ₹3,50,000 are eligible." },
-  { q: "Are students in KVS or Navodaya eligible for NMMS?", a: "No. Students studying in KVS, NVS, Sainik Schools, and fully residential government schools are NOT eligible for NMMS scholarship." },
-  { q: "What is the exam pattern for NMMS?", a: "NMMS has two papers: MAT (Mental Ability Test) — 90 questions, 90 marks, 90 minutes; and SAT (Scholastic Aptitude Test) — 90 questions, 90 marks, 90 minutes. Both are OMR-based MCQs. No negative marking." },
-  { q: "What is the minimum qualifying score?", a: "Candidates must score at least 40% in both MAT and SAT separately (35% for SC/ST) to qualify. Both papers must be cleared independently." },
-  { q: "When is the NMMS exam held?", a: "NMMS exam dates vary by state. Most states conduct it between November and February. UP typically holds it in November, Delhi in December, Tamil Nadu in January. Check your state SCERT website for exact dates." },
-  { q: "How many scholarships are given under NMMS?", a: "1,00,000 scholarships are awarded nationally every year — distributed state-wise based on enrollment. Each state gets an allocation proportional to its Class 7-8 enrollment in government schools." },
-  { q: "Does the NMMS scholarship continue automatically?", a: "No. Students must pass each class with at least 55% marks and continue studying to receive the scholarship each year. There is no separate exam after Class 8 but continuation criteria must be met." },
+  {
+    q: "What is NMMS scholarship?",
+    a: "NMMS stands for National Means-cum-Merit Scholarship. It is a centrally sponsored scholarship scheme by the Ministry of Education, Govt. of India, to award ₹12,000 per year (₹1,000/month) to meritorious students from economically weaker backgrounds studying in government schools from Class 9 to Class 12.",
+  },
+  {
+    q: "Who is eligible for NMMS 2026?",
+    a: "Students currently studying in Class 8 in a government, government-aided, or local body school, with at least 55% marks (50% for SC/ST) in Class 7, and whose annual family income does not exceed ₹3,50,000 are eligible.",
+  },
+  {
+    q: "Are students in KVS or Navodaya eligible for NMMS?",
+    a: "No. Students studying in KVS, NVS, Sainik Schools, and fully residential government schools are NOT eligible for NMMS scholarship.",
+  },
+  {
+    q: "What is the exam pattern for NMMS?",
+    a: "NMMS has two papers: MAT (Mental Ability Test) — 90 questions, 90 marks, 90 minutes; and SAT (Scholastic Aptitude Test) — 90 questions, 90 marks, 90 minutes. Both are OMR-based MCQs. No negative marking.",
+  },
+  {
+    q: "What is the minimum qualifying score?",
+    a: "Candidates must score at least 40% in both MAT and SAT separately (35% for SC/ST) to qualify. Both papers must be cleared independently.",
+  },
+  {
+    q: "When is the NMMS exam held?",
+    a: "NMMS exam dates vary by state. Most states conduct it between November and February. UP typically holds it in November, Delhi in December, Tamil Nadu in January. Check your state SCERT website for exact dates.",
+  },
+  {
+    q: "How many scholarships are given under NMMS?",
+    a: "1,00,000 scholarships are awarded nationally every year — distributed state-wise based on enrollment. Each state gets an allocation proportional to its Class 7-8 enrollment in government schools.",
+  },
+  {
+    q: "Does the NMMS scholarship continue automatically?",
+    a: "No. Students must pass each class with at least 55% marks and continue studying to receive the scholarship each year. There is no separate exam after Class 8 but continuation criteria must be met.",
+  },
 ];
 
 export default function NMMSPage() {
@@ -180,7 +498,8 @@ export default function NMMSPage() {
           </h1>
           <p className="hero-sub">
             ₹12,000/year scholarship for meritorious students from economically
-            weaker backgrounds. 1 lakh scholarships awarded annually across India.
+            weaker backgrounds. 1 lakh scholarships awarded annually across
+            India.
           </p>
           <div className="stat-row">
             {[
@@ -202,11 +521,12 @@ export default function NMMSPage() {
 
       <div className="page-body container dm_sans">
         <div className="main-col">
-
           {/* Exam Overview */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#dbeafe" }}>ℹ️</span>
+              <span className="bl-icon" style={{ background: "#dbeafe" }}>
+                ℹ️
+              </span>
               <div>
                 <h2>About NMMS</h2>
                 <p>Everything you need to know about the scholarship</p>
@@ -228,7 +548,10 @@ export default function NMMSPage() {
                       ["Min. Qualifying Score", EXAM_INFO.minQualifying],
                       ["Official Site", EXAM_INFO.officialSite],
                     ].map(([k, v], i) => (
-                      <tr key={k} style={{ background: i % 2 === 0 ? "#fff" : "#f8fafc" }}>
+                      <tr
+                        key={k}
+                        style={{ background: i % 2 === 0 ? "#fff" : "#f8fafc" }}
+                      >
                         <td className="td-bold">{k}</td>
                         <td className="td-muted">{v}</td>
                       </tr>
@@ -242,10 +565,15 @@ export default function NMMSPage() {
           {/* Important Dates */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#fff3cd" }}>📅</span>
+              <span className="bl-icon" style={{ background: "#fff3cd" }}>
+                📅
+              </span>
               <div>
                 <h2>Important Dates — NMMS 2026-27</h2>
-                <p>Tentative schedule for next cycle — check your state SCERT for exact dates</p>
+                <p>
+                  Tentative schedule for next cycle — check your state SCERT for
+                  exact dates
+                </p>
               </div>
             </div>
             <div className="table-card">
@@ -272,8 +600,14 @@ export default function NMMSPage() {
                           <td className="td-muted">{d.detail}</td>
                           <td className="td-bold td-nowrap">{d.date}</td>
                           <td>
-                            <span className="status-pill" style={{ background: st.bg, color: st.color }}>
-                              <span className="dot" style={{ background: st.dot }} />
+                            <span
+                              className="status-pill"
+                              style={{ background: st.bg, color: st.color }}
+                            >
+                              <span
+                                className="dot"
+                                style={{ background: st.dot }}
+                              />
                               {st.label}
                             </span>
                           </td>
@@ -284,12 +618,15 @@ export default function NMMSPage() {
                 </table>
               </div>
               <div className="source-note">
-                ⚠️ Dates are state-specific. Always check your state&apos;s official SCERT website for confirmed dates.
+                ⚠️ Dates are state-specific. Always check your state&apos;s
+                official SCERT website for confirmed dates.
               </div>
             </div>
 
             {/* State-wise dates */}
-            <h3 className="sub-heading">State-wise Exam Dates (Reference — Previous Cycle)</h3>
+            <h3 className="sub-heading">
+              State-wise Exam Dates (Reference — Previous Cycle)
+            </h3>
             <div className="state-grid">
               {STATE_DATES.map((s) => (
                 <div key={s.state} className="state-card">
@@ -303,7 +640,9 @@ export default function NMMSPage() {
           {/* Eligibility */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#dcfce7" }}>✅</span>
+              <span className="bl-icon" style={{ background: "#dcfce7" }}>
+                ✅
+              </span>
               <div>
                 <h2>Eligibility Criteria</h2>
                 <p>Who can apply for NMMS 2026</p>
@@ -314,8 +653,13 @@ export default function NMMSPage() {
                 <table className="data-table">
                   <tbody>
                     {ELIGIBILITY.map(({ label, value }, i) => (
-                      <tr key={label} style={{ background: i % 2 === 0 ? "#fff" : "#f8fafc" }}>
-                        <td className="td-bold" style={{ width: "35%" }}>{label}</td>
+                      <tr
+                        key={label}
+                        style={{ background: i % 2 === 0 ? "#fff" : "#f8fafc" }}
+                      >
+                        <td className="td-bold" style={{ width: "35%" }}>
+                          {label}
+                        </td>
                         <td className="td-muted">{value}</td>
                       </tr>
                     ))}
@@ -328,7 +672,9 @@ export default function NMMSPage() {
           {/* Exam Pattern */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#dbeafe" }}>📋</span>
+              <span className="bl-icon" style={{ background: "#dbeafe" }}>
+                📋
+              </span>
               <div>
                 <h2>Exam Pattern — MAT & SAT</h2>
                 <p>Two papers — both must be cleared separately</p>
@@ -355,24 +701,59 @@ export default function NMMSPage() {
                   bg: "#F0FDF4",
                 },
               ].map((p) => (
-                <div key={p.paper} className="pattern-card" style={{ borderTop: `4px solid ${p.color}` }}>
-                  <h3 style={{ color: p.color, fontFamily: "Nunito, sans-serif", fontWeight: 800, marginBottom: 12 }}>{p.paper}</h3>
+                <div
+                  key={p.paper}
+                  className="pattern-card"
+                  style={{ borderTop: `4px solid ${p.color}` }}
+                >
+                  <h3
+                    style={{
+                      color: p.color,
+                      fontFamily: "Nunito, sans-serif",
+                      fontWeight: 800,
+                      marginBottom: 12,
+                    }}
+                  >
+                    {p.paper}
+                  </h3>
                   <div className="pattern-stats">
-                    <div><span className="ps-val">{p.questions}</span><span className="ps-lbl">Questions</span></div>
-                    <div><span className="ps-val">{p.marks}</span><span className="ps-lbl">Marks</span></div>
-                    <div><span className="ps-val">{p.duration}</span><span className="ps-lbl">Duration</span></div>
+                    <div>
+                      <span className="ps-val">{p.questions}</span>
+                      <span className="ps-lbl">Questions</span>
+                    </div>
+                    <div>
+                      <span className="ps-val">{p.marks}</span>
+                      <span className="ps-lbl">Marks</span>
+                    </div>
+                    <div>
+                      <span className="ps-val">{p.duration}</span>
+                      <span className="ps-lbl">Duration</span>
+                    </div>
                   </div>
-                  <p style={{ fontSize: 13, color: "#475569", lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
+                  <p
+                    style={{
+                      fontSize: 13,
+                      color: "#475569",
+                      lineHeight: 1.6,
+                      margin: 0,
+                    }}
+                  >
+                    {p.desc}
+                  </p>
                 </div>
               ))}
             </div>
             <div className="imp-note">
               <strong>⚠️ Key Points</strong>
               <p>
-                • Minimum 40% in both MAT and SAT separately (35% for SC/ST).<br />
-                • No negative marking — attempt all questions.<br />
-                • Stage I score does NOT carry forward — it only qualifies you for the scholarship.<br />
-                • Scholarship is awarded on Stage I (state level) merit only.
+                • Minimum 40% in both MAT and SAT separately (35% for SC/ST).
+                <br />
+                • No negative marking — attempt all questions.
+                <br />
+                • Stage I score does NOT carry forward — it only qualifies you
+                for the scholarship.
+                <br />• Scholarship is awarded on Stage I (state level) merit
+                only.
               </p>
             </div>
           </section>
@@ -380,10 +761,15 @@ export default function NMMSPage() {
           {/* SYLLABUS — MAT */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#EFF6FF" }}>📚</span>
+              <span className="bl-icon" style={{ background: "#EFF6FF" }}>
+                📚
+              </span>
               <div>
                 <h2>Syllabus — MAT (Mental Ability Test)</h2>
-                <p>90 questions · 90 marks · Based on reasoning ability — no academic knowledge needed</p>
+                <p>
+                  90 questions · 90 marks · Based on reasoning ability — no
+                  academic knowledge needed
+                </p>
               </div>
             </div>
             <div className="topics-grid">
@@ -399,7 +785,9 @@ export default function NMMSPage() {
           {/* SYLLABUS — SAT Science */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#F0FDF4" }}>🔬</span>
+              <span className="bl-icon" style={{ background: "#F0FDF4" }}>
+                🔬
+              </span>
               <div>
                 <h2>Syllabus — SAT: Science</h2>
                 <p>35 questions · Based on Class 6, 7 & 8 NCERT Science</p>
@@ -418,7 +806,9 @@ export default function NMMSPage() {
           {/* SYLLABUS — SAT Maths */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#FFF7ED" }}>➗</span>
+              <span className="bl-icon" style={{ background: "#FFF7ED" }}>
+                ➗
+              </span>
               <div>
                 <h2>Syllabus — SAT: Mathematics</h2>
                 <p>20 questions · Based on Class 7 & 8 NCERT Mathematics</p>
@@ -437,10 +827,15 @@ export default function NMMSPage() {
           {/* SYLLABUS — SAT Social Science */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#FDF4FF" }}>🌍</span>
+              <span className="bl-icon" style={{ background: "#FDF4FF" }}>
+                🌍
+              </span>
               <div>
                 <h2>Syllabus — SAT: Social Science</h2>
-                <p>35 questions · History + Geography + Civics + Economics (Class 6-8 NCERT)</p>
+                <p>
+                  35 questions · History + Geography + Civics + Economics (Class
+                  6-8 NCERT)
+                </p>
               </div>
             </div>
             <div className="topics-grid">
@@ -456,7 +851,9 @@ export default function NMMSPage() {
           {/* FAQs */}
           <section className="content-block">
             <div className="block-label">
-              <span className="bl-icon" style={{ background: "#f0fdf4" }}>❓</span>
+              <span className="bl-icon" style={{ background: "#f0fdf4" }}>
+                ❓
+              </span>
               <div>
                 <h2>Frequently Asked Questions</h2>
                 <p>Common questions about NMMS scholarship</p>
@@ -474,7 +871,6 @@ export default function NMMSPage() {
               ))}
             </div>
           </section>
-
         </div>
 
         {/* Sidebar */}
@@ -483,11 +879,26 @@ export default function NMMSPage() {
             <div className="widget-head">🔗 Official Links</div>
             <div className="widget-body">
               {[
-                { label: "🌐 Scholarships Portal", href: "https://scholarships.gov.in", ext: true },
-                { label: "📋 NCERT NMMS Info", href: "https://ncert.nic.in", ext: true },
+                {
+                  label: "🌐 Scholarships Portal",
+                  href: "https://scholarships.gov.in",
+                  ext: true,
+                },
+                {
+                  label: "📋 NCERT NMMS Info",
+                  href: "https://ncert.nic.in",
+                  ext: true,
+                },
               ].map((l) => (
-                <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="quick-link">
-                  {l.label}<span>›</span>
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="quick-link"
+                >
+                  {l.label}
+                  <span>›</span>
                 </a>
               ))}
             </div>
@@ -497,18 +908,62 @@ export default function NMMSPage() {
             <div className="widget-head">💰 Scholarship Details</div>
             <div className="widget-body">
               <div style={{ marginBottom: 12 }}>
-                <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 700, marginBottom: 2 }}>AMOUNT PER YEAR</div>
-                <div style={{ fontWeight: 800, fontSize: 22, color: "#0a1628", fontFamily: "Nunito, sans-serif" }}>₹12,000</div>
-                <div style={{ fontSize: 12, color: "#475569" }}>₹1,000 per month</div>
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: "#94a3b8",
+                    fontWeight: 700,
+                    marginBottom: 2,
+                  }}
+                >
+                  AMOUNT PER YEAR
+                </div>
+                <div
+                  style={{
+                    fontWeight: 800,
+                    fontSize: 22,
+                    color: "#0a1628",
+                    fontFamily: "Nunito, sans-serif",
+                  }}
+                >
+                  ₹12,000
+                </div>
+                <div style={{ fontSize: 12, color: "#475569" }}>
+                  ₹1,000 per month
+                </div>
               </div>
               <div style={{ marginBottom: 12 }}>
-                <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 700, marginBottom: 2 }}>DURATION</div>
-                <div style={{ fontWeight: 700, color: "#0a1628" }}>Class 9 to Class 12</div>
-                <div style={{ fontSize: 12, color: "#475569" }}>4 years (subject to continuation)</div>
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: "#94a3b8",
+                    fontWeight: 700,
+                    marginBottom: 2,
+                  }}
+                >
+                  DURATION
+                </div>
+                <div style={{ fontWeight: 700, color: "#0a1628" }}>
+                  Class 9 to Class 12
+                </div>
+                <div style={{ fontSize: 12, color: "#475569" }}>
+                  4 years (subject to continuation)
+                </div>
               </div>
               <div>
-                <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 700, marginBottom: 2 }}>PAYMENT MODE</div>
-                <div style={{ fontSize: 13, color: "#475569" }}>Direct Benefit Transfer (DBT) to bank account</div>
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: "#94a3b8",
+                    fontWeight: 700,
+                    marginBottom: 2,
+                  }}
+                >
+                  PAYMENT MODE
+                </div>
+                <div style={{ fontSize: 13, color: "#475569" }}>
+                  Direct Benefit Transfer (DBT) to bank account
+                </div>
               </div>
             </div>
           </div>
@@ -525,9 +980,22 @@ export default function NMMSPage() {
                 { k: "Min. Score (Gen)", v: "40% in each paper" },
                 { k: "Min. Score (SC/ST)", v: "35% in each paper" },
               ].map((item) => (
-                <div key={item.k} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid #f1f5f9", fontSize: 13 }}>
-                  <span style={{ color: "#94a3b8", fontWeight: 600 }}>{item.k}</span>
-                  <span style={{ fontWeight: 700, color: "#0a1628" }}>{item.v}</span>
+                <div
+                  key={item.k}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    padding: "8px 0",
+                    borderBottom: "1px solid #f1f5f9",
+                    fontSize: 13,
+                  }}
+                >
+                  <span style={{ color: "#94a3b8", fontWeight: 600 }}>
+                    {item.k}
+                  </span>
+                  <span style={{ fontWeight: 700, color: "#0a1628" }}>
+                    {item.v}
+                  </span>
                 </div>
               ))}
             </div>
@@ -535,7 +1003,10 @@ export default function NMMSPage() {
 
           <div className="warn-note">
             <strong>⚠️ Important</strong>
-            <p>Exam dates vary by state. Always check your state&apos;s SCERT official website for confirmed dates and notifications.</p>
+            <p>
+              Exam dates vary by state. Always check your state&apos;s SCERT
+              official website for confirmed dates and notifications.
+            </p>
           </div>
         </aside>
       </div>
