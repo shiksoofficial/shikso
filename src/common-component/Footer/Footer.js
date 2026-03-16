@@ -39,7 +39,7 @@ const Footer = () => {
       { label: "Navodaya", url: "/navodaya-entrance-exam" },
       { label: "Sainik School", url: "/sainik-school-entrance-exam" },
       { label: "RMS", url: "/rms-smartset" },
-      { label: "NMMS", url: "/smartset-nmms" }, // ── NMMS added
+      { label: "NMMS", url: "/nmms-scholarship-exam" }, // ── NMMS added
       { label: "NTSE", url: "/smartset-ntse" }, // ── NTSE added
       { label: "RIMC", url: "/smartset-rimc" }, // ── RIMC added
     ],

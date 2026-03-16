@@ -12578,7 +12578,7 @@
 │   │   │   └── page.js
 │   │   ├── sitemap.xml
 │   │   │   └── route.js
-│   │   ├── smartset-nmms
+│   │   ├── nmms-scholarship-exam
 │   │   │   └── page.jsx
 │   │   ├── smartset-ntse
 │   │   │   └── page.jsx
