@@ -237,12 +237,6 @@ const Header = () => {
       subtitles: [
         { title: "class 6", href: "/navodaya-smartset/class-6" },
         { title: "class 9", href: "/navodaya-smartset/class-9" },
-        // { title: "Old Paper", href: "/navodaya-smartset/previous-year-papers" },
-        // { title: "Mock Tests", href: "/navodaya-smartset/mock-test" },
-        // {
-        //   title: "Unlimited Practice",
-        //   href: "/navodaya-smartset/unlimited-practice",
-        // },
       ],
     },
     {
@@ -251,19 +245,15 @@ const Header = () => {
       subtitles: [
         { title: "class 6", href: "/sainik-school-smartset/class-6" },
         { title: "class 9", href: "/sainik-school-smartset/class-9" },
-        // {
-        //   title: "Syllabus",
-        //   href: "/sainik-school-smartset/updates-and-information",
-        // },
-        // {
-        //   title: "Old Paper",
-        //   href: "/sainik-school-smartset/previous-year-papers",
-        // },
-        // { title: "Mock Tests", href: "/sainik-school-smartset/mock-test" },
-        // {
-        //   title: "Unlimited Practice",
-        //   href: "/sainik-school-smartset/unlimited-practice",
-        // },
+      ],
+    },
+    // ── RMS SmartSet ──────────────────────────────────────────
+    {
+      title: "RMS",
+      href: "/rms-smartset",
+      subtitles: [
+        { title: "class 6", href: "/rms-smartset/class-6" },
+        { title: "class 9", href: "/rms-smartset/class-9" },
       ],
     },
   ];
