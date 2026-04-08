@@ -44,7 +44,7 @@ const Footer = () => {
       {
         label: "RIMC",
         url: "/rashtriya-indian-military-college-entrance-exam",
-      }, // ── RIMC added
+      }, // ──  RIMC added
     ],
     contactInfo: {
       phone: "+91 7974186754",
