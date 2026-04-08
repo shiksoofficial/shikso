@@ -249,7 +249,7 @@ const Header = () => {
     },
     // ── RMS SmartSet ──────────────────────────────────────────
     {
-      title: "RMS",
+      title: "RMSS",
       href: "/rms-entrance-exam",
       subtitles: [
         { title: "class 6", href: "/rms-entrance-exam/class-6" },
